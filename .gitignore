@@ -1,12 +1,14 @@
+# not intended for sharing
+data/raw
 keynote_source
 backup
-tmp
 
+# OS generated files
 .DS_Store
 **/*.DS_Store
 
+# temporary
+tmp
 *.log
 **/.Rproj.user
 **/_bookdown_files
-
-data/raw
