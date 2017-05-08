@@ -1,6 +1,4 @@
 # Data sets
-
-## General Information
 This folder contains the data sets (as well as their metadata files) we use for this study in different phases of the project, from original to pre-processed, to prepared, and finally selected for modelling. We have noted some of the legal issues which have to do with these data sets in the disclaimer section, please make sure you read and understand that. We do not wish to distribute these data sets in anyway, so please do not cite us as your data source if you use them anywhere else.
 
 ## Source
