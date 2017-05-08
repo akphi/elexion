@@ -1,6 +1,7 @@
-# Datasets
+# Data sets
 
-This folder contains the datasets we use for this study in different phases of the project, from original to pre-processed, to prepared, and finally selected for modelling. We have noted some of the legal issues which have to do with these datasets in the disclaimer section, please make sure you read and understand that. We do not wish to distribute these datasets in anyway, so please do not cite us as your data source if you use them anywhere else.
+## General Information
+This folder contains the data sets (as well as their metadata files) we use for this study in different phases of the project, from original to pre-processed, to prepared, and finally selected for modelling. We have noted some of the legal issues which have to do with these data sets in the disclaimer section, please make sure you read and understand that. We do not wish to distribute these data sets in anyway, so please do not cite us as your data source if you use them anywhere else.
 
 ## Source
 As mentioned, the main dataset is taken from [USA.county.data](https://github.com/Deleetdk/USA.county.data). We have traced the sources for each piece of data in that source and record them in [main_source.csv](misc/main_source.csv) file. Other sources can be found in [source.csv](misc/source.csv).
