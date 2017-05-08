@@ -1,0 +1,314 @@
+# Data Quality Plan (DQP) {#dqp}
+
+``` {r include = FALSE}
+data_prepared <- read.csv(mp(DATA_PREPARED_DIR, "data.csv"), stringsAsFactors = TRUE)
+meta_prepared <- read.csv(mp(DATA_PREPARED_DIR, "meta.csv"), stringsAsFactors = FALSE)
+```
+
+
+## Overview
+This plan gives the detail of the procedure by which we prepare the data: cleansing outliers and handling missing data, as well as trimming and selecting the subset of features (we aim to reduce to 40 features) that we will use for modelling as too many features, even if they are not redundant or irrelevant, renders the model less useful or requires exponentially more data to make sure the learned model reliable, i.e. the Curse of Dimensionality. Below, we give the brief summary of procedures that we will follow alongside with their code labels. After that, we will go into details of each procedure and finally conclude this plan with the analytic base table (ABT) fully-ready for modelling step. In general, the purpose of making the DQR and DQP is for anyone who wants to reproduce this study to base on to construct an ABT that is identical to the one we use for modelling.
+
+> See Appendix \@ref(appendix-code) to view the procedure used and the corresponding code.
+
+``` {r include = FALSE}
+procedure <- read.csv(mp(DATA_MISC_DIR, "procedure.csv"), stringsAsFactors = FALSE)
+```
+
+### Handling Outlier {-}
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "prepare" & procedure$category == "cleansing", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Feature Trimming {-}
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "prepare" & procedure$category == "trimming", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  # cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Handling Missing Values {-}
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "prepare" & procedure$category == "repairing", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  # cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Feature Selection {-}
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "prepare" & procedure$category == "feature-selecting", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n", sep = "")
+  cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+
+
+
+
+## Handling Outliers
+
+First of all, since we collect the data from very reliable sources, it means that these data sets have probably been cleansed and checked for error several times by previous compilers. Nevertheless, we cannot just base on that and skip this step. However, since the data set covers a large domain of knowledge, from election, finance, to healthcare, crime, and even weather, we as the author feel that we lack domain-specific knowledge to determine the best range for each feature. As such, we just base on how the values are computed to set the upper and lower bounds that we consider reasonable. For example, a measure of percentage should be limited between 0 and 100, a ratio must be limited to the range of 0 and 1 and a count must be non-negative but has no upper bound potentially. Obviously, for certain feature, like total population for example, we can choose the total population of the country as the upper bound but this is quite meaningless to do, if we really want to drill into the detail, we can set the limit of the county based on the state, but this is like re-inventing the wheel as the state data was essentially just an aggregate of the county data. As such, we just put in very general bounds. There is, however, an exception to this: we do assert the upper bound for the state FIPS code to be 57 since we do not want to include the voting results of [outlying areas and freely associated states](https://www.census.gov/geo/reference/ansi_statetables.html). 
+
+Based on these upper and lower bounds, we scan through all the features to see if any of them having values beyond the bounds (HO002). We found out that only the derived feature Voting Participation percentage has outliers (exceeding the upper bound of 100%). This is made possible since when deriving this feature, we divide the number of votes of 2012 and the voting population of the county in 2015: there might be a chance that there is a significant number of people relocating out of the county. The number of violation case is just 3 so we just clamp these values down to 100%.
+
+We are neither comfortable with conducting a clamp transformation using the interquartile range because this would affect a large portion of many features, nor willing to try clamping using 2$\sigma$ range from the mean since many of the features are right-skewed as mentioned in the [DQR](#dqr). 
+
+Second, we tried to make use of the estimated number of votes to find counties where the result is unreliable, by this we mean counties where we cannot tell who is the clear winner from the current vote count. This procedure (HO001) involves calculating the potential vote gained (in the remaining number of votes) by each major party based on the ratio vote of the county in 2012, then we see if the winner of the county changes when these potential votes are added to the current vote count. This method is arguably based largely on the assumption that each county has tendency to vote for one major party. Nevertheless, its validity is not of great concern here since this method only detects one of such "flipable" county; and therefore it should not affect subsequent steps greatly.
+
+
+
+
+## Feature Trimming
+
+Name of the county (name_16) needs to be trimmed (TR011) for it is not useful at all for the modelling process. Of course, being a county that has always been voting for the Republican is really a big thing but perhaps, we should not go into that level of granularity. We will just consider the state as we feel that state fulfills the above-mentioned role of county name and also has a more general implication. Perhaps, a certain county is also affected by its neighbors and being a county in a state that has been known as Red or Blue state for years might affect the way people vote. 
+
+Next, we will trim the group of election result (TR012). As mentioned briefly in Section \@ref(dqr-exploration), Data Exploration, features in this group are highly correlated.
+
+```{r plot-election-correlation-matrix, echo = FALSE, results="asis", fig.cap='Election Features Correlation Plot Matrix'}
+  generate_image("Election Features Correlation Plot Matrix", concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/election_features_correlation.png"))
+```
+
+We especially concern with this group because it is where our potential target feature lies. As mentioned before, vote fraction typically lies in the range of 0.4 to 0.6 and thus will not be a good target feature because for regression learners, we would want a larger range of value and the external bias on our part is that we have a better and larger pool of classification learners to choose from. As for the vote count, since it depends greatly on the population and/or voting population, it is even less reliable than vote fraction. For all of that reason, we decide to choose the binary feature that indicates whether Republican won a county as the target feature, i.e. _rep16_win is the target feature_. We also want to keep such binary indicator of the winner for past elections. Therefore, we just finalize the form of our study to a 2-class problem.
+
+Now, we can see that result of 2008 and 2012 are highly correlated (not surprisingly), we can just keep the 2012 result. Also, we want to remove the total population, since we already have a better indicators, such as the population density and the voting power. We should see that in the process of learning process, if we leave the total population in our feature space, a single big county in Illinois may make other county's values for that feature become minuscule after normalizing. We will talk more about our rationale behind keeping all features as ratio in the [article](#article). Therefore, we trim rep08_win and Total.Population (TR013).
+
+Last but not least, we get rid of est_votes_remaining and voting_age_population (TR014) as they are only kept to be used to search for outliers.
+
+
+
+
+## Handling Missing Data
+
+Based on the summary table in section \@ref(dqr-exploration), we can see that Homicide Rate and Infant Mortality have percentage of missing value greater than 60%. Although this might seem sufficient to just remove these attributes, we find that these are rather crucial indicators in the healthcare and crime category respectively so we will see what we can do to _repair_ them. 
+
+We come up with several methods that we can conduct in sequence to fill up the data. Their brief descriptions have been listed above in the Overview section. Here we will provide details on how they are done as well as the rationale behind each method and most importantly, the order in which they are carried out. 
+
+First, we attempt to look at the past data to predict the current data of a county (HM001 and HM002). To do this, we first look at the NA's of the current data set for a particular feature. For example, let us look at Teen.births (in HM002), in the pre-process phase, we have updated this feature to the 2016 data (UP001). Nevertheless, there are still many missing values. We then look at the available 2015 result for each county where the 2016 value is NA. We refrain ourselves from taking directly the 2015 results because this act of laziness potentially renders the whole feature useless. Instead, we calculate the average change for all counties in the same state as the concerned county and add that to the 2015 result of the concerned county to compute the predicted value for 2016. If 2015 result is not available, we simply go further to 2014 result to compute the predicted result for 2015 and then the predicted result for 2016. Nevertheless, there are counties where even past results are not available, those will still be NA's by the end of this procedure.
+
+Second, for data where past values are not available, we attempt to predict the missing values based on their location. For geographic data, like winter_PRCP, and winter_TAVG, we can take the average of surrounding counties' data (HM003) using the [county adjacency dataset](https://www.census.gov/geo/reference/county-adjacency.html). However, there are counties where all adjacent counties having missing values, and so this procedure cannot help to predict their values, unless we repeat this process multiple times, which we choose not to because we feel that predicting values based on the result of multiple levels of prediction is not particularly an attractive idea. As for demographic data, in categories such as healthcare and human-development, we should respect the state boundary and thus, we take the average of the data from counties within the same state (HM004). Here, we take the assumption that we can treat the weather data like any other features in the demographic group to predict the missing values based on counties of the same state. After this procedure, for a feature, the only missing values that remain must be from counties whose state has missing values for all of its counties.
+
+Here is where we have to use our penultimate resort by taking the a average from adjacent states (HM005) using the [state adjacency dataset](http://theincidentaleconomist.com/wordpress/list-of-neighboring-states-with-stata-code/). Fortunately, this method ensures that that we do not have resort to taking the national average. Nevertheless, we were encountered with a single case where the concerned state has no neighbor, i.e. Hawaii, so we have to take California as the neighboring state. Although this might seem arguable, it actually only affects the weather features and the HIV Prevalence rate slightly so we decide to proceed that way.
+
+
+
+
+## Feature Selection
+
+``` {r include = FALSE}
+feature_score <- read.csv(mp(RES_SELECTED_DIR, "feature_scores.csv"), stringsAsFactors = TRUE)
+```
+
+Since we are not very clear about which model we will use for this particular study as we have an extremely diverse attribute space, we will proceed with scheme-independent feature selection. Our aim is to reduce the number of feature down to 40 to make the model simpler. Also, as we have seen in the correlation analysis, there are features to be removed or groups of features to be reduced. So we will try various technique to rank the __importance__ of each feature (essentially scoring them based on their importance) and finally using that scores in tandem with our correlation analysis to select best features. 
+
+First, we use various technique such as RandomForest to find the weights of the attributes (FS001). The higher the weights, the more important the feature is. We proceed to use the algorithm __cfs__ from FSelector package to find attribute subset using correlation and entropy measures for continuous and nominal data respectively (FS002). The algorithm uses best first search so we keep removing attributes which are selected and run the algorithm on the rest of the feature space. We rank the earliest features to be removed the most important. Then we move on to using an algorithm with very similar fashion, __recursive feature elimination__ [@witten2017]. We builds linear model using the current feature space and remove the feature with lowest coefficient and repeat the process. We also use a variation of this technique by removing the feature with highest coefficient (FS003). 
+
+Second, we use feature space searching technique to rank the feature. Due to time limit, we resort to not using exhaustive search! Instead, we use various forms of greedy search: forward, backward, best-first, hill-climbing and so we have to repeat `r FEATURE_RANKING_SEARCH_ITERATION` times for each search and also to proceed with `r FEATURE_RANKING_SEARCH_CROSS_VALIDATION_FOLD`-fold cross validation to reduce the effect of the random split. We uses linear regression to build linear model (FS004) and CART to use decision-tree classifier (FS005) to build the model since these are typical choices of algorithm for scheme-independent feature selection [@witten2017]--for their light-weightedness and simplicity. The obtained result are formula to build the best model using the given algorithm, we count the number of times each feature appears in these formula and rank them by the frequency of their presences. In the midst of this process, we can see that the result of 2012 appears in almost every subsets, and evidently, the result of 2012 is highly correlated to the result of 2016, so we also try to run the searches without the 2012 result. Since we are dealing with a 2-class problem, we also tinker a little bit with the searching criterion. Accuracy comes as a standard choice but the Kappa value also makes a lot of sense in this case especially when we have many features, the chance of having a model that does little better than a random predictor does exists. We feel that other metrics such as recall or precision, i.e. the rate of predicting correctly which county Republican won and not caring about which state they lose, does not seem to be sensible options in this case. 
+
+> The detail result for each procedure can be found at __/result/data_feature_rank/__
+
+After all of these steps, we compile the final score for each features; and present them as below. The state FIPS code is the only nominal features and thus could not be used for linear regression, but in other procedures, it performs well, as such, we will not remove it. As for 2012 result, as noted above, it is a strong predictor for the 2016 result and so we might consider leaving it out. But since it helps answer one of our original question, we choose to leave it in for now.
+
+```
+  CFS     : corelation and entropy based method
+  RFE     : recursive feature elimination
+  RF      : random forest
+  AS.LM   : attribute space search using linear regression
+  AS.Tree : attribute space search using CART
+```
+
+``` {r table-score, include = TRUE, echo = FALSE, results = "asis"}
+feature_score <- data.frame(
+  Name = feature_score$name,
+  CFS = feature_score$cfs,
+  RFE = feature_score$lm_coef.remove_biggest_first + feature_score$lm_coef.remove_smallest_first,
+  RF = feature_score$rfi,
+  AS.LM = feature_score$as.lm.accuracy.full + feature_score$as.lm.kappa.full + feature_score$as.lm.accuracy.1 + feature_score$as.lm.kappa.1,  
+  AS.Tree = feature_score$as.tree.accuracy.full + feature_score$as.tree.kappa.full + feature_score$as.tree.accuracy.1 + feature_score$as.tree.kappa.1,
+  Score = feature_score$score
+)
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    feature_score,
+    caption = "Feature Score",
+    align = c("l", "c", "c", "c", "c", "c", "c"),
+    digits = 0,
+    booktabs = TRUE,
+    format = "html"
+    ) %>% html_table_width(c(500, 100, 100, 100, 100, 100, 100))
+} else {
+  cat("\\greybox{[Feature Score] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+
+
+
+## Feature Space Reduction
+
+After we have obtained the score for each feature, it is time we considered what features we should remove. Well, we can naively cut the bottom 10 features or so, but this is clearly not the optimal approach because of the following 2 reasons. First, attribute search space and cfs uses greedy search approach and thus, the result is affected by the random starting node. The best way is to conduct an exhaustive search but this is too expensive and the underlying algorithm is CART and linear regression which, due to language bias, might not be able to excavate the underlying function. Also, the result we got is aggregation of different methods, which makes it tricky to actually select the "worst performing features." Second, there could be situation when a feature alone might not be a good predictor but a group of feature including that low-coring feature forms a strong indicator. This we might not know until we try to build model using more sophisticated algorithm. As such, the crude method of trimming features like we did before for the case of the election group is not reasonable here. As we have mentioned before, we can also look at the correlation to get rid of the some of the features. Disregarding the case of 2016 and 2012 result, we list the top correlation between the all the features we have in our current feature space below.
+
+``` {r table-correlation-selected, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+correlation <- read.csv(mp(RES_SELECTED_DIR, "correlation.csv"), stringsAsFactors = FALSE)
+correlation$p_value <- NULL
+colnames(correlation) <- c("Feature 1", "Feature 2", "Correlation Value")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    head(correlation, 100),
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "tip",
+      # paging = FALSE,
+      pageLength = 10,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Nominal Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+A quick glance at the top correlation results remind us of the second strongest correlated groups of feature that we mentioned before: healthcare and finance (poverty in this particular case). It is not hard to see how these 2 categories of features are closely related. This might be useful for our feature selection process as many healthcare and poverty feature performs poorly in the feature ranking phase. However, we want to demonstrate that to base solely on correlation to discard a feature is not reasonable enough. For example, consider the second most correlated pair, i.e. "At Least Bachelor Degree" and "Graduate Degree", the correlation between these 2 features are expected but they imply different things, and may contribute very differently to the underlying function. 
+
+Back to the healthcare and poverty feature group, we can list out several of them that are low-scoring but we cannot point out exactly which to remove between them, nor can we remove the whole group altogether! In this kind of situation, what we can do is to use principal component analysis (PCA) to reduce this group of features into less features but these derived features can be used to represent the original features. As such, we construct a graph of correlation between feature and puts an edge between features that have absolute correlation value greater than 0.65. Next, we take away nodes which represent features having score higher than average. 
+
+```{r plot-pca-bfs, echo = FALSE, fig.cap='Highly-correlated and Low-Scoring Features', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_PCA), height = "600px")
+```
+
+Afterwards, we make a breadth-first search through the graph starting from the node with highest degree to find the cluster of nodes we should consider to run PCA on. The early stopping criteria for a search is when the branch ends with a node of degree 1, in other words, we are trying to find a dense cluster of nodes. The nodes we obtain in the end represent the group of feature that are low-scoring but highly-correlated. We can then pass this group of features to run PCA on. The PCA result we obtain is presented below.
+
+``` {r table-pca-rotation, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+pca <- read.csv(mp(RES_SELECTED_DIR, "pca_rotation.csv"), stringsAsFactors = FALSE)
+data_pca <- pca
+data_pca <- transform.numeric_data(data_pca, function(x, na.rm) { return(format(round(x, 2), nsmall = 2)) }, na.rm = TRUE)
+data_pca[,1] <- dispv_v(data_pca[,1], meta_prepared)
+colnames(data_pca)[1] <- "Name"
+if (RENDER_MODE!="pdf") {
+  datatable(
+    data_pca,
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 10,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '80px', targets = list(2, 3, 4, 5)),
+                        list(width = '300px', targets = 1))
+    )
+  )
+} else {
+  cat("\\greybox{[Principal Componant Analysis Result] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+To select the right number of components, we can either sketch out the Scree Plot [@brown2009] or look at the percentage of cumulative variance plot. The former allows us to see, based on the slope, which components contribute the most to the total variance whereas the latter allows us to know how many features we want to choose so that we can account for a certain percentage of the total variance [@witten2017]. Although based on the position of the "knee" in the Scree Plot, we can conclude that we only need the first component (PC1), we think that we should go for the "safer" option by choosing the first 4 principal components which account for 90% of the total variance. Our reason is that PC1 only covers 67% of the total variance, and this value is too low for us to consider PC1 as the lone replacement of the original 10 features. Notice that unlike factor analysis, we do not really try to derive any meaning out of each component; components found using PCA are merely for calculation purpose and so the coverage really matters in this case. 
+
+```{r plot-pca-result, echo = FALSE, fig.cap = 'Principal Component Variance Dsitribution', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth'}
+PCA_VARIANCE_COVERAGE_THRESHOLD <- 0.9 # 90%
+pca_chosen_features <- pca[,1]
+pca_orig_features <- data_prepared[,pca_chosen_features]
+# principal component analysis on the covariance of chosen features
+pca.obj <- prcomp(pca_orig_features, center = TRUE, scale. = TRUE)
+cum_sdev <- cumsum(pca.obj$sdev^2 / sum(pca.obj$sdev^2))
+op = par(mfrow=c(1,2))
+plot(
+  (pca.obj$sdev)^2,
+  type = "b",
+  main = "Variance Distribution",
+  xlab = "Component Number",
+  ylab = "Variances",
+  bty = "o",
+  yaxp = c(0, round(max((pca.obj$sdev)^2)), round(max((pca.obj$sdev)^2))),
+  xaxp = c(1, length(pca.obj$sdev) + 1, length(pca.obj$sdev))
+)
+plot(
+  cum_sdev, 
+  type = "b",
+  main = "Variance Cumulative Distribution",
+  xlab = "Component Number",
+  ylab = "% Variances",
+  xaxp = c(1, length(pca.obj$sdev) + 1, length(pca.obj$sdev))
+)
+abline(h = PCA_VARIANCE_COVERAGE_THRESHOLD, lty = 2)
+par(op)
+```
+
+To demonstrate our point that the components in PCA do not give us a clear interpretation, let us consider Figure \@ref(fig:plot-pca-pcs) (due to the limit of current visualization technique ... we cannot really show all 4 components). Clearly, we can see that PC1, the most important component, is contributed by many original features so it is hard to tell what it really represent; as for PC2, perhaps we can conclude that it represents the group of health-related features). So the downside of using PCA is that we might lose some clarity in the interpretation of the model. Nevertheless, since our goal is to gain business understanding of the result, we need to be able to have a rough understanding of the chosen components. Refer to PC rotation table above, we conclude that PC1 represents a measure for general healthcare quality received by the low-income population since based on the rotation, it is contributed rather equally by poverty and poor healthcare. PC2 represents a measure for adult smoking-related health problem rate. PC3 is rather pure as it depends greatly on child poverty rate. PC4 is also contributed mainly by teen birth rate. 
+
+> Setting up 3D graphics has always been a struggle (the great value is that you can try to rotate and zoom). So if you cannot see this widget, you can enjoy the 2D version [here](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_selected/plots/main_pca_features.png")`)
+
+```{r plot-pca-pcs, echo = FALSE, fig.cap='Principal Components and Original Features', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$PCA_PLOT), height = "600px")
+```
+
+The final step of this process is to remove the 10 low-scoring features and replace them with the 4 new principal components to obtain the Analytic Base Table, which we will present in the very next section.
+
+## Analytic Base Table (ABT) {#abt}
+
+This is the data set that we will use for the modelling process. Take note of elec_rep12_win and state_fips features. Their presences correspond to our first and second question in the introduction respectively. If we include the 2012 result, we are incorporating historical feature into our modelling, if we incorporate the state, we are incorporating the geographic factor into our learning process. Although there are 2 other geographic factor related like weather but we feel that weather varies dramatically within one state that it is really hard to say if weather can replace state as a the main geographic factor or not. Also, state is intrinsically a composite feature that covers beneath it more than just geography, but way beyond, including history, socioeconomic, etc. As such, if state is included in the modelling process, it is also quite tricky to interpret the learned model. We will talk more about this in Section \@ref(md) "A Brief Note on Modelling." With all that being said, we present the Analytic Base Table below. 
+
+```{r table-data-abt, echo = FALSE, fig.cap='Analytic Base Table', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$DATA_SELECTED), height = "600px")
+```
+
+Again, to visualize this data set better, we present the following choropleth.
+
+```{r plot-choropleth-selected, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_PREPARED), height = "800px")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How the 2016 US Election Happened</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="How the 2016 US Election Happened" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  <meta name="github-repo" content="blacksteed232/elexion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the 2016 US Election Happened" />
+  
+  <meta name="twitter:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  
+
+<meta name="author" content="An Phi">
+
+
+<meta name="date" content="2017-05-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="dqr.html">
+<link rel="next" href="md.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Home Page</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="disclaimer.html"><a href="disclaimer.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="1" data-path="dqr.html"><a href="dqr.html"><i class="fa fa-check"></i><b>1</b> Data Quality Report (DQR)</a><ul>
+<li class="chapter" data-level="1.1" data-path="dqr.html"><a href="dqr.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="dqr.html"><a href="dqr.html#datasources"><i class="fa fa-check"></i><b>1.2</b> Data Source</a></li>
+<li class="chapter" data-level="1.3" data-path="dqr.html"><a href="dqr.html#pre-process"><i class="fa fa-check"></i><b>1.3</b> Data Pre-Process</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dqr.html"><a href="dqr.html#trimming"><i class="fa fa-check"></i><b>1.3.1</b> Trimming</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dqr.html"><a href="dqr.html#editing"><i class="fa fa-check"></i><b>1.3.2</b> Editing</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dqr.html"><a href="dqr.html#adding"><i class="fa fa-check"></i><b>1.3.3</b> Adding</a></li>
+<li class="chapter" data-level="1.3.4" data-path="dqr.html"><a href="dqr.html#updating"><i class="fa fa-check"></i><b>1.3.4</b> Updating</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="dqr.html"><a href="dqr.html#dqr-exploration"><i class="fa fa-check"></i><b>1.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="1.5" data-path="dqr.html"><a href="dqr.html#feature-detail"><i class="fa fa-check"></i><b>1.5</b> Feature Detail</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-state-code"><i class="fa fa-check"></i>FIPS State Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2016"><i class="fa fa-check"></i>Republican Win 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2012"><i class="fa fa-check"></i>Republican Win 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-participation-rate"><i class="fa fa-check"></i>Voting Participation Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-power"><i class="fa fa-check"></i>Voting Power</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population-density"><i class="fa fa-check"></i>Population Density</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sex-ratio"><i class="fa fa-check"></i>Sex Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#age-dependency-ratio"><i class="fa fa-check"></i>Age Dependency Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-age"><i class="fa fa-check"></i>Median Age</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#white-not-latino-population"><i class="fa fa-check"></i>White not Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#african-american-population"><i class="fa fa-check"></i>African American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#native-american-population"><i class="fa fa-check"></i>Native American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#asian-american-population"><i class="fa fa-check"></i>Asian American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-races-population"><i class="fa fa-check"></i>Other race(s) Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#latino-population"><i class="fa fa-check"></i>Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homogeneity-index"><i class="fa fa-check"></i>Homogeneity Index</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#gini-coefficient"><i class="fa fa-check"></i>Gini Coefficient</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-earning"><i class="fa fa-check"></i>Median Earning</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#unemployment-rate"><i class="fa fa-check"></i>Unemployment Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#management-professional-and-related-occupations"><i class="fa fa-check"></i>Management, Professional, and Related Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#service-occupations"><i class="fa fa-check"></i>Service Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sales-and-office-occupations"><i class="fa fa-check"></i>Sales and Office Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#farming-fishing-and-forestry-occupations"><i class="fa fa-check"></i>Farming, Fishing, and Forestry Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#construction-extraction-maintenance-and-repair-occupations"><i class="fa fa-check"></i>Construction, Extraction, Maintenance, and Repair Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#production-transportation-and-material-moving-occupations"><i class="fa fa-check"></i>Production, Transportation, and Material moving Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#school-enrollment"><i class="fa fa-check"></i>School Enrollment</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#preschool-enrollment-ratio"><i class="fa fa-check"></i>Preschool Enrollment Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#at-least-bachelor-degree"><i class="fa fa-check"></i>At Least Bachelor Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#graduate-degree"><i class="fa fa-check"></i>Graduate Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#infant-mortality"><i class="fa fa-check"></i>Infant Mortality</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#injury-death-rate"><i class="fa fa-check"></i>Injury Death Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#low-birth-weight-rate"><i class="fa fa-check"></i>Low Birth Weight Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-in-single-parent-households-rate"><i class="fa fa-check"></i>Children in Single Parent Households Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-obesity-rate"><i class="fa fa-check"></i>Adult Obesity Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#diabetes-rate"><i class="fa fa-check"></i>Diabetes Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sexually-transmitted-infections-rate"><i class="fa fa-check"></i>Sexually Transmitted Infections Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#hiv-prevalence-rate"><i class="fa fa-check"></i>HIV Prevalence Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#uninsured-rate"><i class="fa fa-check"></i>Uninsured Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#crime-rate"><i class="fa fa-check"></i>Crime Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homicide-rate"><i class="fa fa-check"></i>Homicide Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-precipitation"><i class="fa fa-check"></i>Winter Avg. Precipitation</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-temperature"><i class="fa fa-check"></i>Winter Avg. Temperature</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="dqr.html"><a href="dqr.html#del-feature"><i class="fa fa-check"></i><b>1.6</b> Deleted Feature</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-county-code"><i class="fa fa-check"></i>FIPS County Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#county-name"><i class="fa fa-check"></i>County Name</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2008"><i class="fa fa-check"></i>Republican Win 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2016"><i class="fa fa-check"></i>Republican Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2012"><i class="fa fa-check"></i>Republican Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2008"><i class="fa fa-check"></i>Republican Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2016"><i class="fa fa-check"></i>Democratic Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2012"><i class="fa fa-check"></i>Democratic Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2008"><i class="fa fa-check"></i>Democratic Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-votes-2016"><i class="fa fa-check"></i>Other Parties Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2012"><i class="fa fa-check"></i>Other Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2008"><i class="fa fa-check"></i>Other Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2016"><i class="fa fa-check"></i>Total Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2012"><i class="fa fa-check"></i>Total Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2008"><i class="fa fa-check"></i>Total Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2016"><i class="fa fa-check"></i>Republican Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2012"><i class="fa fa-check"></i>Republican Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2008"><i class="fa fa-check"></i>Republican Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2016"><i class="fa fa-check"></i>Democratic Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2012"><i class="fa fa-check"></i>Democratic Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2008"><i class="fa fa-check"></i>Democratic Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-vote-fraction-2016"><i class="fa fa-check"></i>Other Parties Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2012"><i class="fa fa-check"></i>Other Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2008"><i class="fa fa-check"></i>Other Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#estimated-no.-of-remaining-votes"><i class="fa fa-check"></i>Estimated No. of Remaining Votes</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-age-population"><i class="fa fa-check"></i>Voting Age Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-under-6-living-in-poverty"><i class="fa fa-check"></i>Children Under 6 Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#child-poverty"><i class="fa fa-check"></i>Child Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adults-65-and-older-living-in-poverty"><i class="fa fa-check"></i>Adults 65 and Older Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#poverty-rate"><i class="fa fa-check"></i>Poverty Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#less-than-high-school"><i class="fa fa-check"></i>Less Than High School</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#life-expectancy"><i class="fa fa-check"></i>Life Expectancy</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-physically-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Physically Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-mentally-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Mentally Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#teen-birth-rate"><i class="fa fa-check"></i>Teen Birth Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-smoking-rate"><i class="fa fa-check"></i>Adult Smoking Rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dqp.html"><a href="dqp.html"><i class="fa fa-check"></i><b>2</b> Data Quality Plan (DQP)</a><ul>
+<li class="chapter" data-level="2.1" data-path="dqp.html"><a href="dqp.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-outlier"><i class="fa fa-check"></i>Handling Outlier</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-trimming"><i class="fa fa-check"></i>Feature Trimming</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-missing-values"><i class="fa fa-check"></i>Handling Missing Values</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-selection"><i class="fa fa-check"></i>Feature Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dqp.html"><a href="dqp.html#handling-outliers"><i class="fa fa-check"></i><b>2.2</b> Handling Outliers</a></li>
+<li class="chapter" data-level="2.3" data-path="dqp.html"><a href="dqp.html#feature-trimming-1"><i class="fa fa-check"></i><b>2.3</b> Feature Trimming</a></li>
+<li class="chapter" data-level="2.4" data-path="dqp.html"><a href="dqp.html#handling-missing-data"><i class="fa fa-check"></i><b>2.4</b> Handling Missing Data</a></li>
+<li class="chapter" data-level="2.5" data-path="dqp.html"><a href="dqp.html#feature-selection-1"><i class="fa fa-check"></i><b>2.5</b> Feature Selection</a></li>
+<li class="chapter" data-level="2.6" data-path="dqp.html"><a href="dqp.html#feature-space-reduction"><i class="fa fa-check"></i><b>2.6</b> Feature Space Reduction</a></li>
+<li class="chapter" data-level="2.7" data-path="dqp.html"><a href="dqp.html#abt"><i class="fa fa-check"></i><b>2.7</b> Analytic Base Table (ABT)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>3</b> A Brief Note on Modelling</a><ul>
+<li class="chapter" data-level="3.1" data-path="md.html"><a href="md.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="md.html"><a href="md.html#classifiers-and-tuning-parameters"><i class="fa fa-check"></i><b>3.2</b> Classifiers and Tuning Parameters</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="md.html"><a href="md.html#base-classifer"><i class="fa fa-check"></i><b>3.2.1</b> Base Classifer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="md.html"><a href="md.html#probability-based-classififer"><i class="fa fa-check"></i><b>3.2.2</b> Probability-based Classififer</a></li>
+<li class="chapter" data-level="3.2.3" data-path="md.html"><a href="md.html#rule-based-classifier"><i class="fa fa-check"></i><b>3.2.3</b> Rule-based Classifier</a></li>
+<li class="chapter" data-level="3.2.4" data-path="md.html"><a href="md.html#tree-based-classifier"><i class="fa fa-check"></i><b>3.2.4</b> Tree-based Classifier</a></li>
+<li class="chapter" data-level="3.2.5" data-path="md.html"><a href="md.html#regression-based-classifier"><i class="fa fa-check"></i><b>3.2.5</b> Regression-based Classifier</a></li>
+<li class="chapter" data-level="3.2.6" data-path="md.html"><a href="md.html#instance-based-classifier"><i class="fa fa-check"></i><b>3.2.6</b> Instance-based Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="md.html"><a href="md.html#addressing-imbalanced-class-distribution"><i class="fa fa-check"></i><b>3.3</b> Addressing Imbalanced Class Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rep.html"><a href="rep.html"><i class="fa fa-check"></i><b>4</b> A “Minority” Report</a><ul>
+<li class="chapter" data-level="4.1" data-path="rep.html"><a href="rep.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="rep.html"><a href="rep.html#methodology"><i class="fa fa-check"></i><b>4.2</b> Methodology</a></li>
+<li class="chapter" data-level="4.3" data-path="rep.html"><a href="rep.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rep.html"><a href="rep.html#dcpp"><i class="fa fa-check"></i><b>4.3.1</b> Compilation and Pre-process</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rep.html"><a href="rep.html#dexp"><i class="fa fa-check"></i><b>4.3.2</b> Exploration</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rep.html"><a href="rep.html#dpre"><i class="fa fa-check"></i><b>4.3.3</b> Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rep.html"><a href="rep.html#modelling"><i class="fa fa-check"></i><b>4.4</b> Modelling</a></li>
+<li class="chapter" data-level="4.5" data-path="rep.html"><a href="rep.html#result"><i class="fa fa-check"></i><b>4.5</b> Result and Evaluation</a></li>
+<li class="chapter" data-level="4.6" data-path="rep.html"><a href="rep.html#discussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+<li class="chapter" data-level="4.7" data-path="rep.html"><a href="rep.html#conclusion"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="rep.html"><a href="rep.html#further-thoughts"><i class="fa fa-check"></i><b>4.8</b> Further Thoughts</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-data.html"><a href="appendix-data.html"><i class="fa fa-check"></i><b>A</b> Dataset</a><ul>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#pre-processed-data"><i class="fa fa-check"></i>Pre-Processed Data</a></li>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#prepared-data-analytic-base-table"><i class="fa fa-check"></i>Prepared Data (Analytic Base Table)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-dir.html"><a href="appendix-dir.html"><i class="fa fa-check"></i><b>B</b> Directories</a></li>
+<li class="chapter" data-level="C" data-path="appendix-code.html"><a href="appendix-code.html"><i class="fa fa-check"></i><b>C</b> Code</a><ul>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#usage"><i class="fa fa-check"></i>Usage</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#notice"><i class="fa fa-check"></i>Notice</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#procedures"><i class="fa fa-check"></i>Procedures</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How the 2016 US Election Happened</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dqp" class="section level1">
+<h1><span class="header-section-number">Section 2</span> Data Quality Plan (DQP)</h1>
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Overview</h2>
+<p>This plan gives the detail of the procedure by which we prepare the data: cleansing outliers and handling missing data, as well as trimming and selecting the subset of features (we aim to reduce to 40 features) that we will use for modelling as too many features, even if they are not redundant or irrelevant, renders the model less useful or requires exponentially more data to make sure the learned model reliable, i.e. the Curse of Dimensionality. Below, we give the brief summary of procedures that we will follow alongside with their code labels. After that, we will go into details of each procedure and finally conclude this plan with the analytic base table (ABT) fully-ready for modelling step. In general, the purpose of making the DQR and DQP is for anyone who wants to reproduce this study to base on to construct an ABT that is identical to the one we use for modelling.</p>
+<blockquote>
+<p>See Appendix <a href="appendix-code.html#appendix-code">C</a> to view the procedure used and the corresponding code.</p>
+</blockquote>
+<div id="handling-outlier" class="section level3 unnumbered">
+<h3>Handling Outlier</h3>
+<blockquote>
+<p>HO001</p>
+</blockquote>
+<pre><code>[ROW] Whitman County (53075)
+[ACTION] trim
+[REASON] we find the state that has unreliable voting results based on the current number of remaining vote and the difference between the votes of 2 major parties</code></pre>
+<blockquote>
+<p>HO002</p>
+</blockquote>
+<pre><code>[ROW] voting_participation with value exceeding upper bound
+[ACTION] clamp
+[REASON] we find that some county has higher voting participation rate than 100% which seems impossible but the reason is mainly due to how we derive this feature</code></pre>
+</div>
+<div id="feature-trimming" class="section level3 unnumbered">
+<h3>Feature Trimming</h3>
+<blockquote>
+<p>TR011</p>
+</blockquote>
+<pre><code>[COLUMN] name_16
+[REASON] this feature is absolutely not needed: including it will be as bad as including couty FIPS code</code></pre>
+<blockquote>
+<p>TR012</p>
+</blockquote>
+<pre><code>[COLUMN] dem08, rep08, total08, other08, dem12, rep12, total12, other12, votes16_trumpd, votes16_clintonh, total16, rep16_frac, dem16_frac, rep12_frac, rep08_frac, dem12_frac, dem08_frac, other12_frac, other08_frac, votes16_others, other16_frac
+[REASON] we decided to choose our target as elec_rep16_win and so we can get rid of these features</code></pre>
+<blockquote>
+<p>TR013</p>
+</blockquote>
+<pre><code>[COLUMN] rep08_win, Total.Population
+[REASON] we can get rid of the 2008 result as it is extremely similar to the 2012 result so we can just use the 2012 result alone. As for the population, we find the better indicator in the same domain is population density so we can get rid of this feature</code></pre>
+<blockquote>
+<p>TR014</p>
+</blockquote>
+<pre><code>[COLUMN] est_votes_remaining, voting_age_population
+[REASON] these features are used to find the flipable county and now can be discarded</code></pre>
+</div>
+<div id="handling-missing-values" class="section level3 unnumbered">
+<h3>Handling Missing Values</h3>
+<blockquote>
+<p>HM001</p>
+</blockquote>
+<pre><code>[COLUMN] Low.birthweight, Teen.births, Sexually.transmitted.infections, HIV.prevalence.rate, Violent.crime, Homicide.rate, Injury.deaths, Infant.mortality
+[REASON] predict the missing values for healthcare data from data of previous years</code></pre>
+<blockquote>
+<p>HM002</p>
+</blockquote>
+<pre><code>[COLUMN] Less.Than.High.School, At.Least.Bachelor.s.Degree, Graduate.Degree, School.Enrollment, Adults.65.and.Older.Living.in.Poverty, Preschool.Enrollment.Ratio.enrolled.ages.3.and.4, Median.Earnings.2010.dollars
+[REASON] predict the missing values for human-development data from data of previous years</code></pre>
+<blockquote>
+<p>HM003</p>
+</blockquote>
+<pre><code>[COLUMN] winter_PRCP, winter_TAVG
+[REASON] predict the missing values based on data of adjacent counties</code></pre>
+<blockquote>
+<p>HM004</p>
+</blockquote>
+<pre><code>[COLUMN] winter_PRCP, winter_TAVG, Low.birthweight, Teen.births, Sexually.transmitted.infections, HIV.prevalence.rate, Violent.crime, Homicide.rate, Injury.deaths, Infant.mortality, Adults.65.and.Older.Living.in.Poverty, Preschool.Enrollment.Ratio.enrolled.ages.3.and.4, Median.Earnings.2010.dollars
+[REASON] predict the missing values based on the average of the data from counties within the same state</code></pre>
+<blockquote>
+<p>HM005</p>
+</blockquote>
+<pre><code>[COLUMN] winter_PRCP, winter_TAVG, HIV.prevalence.rate
+[REASON] predict the missing values based on average of adjacent state (used when data for the whole state is missing)</code></pre>
+</div>
+<div id="feature-selection" class="section level3 unnumbered">
+<h3>Feature Selection</h3>
+<blockquote>
+<p>FS001</p>
+</blockquote>
+<pre><code>[ACTION] rank
+[REASON] using random forest, rank the features based on their importance</code></pre>
+<blockquote>
+<p>FS002</p>
+</blockquote>
+<pre><code>[ACTION] rank
+[REASON] using correlation and entropy</code></pre>
+<blockquote>
+<p>FS003</p>
+</blockquote>
+<pre><code>[ACTION] rank
+[REASON] create linear model and repeatedly remove the feature that contributes the least (or the most) to the model and rebuild the model, rank the features based on the order or removal</code></pre>
+<blockquote>
+<p>FS004</p>
+</blockquote>
+<pre><code>[ACTION] rank
+[REASON] using various attribute search technique to build the best linear model, rank features based on the number of times they appear in the best models</code></pre>
+<blockquote>
+<p>FS005</p>
+</blockquote>
+<pre><code>[ACTION] rank
+[REASON] using various attribute search technique to build the best decision tree (CART), rank features based on the number of times they appear in the best trees</code></pre>
+<blockquote>
+<p>FS006</p>
+</blockquote>
+<pre><code>[ACTION] principal component analyze
+[REASON] using both correlation and ranking score to determine features to be removed and proceed using PCA to reduce these weak features to fewer principal components</code></pre>
+</div>
+</div>
+<div id="handling-outliers" class="section level2">
+<h2><span class="header-section-number">2.2</span> Handling Outliers</h2>
+<p>First of all, since we collect the data from very reliable sources, it means that these data sets have probably been cleansed and checked for error several times by previous compilers. Nevertheless, we cannot just base on that and skip this step. However, since the data set covers a large domain of knowledge, from election, finance, to healthcare, crime, and even weather, we as the author feel that we lack domain-specific knowledge to determine the best range for each feature. As such, we just base on how the values are computed to set the upper and lower bounds that we consider reasonable. For example, a measure of percentage should be limited between 0 and 100, a ratio must be limited to the range of 0 and 1 and a count must be non-negative but has no upper bound potentially. Obviously, for certain feature, like total population for example, we can choose the total population of the country as the upper bound but this is quite meaningless to do, if we really want to drill into the detail, we can set the limit of the county based on the state, but this is like re-inventing the wheel as the state data was essentially just an aggregate of the county data. As such, we just put in very general bounds. There is, however, an exception to this: we do assert the upper bound for the state FIPS code to be 57 since we do not want to include the voting results of <a href="https://www.census.gov/geo/reference/ansi_statetables.html">outlying areas and freely associated states</a>.</p>
+<p>Based on these upper and lower bounds, we scan through all the features to see if any of them having values beyond the bounds (HO002). We found out that only the derived feature Voting Participation percentage has outliers (exceeding the upper bound of 100%). This is made possible since when deriving this feature, we divide the number of votes of 2012 and the voting population of the county in 2015: there might be a chance that there is a significant number of people relocating out of the county. The number of violation case is just 3 so we just clamp these values down to 100%.</p>
+<p>We are neither comfortable with conducting a clamp transformation using the interquartile range because this would affect a large portion of many features, nor willing to try clamping using 2<span class="math inline">\(\sigma\)</span> range from the mean since many of the features are right-skewed as mentioned in the <a href="dqr.html#dqr">DQR</a>.</p>
+<p>Second, we tried to make use of the estimated number of votes to find counties where the result is unreliable, by this we mean counties where we cannot tell who is the clear winner from the current vote count. This procedure (HO001) involves calculating the potential vote gained (in the remaining number of votes) by each major party based on the ratio vote of the county in 2012, then we see if the winner of the county changes when these potential votes are added to the current vote count. This method is arguably based largely on the assumption that each county has tendency to vote for one major party. Nevertheless, its validity is not of great concern here since this method only detects one of such “flipable” county; and therefore it should not affect subsequent steps greatly.</p>
+</div>
+<div id="feature-trimming-1" class="section level2">
+<h2><span class="header-section-number">2.3</span> Feature Trimming</h2>
+<p>Name of the county (name_16) needs to be trimmed (TR011) for it is not useful at all for the modelling process. Of course, being a county that has always been voting for the Republican is really a big thing but perhaps, we should not go into that level of granularity. We will just consider the state as we feel that state fulfills the above-mentioned role of county name and also has a more general implication. Perhaps, a certain county is also affected by its neighbors and being a county in a state that has been known as Red or Blue state for years might affect the way people vote.</p>
+<p>Next, we will trim the group of election result (TR012). As mentioned briefly in Section <a href="dqr.html#dqr-exploration">1.4</a>, Data Exploration, features in this group are highly correlated.</p>
+<div class="figure"><span id="fig:plot-election-correlation-matrix"></span>
+<img src="http://127.0.0.1:1923/result/data_analyzed/plots/election_features_correlation.png" alt="Election Features Correlation Plot Matrix"  />
+<p class="caption">
+Figure 2.1: Election Features Correlation Plot Matrix
+</p>
+</div>
+<p>We especially concern with this group because it is where our potential target feature lies. As mentioned before, vote fraction typically lies in the range of 0.4 to 0.6 and thus will not be a good target feature because for regression learners, we would want a larger range of value and the external bias on our part is that we have a better and larger pool of classification learners to choose from. As for the vote count, since it depends greatly on the population and/or voting population, it is even less reliable than vote fraction. For all of that reason, we decide to choose the binary feature that indicates whether Republican won a county as the target feature, i.e. <em>rep16_win is the target feature</em>. We also want to keep such binary indicator of the winner for past elections. Therefore, we just finalize the form of our study to a 2-class problem.</p>
+<p>Now, we can see that result of 2008 and 2012 are highly correlated (not surprisingly), we can just keep the 2012 result. Also, we want to remove the total population, since we already have a better indicators, such as the population density and the voting power. We should see that in the process of learning process, if we leave the total population in our feature space, a single big county in Illinois may make other county’s values for that feature become minuscule after normalizing. We will talk more about our rationale behind keeping all features as ratio in the <a href="#article">article</a>. Therefore, we trim rep08_win and Total.Population (TR013).</p>
+<p>Last but not least, we get rid of est_votes_remaining and voting_age_population (TR014) as they are only kept to be used to search for outliers.</p>
+</div>
+<div id="handling-missing-data" class="section level2">
+<h2><span class="header-section-number">2.4</span> Handling Missing Data</h2>
+<p>Based on the summary table in section <a href="dqr.html#dqr-exploration">1.4</a>, we can see that Homicide Rate and Infant Mortality have percentage of missing value greater than 60%. Although this might seem sufficient to just remove these attributes, we find that these are rather crucial indicators in the healthcare and crime category respectively so we will see what we can do to <em>repair</em> them.</p>
+<p>We come up with several methods that we can conduct in sequence to fill up the data. Their brief descriptions have been listed above in the Overview section. Here we will provide details on how they are done as well as the rationale behind each method and most importantly, the order in which they are carried out.</p>
+<p>First, we attempt to look at the past data to predict the current data of a county (HM001 and HM002). To do this, we first look at the NA’s of the current data set for a particular feature. For example, let us look at Teen.births (in HM002), in the pre-process phase, we have updated this feature to the 2016 data (UP001). Nevertheless, there are still many missing values. We then look at the available 2015 result for each county where the 2016 value is NA. We refrain ourselves from taking directly the 2015 results because this act of laziness potentially renders the whole feature useless. Instead, we calculate the average change for all counties in the same state as the concerned county and add that to the 2015 result of the concerned county to compute the predicted value for 2016. If 2015 result is not available, we simply go further to 2014 result to compute the predicted result for 2015 and then the predicted result for 2016. Nevertheless, there are counties where even past results are not available, those will still be NA’s by the end of this procedure.</p>
+<p>Second, for data where past values are not available, we attempt to predict the missing values based on their location. For geographic data, like winter_PRCP, and winter_TAVG, we can take the average of surrounding counties’ data (HM003) using the <a href="https://www.census.gov/geo/reference/county-adjacency.html">county adjacency dataset</a>. However, there are counties where all adjacent counties having missing values, and so this procedure cannot help to predict their values, unless we repeat this process multiple times, which we choose not to because we feel that predicting values based on the result of multiple levels of prediction is not particularly an attractive idea. As for demographic data, in categories such as healthcare and human-development, we should respect the state boundary and thus, we take the average of the data from counties within the same state (HM004). Here, we take the assumption that we can treat the weather data like any other features in the demographic group to predict the missing values based on counties of the same state. After this procedure, for a feature, the only missing values that remain must be from counties whose state has missing values for all of its counties.</p>
+<p>Here is where we have to use our penultimate resort by taking the a average from adjacent states (HM005) using the <a href="http://theincidentaleconomist.com/wordpress/list-of-neighboring-states-with-stata-code/">state adjacency dataset</a>. Fortunately, this method ensures that that we do not have resort to taking the national average. Nevertheless, we were encountered with a single case where the concerned state has no neighbor, i.e. Hawaii, so we have to take California as the neighboring state. Although this might seem arguable, it actually only affects the weather features and the HIV Prevalence rate slightly so we decide to proceed that way.</p>
+</div>
+<div id="feature-selection-1" class="section level2">
+<h2><span class="header-section-number">2.5</span> Feature Selection</h2>
+<p>Since we are not very clear about which model we will use for this particular study as we have an extremely diverse attribute space, we will proceed with scheme-independent feature selection. Our aim is to reduce the number of feature down to 40 to make the model simpler. Also, as we have seen in the correlation analysis, there are features to be removed or groups of features to be reduced. So we will try various technique to rank the <strong>importance</strong> of each feature (essentially scoring them based on their importance) and finally using that scores in tandem with our correlation analysis to select best features.</p>
+<p>First, we use various technique such as RandomForest to find the weights of the attributes (FS001). The higher the weights, the more important the feature is. We proceed to use the algorithm <strong>cfs</strong> from FSelector package to find attribute subset using correlation and entropy measures for continuous and nominal data respectively (FS002). The algorithm uses best first search so we keep removing attributes which are selected and run the algorithm on the rest of the feature space. We rank the earliest features to be removed the most important. Then we move on to using an algorithm with very similar fashion, <strong>recursive feature elimination</strong> <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>. We builds linear model using the current feature space and remove the feature with lowest coefficient and repeat the process. We also use a variation of this technique by removing the feature with highest coefficient (FS003).</p>
+<p>Second, we use feature space searching technique to rank the feature. Due to time limit, we resort to not using exhaustive search! Instead, we use various forms of greedy search: forward, backward, best-first, hill-climbing and so we have to repeat 5 times for each search and also to proceed with 5-fold cross validation to reduce the effect of the random split. We uses linear regression to build linear model (FS004) and CART to use decision-tree classifier (FS005) to build the model since these are typical choices of algorithm for scheme-independent feature selection <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>–for their light-weightedness and simplicity. The obtained result are formula to build the best model using the given algorithm, we count the number of times each feature appears in these formula and rank them by the frequency of their presences. In the midst of this process, we can see that the result of 2012 appears in almost every subsets, and evidently, the result of 2012 is highly correlated to the result of 2016, so we also try to run the searches without the 2012 result. Since we are dealing with a 2-class problem, we also tinker a little bit with the searching criterion. Accuracy comes as a standard choice but the Kappa value also makes a lot of sense in this case especially when we have many features, the chance of having a model that does little better than a random predictor does exists. We feel that other metrics such as recall or precision, i.e. the rate of predicting correctly which county Republican won and not caring about which state they lose, does not seem to be sensible options in this case.</p>
+<blockquote>
+<p>The detail result for each procedure can be found at <strong>/result/data_feature_rank/</strong></p>
+</blockquote>
+<p>After all of these steps, we compile the final score for each features; and present them as below. The state FIPS code is the only nominal features and thus could not be used for linear regression, but in other procedures, it performs well, as such, we will not remove it. As for 2012 result, as noted above, it is a strong predictor for the 2016 result and so we might consider leaving it out. But since it helps answer one of our original question, we choose to leave it in for now.</p>
+<pre><code>  CFS     : corelation and entropy based method
+  RFE     : recursive feature elimination
+  RF      : random forest
+  AS.LM   : attribute space search using linear regression
+  AS.Tree : attribute space search using CART</code></pre>
+<table>
+<col width="500">
+<col width="100">
+<col width="100">
+<col width="100">
+<col width="100">
+<col width="100">
+<col width="100">
+<caption>
+<span id="tab:table-score">Table 2.1: </span>Feature Score
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:center;">
+CFS
+</th>
+<th style="text-align:center;">
+RFE
+</th>
+<th style="text-align:center;">
+RF
+</th>
+<th style="text-align:center;">
+AS.LM
+</th>
+<th style="text-align:center;">
+AS.Tree
+</th>
+<th style="text-align:center;">
+Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+White not Latino Population
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+231
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Graduate Degree
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+227
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+African American Population
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Voting Power
+</td>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+202
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+At Least Bachelor Degree
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Production, Transportation, and Material moving Occupations
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Latino Population
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Homogeneity Index
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+195
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexually Transmitted Infections Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Population Density
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+191
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Asian American Population
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+191
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age Dependency Ratio
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+184
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adult Obesity Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Other race(s) Population
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Homicide Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+174
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diabetes Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+174
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Children in Single Parent Households Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Median Age
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+170
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Management, Professional, and Related Occupations
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+170
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gini Coefficient
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+168
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Service Occupations
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+164
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Construction, Extraction, Maintenance, and Repair Occupations
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+163
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HIV Prevalence Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Low Birth Weight Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Voting Participation Rate
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Winter Avg. Precipitation
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+149
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Less Than High School
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+147
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Winter Avg. Temperature
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+139
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Injury Death Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Farming, Fishing, and Forestry Occupations
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Ratio
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+136
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unemployment Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+135
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Uninsured Rate
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+133
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Avg. No. of Physically Unhealthy Day
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adult Smoking Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Native American Population
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crime Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Infant Mortality
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Life Expectancy
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+School Enrollment
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+125
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Teen Birth Rate
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Median Earning
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sales and Office Occupations
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Avg. No. of Mentally Unhealthy Day
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Children Under 6 Living in Poverty
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+118
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Poverty Rate
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+117
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Child Poverty
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+117
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adults 65 and Older Living in Poverty
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+115
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Preschool Enrollment Ratio
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+114
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Republican Win 2012
+</td>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+52
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FIPS State Code
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="feature-space-reduction" class="section level2">
+<h2><span class="header-section-number">2.6</span> Feature Space Reduction</h2>
+<p>After we have obtained the score for each feature, it is time we considered what features we should remove. Well, we can naively cut the bottom 10 features or so, but this is clearly not the optimal approach because of the following 2 reasons. First, attribute search space and cfs uses greedy search approach and thus, the result is affected by the random starting node. The best way is to conduct an exhaustive search but this is too expensive and the underlying algorithm is CART and linear regression which, due to language bias, might not be able to excavate the underlying function. Also, the result we got is aggregation of different methods, which makes it tricky to actually select the “worst performing features.” Second, there could be situation when a feature alone might not be a good predictor but a group of feature including that low-coring feature forms a strong indicator. This we might not know until we try to build model using more sophisticated algorithm. As such, the crude method of trimming features like we did before for the case of the election group is not reasonable here. As we have mentioned before, we can also look at the correlation to get rid of the some of the features. Disregarding the case of 2016 and 2012 result, we list the top correlation between the all the features we have in our current feature space below.</p>
+<div id="htmlwidget-387caeb519cdbfd8dd54" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-387caeb519cdbfd8dd54">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100"],["Child Poverty","At Least Bachelor Degree","Avg. No. of Physically Unhealthy Day","Children Under 6 Living in Poverty","White not Latino Population","Children Under 6 Living in Poverty","Avg. No. of Physically Unhealthy Day","Management, Professional, and Related Occupations","Republican Win 2016","Poverty Rate","Life Expectancy","Avg. No. of Mentally Unhealthy Day","Avg. No. of Physically Unhealthy Day","Child Poverty","Child Poverty","Less Than High School","Life Expectancy","Management, Professional, and Related Occupations","Poverty Rate","Life Expectancy","Poverty Rate","Poverty Rate","Life Expectancy","Life Expectancy","Less Than High School","Less Than High School","African American Population","White not Latino Population","Unemployment Rate","African American Population","Child Poverty","Less Than High School","Child Poverty","Adults 65 and Older Living in Poverty","Management, Professional, and Related Occupations","Median Earning","Child Poverty","Poverty Rate","Poverty Rate","Diabetes Rate","Children Under 6 Living in Poverty","Unemployment Rate","White not Latino Population","Poverty Rate","Children Under 6 Living in Poverty","Life Expectancy","Avg. No. of Physically Unhealthy Day","Life Expectancy","Avg. No. of Mentally Unhealthy Day","African American Population","Adult Smoking Rate","Child Poverty","At Least Bachelor Degree","Life Expectancy","Poverty Rate","African American Population","Sexually Transmitted Infections Rate","Less Than High School","Adults 65 and Older Living in Poverty","Poverty Rate","White not Latino Population","Production, Transportation, and Material moving Occupations","Children in Single Parent Households Rate","Child Poverty","Child Poverty","Child Poverty","Homogeneity Index","Life Expectancy","African American Population","Children Under 6 Living in Poverty","At Least Bachelor Degree","Uninsured Rate","Avg. No. of Mentally Unhealthy Day","Management, Professional, and Related Occupations","Children Under 6 Living in Poverty","White not Latino Population","Median Earning","Children Under 6 Living in Poverty","Infant Mortality","Adult Smoking Rate","Diabetes Rate","Gini Coefficient","Homogeneity Index","Poverty Rate","Unemployment Rate","Children in Single Parent Households Rate","At Least Bachelor Degree","Children Under 6 Living in Poverty","Child Poverty","Life Expectancy","Less Than High School","Uninsured Rate","White not Latino Population","Avg. No. of Physically Unhealthy Day","African American Population","Low Birth Weight Rate","Winter Avg. Precipitation","Children Under 6 Living in Poverty","At Least Bachelor Degree","Graduate Degree"],["Poverty Rate","Graduate Degree","Avg. No. of Mentally Unhealthy Day","Child Poverty","Homogeneity Index","Poverty Rate","Adult Smoking Rate","At Least Bachelor Degree","Republican Win 2012","Avg. No. of Physically Unhealthy Day","Avg. No. of Physically Unhealthy Day","Adult Smoking Rate","Diabetes Rate","Diabetes Rate","Avg. No. of Physically Unhealthy Day","Teen Birth Rate","Adult Smoking Rate","Graduate Degree","Adults 65 and Older Living in Poverty","Avg. No. of Mentally Unhealthy Day","Less Than High School","Diabetes Rate","Teen Birth Rate","Diabetes Rate","Avg. No. of Physically Unhealthy Day","Diabetes Rate","Low Birth Weight Rate","Sexually Transmitted Infections Rate","Avg. No. of Mentally Unhealthy Day","Children in Single Parent Households Rate","Teen Birth Rate","Life Expectancy","Less Than High School","Less Than High School","Production, Transportation, and Material moving Occupations","Poverty Rate","Life Expectancy","Life Expectancy","Adult Smoking Rate","Teen Birth Rate","Diabetes Rate","Avg. No. of Physically Unhealthy Day","African American Population","Teen Birth Rate","Avg. No. of Physically Unhealthy Day","Infant Mortality","Teen Birth Rate","Adult Obesity Rate","Diabetes Rate","Homicide Rate","Adult Obesity Rate","Children in Single Parent Households Rate","Adult Obesity Rate","Low Birth Weight Rate","Avg. No. of Mentally Unhealthy Day","Sexually Transmitted Infections Rate","Children in Single Parent Households Rate","At Least Bachelor Degree","Diabetes Rate","Children in Single Parent Households Rate","Latino Population","At Least Bachelor Degree","Diabetes Rate","Adult Smoking Rate","Avg. No. of Mentally Unhealthy Day","Adults 65 and Older Living in Poverty","Winter Avg. Temperature","Homicide Rate","Homogeneity Index","Teen Birth Rate","Life Expectancy","Teen Birth Rate","Winter Avg. Precipitation","Less Than High School","Life Expectancy","Children in Single Parent Households Rate","Child Poverty","Less Than High School","Homicide Rate","Diabetes Rate","Low Birth Weight Rate","Poverty Rate","Sexually Transmitted Infections Rate","Unemployment Rate","Diabetes Rate","Low Birth Weight Rate","Diabetes Rate","Children in Single Parent Households Rate","Unemployment Rate","Children in Single Parent Households Rate","Uninsured Rate","Winter Avg. Temperature","Winter Avg. Temperature","Children in Single Parent Households Rate","HIV Prevalence Rate","Homicide Rate","Winter Avg. Temperature","Adult Smoking Rate","Teen Birth Rate","Adult Obesity Rate"],[0.922724379640054,0.920730665072643,0.918326695572952,0.886057292086484,0.854273497947401,0.817953596929924,0.795552775577192,0.789766843620344,0.769398677780605,0.758548438792928,-0.746145209107994,0.742209511614798,0.733160168327365,0.721881838169813,0.71707179207697,0.709376336004915,-0.695682318915675,0.694679271470919,0.693546488037881,-0.688293732332981,0.686883407778195,0.686782367282528,-0.686235510340624,-0.680567168041376,0.679050833184313,0.678797146771007,0.674233302666066,-0.664428716666405,0.663946925628796,0.662078566563548,0.661789840989877,-0.660201081469786,0.659048044665511,0.656446441924173,-0.655679778888048,-0.648057373103452,-0.648022343912579,-0.647173826871119,0.64251175486914,0.641154835896314,0.639602842067761,0.637782399699399,-0.636634117533278,0.636427090900939,0.636182735242794,-0.626779128925155,0.62661838322537,-0.626433152121225,0.625462073202283,0.623805494746469,0.62232536077688,0.621935110893337,-0.619433376490793,-0.619269177504666,0.618943118600847,0.617855561685459,0.616848977214695,-0.615615202617437,0.608504912271768,0.605339514946455,-0.604747557165857,-0.603422332079502,0.60315367166268,0.599805714733676,0.59963658254417,0.594511986755928,-0.593433573387553,-0.59164278271849,-0.590867493620645,0.586948686529179,0.586601682366662,0.581015978868298,0.580707736476617,-0.578666722529371,-0.576536650527111,-0.575032249210235,-0.573543626608233,0.573203035226169,0.572953741724007,0.572228976512571,0.569856347431173,0.56849196534142,-0.566033658498584,0.5648735228525,0.564290416478866,0.563489612229209,-0.562892138780764,0.562789704772688,0.56239921063206,-0.560863593095181,0.560524527416049,0.558827348262356,-0.557815373418482,0.557423528941584,0.550542577321374,0.550298216465353,0.548468390734025,0.546692974479658,-0.54661533416196,-0.546166828167669]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Feature 1<\/th>\n      <th>Feature 2<\/th>\n      <th>Correlation Value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","pageLength":10,"scrollX":true,"scrollCollapse":true,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>A quick glance at the top correlation results remind us of the second strongest correlated groups of feature that we mentioned before: healthcare and finance (poverty in this particular case). It is not hard to see how these 2 categories of features are closely related. This might be useful for our feature selection process as many healthcare and poverty feature performs poorly in the feature ranking phase. However, we want to demonstrate that to base solely on correlation to discard a feature is not reasonable enough. For example, consider the second most correlated pair, i.e. “At Least Bachelor Degree” and “Graduate Degree”, the correlation between these 2 features are expected but they imply different things, and may contribute very differently to the underlying function.</p>
+<p>Back to the healthcare and poverty feature group, we can list out several of them that are low-scoring but we cannot point out exactly which to remove between them, nor can we remove the whole group altogether! In this kind of situation, what we can do is to use principal component analysis (PCA) to reduce this group of features into less features but these derived features can be used to represent the original features. As such, we construct a graph of correlation between feature and puts an edge between features that have absolute correlation value greater than 0.65. Next, we take away nodes which represent features having score higher than average.</p>
+<div class="figure"><span id="fig:plot-pca-bfs"></span>
+<iframe src="http://127.0.0.1:2314?showcase=0" width="672" height="600px">
+</iframe>
+<p class="caption">
+Figure 2.2: Highly-correlated and Low-Scoring Features
+</p>
+</div>
+<p>Afterwards, we make a breadth-first search through the graph starting from the node with highest degree to find the cluster of nodes we should consider to run PCA on. The early stopping criteria for a search is when the branch ends with a node of degree 1, in other words, we are trying to find a dense cluster of nodes. The nodes we obtain in the end represent the group of feature that are low-scoring but highly-correlated. We can then pass this group of features to run PCA on. The PCA result we obtain is presented below.</p>
+<div id="htmlwidget-ec42a5a698af8a0b0af9" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ec42a5a698af8a0b0af9">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10"],["Life Expectancy","Less Than High School","Avg. No. of Physically Unhealthy Day","Avg. No. of Mentally Unhealthy Day","Adult Smoking Rate","Teen Birth Rate","Child Poverty","Poverty Rate","Adults 65 and Older Living in Poverty","Children Under 6 Living in Poverty"],[" 0.32","-0.31","-0.35","-0.30","-0.30","-0.30","-0.34","-0.35","-0.27","-0.31"],["-0.18","-0.22"," 0.34"," 0.54"," 0.41","-0.21","-0.24","-0.21","-0.35","-0.26"],[" 0.28","-0.43"," 0.00"," 0.09"," 0.01","-0.37"," 0.38"," 0.27","-0.31"," 0.52"],["-0.24"," 0.04","-0.06","-0.07","-0.19"," 0.57"," 0.09","-0.15","-0.72"," 0.17"],["-0.35","-0.52","-0.29","-0.39"," 0.55"," 0.18","-0.02","-0.03"," 0.16"," 0.05"],[" 0.77","-0.01"," 0.16","-0.05"," 0.40"," 0.46","-0.04"," 0.04","-0.05","-0.11"],["-0.01","-0.62"," 0.19"," 0.29","-0.48"," 0.38"," 0.03"," 0.08"," 0.30","-0.17"],[" 0.10","-0.01"," 0.03"," 0.16","-0.02"," 0.07","-0.32","-0.60"," 0.25"," 0.66"],["-0.08","-0.05"," 0.38","-0.30","-0.09","-0.02","-0.67"," 0.49","-0.11"," 0.22"],[" 0.05"," 0.07","-0.69"," 0.50"," 0.05"," 0.12","-0.34"," 0.37","-0.02"," 0.07"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>PC1<\/th>\n      <th>PC2<\/th>\n      <th>PC3<\/th>\n      <th>PC4<\/th>\n      <th>PC5<\/th>\n      <th>PC6<\/th>\n      <th>PC7<\/th>\n      <th>PC8<\/th>\n      <th>PC9<\/th>\n      <th>PC10<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":10,"scrollX":true,"scrollCollapse":true,"autoWidth":true,"columnDefs":[{"width":"80px","targets":[2,3,4,5]},{"width":"300px","targets":1},{"orderable":false,"targets":0}],"order":[],"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>To select the right number of components, we can either sketch out the Scree Plot <span class="citation">(Brown <a href="#ref-brown2009">2009</a>)</span> or look at the percentage of cumulative variance plot. The former allows us to see, based on the slope, which components contribute the most to the total variance whereas the latter allows us to know how many features we want to choose so that we can account for a certain percentage of the total variance <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>. Although based on the position of the “knee” in the Scree Plot, we can conclude that we only need the first component (PC1), we think that we should go for the “safer” option by choosing the first 4 principal components which account for 90% of the total variance. Our reason is that PC1 only covers 67% of the total variance, and this value is too low for us to consider PC1 as the lone replacement of the original 10 features. Notice that unlike factor analysis, we do not really try to derive any meaning out of each component; components found using PCA are merely for calculation purpose and so the coverage really matters in this case.</p>
+<div class="figure" style="text-align: center"><span id="fig:plot-pca-result"></span>
+<img src="report_files/figure-html/plot-pca-result-1.png" alt="Principal Component Variance Dsitribution" width="\maxwidth" />
+<p class="caption">
+Figure 2.3: Principal Component Variance Dsitribution
+</p>
+</div>
+<p>To demonstrate our point that the components in PCA do not give us a clear interpretation, let us consider Figure <a href="dqp.html#fig:plot-pca-pcs">2.4</a> (due to the limit of current visualization technique … we cannot really show all 4 components). Clearly, we can see that PC1, the most important component, is contributed by many original features so it is hard to tell what it really represent; as for PC2, perhaps we can conclude that it represents the group of health-related features). So the downside of using PCA is that we might lose some clarity in the interpretation of the model. Nevertheless, since our goal is to gain business understanding of the result, we need to be able to have a rough understanding of the chosen components. Refer to PC rotation table above, we conclude that PC1 represents a measure for general healthcare quality received by the low-income population since based on the rotation, it is contributed rather equally by poverty and poor healthcare. PC2 represents a measure for adult smoking-related health problem rate. PC3 is rather pure as it depends greatly on child poverty rate. PC4 is also contributed mainly by teen birth rate.</p>
+<blockquote>
+<p>Setting up 3D graphics has always been a struggle (the great value is that you can try to rotate and zoom). So if you cannot see this widget, you can enjoy the 2D version <a href="http://127.0.0.1:1923/result/data_selected/plots/main_pca_features.png">here</a></p>
+</blockquote>
+<div class="figure"><span id="fig:plot-pca-pcs"></span>
+<iframe src="http://127.0.0.1:2307?showcase=0" width="672" height="600px">
+</iframe>
+<p class="caption">
+Figure 2.4: Principal Components and Original Features
+</p>
+</div>
+<p>The final step of this process is to remove the 10 low-scoring features and replace them with the 4 new principal components to obtain the Analytic Base Table, which we will present in the very next section.</p>
+</div>
+<div id="abt" class="section level2">
+<h2><span class="header-section-number">2.7</span> Analytic Base Table (ABT)</h2>
+<p>This is the data set that we will use for the modelling process. Take note of elec_rep12_win and state_fips features. Their presences correspond to our first and second question in the introduction respectively. If we include the 2012 result, we are incorporating historical feature into our modelling, if we incorporate the state, we are incorporating the geographic factor into our learning process. Although there are 2 other geographic factor related like weather but we feel that weather varies dramatically within one state that it is really hard to say if weather can replace state as a the main geographic factor or not. Also, state is intrinsically a composite feature that covers beneath it more than just geography, but way beyond, including history, socioeconomic, etc. As such, if state is included in the modelling process, it is also quite tricky to interpret the learned model. We will talk more about this in Section <a href="md.html#md">3</a> “A Brief Note on Modelling.” With all that being said, we present the Analytic Base Table below.</p>
+<div class="figure"><span id="fig:table-data-abt"></span>
+<iframe src="http://127.0.0.1:2306?showcase=0" width="672" height="600px">
+</iframe>
+<p class="caption">
+Figure 2.5: Analytic Base Table
+</p>
+</div>
+<p>Again, to visualize this data set better, we present the following choropleth.</p>
+<iframe src="http://127.0.0.1:2309?showcase=0" width="672" height="800px">
+</iframe>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-witten2017">
+<p>Witten, I. H., E. Frank, M. A. Hall, and C. J. Pal. 2017. <em>Data Mining : Practical Machine Learning Tools and Techniques</em>. 4th ed. Cambridge, MA: Morgan Kaufmann Publisher.</p>
+</div>
+<div id="ref-brown2009">
+<p>Brown, J. D. 2009. “Choosing the Right Number of Components or Factors in Principal Component Analysis and Exploratory Factor Analysis.” <em>Shiken: JALT Testing &amp; Evaluation SIG Newsletter</em> 13 (2).</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dqr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="md.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "Serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/blacksteed232/elexion/edit/master/code/report/02-data-quality-plan.Rmd",
+"text": "Edit"
+},
+"download": {},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

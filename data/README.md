@@ -1,0 +1,9 @@
+# Datasets
+
+This folder contains the datasets we use for this study in different phases of the project, from original to pre-processed, to prepared, and finally selected for modelling. We have noted some of the legal issues which have to do with these datasets in the disclaimer section, please make sure you read and understand that. We do not wish to distribute these datasets in anyway, so please do not cite us as your data source if you use them anywhere else.
+
+## Source
+As mentioned, the main dataset is taken from [USA.county.data](https://github.com/Deleetdk/USA.county.data). We have traced the sources for each piece of data in that source and record them in [main_source.csv](misc/main_source.csv) file. Other sources can be found in [source.csv](misc/source.csv).
+
+## Disclaimer
+Apprently, the election data provided by [USA.county.data](https://github.com/Deleetdk/USA.county.data) is scapred from the New York Times, who bought the data set from Associated Press. Since this might have complicated legal issue, we wish to express that we are not responsible for the election data as we are just taking it _as is_ from the noted source. Also, since this is data-mining project, we wish to show the step through which we clean and transform the data set so that people can reproduce the results that we obtained, as such, it is almost impossible to not have the election data anywhere in this repository. For healthcare and human-development data sets, we also have to include them in our project because we use them for data preparation step. As such, we just really want to express that we use this data set merely for study purpose and have NO intention to redistribute, nor to commercialize it in anyway. So please __do not cite us__ as the source of these data sets if you choose to use them yourselves. Please refer to the original sources of these data files as we have detailed in the the previous section. 

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How the 2016 US Election Happened</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="How the 2016 US Election Happened" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  <meta name="github-repo" content="blacksteed232/elexion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the 2016 US Election Happened" />
+  
+  <meta name="twitter:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  
+
+<meta name="author" content="An Phi">
+
+
+<meta name="date" content="2017-05-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="appendix-code.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Home Page</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="disclaimer.html"><a href="disclaimer.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="1" data-path="dqr.html"><a href="dqr.html"><i class="fa fa-check"></i><b>1</b> Data Quality Report (DQR)</a><ul>
+<li class="chapter" data-level="1.1" data-path="dqr.html"><a href="dqr.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="dqr.html"><a href="dqr.html#datasources"><i class="fa fa-check"></i><b>1.2</b> Data Source</a></li>
+<li class="chapter" data-level="1.3" data-path="dqr.html"><a href="dqr.html#pre-process"><i class="fa fa-check"></i><b>1.3</b> Data Pre-Process</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dqr.html"><a href="dqr.html#trimming"><i class="fa fa-check"></i><b>1.3.1</b> Trimming</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dqr.html"><a href="dqr.html#editing"><i class="fa fa-check"></i><b>1.3.2</b> Editing</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dqr.html"><a href="dqr.html#adding"><i class="fa fa-check"></i><b>1.3.3</b> Adding</a></li>
+<li class="chapter" data-level="1.3.4" data-path="dqr.html"><a href="dqr.html#updating"><i class="fa fa-check"></i><b>1.3.4</b> Updating</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="dqr.html"><a href="dqr.html#dqr-exploration"><i class="fa fa-check"></i><b>1.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="1.5" data-path="dqr.html"><a href="dqr.html#feature-detail"><i class="fa fa-check"></i><b>1.5</b> Feature Detail</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-state-code"><i class="fa fa-check"></i>FIPS State Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2016"><i class="fa fa-check"></i>Republican Win 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2012"><i class="fa fa-check"></i>Republican Win 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-participation-rate"><i class="fa fa-check"></i>Voting Participation Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-power"><i class="fa fa-check"></i>Voting Power</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population-density"><i class="fa fa-check"></i>Population Density</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sex-ratio"><i class="fa fa-check"></i>Sex Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#age-dependency-ratio"><i class="fa fa-check"></i>Age Dependency Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-age"><i class="fa fa-check"></i>Median Age</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#white-not-latino-population"><i class="fa fa-check"></i>White not Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#african-american-population"><i class="fa fa-check"></i>African American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#native-american-population"><i class="fa fa-check"></i>Native American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#asian-american-population"><i class="fa fa-check"></i>Asian American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-races-population"><i class="fa fa-check"></i>Other race(s) Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#latino-population"><i class="fa fa-check"></i>Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homogeneity-index"><i class="fa fa-check"></i>Homogeneity Index</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#gini-coefficient"><i class="fa fa-check"></i>Gini Coefficient</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-earning"><i class="fa fa-check"></i>Median Earning</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#unemployment-rate"><i class="fa fa-check"></i>Unemployment Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#management-professional-and-related-occupations"><i class="fa fa-check"></i>Management, Professional, and Related Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#service-occupations"><i class="fa fa-check"></i>Service Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sales-and-office-occupations"><i class="fa fa-check"></i>Sales and Office Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#farming-fishing-and-forestry-occupations"><i class="fa fa-check"></i>Farming, Fishing, and Forestry Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#construction-extraction-maintenance-and-repair-occupations"><i class="fa fa-check"></i>Construction, Extraction, Maintenance, and Repair Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#production-transportation-and-material-moving-occupations"><i class="fa fa-check"></i>Production, Transportation, and Material moving Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#school-enrollment"><i class="fa fa-check"></i>School Enrollment</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#preschool-enrollment-ratio"><i class="fa fa-check"></i>Preschool Enrollment Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#at-least-bachelor-degree"><i class="fa fa-check"></i>At Least Bachelor Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#graduate-degree"><i class="fa fa-check"></i>Graduate Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#infant-mortality"><i class="fa fa-check"></i>Infant Mortality</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#injury-death-rate"><i class="fa fa-check"></i>Injury Death Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#low-birth-weight-rate"><i class="fa fa-check"></i>Low Birth Weight Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-in-single-parent-households-rate"><i class="fa fa-check"></i>Children in Single Parent Households Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-obesity-rate"><i class="fa fa-check"></i>Adult Obesity Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#diabetes-rate"><i class="fa fa-check"></i>Diabetes Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sexually-transmitted-infections-rate"><i class="fa fa-check"></i>Sexually Transmitted Infections Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#hiv-prevalence-rate"><i class="fa fa-check"></i>HIV Prevalence Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#uninsured-rate"><i class="fa fa-check"></i>Uninsured Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#crime-rate"><i class="fa fa-check"></i>Crime Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homicide-rate"><i class="fa fa-check"></i>Homicide Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-precipitation"><i class="fa fa-check"></i>Winter Avg. Precipitation</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-temperature"><i class="fa fa-check"></i>Winter Avg. Temperature</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="dqr.html"><a href="dqr.html#del-feature"><i class="fa fa-check"></i><b>1.6</b> Deleted Feature</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-county-code"><i class="fa fa-check"></i>FIPS County Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#county-name"><i class="fa fa-check"></i>County Name</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2008"><i class="fa fa-check"></i>Republican Win 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2016"><i class="fa fa-check"></i>Republican Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2012"><i class="fa fa-check"></i>Republican Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2008"><i class="fa fa-check"></i>Republican Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2016"><i class="fa fa-check"></i>Democratic Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2012"><i class="fa fa-check"></i>Democratic Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2008"><i class="fa fa-check"></i>Democratic Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-votes-2016"><i class="fa fa-check"></i>Other Parties Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2012"><i class="fa fa-check"></i>Other Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2008"><i class="fa fa-check"></i>Other Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2016"><i class="fa fa-check"></i>Total Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2012"><i class="fa fa-check"></i>Total Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2008"><i class="fa fa-check"></i>Total Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2016"><i class="fa fa-check"></i>Republican Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2012"><i class="fa fa-check"></i>Republican Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2008"><i class="fa fa-check"></i>Republican Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2016"><i class="fa fa-check"></i>Democratic Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2012"><i class="fa fa-check"></i>Democratic Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2008"><i class="fa fa-check"></i>Democratic Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-vote-fraction-2016"><i class="fa fa-check"></i>Other Parties Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2012"><i class="fa fa-check"></i>Other Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2008"><i class="fa fa-check"></i>Other Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#estimated-no.-of-remaining-votes"><i class="fa fa-check"></i>Estimated No. of Remaining Votes</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-age-population"><i class="fa fa-check"></i>Voting Age Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-under-6-living-in-poverty"><i class="fa fa-check"></i>Children Under 6 Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#child-poverty"><i class="fa fa-check"></i>Child Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adults-65-and-older-living-in-poverty"><i class="fa fa-check"></i>Adults 65 and Older Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#poverty-rate"><i class="fa fa-check"></i>Poverty Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#less-than-high-school"><i class="fa fa-check"></i>Less Than High School</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#life-expectancy"><i class="fa fa-check"></i>Life Expectancy</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-physically-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Physically Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-mentally-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Mentally Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#teen-birth-rate"><i class="fa fa-check"></i>Teen Birth Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-smoking-rate"><i class="fa fa-check"></i>Adult Smoking Rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dqp.html"><a href="dqp.html"><i class="fa fa-check"></i><b>2</b> Data Quality Plan (DQP)</a><ul>
+<li class="chapter" data-level="2.1" data-path="dqp.html"><a href="dqp.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-outlier"><i class="fa fa-check"></i>Handling Outlier</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-trimming"><i class="fa fa-check"></i>Feature Trimming</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-missing-values"><i class="fa fa-check"></i>Handling Missing Values</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-selection"><i class="fa fa-check"></i>Feature Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dqp.html"><a href="dqp.html#handling-outliers"><i class="fa fa-check"></i><b>2.2</b> Handling Outliers</a></li>
+<li class="chapter" data-level="2.3" data-path="dqp.html"><a href="dqp.html#feature-trimming-1"><i class="fa fa-check"></i><b>2.3</b> Feature Trimming</a></li>
+<li class="chapter" data-level="2.4" data-path="dqp.html"><a href="dqp.html#handling-missing-data"><i class="fa fa-check"></i><b>2.4</b> Handling Missing Data</a></li>
+<li class="chapter" data-level="2.5" data-path="dqp.html"><a href="dqp.html#feature-selection-1"><i class="fa fa-check"></i><b>2.5</b> Feature Selection</a></li>
+<li class="chapter" data-level="2.6" data-path="dqp.html"><a href="dqp.html#feature-space-reduction"><i class="fa fa-check"></i><b>2.6</b> Feature Space Reduction</a></li>
+<li class="chapter" data-level="2.7" data-path="dqp.html"><a href="dqp.html#abt"><i class="fa fa-check"></i><b>2.7</b> Analytic Base Table (ABT)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>3</b> A Brief Note on Modelling</a><ul>
+<li class="chapter" data-level="3.1" data-path="md.html"><a href="md.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="md.html"><a href="md.html#classifiers-and-tuning-parameters"><i class="fa fa-check"></i><b>3.2</b> Classifiers and Tuning Parameters</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="md.html"><a href="md.html#base-classifer"><i class="fa fa-check"></i><b>3.2.1</b> Base Classifer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="md.html"><a href="md.html#probability-based-classififer"><i class="fa fa-check"></i><b>3.2.2</b> Probability-based Classififer</a></li>
+<li class="chapter" data-level="3.2.3" data-path="md.html"><a href="md.html#rule-based-classifier"><i class="fa fa-check"></i><b>3.2.3</b> Rule-based Classifier</a></li>
+<li class="chapter" data-level="3.2.4" data-path="md.html"><a href="md.html#tree-based-classifier"><i class="fa fa-check"></i><b>3.2.4</b> Tree-based Classifier</a></li>
+<li class="chapter" data-level="3.2.5" data-path="md.html"><a href="md.html#regression-based-classifier"><i class="fa fa-check"></i><b>3.2.5</b> Regression-based Classifier</a></li>
+<li class="chapter" data-level="3.2.6" data-path="md.html"><a href="md.html#instance-based-classifier"><i class="fa fa-check"></i><b>3.2.6</b> Instance-based Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="md.html"><a href="md.html#addressing-imbalanced-class-distribution"><i class="fa fa-check"></i><b>3.3</b> Addressing Imbalanced Class Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rep.html"><a href="rep.html"><i class="fa fa-check"></i><b>4</b> A “Minority” Report</a><ul>
+<li class="chapter" data-level="4.1" data-path="rep.html"><a href="rep.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="rep.html"><a href="rep.html#methodology"><i class="fa fa-check"></i><b>4.2</b> Methodology</a></li>
+<li class="chapter" data-level="4.3" data-path="rep.html"><a href="rep.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rep.html"><a href="rep.html#dcpp"><i class="fa fa-check"></i><b>4.3.1</b> Compilation and Pre-process</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rep.html"><a href="rep.html#dexp"><i class="fa fa-check"></i><b>4.3.2</b> Exploration</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rep.html"><a href="rep.html#dpre"><i class="fa fa-check"></i><b>4.3.3</b> Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rep.html"><a href="rep.html#modelling"><i class="fa fa-check"></i><b>4.4</b> Modelling</a></li>
+<li class="chapter" data-level="4.5" data-path="rep.html"><a href="rep.html#result"><i class="fa fa-check"></i><b>4.5</b> Result and Evaluation</a></li>
+<li class="chapter" data-level="4.6" data-path="rep.html"><a href="rep.html#discussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+<li class="chapter" data-level="4.7" data-path="rep.html"><a href="rep.html#conclusion"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="rep.html"><a href="rep.html#further-thoughts"><i class="fa fa-check"></i><b>4.8</b> Further Thoughts</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-data.html"><a href="appendix-data.html"><i class="fa fa-check"></i><b>A</b> Dataset</a><ul>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#pre-processed-data"><i class="fa fa-check"></i>Pre-Processed Data</a></li>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#prepared-data-analytic-base-table"><i class="fa fa-check"></i>Prepared Data (Analytic Base Table)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-dir.html"><a href="appendix-dir.html"><i class="fa fa-check"></i><b>B</b> Directories</a></li>
+<li class="chapter" data-level="C" data-path="appendix-code.html"><a href="appendix-code.html"><i class="fa fa-check"></i><b>C</b> Code</a><ul>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#usage"><i class="fa fa-check"></i>Usage</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#notice"><i class="fa fa-check"></i>Notice</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#procedures"><i class="fa fa-check"></i>Procedures</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How the 2016 US Election Happened</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+
+<div id="refs" class="references">
+<div>
+<p>Brown, J. D. 2009. “Choosing the Right Number of Components or Factors in Principal Component Analysis and Exploratory Factor Analysis.” <em>Shiken: JALT Testing &amp; Evaluation SIG Newsletter</em> 13 (2).</p>
+</div>
+<div>
+<p>Cieslak, D. A., and N. V. Chawla. 2008. “Learning Decision Trees for Unbalanced Data.” <em>Lecture Notes in Computer Science</em>.</p>
+</div>
+<div>
+<p>Ganganwar, V. 2012. “An Overview of Classification Algorithms for Imbalanced.” <em>International Journal of Emerging Technology and Advanced Engineering</em> 2 (4).</p>
+</div>
+<div>
+<p>He, H., and E. A. Garcia. 2009. “Learning from Imbalanced Data.” <em>IEEE Transactions on Knowledge and Data Engineering</em> 21 (9).</p>
+</div>
+<div>
+<p>Hsu, C. W., C. C. Chang, and C. J. Lin. 2003. “A Practical Guide to Support Vector Classification.”</p>
+</div>
+<div>
+<p>King, G., and L. Zeng. 2001. “Logistic Regression in Rare Events Data.” <em>Political Analysis</em> 9.</p>
+</div>
+<div>
+<p>Kirkegaard, E. O. W. 2016. “Inequality Across Us Counties: An S Factor Analysis.” <em>Open Quantitative Sociology and Political Science</em>.</p>
+</div>
+<div>
+<p>Williams, M. N., C. A. Gómez Grajales, and D. Kurkiewicz. 2013. “Assumptions of Multiple Regression: Correcting Two Misconceptions.” <em>Practical Assessment, Research &amp; Evaluation</em> 18 (11/12).</p>
+</div>
+<div>
+<p>Witten, I. H., E. Frank, M. A. Hall, and C. J. Pal. 2017. <em>Data Mining : Practical Machine Learning Tools and Techniques</em>. 4th ed. Cambridge, MA: Morgan Kaufmann Publisher.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="appendix-code.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "Serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/blacksteed232/elexion/edit/master/code/report/15-references.Rmd",
+"text": "Edit"
+},
+"download": {},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

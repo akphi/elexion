@@ -1,0 +1,764 @@
+# A "Minority" Report {#rep}
+
+
+
+
+
+## Introduction
+In this study, we attempt to analyze the result of the 2016 US presidential election. To many, the result appears to be a very unpredictable, but is it really the case? Our main objective is to understand how various demographic, geographic and historical factors help shape the election results. Historical factors, i.e. the recent election results, are often strong predictors for the outcome of the current election since we usually do not expect to see a drastic change in the political view over a short span of time. Geographical factor, such as state, is also a good predictor in the exact same way. As such, we want to approach the problem in hierarchical manner. Initially, we will consider the effects of all factors on the result. Second, we will leave historical factor(s) aside and proceed with just geographic and demographic factors. Finally, we will just consider demographic factors. We feel that geographic indicator, such as state, is a complex composite indicator that potentially encodes unique information on various demographic aspects; for example, there are states we know as blue state, as rich state, as highly-populated state, etc. Therefore, it is not really correct to refer to this as geographic factor. Our main objective is then to find a model that can predict the result given purely demographic factors. We find that this will give us more interesting learnings than when we include state and past election results. 
+
+
+
+
+
+## Methodology
+We will follow the CRISP-DM model, starting from building up our domain knowledge, gathering and pre-processing the data set that we have obtained (section \@ref(dcpp)). We will spend time explore and attempt to understand the data set better (section \@ref(dexp)) as this will help us in the next phases. Then we will go through the data preparation phase (section \@ref(dpre)) where we select the most relevant features to finalize our analytic base table (ABT), which will be fed as input for the modelling process (section \@ref(modelling)). Evaluation will then be conducted to choose the best models (section \@ref(result)); and finally in the deployment phase (section \@ref(discussion)), we will interpret these models in order to achieve our objectives. At the end of this article, we will mention several considerations and improvement that we have for further development of this project.
+
+
+
+## Data Manipulation
+
+### Compilation and Pre-process {#dcpp}
+The original data set is collected by Emil O. W. Kirkegaard from various sources for usage in his socioeconomic research [@emil2016]. When Emil published his data set, he also includes the election results for 2008. 2012, 2016 from the New York Times as well as weather data by county, which is really tedious to collect, from the National Oceanic and Atmospheric Administration. Due to its extensive coverage of many demographic indicators, we decide to take this as our starting point from which we will add on more relevant data in order to obtain the Analytic Base Table (ABT). There are quite a number of irrelevant features in the original data set, including socioeconomic features, which were derived by the collector and of which we have little understanding. Features which are derived for technical purposes, such as discretized version of an already-present features, or such are discarded. Redundant features that present merely as remnants of data matching processes are discarded as well. We also checked through the data and determined that minor parties did not win any county so we can collectively group their votes together and regard this group as "other". In terms of weather data, we are most interested in winter weather of each county for this is the time of the election. Last but not least, we remove instances where there are a lot of missing values or simply where we do not have any information on the election result, because these instances are not useful for our study. These includes counties in Alaska where the administrative geographical division is not county but borough, and Oglala Lakota county where the Indian reservation is situated, and thus there were not enough demographic data about this region. We also add in several demographic features that we think might be important yet missing from the original data set, such as sex ratio, age-dependency ratio, life expectancy, etc. We also derive the voting participation rate and voting power based on the value of the electoral vote of the state which the county belongs to. Last but not least, we update several healthcare and human-development features in the original data set using more recent data from the same sources used by the original collector. After this pre-process phase, we obtain a very crude data set containing most of the desired features. We believe that the best way to have a feel for this data set is to visualize it using a choropleth, so we present one below.
+
+> See Appendix \@ref(appendix-data) to view the dataset and Section \@ref(dqr) for the full data quality report and more detail on the data pre-process phase.
+
+```{r echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_PRE_PROCESSED), height = "800px")
+```
+
+
+
+
+
+### Exploration {#dexp}
+Before proceeding further, we want to gain some understanding of the data set as this will enhance our decisions in the data preparation phase. Since the data set has many features, we prefer correlation plot matrix over scatter plot matrix as this is clearly the better way to visualize our current data set. 
+
+> Fear not the minuscule! Hover on the the plot to zoom
+
+```{r plot-correlation-matrix-article, echo = FALSE, fig.cap='Correlation Plot Matrix', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$GIANT_CORRELATION_PLOT), height = "500px")
+```
+
+We also make a summary of the current data set including both continuous and categorical features. 
+
+``` {r table-summary-continuous-article, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+summary_continuous <- read.csv(mp(RES_ANALYZED_DIR, "summary_continuous.csv"), stringsAsFactors = FALSE)
+summary_continuous$name <- dispv(summary_continuous$name, meta_pre_processed)
+colnames(summary_continuous) <- c("Name", "Type", "Mean", "Standard Deviation", "Median", "Lower Quartile", 
+                                  "Upper Quartile", "Inner Quartile Range", "Min", "Max", "N", "Number of Missing Values",
+                                  "Percentage of Missing Values", "Entropy")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    summary_continuous,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      # paging = FALSE,
+      pageLength = 5,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '100px', targets = c(-2,-3)))
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Continuous Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+``` {r table-summary-categorical-article, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+summary_categorical <- read.csv(mp(RES_ANALYZED_DIR, "summary_categorical.csv"), stringsAsFactors = FALSE)
+summary_categorical$name <- dispv(summary_categorical$name, meta_pre_processed)
+colnames(summary_categorical) <- c("Name", "Type", "Level", "Value", "Frequency", "N", "Mode", "Highest Frequency", "Number of Missing Values",
+                                  "Percentage of Missing Values", "Entropy")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    summary_categorical,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 6,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '200px', targets = c(5,8,9,10)),
+                        list(width = '100px', targets = c(3)))
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Nominal Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+
+
+
+### Preparation {#dpre}
+As it can be seen, there are yet many missing values across the features. Also, the feature space is too huge (78 features) for producing meaningful models--as we use these data to construct models, we want to look at the structure of the models to elucidate us on how the election result was influenced by these features, so the more features we have, the more nebulous the learning outcomes become, i.e. we want our models compact. Most importantly, since it is pretty clear at this point that we will conduct supervised learning procedure, we need to find a target feature for our model. 
+
+As shown in the correlation plot, features in the election result group are highly correlated (Figure \@ref(fig:plot-election-correlation-matrix-article). We especially concern with this group because it is where our potential target feature lies. As mentioned before, vote fraction typically lies in the range of 0.4 to 0.6 and thus will not be a good target feature because for regression learners, we would want a larger range of value. The external bias on our part is that we have a better and larger pool of classification learners to choose from so we really prefer classification problems to regression problems. As for the vote count, since it depends greatly on the population and/or voting population, it is even less reliable than vote fraction. For all of those reasons, we decide to choose the binary feature that indicates whether Republican won a county as the target feature, i.e. __rep16_win is the target feature.__ We also want to keep such binary indicator of the winner for past elections. Therefore, we just finalize the form of our study to a 2-class problem.
+
+```{r plot-election-correlation-matrix-article, echo = FALSE, results="asis", fig.cap='Election Features Correlation Plot Matrix'}
+  generate_image("Election Features Correlation Plot Matrix", concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/election_features_correlation.png"))
+```
+
+We also just keep the 2012 result as it is highly correlated to 2008 result--not surprisingly, as both elections won by Barack Obama. We also remove features that has identifying nature like name and ID as these are not at all useful for modelling process. We consider features like population or area not useful, as we try to avoid raw-count features and favor ratio and percentage so that we can have a scale of values to work with. Also, by deriving new features from these raw-counts, we might end up with strong features, __stronger__ in the sense that the features will not obfuscate the learning algorithm. For example, population by county differs greatly. A candidate might be interested in knowing that a county is _highly_ populated, but he will be more attracted to county which is more __densely__ populated, or a county where each voter contributes more to the electoral vote of the state, or a county where more people actually go to vote. Knowing that a county has more than half a million people, might be a good thing for contestants of "Who wants to be a millionaire" but perhaps not particularly useful for politician. The advantage of ratio feature over raw-count feature is that it defines a range of possible values for the feature, e.g. 0 to 1 or 0% to 100%. Another advantage is that it gives the lonely figures a context. If a governor hears that there are 9 miscarriage cases per month in a county X he will have utterly no idea is that low or high, but if given that 9 miscarriage cases out of 10 live birth cases, he knows that there is a problem. 
+
+A point to note is that deriving ratio features does not alter the distribution of the data in anyway. Due to a single extreme value, the ratio feature might end up with 1 instance at 100% and the rest lies within 0-5%. This is something we do not attempt to change, such as to do a log-transformation, because we deem ourselves lacking understanding of the true distribution of many of these features. 
+
+In short, we trim away features like population, land area, etc. And finally, we get rid of features like estimated vote remaining or FIPS code for county as these are kept purely for data manipulation purpose. 
+
+As mentioned above, an advantage of deriving ratio features is to have an idea about the lower and upper bound of a feature, based on this, we check for outliers and proceed with clamp transformation on them. We also attempt to find counties with unreliable election result, i.e counties where based on the reported number of votes, number of votes remaining, and the past result, we can expect a swing in the winning party. 
+
+After this, we attempt to handle missing values. We proceed this in hierarchical manner. First, for features where we have data from the previous year(s), we can predict the currently missing values by adding its past year data with the average net change of counties in the same state with the concerned county. This bases on the assumption that counties in the same state, under the same policies and laws, will have similar changes over the years. We only do this for healthcare and human-development features as we have past data set for them. For geographical features, such as weather, that depends less on administrative policies, we take the average across adjacent counties. The next step is to fill up missing values using the average of counties within the same state and finally average of adjacent states. We are fortunate enough to not have to resort to using national average to fill in these missing values. 
+
+Finally, we have our data set in good shape, but we need to address the problem of irrelevant or redundant features. We use common scheme-independent feature selection techniques, such as ranking by importance using RandomForest, ranking by entropy for categorical features and correlation for continuous features, ranking by coefficient using __recursive feature elimination__ [@witten2017]. We also try to build decision trees (using CART) and linear models to search the attribute space. We use various greedy search techniques such as best-first, forward, backward, hill-climbing and apply cross-validation minimize the effect of random test-train splits. We set the searching criterion to accuracy and kappa to find the subset of features which usually contribute for the best models. Based on all of these results, we compute a score for each feature and rank them accordingly. 
+
+``` {r include = FALSE}
+feature_score <- read.csv(mp(RES_SELECTED_DIR, "feature_scores.csv"), stringsAsFactors = TRUE)
+```
+
+```
+  CFS     : corelation and entropy based method
+  RFE     : recursive feature elimination
+  RF      : random forest
+  AS.LM   : attribute space search using linear regression
+  AS.Tree : attribute space search using CART
+```
+
+``` {r table-score-article, include = TRUE, echo = FALSE, results = "asis"}
+feature_score <- data.frame(
+  Name = feature_score$name,
+  CFS = feature_score$cfs,
+  RFE = feature_score$lm_coef.remove_biggest_first + feature_score$lm_coef.remove_smallest_first,
+  RF = feature_score$rfi,
+  AS.LM = feature_score$as.lm.accuracy.full + feature_score$as.lm.kappa.full + feature_score$as.lm.accuracy.1 + feature_score$as.lm.kappa.1,  
+  AS.Tree = feature_score$as.tree.accuracy.full + feature_score$as.tree.kappa.full + feature_score$as.tree.accuracy.1 + feature_score$as.tree.kappa.1,
+  Score = feature_score$score
+)
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    feature_score,
+    caption = "Feature Score",
+    align = c("l", "c", "c", "c", "c", "c", "c"),
+    digits = 0,
+    booktabs = TRUE,
+    format = "html"
+    ) %>% html_table_width(c(500, 100, 100, 100, 100, 100, 100))
+} else {
+  cat("\\greybox{[Feature Score] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Based on this score, and correlation between the features, we can narrow down a group of features that are low-scoring and highly correlated--in this case, the group that we found consist mainly of poor-healthcare-quality and poverty-related features. We then proceed with principal component analysis (PCA) to derive a more compact set of features that can represent features in this group, since we do not want to get rid of this group altogether. The result is presented in table below. We select the top principal components that accounts for 90% of the total variance, i.e. PC1 to PC4. 
+
+
+``` {r table-pca-rotation-article, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+pca <- read.csv(mp(RES_SELECTED_DIR, "pca_rotation.csv"), stringsAsFactors = FALSE)
+data_pca <- pca
+data_pca <- transform.numeric_data(data_pca, function(x, na.rm) { return(format(round(x, 2), nsmall = 2)) }, na.rm = TRUE)
+data_pca[,1] <- dispv_v(data_pca[,1], meta_prepared)
+colnames(data_pca)[1] <- "Name"
+if (RENDER_MODE!="pdf") {
+  datatable(
+    data_pca,
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 10,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '80px', targets = list(2, 3, 4, 5)),
+                        list(width = '300px', targets = 1))
+    )
+  )
+} else {
+  cat("\\greybox{[Principal Componant Analysis Result] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Although this technique is really powerful, its downside is that it does not provide an easy way to interpret the resulting principal components. To demonstrate our point that the components obtained from PCA do not give us a clear interpretation, let us consider Figure \@ref(fig:plot-pca-pcs-article) (due to the limit of current visualization technique ... we cannot really show all 4 components). Clearly, we can see that PC1, the most important component, is contributed by many original features so it is hard to tell what it really represent; as for PC2, perhaps we can conclude that it represents the group of health-related features). So the downside of using PCA is that we might lose some clarity in the interpretation of the model. Nevertheless, since our goal is to gain business understanding of the result, we need to be able to have a rough understanding of the chosen components. Refer to PC rotation table above, we conclude that PC1 represents a measure for general healthcare quality received by the low-income population since based on the rotation, it is contributed rather equally by poverty and poor healthcare. PC2 represents a measure for adult smoking-related health problem rate. PC3 is rather pure as it depends greatly on child poverty rate. PC4 is also contributed mainly by teen birth rate. 
+
+> Setting up 3D graphics has always been a struggle (the great value is that you can try to rotate and zoom). So if you cannot see this widget, you can enjoy the 2D version [here](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_selected/plots/main_pca_features.png")`)
+
+```{r plot-pca-pcs-article, echo = FALSE, fig.cap='Principal Components and Original Features', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$PCA_PLOT), height = "600px")
+```
+
+The final step of this process is to remove the 10 low-scoring features and replace them with the 4 new principal components to obtain the Analytic Base Table, which can be viewed in Appendix \@ref(appendix-data).
+
+
+
+## Modelling {#modelling}
+We will attempt to create models based on several different classifiers, including probability-based, rule-based, tree-based, instance-based, and linear-regression-based classifier. Following the convention, we will also include 1R as our base classifiers to set the lower bound for the performance of the other more sophisticated models [@witten2017]. 
+
+> The detail for each classifier can be found in section \@ref(md) 
+
+For each classifier, we will attempt to tune its parameters to obtain the best model. The criterion for "best" can potentially swing between accuracy, kappa or recall; we will go into further details about this decision when we discuss and evaluate the results. Since interpretability is the key to our study, we decide to classify the resulting models as either blackbox, which refers to models that we can hardly derive any meaning from its structure, such as SVM, or K-Nearest Neighbors, or whitebox, which refers to models that we can come up with some form of relationship between the original features by studying the structure of the model itself, such as decision tree, decision list (for rule-based classifiers' models). Linear models are in a grey area here because based on the coefficients, we can somewhat tell the relationship between features but because its nature is closely-related to typical blackbox models produced by SVM or Neural Network classifiers, we also classify it as blackbox.
+
+In terms of pre-processing the data, Naive Bayes, the only probability-based classifier we use, suffers from skewed data distribution so discretization is required. Discretization is also a pre-requisite for 1R learner. As such, for these two classifiers, we tune the way data is discretized (supervised or equal-frequency binning; equal-interval binning does not help much with skewedness of data, so we leave it out) and the number of bins. For regression-based and instance-based classifiers, we have to turn nominal features into multiple binary features and turns the value into 0,1 for FALSE and TRUE. These classifiers are also known to be very susceptible to incoherent scale of data, so prior to this, we normalize all numeric features. SVM is an exception as it uses standardization as suggested by the specs of the algorithm. Also, for regression-based classifiers, we have to set a threshold for classification. Consequently, we tune this threshold for linear model though we keep the threshold at 0.5 for neural network as the classifier is known to be very robust and works well with this default threshold. Rule-based and tree-based classifiers are less demanding in terms of data pre-process. They are also non-parametric so they should work well with skewed data distribution.
+
+Another important issue to address is that we have an imbalanced data set: the number of counties won by Republican is roughly 6 times as many as that of Democratic. Since not all classifiers handle imbalanced class distribution well [@he2009], we have to use under-sampling and over-sampling during training. But each method has its quirks. Under-sampling requires us to remove instance of the majority class to match the number of the minority class. Throwing away real data is never a great option. In turn, the size of the data set shrinks and this costs models learned using this training set more susceptible to the effect of the random split. So we have to increase the number of fold for cross-validation. Over-sampling, on the other hands, involves boostraping data with replacement to boost the number of minority class instances to match that of the majority class. Duplicating data is also not a great option neither since it randomly duplicates __the minority data instances.__ This does not gain us any information, but also potentially leads to over-fitting [@ganganwar2012]. This also significantly increases the size of the data set, making computation slower and thus, we decide to reduce the number of fold in cross validation. Over-sampling has a slight advantage over undersampling in justifying for our reducing number of fold in cross validation in that it has bigger training set, and no instance is thrown away, as such, it might have slightly better performance. Nevertheless, for both under-sampling and over-sampling, we risk increasing the effect of outliers. Among the classifiers we use, rule-based classifiers are especially resilient towards imbalanced class distribution as they use separate-and-conquer approach, i.e. learns each instances that lead to one class value at a time. The SVM implementation we uses the engine of [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), which supports weighted SVM for imbalanced data. We will come back to imbalanced class issue during evaluation to decide which models is the best. 
+
+Neural network and K-Nearest neighbor (both weighted and unweighted version) are among the most computationally expensive algorithms, as such, we run these classifiers using a large range for tuning parameter to __probe__ for the best range to tune on during automated modelling. The results are presented below. 
+
+``` {r include = FALSE}
+  knn.under <- read.csv(mp(RES_MODEL_PROBED_DIR, "knn.under.csv"), stringsAsFactors = TRUE)
+  knn.over <- read.csv(mp(RES_MODEL_PROBED_DIR, "knn.over.csv"), stringsAsFactors = TRUE)
+  kknn.under <- read.csv(mp(RES_MODEL_PROBED_DIR, "kknn.under.csv"), stringsAsFactors = TRUE)
+  kknn.over <- read.csv(mp(RES_MODEL_PROBED_DIR, "kknn.over.csv"), stringsAsFactors = TRUE)
+  neuralnet.under <- read.csv(mp(RES_MODEL_PROBED_DIR, "neuralnet.under.csv"), stringsAsFactors = TRUE)
+```
+
+```{r plot-probe-knn, echo = FALSE, fig.cap='Tuning for k in Unweighted K-Nearest Neighbor (top: under-sampling, bottom: over-sampling)', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 9}
+  par(bg = BACKGROUND_COLOR)
+  op = par(mfrow=c(2, 2))
+  with(knn.under, plot(knn.under$knn.k, knn.under$accuracy, cex = 0.6, bty = "o", xlab = "k", ylab = "Accuracy", main = ""))
+  with(knn.under, plot(knn.under$knn.k, knn.under$kappa, cex = 0.6, bty = "o", xlab = "k", ylab = "Kappa", main = ""))
+  with(knn.over, plot(knn.over$knn.k, knn.over$accuracy, cex = 0.6, bty = "o", xlab = "k", ylab = "Accuracy", main = ""))
+  with(knn.over, plot(knn.over$knn.k, knn.over$kappa, cex = 0.6, bty = "o", xlab = "k", ylab = "Kappa", main = ""))
+  par(op)
+```
+
+For unweighted k-nearest neighbor, we skip the even values for k and look at the accuracy as well as the kappa value as we tune. Clearly, the regions where we get best results for both under- and over-sampling is 1 to 19 and 259 to 399.
+
+```{r plot-probe-kknn, echo = FALSE, fig.cap='Tuning for k in Weighted K-Nearest Neighbor (top: under-sampling, bottom: over-sampling)', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 9}
+  par(bg = BACKGROUND_COLOR)
+  op = par(mfrow=c(2, 2))
+  with(kknn.under, plot(kknn.under$kknn.k, kknn.under$accuracy, cex = 0.6, bty = "o", xlab = "k", ylab = "Accuracy", main = ""))
+  with(kknn.under, plot(kknn.under$kknn.k, kknn.under$kappa, cex = 0.6, bty = "o", xlab = "k", ylab = "Kappa", main = ""))
+  with(kknn.over, plot(kknn.over$kknn.k, kknn.over$accuracy, cex = 0.6, bty = "o", xlab = "k", ylab = "Accuracy", main = ""))
+  with(kknn.over, plot(kknn.over$kknn.k, kknn.over$kappa, cex = 0.6, bty = "o", xlab = "k", ylab = "Kappa", main = ""))
+  par(op)
+```
+
+For the weighted version, the optimal range for tuning is 1 to 10 and 20 to 70. For instance-based learning in general, we tend to avoid going for really high values of k. As illustrated, this often produce models with very low kappa; in a sense, it defeats the purpose the purpose of instance-based learning model if every time we classify a novel instance, we have to go through a huge number of existing instances. On the other hand, too small a number of k is not advisable as this might amplifies the effect of noise in our training set.
+
+For neural network, to save time, we test out several configurations for the hidden layers using just the undersampling training set. As we can see, once we attempt to go for more than 10 nodes per hidden layers, the result drop. We can see that the performance tends to peak when we use 2 layers with around 3 to 7 nodes for each. It is not a surprising result since 2 layers are often adequate to describe an arbitrarily complex relationship; whereas one layer is over-simplified and 3-layer configurations are too expensive.
+
+```{r plot-probe-neuralnet, echo = FALSE, fig.cap='Tuning for hidden layer configuration for Neural Network', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 8}
+  par(bg = BACKGROUND_COLOR)
+  op = par(mfrow=c(2, 1))
+  plot(
+    neuralnet.under$accuracy, 
+    bty="n", ylab = "Accuracy", 
+    main = "", 
+    xaxt='n', xlab="", 
+    ylim = c(round_any(min(neuralnet.under$accuracy),0.01,f=floor),round_any(max(neuralnet.under$accuracy),0.01,f=ceiling))
+  )
+  text(neuralnet.under$accuracy, labels=neuralnet.under$neuralnet.hidden, cex = 0.5, pos = 3)
+  plot(
+    neuralnet.under$kappa, 
+    bty="n", ylab = "Kappa", 
+    main = "", 
+    xaxt='n', xlab="", 
+    ylim = c(round_any(min(neuralnet.under$kappa),0.01,f=floor),round_any(max(neuralnet.under$kappa),0.01,f=ceiling))
+  )
+  text(neuralnet.under$kappa, labels=neuralnet.under$neuralnet.hidden, cex = 0.5, pos = 3)
+  par(op)
+```
+
+The final range for tuning parameters used for each classifiers are listed below. 
+
+> 1R
+
+```
+  Binning method (oner.bin): either "supervised" or "frequency"
+  Number of bins (oner.nbin): 10, 20, 30 ... 80
+```
+
+> Naive Bayes
+
+```
+  Binning method (nb.bin): either "supervised" or "frequency"
+  Number of bins (nb.nbin): 10, 20, 30 ... 80
+  Laplace estimator (nb.laplace): 0, 1 ... 4
+```
+
+> PART
+
+```
+  Minimum number of objects per leaf (part.minLeaf): 1, 2 ... 15
+  Enable reduced-error pruning (part.REP): either TRUE or FALSE
+  Confidence threshold for pruning (part.pruneConf): 0.25
+```
+
+> RIPPER
+
+```
+  Minimum weight of instance within a split (jrip.minWeight): 0, 1 ... 20
+```
+
+
+> C4.5
+
+```
+  Minimum number of objects per leaf (part.minLeaf): 1, 2 ... 15
+  Enable reduced-error pruning (part.REP): either TRUE or FALSE
+  Confidence threshold for pruning (part.pruneConf): 0.25
+```
+
+> CART
+
+```
+  Complexity parameter (rpart.cp): 0.00, 0.05 ... 1.00
+```
+
+> Linear Model
+
+```
+  Decision threshold (lm.threshold): 0.30, 0.35 ... 0.80
+```
+
+> Supporting Vector Machine (SVM)
+
+```
+  Kernel type (svm.kernel): "linear", "polynomial", "radial" or "sigmoid"
+  Cost of constraints violation (svm.cost): 0.1, 0.2 ... 1.3
+```
+
+> Neural Network
+
+```
+  Algorithm (neuralnet.algorithm): either "rprop+" or "rprop-"
+  Hidden layer(s) configuration (neuralnet.hidden): (2,1), (3,2), (4,3), (5,4), (5,2), or (7,5)
+```
+
+> Unweighted K-Nearest Neighbor
+
+```
+  Number of nearest neighbor (knn.k): 1, 3 ... 19 and 259, 263 ... 399
+```
+
+> Weighted K-Nearest Neighbor
+
+```
+  Number of nearest neighbor (kknn.k): 1, 2 ... 10 and 20, 21 ... 70
+```
+
+
+
+
+
+## Result and Evaluation {#result}
+Our main objective is to see how demographic factors help determine the winner at each county; however, as mentioned, we are also interested in understanding how past year result, i.e. historical factor and the state to which a county belongs, i.e. geographic factor affect the result. As such, we proceed the modelling phase independently for three types of set of feature. For brevity purpose, we denote these types as: __hist__ which consists of all features; __geog__ which excludes the 2012 result; and __demo__ which only includes the demographic features. In terms of performance, similar to what we have talked about in feature selection, we look for models with highest accuracy and kappa.
+
+``` {r include = FALSE, cache = TRUE}
+
+  ############################################################
+  ##                        LIBRARY                         ##
+  ############################################################
+
+  install_load("doParallel")
+  registerDoParallel(NUMBER_OF_CORE_PARALLEL)
+  
+  ############################################################
+  ##                      INITIALIZE                        ##
+  ############################################################
+  
+  if (REPRODUCIBILITY) {
+    # http://stackoverflow.com/questions/34946177/r-llply-fully-reproducible-results-in-parallel
+    RNGkind(RNG_KIND)
+    set.seed(RNG_SEED)
+    mc.reset.stream()
+  }
+  RUN_SPECIAL <- TRUE
+  ENHANCE_INTERPRETABILITY <- TRUE
+  THRESHOLD_ACCURACY_CATEGORY_BASKET <- 0.85
+  THRESHOLD_KAPPA_CATEGORY_BASKET <- 0.6
+  
+  ############################################################
+  ##                          LOAD                          ##
+  ############################################################
+  
+  data_seed <- read.csv(mp(DATA_SELECTED_DIR, "data.csv"), stringsAsFactors = TRUE)
+  meta_seed <- read.csv(mp(DATA_SELECTED_DIR, "meta.csv"), stringsAsFactors = FALSE)
+  model_seed <- read.csv(mp(RES_MODEL_TUNED_DIR, "models.csv"), stringsAsFactors = FALSE)
+  category_seed <- read.csv(mp(RES_MODEL_TUNED_DIR, "categories.csv"), stringsAsFactors = FALSE)
+  
+  ############################################################
+  ##                       TRANSFORM                        ##
+  ############################################################
+  
+  data_seed$fips_state <- as.factor(data_seed$fips_state)
+  
+  # add mechanism
+  model_seed$mechanism <- ""
+  model_seed[model_seed$classifier %in% c("nb", "lmm", "svm", "neuralnet", "knn", "kknn"), ]$mechanism <- "blackbox"
+  model_seed[model_seed$classifier %in% c("oner", "jrip", "part", "j48", "cart"), ]$mechanism <- "whitebox"
+  
+  # add type
+  model_seed$type <- ""
+  model_seed[model_seed$exclude == "", ]$type <- "hist"
+  model_seed[model_seed$exclude == "elec_rep12_win", ]$type <- "geog"
+  model_seed[model_seed$exclude == "elec_rep12_win, fips_state", ]$type <- "demo"
+  
+  # reorder the level of each factor
+  classifiers <- c("oner", "nb", "lmm", "svm", "neuralnet", "jrip", "part", "j48", "cart", "knn", "kknn")
+  kinds <- c("oner", "nb", "lmm", "svm", "nnet", "jrip", "part", "j48", "cart", "knn", "kknn")
+  samplings <- c("under", "none", "over")
+  types <- c("hist", "geog", "demo")
+  
+  model_seed$type <- factor(model_seed$type, types)
+  model_seed$sampling <- factor(model_seed$sampling, samplings)
+  model_seed$classifier <- factor(model_seed$classifier, classifiers)
+  model_seed$kind <- model_seed$classifier
+  levels(model_seed$kind) <- kinds
+  
+  ############################################################
+  ##                ENHANCE INTERPRETABILITY                ##
+  ############################################################
+  # Preprocess the data for better interpretability
+  data_whitebox <- data_seed
+  target_whitebox <- "elec_rep16_win"
+  preprocess_whitebox <- TRUE
+  if (ENHANCE_INTERPRETABILITY) {
+    # Bring all down to percentage range 
+    data_whitebox$health_infant_mortality <- data_whitebox$health_infant_mortality/10
+    data_whitebox$health_hiv <- data_whitebox$health_hiv/1000
+    data_whitebox$health_sti <- data_whitebox$health_sti/1000
+    data_whitebox$health_injury <- data_whitebox$health_injury/1000
+    data_whitebox$demo_violent_crime <- data_whitebox$demo_violent_crime/1000
+    data_whitebox$demo_homicide <- data_whitebox$demo_homicide/1000
+  
+    # Rename the Variable
+    data_whitebox <- dispd_v(data_seed, meta_seed)
+    names(data_whitebox) <- gsub(x = names(data_whitebox),
+                          pattern = " ",
+                          replacement = "\\_")
+    names(data_whitebox) <- gsub(x = names(data_whitebox),
+                          pattern = "\\(",
+                          replacement = "")
+    names(data_whitebox) <- gsub(x = names(data_whitebox),
+                          pattern = "\\)",
+                          replacement = "")
+    names(data_whitebox) <- gsub(x = names(data_whitebox),
+                          pattern = ",",
+                          replacement = "")
+    names(data_whitebox) <- gsub(x = names(data_whitebox),
+                          pattern = "-",
+                          replacement = "")
+  
+    # Special name needs to be addressed
+    target_whitebox <- names(data_whitebox)[1]
+    names(data_whitebox)[names(data_whitebox) == "Republican_Win_2012"] <- "elec_rep12_win"
+    names(data_whitebox)[names(data_whitebox) == "FIPS_State_Code"] <- "fips_state"
+    preprocess_whitebox <- FALSE
+  }
+  
+  ############################################################
+  ##                      MODEL RANK                        ##
+  ############################################################
+  
+  # slices up the dataset to 9 slices
+  slices <- slice_by_type_and_sampling(model_seed, types = types, samplings = samplings)
+  # find modesl with best kappa performance
+  model_guides <- best_of_each_slice(slices, by = "mechanism", "kappa", base = "oner")
+  models <- NULL
+  for (i in 1:length(model_guides)) {
+    temp.model <- NULL
+    temp.guide <- NULL
+    for (j in 1:length(model_guides[[i]])) {
+      temp.model[[names(model_guides[[i]])[j]]] <- NULL
+      temp.model[[names(model_guides[[i]])[j]]][["blackbox"]] <- retrieve_model(model_guides[[i]][[j]][model_guides[[i]][[j]]$mechanism == "blackbox", ], data_seed, "elec_rep16_win", preprocess = TRUE)
+      temp.model[[names(model_guides[[i]])[j]]][["whitebox"]] <- retrieve_model(model_guides[[i]][[j]][model_guides[[i]][[j]]$mechanism == "whitebox", ], data_whitebox, target_whitebox, preprocess = preprocess_whitebox)
+      temp.guide <- rbind(temp.guide, model_guides[[i]][[j]])
+    }
+    models[[names(model_guides)[i]]] <- temp.model
+    model_guides[[i]] <- sanitize_result(temp.guide)
+  }
+```
+   
+```{r plot-performance-by-accuracy-kappa-over-type, echo = FALSE, fig.cap='Accuracy and Kappa by Type', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 4}
+  slices <- slice_by_type_and_sampling(model_seed, types = NULL, samplings = NULL)
+  op = par(mfrow=c(1,2))
+  boxplot_singlet(as.simple.formula("type", "accuracy"), slices, c(0.75, 1), ylab = "Accuracy")
+  boxplot_singlet(as.simple.formula("type", "kappa"), slices, c(0.3, 0.9), ylab = "Kappa")
+  par(op)
+```
+
+Clearly, here we can see the superior performance of the __hist__ model, i.e. which includes the 2012 result. What interests us more is the spread in performance of the models learned using __geog__ data set. Perhaps, our previous explanation might fit well in here. We argue that state is a complex composite indicator that potentially encodes unique information on various demographic aspects. Including the state might help to improve the result of states that we refer to as _homogenous_, in other words, states where most counties are similar in demographic statistics and election trend. For swing-states or states where counties may vary vastly in demographic data such as California, including state in the learning process may actually hamper and obfuscate the learning algorithms. For this very reason, our interest shifts more towards the __demo__ set, which comprises purely demographic features. Now, let us consider the effect of under-sampling and over-sampling on the performance of various models. Since we can see that most models perform relatively well in terms of accuracy (> 0.75), we will use Kappa as the metric to measure of performance. 
+
+```{r plot-performance-by-kappa-over-sampling, echo = FALSE, fig.cap='Kappa by Sampling Method', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 8}
+  slices <- slice_by_type_and_sampling(model_seed, types = types, samplings = NULL)
+  boxplot_quartet(as.simple.formula("sampling", "kappa"), slices, c(0.3, 0.9))
+```
+
+Here we can see the unique effect that each type of sampling acts on the models. For under-sampling, since many instances are removed, the size of the data set shrinks significantly, this aggravates models' performance. For over-sampling, since there are a larger data set, the model tends to performs better and the spread of models' performance is usually the smallest. When no sampling method is applied, models performance spreads out in a wide range as there are classifiers that works well with imbalanced data and there are classifiers that are hurt by this imbalance, such as tree-based and k-nearest neighbor. Nevertheless, top-performing models are often those trained with unsampled data set. This substantiates our point early about how both under-sampling and over-sampling potentially amplify the effect of noises in the data set. Another interesting point to note is the interaction of the data set type and the different sampling methods. As can be seen, for no-sampling, there is a wide spread of kappa values for models learning the __hist__ and __geog__ data set. This is totally expected as with the presence of strong predictors like 2012 result and state, random predictors would perform relatively better.
+
+The reason why we pay extra attention to the sampling method is already explained in the previous section. To see how these actually affect the learned models, we should look at the recall of the minority class (Democratic as the winner) as well as the prediction rate of the majority class (Republican as the winner). 
+
+```{r plot-performance-by-recall-precision-over-sampling, echo = FALSE, fig.cap='Recall for Minorty Class and Precision for Majority Class by Sampling Method', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 4}
+  slices <- slice_by_type_and_sampling(model_seed, types = NULL, samplings = NULL)
+  op = par(mfrow=c(1,2))
+  boxplot_singlet(as.simple.formula("sampling", "recall.FALSE"), slices, c(0.3, 1), ylab = "Recall for Minority Class")
+  boxplot_singlet(as.simple.formula("sampling", "precision.TRUE"), slices, c(0.8, 1), ylab = "Precision for Majority Class")
+  par(op)
+```
+
+As expected, models learned using unsampled training set has the tendency to favors the majority class, as such, a large number of instances that actually belongs to the minority class are predicted to belong to the majority class. This shows us that during evaluation, we have to pay close attention to these 2 metrics beside kappa. Now let us look at the general performance of each classifiers over all data set type and sampling method.
+
+```{r plot-performance-by-kappa-over-kind, echo = FALSE, fig.cap='Kappa by Classifier', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 4}
+  slices <- slice_by_type_and_sampling(model_seed, types = NULL, samplings = NULL)
+  boxplot_singlet(as.simple.formula("kind", "kappa"), slices, c(0.3, 0.9))
+```
+
+And of course, because __God is in the detail__, we present the performance of each classifiers by 3 different data set types and sampling methods below.
+
+```{r plot-performance-by-kappa-over-kind-sampling, echo = FALSE, fig.cap='Kappa by Classifier', fig.show = 'asis', fig.align = 'center', out.width ='\\maxwidth', fig.height = 9}
+  slices <- slice_by_type_and_sampling(model_seed, types = types, samplings = samplings)
+  boxplot_nonet(as.simple.formula("kind", "kappa"), slices, c(0.3, 0.9), las = 2, medlwd = 1)
+```
+
+We can see that the top performers are linear-regression-based, rule-based, and tree-based classifiers. The only exception is the tree-based classifier CART, whose performance spreads in a wildly wide range. We think that this is mainly due to the fact that we allow the complexity parameter, the only tuning parameter for CART, to vary between 2 extremes, i.e. 0 to 1, which corresponds with no pruning and pruning everything. Nevertheless, its performance in most case are not really impressive anyway. Instance-based classifiers' performance barely passes those of base classifiers 1R and the simple Naive Bayes classifiers. Also, we are surprised at first to how neural network did not outperform simpler classifiers like linear regression or SVM; perhaps the underlying function is actually simpler than we thought and that using neural network with 2 layers actually hampers the performance of the resulting models by taking bias against the intrinsic simplicity of the underlying function. But since we are dealing with an ill-posed problem, we cannot say anything too certain about this. The most consistent top-performers are linear model and SVM. However, these models also faces the same problem as CART where the performance result spreads in a wide range. We think that a similar explanation can be used in this case. For linear model, we tune the threshold of classification over the range from 0.3 to 0.8; and for SVM, we tune the cost of constrain violation over an wide range from 0.1 to 1.3--both of these directly affect how these models classify test instances and inherently, their performance. 
+
+After this, we identify the best blackbox and whitebox models for each data set type and apply our understanding of the algorithms and sampling methods to choose the best models for each type. First, we will consider the __hist__ data set. Note that in this table, "Precision\*" represents precision rate for majority class and "Recall\*" represents the recall for minority class. In the context of this analysis, we will use recall and precision when talking about these. 
+
+``` {r include = FALSE}
+  models.hist <- read.csv(mp(RES_MODEL_ANALYZED_DIR, "models.hist.csv"), stringsAsFactors = TRUE)
+  models.geog <- read.csv(mp(RES_MODEL_ANALYZED_DIR, "models.geog.csv"), stringsAsFactors = TRUE)
+  models.demo <- read.csv(mp(RES_MODEL_ANALYZED_DIR, "models.demo.csv"), stringsAsFactors = TRUE)
+```
+
+
+``` {r table-models-hist, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+temp <- models.hist
+temp$accuracy <- round(temp$accuracy, 2)
+temp$kappa <- round(temp$kappa, 2)
+temp$recall.FALSE <- round(temp$recall.FALSE, 2)
+temp$precision.TRUE <- round(temp$precision.TRUE, 2)
+temp <- temp[, names(temp) %notin% c("cv.iteration", "cv.fold", "method", "preprocess", "kind")]
+colnames(temp)[names(temp) %in% c("accuracy", "kappa", "recall.FALSE", "precision.TRUE", "classifier", "sampling", "mechanism")] <- c("Accuracy", "Kappa", "Recall*", "Precision*", "Classifier", "Sampling", "Mechanism")
+order <- c("Classifier", "Sampling", "Accuracy", "Kappa", "Recall*", "Precision*", "Mechanism")
+temp <- temp[, append(order, names(temp)[names(temp) %notin% order])]
+if (RENDER_MODE!="pdf") {
+  datatable(
+    temp,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 6,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '115px', className = 'dt-center', targets = c(1,2,3,6)),
+                        list(width = '95px', className = 'dt-center', targets = c(4,5)),
+                        list(width = '150px', className = 'dt-center', targets = c(7:ncol(temp))))
+    )
+  )
+} else {
+  cat("\\greybox{[Best Models for \"hist\" Type] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Model 5 is the best blackbox model as it ranks highest in Kappa and has relatively high precision and recall rate. This model is obtained by using SVM on over-sampled training set with linear kernel and cost of 0.4. Model 4 is the best whitebox model. It is obtained by using RIPPER (RWeka::JRip implementation) on unsampled training set with minimum weight of instance within a split set to 10. RIPPER, as noted, works well with imbalanced class distribution, so we have no problem here picking it as the best model. Evidently the recall and precision rate for this model is also relatively high. The set of rules produced by it is presented below.
+
+```
+1. (Republican Win 2012 = FALSE) and (Winter Avg. Temperature >= 29.536101) and (Median Age <= 38.9) => Republican Win 2016=FALSE (233.0/12.0)
+2. (Republican Win 2012 = FALSE) and (Adult Obesity Rate <= 0.276) and (At Least Bachelor Degree >= 28.2) => Republican Win 2016=FALSE (114.0/7.0)
+3. (Republican Win 2012 = FALSE) and (White not Latino Population <= 49.6) => Republican Win 2016=FALSE (87.0/12.0)
+4. (Republican Win 2012 = FALSE) and (Farming Fishing and Forestry Occupations <= 0.4) and (Median Age <= 39) and (Median Earning >= 26201) => Republican Win 2016=FALSE (12.0/1.0)
+5. (Republican Win 2012 = FALSE) and (At Least Bachelor Degree >= 19.8) and (African American Population <= 0.6) and (HIV Prevalence Rate >= 58.288) and (Population Density >= 7.541532) => Republican Win 2016=FALSE (17.0/4.0)
+6. (Republican Win 2012 = FALSE) and (Other races Population >= 2.1) and (Adult Obesity Rate <= 0.295) => Republican Win 2016=FALSE (24.0/7.0)
+=> Republican Win 2016=TRUE (2623.0/41.0)
+```
+As we can see, all of the rules are related to the 2012 result. To us, this might provide some insights, yet not particularly interesting. We will thus, move on the __geog__ data set. 
+
+``` {r table-models-geog, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+temp <- models.geog
+temp$accuracy <- round(temp$accuracy, 2)
+temp$kappa <- round(temp$kappa, 2)
+temp$recall.FALSE <- round(temp$recall.FALSE, 2)
+temp$precision.TRUE <- round(temp$precision.TRUE, 2)
+temp <- temp[, names(temp) %notin% c("cv.iteration", "cv.fold", "method", "preprocess", "kind")]
+colnames(temp)[names(temp) %in% c("accuracy", "kappa", "recall.FALSE", "precision.TRUE", "classifier", "sampling", "mechanism")] <- c("Accuracy", "Kappa", "Recall*", "Precision*", "Classifier", "Sampling", "Mechanism")
+order <- c("Classifier", "Sampling", "Accuracy", "Kappa", "Recall*", "Precision*", "Mechanism")
+temp <- temp[, append(order, names(temp)[names(temp) %notin% order])]
+if (RENDER_MODE!="pdf") {
+  datatable(
+    temp,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 6,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '115px', className = 'dt-center', targets = c(1,2,3,6)),
+                        list(width = '95px', className = 'dt-center', targets = c(4,5)),
+                        list(width = '150px', className = 'dt-center', targets = c(7:ncol(temp))))
+    )
+  )
+} else {
+  cat("\\greybox{[Best Models for \"geog\" Type] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Model 3 is the best blackbox model as it ranks highest in Kappa and has relatively high precision and recall rate. This model is obtained by using SVM on unsampled training set with radial kernel and cost of 1.1. In terms of Kappa and accuracy, we would choose model 4 over model 6 as the best white box model, but model 4 is obtained using C4.5 decision-tree algorithm (RWeka::J48 implementation) on unsampled training set, which accounts for the relatively lower recall rate at 0.75. As such, we consider model 6 the best whitebox model for the __geog__ data set. This model is obtained by using RIPPER on over-sampled training set with minimum weight of instance within a split set to 8. The set of rules learned by the model is presented below. 
+
+```
+1. (White not Latino Population >= 55.5) and (Graduate Degree <= 8) and (At Least Bachelor Degree <= 18.4) => Republican Win 2016=TRUE (1558.0/6.0)
+2. (White not Latino Population >= 55.5) and (Graduate Degree <= 7.1) and (Winter Avg. Temperature >= 28.25) => Republican Win 2016=TRUE (194.0/0.0)
+3. (HIV Prevalence Rate <= 105.277) and (Graduate Degree <= 10.2) and (Children in Single Parent Households Rate <= 0.308) and (Infant Mortality >= 5.8) => Republican Win 2016=TRUE (184.0/0.0)
+4. (HIV Prevalence Rate <= 191.294) and (Adult Obesity Rate >= 0.271) and (White not Latino Population >= 35.3) and (Age Dependency Ratio >= 66.4) and (Median Age <= 50.1) and (Winter Avg. Precipitation <= 11.71) => Republican Win 2016=TRUE (142.0/0.0)
+5. (White not Latino Population >= 64.3) and (At Least Bachelor Degree <= 27.6) and (Low Birth Weight Rate >= 0.067619) and (Winter Avg. Temperature >= 31.785417) and (Asian American Population <= 4) => Republican Win 2016=TRUE (114.0/0.0)
+6. (HIV Prevalence Rate <= 152.548) and (Gini Coefficient <= 0.434) and (Other races Population <= 1.4) and (Injury Death Rate <= 57.5) and (Voting Power <= 0.415249) => Republican Win 2016=TRUE (47.0/0.0)
+7. (White not Latino Population >= 51.1) and (Graduate Degree <= 9.4) and (Other races Population <= 1.8) and (Winter Avg. Temperature >= 23.739286) and (Population Density <= 19.864428) => Republican Win 2016=TRUE (54.0/0.0)
+8. (White not Latino Population >= 73.8) and (Graduate Degree <= 12.4) and (Voting Participation Rate <= 54.80236) and (Diabetes Rate >= 0.087) => Republican Win 2016=TRUE (35.0/0.0)
+9. (HIV Prevalence Rate <= 191.294) and (Adult Obesity Rate >= 0.243) and (Service Occupations <= 21) and (Asian American Population <= 2.7) and 10. (Children in Single Parent Households Rate <= 0.286) and (Infant Mortality <= 5.7) => Republican Win 2016=TRUE (42.0/0.0)
+11. (White not Latino Population >= 50.2) and (Graduate Degree <= 12.3) and (Voting Participation Rate <= 53.47034) and (Unemployment Rate <= 0.063) => Republican Win 2016=TRUE (25.0/0.0)
+12. (White not Latino Population >= 67.8) and (Age Dependency Ratio >= 59.2) and ([PC] Child Poverty Rate <= -0.147481) and (Native American Population >= 0.2) => Republican Win 2016=TRUE (23.0/0.0)
+13. (Age Dependency Ratio >= 61.3) and (White not Latino Population >= 47.3) and ([PC] Teen Birth Rate >= 0.171219) and (Other races Population <= 1.1) => Republican Win 2016=TRUE (20.0/0.0)
+14. (HIV Prevalence Rate <= 194.363) and (Adult Obesity Rate >= 0.267) and (Service Occupations <= 17.6) and (Winter Avg. Precipitation <= 3.125) => Republican Win 2016=TRUE (18.0/0.0)
+15. (White not Latino Population >= 53.2) and (Adult Obesity Rate >= 0.271) and (Winter Avg. Temperature >= 43.8) and (Sex Ratio <= 94.6) => Republican Win 2016=TRUE (15.0/3.0)
+16. (White not Latino Population >= 84.8) and (Homogeneity Index <= 0.82847) and (Production Transportation and Material moving Occupations >= 11.3) and (Other races Population <= 1.8) => Republican Win 2016=TRUE (14.0/0.0)
+17. (HIV Prevalence Rate <= 193.533) and (Infant Mortality >= 6.639923) and (Service Occupations <= 20.9) and (Unemployment Rate <= 0.062) and 18. ([PC] Child Poverty Rate <= 1.224397) and (Crime Rate <= 343.11) => Republican Win 2016=TRUE (18.0/0.0)
+19. (White not Latino Population >= 75.7) and (Graduate Degree <= 10.2) and (Winter Avg. Temperature >= 22.99) and (Gini Coefficient <= 0.434) and 20. (Asian American Population <= 1.6) and (Sex Ratio <= 102.3) => Republican Win 2016=TRUE (13.0/0.0)
+21. (Gini Coefficient <= 0.443) and (Preschool Enrollment Ratio <= 38.6) and (Median Earning <= 24755) and (Diabetes Rate <= 0.127) and (Uninsured Rate >= 0.143) => Republican Win 2016=TRUE (16.0/0.0)
+22. (White not Latino Population >= 58.1) and (Winter Avg. Temperature >= 39.1) and (Sales and Office Occupations >= 26.2) and (Children in Single Parent Households Rate <= 0.355) => Republican Win 2016=TRUE (13.0/0.0)
+23. (Sex Ratio >= 102.5) and (Preschool Enrollment Ratio <= 49.8) and (White not Latino Population >= 43.3) and (White not Latino Population <= 79.7) and (Voting Participation Rate <= 69.594874) => Republican Win 2016=TRUE (14.0/0.0)
+ => Republican Win 2016=FALSE (2691.0/75.0)
+```
+
+Here, we can see a much more interesting set of rules in the sense that the state does not actually appear in any rule. We will definitely talk more about this in the discussion section. For now, we will move on to our main objective, i.e. the __demo__ data set. 
+
+``` {r table-models-demo, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+temp <- models.demo
+temp$accuracy <- round(temp$accuracy, 2)
+temp$kappa <- round(temp$kappa, 2)
+temp$recall.FALSE <- round(temp$recall.FALSE, 2)
+temp$precision.TRUE <- round(temp$precision.TRUE, 2)
+temp <- temp[, names(temp) %notin% c("cv.iteration", "cv.fold", "method", "preprocess", "kind")]
+colnames(temp)[names(temp) %in% c("accuracy", "kappa", "recall.FALSE", "precision.TRUE", "classifier", "sampling", "mechanism")] <- c("Accuracy", "Kappa", "Recall*", "Precision*", "Classifier", "Sampling", "Mechanism")
+order <- c("Classifier", "Sampling", "Accuracy", "Kappa", "Recall*", "Precision*", "Mechanism")
+temp <- temp[, append(order, names(temp)[names(temp) %notin% order])]
+if (RENDER_MODE!="pdf") {
+  datatable(
+    temp,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 6,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '115px', className = 'dt-center', targets = c(1,2,3,6)),
+                        list(width = '95px', className = 'dt-center', targets = c(4,5)),
+                        list(width = '150px', className = 'dt-center', targets = c(7:ncol(temp))))
+    )
+  )
+} else {
+  cat("\\greybox{[Best Models for \"demo\" Type] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Again, SVM dominates blackbox type models. Model 3 is the best blackbox model, which tops all 4 metrics. This model is obtained by using SVM on unsampled training set with radial kernel and cost of 1.1, very similar to the one obtained for __geog__ data set. As for the best whitebox model, we have a heated competition between model 4 and 6. Model 4 has slightly higher Kappa (0.74) but lower recall rate (0.77) whereas model 6 does really well in term of recall (0.81) but slightly lower Kappa (0.71). Model 4 is obtained from using PART algorithm (RWeka::PART) on unsampled training set, with minimum number of nodes in leaf set to 8 and pruning confidence set to 25%. Model 6 is also obtained using PART but trained on over-sampled data set, with reduced-error pruning enabled. Since PART first builds partial (C4.5) decision tree on the current set of instances and makes the “best” leaf into a rule then discards the instances covered by the rule, it is at a slight disadvantage while working with imbalanced class distribution. As such, in this case, we prefer model 6 to model 4. The set of rules learned by the model is presented below. 
+
+```
+1. (White not Latino Population <= 50.9) and ([PC] Teen Birth Rate <= 0.605307) and (Native American Population <= 22.4) and (School Enrollment > 69.2) and (HIV Prevalence Rate > 225.949) => Republican Win 2016=FALSE (469.0/1.0)
+2. (At Least Bachelor Degree > 26.5) and (Children in Single Parent Households Rate > 0.17) and (Winter Avg. Precipitation > 2.27) and ([PC] Child Poverty Rate > -0.060527) and (Age Dependency Ratio <= 65.6) and ([PC] Adult Smoking Related Health Problem Rate <= 1.006921) and (Adult Obesity Rate <= 0.242) => Republican Win 2016=FALSE (277.0/3.0)
+3. (Population Density > 145.425672) and (White not Latino Population <= 73.7) and (Winter Avg. Temperature <= 50.45) and (White not Latino Population <= 59.1) => Republican Win 2016=FALSE (130.0)
+4. (White not Latino Population <= 38.8) and (Diabetes Rate > 0.131) => Republican Win 2016=FALSE (208.0/6.0)
+5. (Graduate Degree <= 8) and (African American Population <= 46.9) and (Homogeneity Index > 0.405302) and (Graduate Degree <= 6.9) and (White not Latino Population > 41.9) and (Adult Obesity Rate > 0.283) and (Sexually Transmitted Infections Rate <= 590.2) => Republican Win 2016=TRUE (1083.0/2.0)
+6. (Graduate Degree > 9.9) and (Population Density > 187.742929) and (Sales) and (Office Occupations <= 27.8) and (Sexually Transmitted Infections Rate > 245.4) => Republican Win 2016=FALSE (197.0/3.0)
+7. (Winter Avg. Precipitation > 19.11) and (Unemployment Rate <= 0.09) and (Low Birth Weight Rate > 0.05) => Republican Win 2016=FALSE (64.0/5.0)
+8. (African American Population <= 50.7) and (Graduate Degree > 12.6) and (Crime Rate > 73.8) and (Homicide Rate <= 5.156087) and (Voting Participation Rate > 49.777857) and (Farming Fishing) and (Forestry Occupations > 0.4) => Republican Win 2016=FALSE (52.0)
+9. (African American Population <= 50.7) and (White not Latino Population > 33.7) and (Asian American Population > 0.2) and (Other races Population <= 1.1) and (Construction Extraction Maintenance) and (Repair Occupations > 7) and (Low Birth Weight Rate > 0.05) => Republican Win 2016=TRUE (130.0)
+10. (Unemployment Rate <= 0.033) and (Homicide Rate > 1.9) => Republican Win 2016=TRUE (40.0)
+11. (Asian American Population <= 0.2) and (African American Population <= 51.5) => Republican Win 2016=TRUE (72.0)
+12. (African American Population <= 40.8) and (Production Transportation) and (Material moving Occupations > 18.6) => Republican Win 2016=TRUE (49.0/2.0)
+13. (Adult Obesity Rate <= 0.381) and (African American Population > 26.1) and (Uninsured Rate <= 0.211) and (Production Transportation) and (Material moving Occupations <= 14.7) => Republican Win 2016=FALSE (47.0/1.0)
+14. (African American Population > 46.6) => Republican Win 2016=FALSE (32.0)
+15. (Winter Avg. Temperature <= 23.9) and (Age Dependency Ratio > 69.3) and (Latino Population > 0.7) => Republican Win 2016=TRUE (13.0)
+16. (Winter Avg. Temperature <= 23.9) and (Children in Single Parent Households Rate > 0.17) and (Homicide Rate <= 2.701087) and (Injury Death Rate > 52.4) and (Diabetes Rate <= 0.095) => Republican Win 2016=FALSE (77.0)
+17. (White not Latino Population <= 34.1) and (Adult Obesity Rate <= 0.294) => Republican Win 2016=FALSE (24.0)
+18. (At Least Bachelor Degree > 39.6) and (Children in Single Parent Households Rate > 0.15) and (HIV Prevalence Rate > 62.041) and (Sales) and (Office Occupations <= 26.7) and (African American Population <= 12.6) => Republican Win 2016=FALSE (35.0)
+19. (Latino Population <= 38.3) and (Preschool Enrollment Ratio > 33.9) and (Winter Avg. Temperature > 26.814286) and (Asian American Population <= 3) and (Children in Single Parent Households Rate <= 0.455) and (School Enrollment <= 83.8) and (Preschool Enrollment Ratio <= 52.7) and (Low Birth Weight Rate > 0.065) => Republican Win 2016=TRUE (124.0)
+20. (Children in Single Parent Households Rate > 0.197) and (Median Age > 47) and (Latino Population > 0.9) => Republican Win 2016=TRUE (32.0)
+21. (Children in Single Parent Households Rate > 0.197) and (Adult Obesity Rate > 0.212) and (Preschool Enrollment Ratio <= 33.1) and (Other races Population > 0.6) => Republican Win 2016=TRUE (30.0)
+22. (Children in Single Parent Households Rate <= 0.197) => Republican Win 2016=TRUE (28.0)
+23. (Voting Power <= 0.014387) and (African American Population <= 2.6) => Republican Win 2016=FALSE (17.0)
+24. (Diabetes Rate <= 0.088) and (Asian American Population <= 2.2) => Republican Win 2016=TRUE (33.0)
+25. ([PC] Child Poverty Rate <= -0.105728) and (Latino Population <= 55.7) => Republican Win 2016=TRUE (32.0/3.0)
+26. (Infant Mortality <= 4.3) => Republican Win 2016=FALSE (16.0)
+27. (Voting Participation Rate > 51.618184) and (Winter Avg. Precipitation > 12.14) and (Low Birth Weight Rate > 0.05) => Republican Win 2016=TRUE (9.0)
+28. (Voting Participation Rate > 51.618184) and (Homicide Rate > 5.719412) => Republican Win 2016=FALSE (29.0)
+29. (Age Dependency Ratio > 65.9) and (Voting Participation Rate <= 64.880023) => Republican Win 2016=TRUE (14.0)
+30. (Production Transportation) and (Material moving Occupations <= 8.7) and (Construction Extraction Maintenance) and (Repair Occupations > 5.7) => Republican Win 2016=TRUE (9.0)
+31. ([PC] Child Poverty Rate <= -0.065225) => Republican Win 2016=FALSE (17.0)
+32. (Preschool Enrollment Ratio > 53.6) and (Asian American Population <= 3.8) => Republican Win 2016=TRUE (13.0)
+33. (Other races Population > 2) and (Homicide Rate > 2.4) and ([PC] Adult Smoking Related Health Problem Rate > -0.235165) => Republican Win 2016=FALSE (41.0/1.0)
+34. (Sex Ratio <= 96) and (Gini Coefficient > 0.421) => Republican Win 2016=FALSE (18.0)
+35. (Service Occupations <= 21.3) and (Injury Death Rate > 41.7) and (African American Population > 0.9) => Republican Win 2016=TRUE (23.0)
+36. (Preschool Enrollment Ratio > 43.2) => Republican Win 2016=FALSE (12.0)
+37. (School Enrollment <= 77.3) => Republican Win 2016=TRUE (3.0)
+=> Republican Win 2016=FALSE (1.0)
+```
+
+
+## Discussion
+
+In this section, we will attempt to interpret some of the rules learned by the whitebox models. Note that to better our understanding, we leave the data unnormalized when we build the model so that all the split points used in each antecedent are of the same unit as that of the original features. Arguably, this might affect the model constructed but generally this should not affect greatly since rule-based classifiers treat both normalized and un-normalized features alike. We also recognize that based on its mechanism, RIPPER will choose the majority class as the default and build rules to cover instances of the minority classes, but in this case, the training data was oversampled so there is no real major or minor classes here. As such, the choice is randomized every time. To make this result reproducible (as well as other procedures reproducible), we fix a seed at the beginning of the script. This also helps PART since we found that this particular algorithm actually produces slightly different set of rules each time we run it. Also note that since we used cross-validation for model-tuning step, the models that we build in the end use all of the data set as its training set, and the _assumed_ performance is the performance as dictated by the cross-validation process. 
+
+Since both RIPPER and PART produce a decision list, we will only care about rules with highest coverage, in this case, we set a threshold to approximately 50 instances, i.e. rules covering less than this threshold will not be considered in this discussion. Nevertheless, some rule with high coverage appear really obscure to us. For example, for __geog__ model rule number 3--(HIV Prevalence Rate <= 105.277) and (Graduate Degree <= 10.2) and (Children in Single Parent Households Rate <= 0.308) and (Infant Mortality >= 5.8) => Republican Win 2016=TRUE (184.0/0.0). For graduate degree, from the section @\ref(dqr-exploration), we can see that 10.2 is beyond the upper quartile range. As such, this is a high graduate degree rate, but the direction of the arrow is _less than_. So how should we interpret this antecedent? Should we say that counties where a lot of people have graduate degree favor Republican. But this is erroneous, because the sign suggests that counties with extremely small number of people with graduate degree are also considered. As such, rules with this kind of antecedents are not really useful to us. 
+
+Other than that problem, we are quiet comfortable with interpreting some of the top rules. For __geog__ data set, the major rules learned are presented below:
+
+> The number of the rule corresponds to the number of the raw rule extracted from the model.
+
+1. Counties where more than half of the population is white and have relatively low level of education achievement, such as bachelor/graduate degree favor Republican
+2. Counties where more than half of the population is white and have higher winter temperature favor Republican 
+4. Counties where HIV presents at moderate level and have more than third of the population white and high age-dependency ratio with relatively young population and extremely dry weather favor Republican 
+5. Counties with majority of the population white, low education achievement rate, a small portion of Asian American and relatively warm winter favor Republican
+
+As for the the main data set __demo__, some of the interpretation we made are presented below.
+
+1. Counties where less than half of the population is white, with relatively low teen birth rate, less than a quarter of population as native American, relatively high school enrollment and relatively high HIV prevalence rate favor Democratic
+3. Counties with high population density and where less than less than half of the population is white favor Democratic
+4. Counties with less than one third of the population as white and relatively high diabetes rate favor Democratic
+5. Counties where less than half of the population is African American and more than half is white and relatively high adult obesity rate and low graduate degree achievement rate as well as high sexually transmitted infections rate favor Republican
+6. Counties with relatively high rate of graduate degree achievement, highly-populated and less than a quarter of the population working in sales and office occupations but high sexually transmitted infections rate favor Democratic
+11. Counties with very small portion of Asian American and less than half of the population as African American favor Republican
+12. Counties with less than third of the population as Hispanic, warmer winter, pre-school enrollment ratio within 30% and 50%, high children in single parent household rate and high low birth weight rate favor Republican
+26. Counties where infant mortality rate is low favor Democratic
+
+Admittedly, even when we spread out these rules in front of us, they are still rather cryptic and convoluted to a certain extent. To simplify this, we think it is best we look for certain patterns in this rule-set and give some advice to each party on how they might potentially improve their chance of winning. Counties which support Republican tend to have a large portion of the population as white, warmer weather and/or relatively low level of education achievement. As such, Democratic party might want to focus their campaign more towards these areas. On the other hand, Democratic party often wins counties with higher race homogeneity index, i.e. a smaller portion of the population as white. Also, highly-populated counties tend to favor Democratic party. This result is not surprising as we can see how Democratic party managed to win some past election despite winning significantly lower number of counties. We also observe an interesting pattern that counties with lower quality of healthcare favor Democratic party. Perhaps, Republican can adjust their healthcare policies to make them appear more attractive to these counties.
+
+
+
+
+
+## Conclusion
+Through this study, we have learned some interesting points about the 2016 election result, such as how counties with warmer weather tend to support Republican or counties with lower healthcare quality favor Democratic. We find these findings attractive in its own way as we obtain them only though numbers and figures, without politics, without speeches, without literary devices. Maybe in the future, some socioeconomists might actually figure out how warmer weather works out well for Republican in a convincing way. But what we have now to back what we find are just numbers. Numbers are cold though, and despite their seemingly innocuous look, they conceal highly sophisticated truth. Or perhaps, can it turn out to be really simple? We are never sure of anything, in fact we can only say we are _x%_ sure of something, because every problems we are trying to solve using data mining are ill-posed problems. It can get even worse when we realize that our best models perform equally well as a 1R model using just one feature, such as the 2012 result, does. Nevertheless, due to the relatively high performance, at least we can say we are rather confident that there are some sort of underlying function between the descriptive features and the target. At some point, we thought that data mining is __THE__ unbiased approach to study anything. But we were wrong, classifiers are actually pretty biased: some prefer simpler structure using MDL principle, some prefer one metric over another, etc. Bias is what fuels the decision power of classifiers. However, data mining is powerful in that it does not let itself confused by meaning of the features. Humans like us are too quick to pick up patterns in terms of meaning and are quick to fall into the bog of confirmation bias. Numbers are cold and machine treat them coldly too. So definitely, there is something neat about this cold way of learning; and yet again, the hardest part is to look for the _perfect_ balance between the two forces--human and machine. But trying to figure that, unfortunately, is also an ill-posed problem itself.
+
+
+## Further Thoughts
+In terms of improvement, we really want to have a better understanding of factor analysis technique since that will help us derive more meaningful features during feature selection phase. We also feel that we have to approach data collection phase with better business understanding, as of now, we have categories of features with vastly different granularity. Speaking of categories, we spent a considerable amount of time on trying to do feature selection differently. When we try to use exhaustive search to find the best attribute, this took us too long so we thought, we might instead be able to figure out what groups of features, i.e. categories, often go well with one another in formulating the best models. In particular, we find subsets of categories that contribute to top-performing models; then we conduct association rule mining on these subsets. Below, we present the results of the best rules based on support, confidence and lift. 
+
+```{r plot-category-by-support, echo = FALSE, fig.cap='Top Association by Support', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_SUPPORT), height = "600px")
+```
+
+```{r plot-category-by-confidence, echo = FALSE, fig.cap='Top Association by Confidence', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_CONFIDENCE), height = "600px")
+```
+
+```{r plot-category-by-lift, echo = FALSE, fig.cap='Top Association by Lift', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_LIFT), height = "600px")
+```
+
+By support, we can tell that race, healthcare, weather, education, demographic and election are categories that often appear in the subset of categories that make up good models. By confidence, we can see that other categories often couples with race in making top rules. And last but not least, by lift, we actually see the group of categories that form strong models. Race actually are not close to any particular groups, though alone it can be a good predictor factor. The group of weather, crime, finance and demographic (general demographic information such as sex ratio, age-dependency ratio, etc.) actually form a strong group. Based on these observation, we can then try to subset our feature space into several different sets and learn models using each of them accordingly. That is an improvement that we will attempt in the future. 
+
+Last but not least, although, we can roughly say that warmer weather somehow correlates to higher win rate for Republican, we never actually be able to prove that, even using just number. Warmer weather still need to couple with another antecedent to make up a rule. One potential direction for further research is to isolate weather out and to study in-depth the relationship between weather and the election result. This also applies to healthcare quality.

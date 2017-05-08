@@ -1,0 +1,11 @@
+Package:  elexion
+Version:  0.0.1
+Date:  2017-02-23
+Depends:  R (>= 3.0.0)
+Imports: bookdown
+Remotes: rstudio/bookdown
+Title:  How the 2016 US Election Happened
+Author:  An Phi <aphi@skidmore.edu>
+Maintainer:  An Phi <aphi@skidmore.edu>
+Description:  A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA.
+URL: https://github.com/blacksteed232/elexion

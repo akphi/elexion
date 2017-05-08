@@ -1,0 +1,1276 @@
+"feature.1","feature.2","correlation","p_value"
+"Child Poverty","Poverty Rate",0.922724379640054,0
+"At Least Bachelor Degree","Graduate Degree",0.920730665072643,0
+"Avg. No. of Physically Unhealthy Day","Avg. No. of Mentally Unhealthy Day",0.918326695572952,0
+"Children Under 6 Living in Poverty","Child Poverty",0.886057292086484,0
+"White not Latino Population","Homogeneity Index",0.854273497947401,0
+"Children Under 6 Living in Poverty","Poverty Rate",0.817953596929924,0
+"Avg. No. of Physically Unhealthy Day","Adult Smoking Rate",0.795552775577192,0
+"Management, Professional, and Related Occupations","At Least Bachelor Degree",0.789766843620344,0
+"Republican Win 2016","Republican Win 2012",0.769398677780605,0
+"Poverty Rate","Avg. No. of Physically Unhealthy Day",0.758548438792928,0
+"Life Expectancy","Avg. No. of Physically Unhealthy Day",-0.746145209107994,0
+"Avg. No. of Mentally Unhealthy Day","Adult Smoking Rate",0.742209511614798,0
+"Avg. No. of Physically Unhealthy Day","Diabetes Rate",0.733160168327365,0
+"Child Poverty","Diabetes Rate",0.721881838169813,0
+"Child Poverty","Avg. No. of Physically Unhealthy Day",0.71707179207697,0
+"Less Than High School","Teen Birth Rate",0.709376336004915,0
+"Life Expectancy","Adult Smoking Rate",-0.695682318915675,0
+"Management, Professional, and Related Occupations","Graduate Degree",0.694679271470919,0
+"Poverty Rate","Adults 65 and Older Living in Poverty",0.693546488037881,0
+"Life Expectancy","Avg. No. of Mentally Unhealthy Day",-0.688293732332981,0
+"Poverty Rate","Less Than High School",0.686883407778195,0
+"Poverty Rate","Diabetes Rate",0.686782367282528,0
+"Life Expectancy","Teen Birth Rate",-0.686235510340624,0
+"Life Expectancy","Diabetes Rate",-0.680567168041376,0
+"Less Than High School","Avg. No. of Physically Unhealthy Day",0.679050833184313,0
+"Less Than High School","Diabetes Rate",0.678797146771007,0
+"African American Population","Low Birth Weight Rate",0.674233302666066,0
+"White not Latino Population","Sexually Transmitted Infections Rate",-0.664428716666405,0
+"Unemployment Rate","Avg. No. of Mentally Unhealthy Day",0.663946925628796,0
+"African American Population","Children in Single Parent Households Rate",0.662078566563548,0
+"Child Poverty","Teen Birth Rate",0.661789840989877,0
+"Less Than High School","Life Expectancy",-0.660201081469786,0
+"Child Poverty","Less Than High School",0.659048044665511,0
+"Adults 65 and Older Living in Poverty","Less Than High School",0.656446441924173,0
+"Management, Professional, and Related Occupations","Production, Transportation, and Material moving Occupations",-0.655679778888048,0
+"Median Earning","Poverty Rate",-0.648057373103452,0
+"Child Poverty","Life Expectancy",-0.648022343912579,0
+"Poverty Rate","Life Expectancy",-0.647173826871119,0
+"Poverty Rate","Adult Smoking Rate",0.64251175486914,0
+"Diabetes Rate","Teen Birth Rate",0.641154835896314,0
+"Children Under 6 Living in Poverty","Diabetes Rate",0.639602842067761,0
+"Unemployment Rate","Avg. No. of Physically Unhealthy Day",0.637782399699399,0
+"White not Latino Population","African American Population",-0.636634117533278,0
+"Poverty Rate","Teen Birth Rate",0.636427090900939,0
+"Children Under 6 Living in Poverty","Avg. No. of Physically Unhealthy Day",0.636182735242794,0
+"Life Expectancy","Infant Mortality",-0.626779128925155,0
+"Avg. No. of Physically Unhealthy Day","Teen Birth Rate",0.62661838322537,0
+"Life Expectancy","Adult Obesity Rate",-0.626433152121225,0
+"Avg. No. of Mentally Unhealthy Day","Diabetes Rate",0.625462073202283,0
+"African American Population","Homicide Rate",0.623805494746469,0
+"Adult Smoking Rate","Adult Obesity Rate",0.62232536077688,0
+"Child Poverty","Children in Single Parent Households Rate",0.621935110893337,0
+"At Least Bachelor Degree","Adult Obesity Rate",-0.619433376490793,0
+"Life Expectancy","Low Birth Weight Rate",-0.619269177504666,0
+"Poverty Rate","Avg. No. of Mentally Unhealthy Day",0.618943118600847,0
+"African American Population","Sexually Transmitted Infections Rate",0.617855561685459,0
+"Sexually Transmitted Infections Rate","Children in Single Parent Households Rate",0.616848977214695,0
+"Less Than High School","At Least Bachelor Degree",-0.615615202617437,9.88131291682493e-324
+"Adults 65 and Older Living in Poverty","Diabetes Rate",0.608504912271768,1.7711553579184e-314
+"Poverty Rate","Children in Single Parent Households Rate",0.605339514946455,2.26947531998098e-310
+"White not Latino Population","Latino Population",-0.604747557165857,1.31512514189871e-309
+"Production, Transportation, and Material moving Occupations","At Least Bachelor Degree",-0.603422332079502,6.6280764577771e-308
+"Children in Single Parent Households Rate","Diabetes Rate",0.60315367166268,1.4639953539781e-307
+"Child Poverty","Adult Smoking Rate",0.599805714733676,2.6721105398927e-303
+"Child Poverty","Avg. No. of Mentally Unhealthy Day",0.59963658254417,4.37310237693478e-303
+"Child Poverty","Adults 65 and Older Living in Poverty",0.594511986755928,1.15524965619298e-296
+"Homogeneity Index","Winter Avg. Temperature",-0.593433573387553,2.50833696105017e-295
+"Life Expectancy","Homicide Rate",-0.59164278271849,4.05453891754185e-293
+"African American Population","Homogeneity Index",-0.590867493620645,3.62909053574983e-292
+"Children Under 6 Living in Poverty","Teen Birth Rate",0.586948686529179,2.14658923702063e-287
+"At Least Bachelor Degree","Life Expectancy",0.586601682366662,5.63839887461888e-287
+"Uninsured Rate","Teen Birth Rate",0.581015978868298,2.7102132364382e-280
+"Avg. No. of Mentally Unhealthy Day","Winter Avg. Precipitation",0.580707736476617,6.28015251776887e-280
+"Management, Professional, and Related Occupations","Less Than High School",-0.578666722529371,1.60235540026337e-277
+"Children Under 6 Living in Poverty","Life Expectancy",-0.576536650527111,4.99438440482514e-275
+"White not Latino Population","Children in Single Parent Households Rate",-0.575032249210235,2.80983227468804e-273
+"Median Earning","Child Poverty",-0.573543626608233,1.48454584473539e-271
+"Children Under 6 Living in Poverty","Less Than High School",0.573203035226169,3.66899651170403e-271
+"Infant Mortality","Homicide Rate",0.572953741724007,7.11008206154289e-271
+"Adult Smoking Rate","Diabetes Rate",0.572228976512571,4.85080132621599e-270
+"Diabetes Rate","Low Birth Weight Rate",0.569856347431173,2.51954743556943e-267
+"Gini Coefficient","Poverty Rate",0.56849196534142,8.97159900602993e-266
+"Homogeneity Index","Sexually Transmitted Infections Rate",-0.566033658498584,5.37180856829999e-263
+"Poverty Rate","Unemployment Rate",0.5648735228525,1.0781079418552e-261
+"Unemployment Rate","Diabetes Rate",0.564290416478866,4.84609591031187e-261
+"Children in Single Parent Households Rate","Low Birth Weight Rate",0.563489612229209,3.79919517003355e-260
+"At Least Bachelor Degree","Diabetes Rate",-0.562892138780764,1.75924533307681e-259
+"Children Under 6 Living in Poverty","Children in Single Parent Households Rate",0.562789704772688,2.28722972477222e-259
+"Child Poverty","Unemployment Rate",0.56239921063206,6.21535274224666e-259
+"Life Expectancy","Children in Single Parent Households Rate",-0.560863593095181,3.12732769848486e-257
+"Less Than High School","Uninsured Rate",0.560524527416049,7.40815439014788e-257
+"Uninsured Rate","Winter Avg. Temperature",0.558827348262356,5.46934328048677e-255
+"White not Latino Population","Winter Avg. Temperature",-0.557815373418482,7.02687905180235e-254
+"Avg. No. of Physically Unhealthy Day","Children in Single Parent Households Rate",0.557423528941584,1.88400761322038e-253
+"African American Population","HIV Prevalence Rate",0.550542577321374,5.06098430734109e-246
+"Low Birth Weight Rate","Homicide Rate",0.550298216465353,9.22325086629836e-246
+"Winter Avg. Precipitation","Winter Avg. Temperature",0.548468390734025,8.12512940854074e-244
+"Children Under 6 Living in Poverty","Adult Smoking Rate",0.546692974479658,6.10172686082007e-242
+"At Least Bachelor Degree","Teen Birth Rate",-0.54661533416196,7.36576985115461e-242
+"Graduate Degree","Adult Obesity Rate",-0.546166828167669,2.18339925723409e-241
+"Adults 65 and Older Living in Poverty","Avg. No. of Physically Unhealthy Day",0.546147024195561,2.29062638448424e-241
+"Diabetes Rate","Homicide Rate",0.545667235933364,7.31068844048506e-241
+"Adult Obesity Rate","Diabetes Rate",0.543605932313588,1.04717650757381e-238
+"Median Earning","Children Under 6 Living in Poverty",-0.53782501083271,9.71050914605193e-233
+"Sexually Transmitted Infections Rate","Homicide Rate",0.534682780503349,1.5215819690451e-229
+"Median Earning","At Least Bachelor Degree",0.533676937858945,1.57735786797853e-228
+"Child Poverty","Low Birth Weight Rate",0.532493056336903,2.44875593892231e-227
+"Unemployment Rate","Children in Single Parent Households Rate",0.531578694701008,2.02106083636986e-226
+"Children Under 6 Living in Poverty","Avg. No. of Mentally Unhealthy Day",0.531488588700833,2.48746513098717e-226
+"Children in Single Parent Households Rate","Homicide Rate",0.530772050354965,1.2938809979168e-225
+"Management, Professional, and Related Occupations","Life Expectancy",0.528327752803274,3.48260494673573e-223
+"Infant Mortality","Adult Obesity Rate",0.525545548177123,1.92181007388752e-220
+"Less Than High School","Avg. No. of Mentally Unhealthy Day",0.525291073241375,3.41363039329444e-220
+"Adults 65 and Older Living in Poverty","Life Expectancy",-0.524894146116001,8.35542946863733e-220
+"African American Population","Diabetes Rate",0.524748166244263,1.16094644693305e-219
+"Asian American Population","Other race(s) Population",0.524625535264333,1.53022184852146e-219
+"Avg. No. of Mentally Unhealthy Day","Children in Single Parent Households Rate",0.52430825119776,3.12502338350343e-219
+"Poverty Rate","Low Birth Weight Rate",0.523306357359615,2.96413679044305e-218
+"Sexually Transmitted Infections Rate","Crime Rate",0.523260978557462,3.28151221439298e-218
+"Voting Power","Asian American Population",0.522717235425936,1.10886989134601e-217
+"African American Population","Infant Mortality",0.522214725791086,3.40981942513874e-217
+"Avg. No. of Physically Unhealthy Day","Low Birth Weight Rate",0.519694179344367,9.27712824284409e-215
+"Children in Single Parent Households Rate","Teen Birth Rate",0.518654438670775,9.24211077090671e-214
+"Unemployment Rate","Life Expectancy",-0.515826686058315,4.60780444010605e-211
+"Adults 65 and Older Living in Poverty","Teen Birth Rate",0.515753915524309,5.40234796036221e-211
+"Asian American Population","Graduate Degree",0.515373524291139,1.24009152234572e-210
+"Infant Mortality","Low Birth Weight Rate",0.514631639770332,6.25101530760028e-210
+"Adult Smoking Rate","Teen Birth Rate",0.513090265916222,1.77803428322125e-208
+"Less Than High School","Winter Avg. Temperature",0.511726968329587,3.38634273524881e-207
+"Children Under 6 Living in Poverty","Adults 65 and Older Living in Poverty",0.51060932826809,3.75472824584642e-206
+"Production, Transportation, and Material moving Occupations","Graduate Degree",-0.5103170647323,7.03339442163611e-206
+"Less Than High School","Adult Smoking Rate",0.509479009062298,4.23960951004142e-205
+"Asian American Population","At Least Bachelor Degree",0.50908313413118,9.88770358689097e-205
+"Child Poverty","Homicide Rate",0.508640719776528,2.544054699185e-204
+"Unemployment Rate","Winter Avg. Precipitation",0.507315164776408,4.28189677253438e-203
+"Homogeneity Index","Crime Rate",-0.505195142551578,3.81406312252266e-201
+"Poverty Rate","Homicide Rate",0.503481105712338,1.40515842642748e-199
+"White not Latino Population","Teen Birth Rate",-0.501481500415,9.19942590580357e-198
+"Median Age","Age Dependency Ratio",0.501478678458864,9.25369293671345e-198
+"African American Population","Life Expectancy",-0.501477031234461,9.28551714523538e-198
+"Infant Mortality","Diabetes Rate",0.499884228874971,2.54529313248822e-196
+"Republican Win 2016","White not Latino Population",0.499007138614695,1.56422320255686e-195
+"Voting Participation Rate","Avg. No. of Physically Unhealthy Day",-0.498809894284511,2.35135043719619e-195
+"Infant Mortality","Adult Smoking Rate",0.496690654750821,1.84474081829897e-193
+"Management, Professional, and Related Occupations","Avg. No. of Physically Unhealthy Day",-0.496067703680768,6.61185182865263e-193
+"Low Birth Weight Rate","Teen Birth Rate",0.495243129017739,3.56762161705065e-192
+"Management, Professional, and Related Occupations","Teen Birth Rate",-0.49506659920795,5.11494311616687e-192
+"Homogeneity Index","Children in Single Parent Households Rate",-0.4947096879026,1.05900539296973e-191
+"Production, Transportation, and Material moving Occupations","Adult Obesity Rate",0.494537432395097,1.50418835125618e-191
+"Gini Coefficient","Child Poverty",0.493661458633783,8.93254981343454e-191
+"Voting Participation Rate","Less Than High School",-0.491607386692183,5.70621200541947e-189
+"Adults 65 and Older Living in Poverty","Adult Smoking Rate",0.491027871843853,1.83430180814821e-188
+"Less Than High School","Low Birth Weight Rate",0.490033207583964,1.35396849391839e-187
+"Life Expectancy","Winter Avg. Temperature",-0.48890820481538,1.28840123366216e-186
+"Children Under 6 Living in Poverty","Unemployment Rate",0.488708608812702,1.91982984788691e-186
+"African American Population","Winter Avg. Temperature",0.488042632864811,7.25058554636927e-186
+"Uninsured Rate","Diabetes Rate",0.487379253761401,2.716214815936e-185
+"Median Earning","Management, Professional, and Related Occupations",0.486230362453446,2.65684176087833e-184
+"White not Latino Population","Crime Rate",-0.485279975654015,1.74097403367707e-183
+"Children in Single Parent Households Rate","Adult Smoking Rate",0.485118738688673,2.393572596752e-183
+"Poverty Rate","Sexually Transmitted Infections Rate",0.484787535120254,4.60053328204766e-183
+"Teen Birth Rate","Winter Avg. Temperature",0.482006190245342,1.08009185632572e-180
+"At Least Bachelor Degree","Adult Smoking Rate",-0.481975463776321,1.14690611897533e-180
+"Management, Professional, and Related Occupations","Adult Obesity Rate",-0.481783191210112,1.66949150555164e-180
+"Avg. No. of Physically Unhealthy Day","Adult Obesity Rate",0.481137439918869,5.88098340882839e-180
+"Poverty Rate","Uninsured Rate",0.479697669754492,9.64995672260012e-179
+"Voting Participation Rate","Teen Birth Rate",-0.47839347052677,1.20275629646883e-177
+"Avg. No. of Physically Unhealthy Day","Winter Avg. Precipitation",0.47814789440527,1.93176393836204e-177
+"Children in Single Parent Households Rate","Crime Rate",0.477236978666539,1.1162839854288e-176
+"Management, Professional, and Related Occupations","Diabetes Rate",-0.477109021756927,1.42758965233996e-176
+"Unemployment Rate","Less Than High School",0.476486242661175,4.71955229220251e-176
+"Median Earning","Avg. No. of Physically Unhealthy Day",-0.475782014578642,1.81894370469159e-175
+"Diabetes Rate","Winter Avg. Temperature",0.475445216814825,3.46378244048973e-175
+"Child Poverty","Uninsured Rate",0.47481881027543,1.14547943861708e-174
+"White not Latino Population","HIV Prevalence Rate",-0.474602261892775,1.73103033808316e-174
+"Less Than High School","Graduate Degree",-0.473936345224712,6.15066656145607e-174
+"White not Latino Population","Poverty Rate",-0.473663550420086,1.03307632178133e-173
+"At Least Bachelor Degree","Avg. No. of Physically Unhealthy Day",-0.473378458253233,1.77531992045335e-173
+"Avg. No. of Physically Unhealthy Day","Homicide Rate",0.472787036384403,5.44968233020661e-173
+"Low Birth Weight Rate","Winter Avg. Temperature",0.472323074651572,1.31165441616216e-172
+"White not Latino Population","Homicide Rate",-0.470768983834816,2.46173442319784e-171
+"Teen Birth Rate","Homicide Rate",0.470653021107238,3.06194429886939e-171
+"Avg. No. of Mentally Unhealthy Day","Low Birth Weight Rate",0.470258274589599,6.43103279058579e-171
+"African American Population","Crime Rate",0.470008660984015,1.0276724343792e-170
+"Latino Population","Uninsured Rate",0.468283255155126,2.59660037611619e-169
+"Child Poverty","At Least Bachelor Degree",-0.467228515065067,1.85278461433189e-168
+"Homogeneity Index","HIV Prevalence Rate",-0.465855752547741,2.36639032931201e-167
+"White not Latino Population","Low Birth Weight Rate",-0.465772237800948,2.76200816954589e-167
+"Avg. No. of Physically Unhealthy Day","Winter Avg. Temperature",0.463786353022088,1.07699515795246e-165
+"Sales and Office Occupations","Farming, Fishing, and Forestry Occupations",-0.462480134117233,1.18294712217529e-164
+"Median Earning","Graduate Degree",0.462223020175759,1.89361672801504e-164
+"Graduate Degree","Teen Birth Rate",-0.461117645886729,1.42473472370728e-163
+"White not Latino Population","Diabetes Rate",-0.460841989805326,2.35394760479621e-163
+"Children Under 6 Living in Poverty","Low Birth Weight Rate",0.459025928220986,6.35955868853334e-162
+"Median Age","White not Latino Population",0.458487324958698,1.68403921799219e-161
+"Avg. No. of Mentally Unhealthy Day","Teen Birth Rate",0.457663017959198,7.44989092098005e-161
+"Management, Professional, and Related Occupations","Avg. No. of Mentally Unhealthy Day",-0.457431173267785,1.13101223981913e-160
+"African American Population","Child Poverty",0.457202192677891,1.70768267649883e-160
+"Median Earning","Diabetes Rate",-0.456348473740108,7.91321841340582e-160
+"White not Latino Population","Child Poverty",-0.456187229186808,1.05662180926179e-159
+"Life Expectancy","Winter Avg. Precipitation",-0.45588487317575,1.81631857619703e-159
+"Child Poverty","Sexually Transmitted Infections Rate",0.455024327524253,8.46273490148621e-159
+"Sexually Transmitted Infections Rate","Low Birth Weight Rate",0.454120612226087,4.23927929844177e-158
+"Child Poverty","Infant Mortality",0.453423437659433,1.46453507836326e-157
+"White not Latino Population","Less Than High School",-0.452743520998174,4.89298105363989e-157
+"Latino Population","Homogeneity Index",-0.451269382043665,6.62695857075818e-156
+"Adult Obesity Rate","Teen Birth Rate",0.450990084832499,1.08420540589353e-155
+"Gini Coefficient","Children Under 6 Living in Poverty",0.450005134617919,6.1303200238515e-155
+"School Enrollment","Teen Birth Rate",-0.449330495438084,2.00165961079322e-154
+"Republican Win 2016","Graduate Degree",-0.448900067409037,4.25269118971888e-154
+"African American Population","Winter Avg. Precipitation",0.448899221014855,4.25899308187713e-154
+"Adults 65 and Older Living in Poverty","At Least Bachelor Degree",-0.448205472485201,1.43153703530336e-153
+"Graduate Degree","Life Expectancy",0.447660441486708,3.70320765922315e-153
+"Infant Mortality","Children in Single Parent Households Rate",0.446536824304896,2.61318074728682e-152
+"Unemployment Rate","Adult Smoking Rate",0.445558291186966,1.42427159224934e-151
+"Poverty Rate","Infant Mortality",0.444393631923788,1.06402285732476e-150
+"White not Latino Population","Uninsured Rate",-0.444368437416838,1.11123589416527e-150
+"Median Age","Homogeneity Index",0.443075182539674,1.02690342389816e-149
+"Uninsured Rate","Avg. No. of Physically Unhealthy Day",0.442496196759368,2.77029403636012e-149
+"Graduate Degree","Diabetes Rate",-0.441677440455341,1.12351924177912e-148
+"Children Under 6 Living in Poverty","Homicide Rate",0.440481215569983,8.6291454904214e-148
+"African American Population","Poverty Rate",0.44046709190647,8.83894081939438e-148
+"Adults 65 and Older Living in Poverty","Low Birth Weight Rate",0.439606924889462,3.80917345863447e-147
+"Adults 65 and Older Living in Poverty","Homicide Rate",0.439570906952701,4.04908079618584e-147
+"Infant Mortality","Avg. No. of Physically Unhealthy Day",0.439501013997058,4.55848479621032e-147
+"HIV Prevalence Rate","Crime Rate",0.439126628955719,8.5957704684357e-147
+"Child Poverty","Management, Professional, and Related Occupations",-0.439040318857007,9.94811474386261e-147
+"Less Than High School","Adult Obesity Rate",0.438625892909352,2.0052776101348e-146
+"Management, Professional, and Related Occupations","Construction, Extraction, Maintenance, and Repair Occupations",-0.438315314440379,3.38879396731823e-146
+"Management, Professional, and Related Occupations","Adult Smoking Rate",-0.438262579038826,3.70436180290837e-146
+"Unemployment Rate","Low Birth Weight Rate",0.437351337588349,1.72107733892342e-145
+"Median Age","Sexually Transmitted Infections Rate",-0.437156402953845,2.38913113288801e-145
+"Child Poverty","Adult Obesity Rate",0.436613874090931,5.94534826311278e-145
+"Avg. No. of Mentally Unhealthy Day","Adult Obesity Rate",0.43577532479271,2.42510927905434e-144
+"Infant Mortality","Teen Birth Rate",0.435460202722473,4.10893592956865e-144
+"Life Expectancy","Injury Death Rate",-0.435254856877956,5.79192444041235e-144
+"Less Than High School","Children in Single Parent Households Rate",0.434317362828718,2.76817396348131e-143
+"Sexually Transmitted Infections Rate","Teen Birth Rate",0.432967049424441,2.61192542890935e-142
+"Adult Smoking Rate","Homicide Rate",0.431453217900924,3.19530067723887e-141
+"Children Under 6 Living in Poverty","At Least Bachelor Degree",-0.428949384239168,1.95503460793037e-139
+"Voting Participation Rate","Avg. No. of Mentally Unhealthy Day",-0.42823319903525,6.30127050430651e-139
+"Median Earning","Adult Smoking Rate",-0.428069045451309,8.23671900828178e-139
+"Median Earning","Less Than High School",-0.427581008299713,1.82480872338471e-138
+"At Least Bachelor Degree","Injury Death Rate",-0.427424565652538,2.35416420322274e-138
+"African American Population","Unemployment Rate",0.426282705892345,1.50476622940956e-137
+"Less Than High School","Infant Mortality",0.425165251962416,9.18074120706064e-137
+"Median Earning","Uninsured Rate",-0.424906591308533,1.39397912818496e-136
+"Poverty Rate","Adult Obesity Rate",0.423654925434915,1.04643721427558e-135
+"Crime Rate","Homicide Rate",0.423375009423386,1.64054798340391e-135
+"Adult Smoking Rate","Low Birth Weight Rate",0.420149005713448,2.83276128464678e-133
+"Population Density","HIV Prevalence Rate",0.419867776872485,4.42674190076991e-133
+"Less Than High School","Homicide Rate",0.419643134795299,6.32143493397405e-133
+"Avg. No. of Mentally Unhealthy Day","Winter Avg. Temperature",0.418812293567699,2.35541786816483e-132
+"Age Dependency Ratio","Graduate Degree",-0.417411275891809,2.1463864951668e-131
+"Homogeneity Index","Uninsured Rate",-0.41636814300724,1.10471565900733e-130
+"Poverty Rate","At Least Bachelor Degree",-0.415689202037839,3.19901507431848e-130
+"Voting Participation Rate","Life Expectancy",0.415610592015716,3.61753049525763e-130
+"Children in Single Parent Households Rate","Winter Avg. Temperature",0.41460273725534,1.74475458240571e-129
+"Construction, Extraction, Maintenance, and Repair Occupations","At Least Bachelor Degree",-0.414445177844951,2.23021836977705e-129
+"HIV Prevalence Rate","Sexually Transmitted Infections Rate",0.413794738466818,6.13570068623776e-129
+"Republican Win 2012","White not Latino Population",0.413258299502761,1.41129001425093e-128
+"Children Under 6 Living in Poverty","Uninsured Rate",0.412409850703725,5.25323003472709e-128
+"Voting Participation Rate","Poverty Rate",-0.412311840961,6.11305127360246e-128
+"Asian American Population","Median Earning",0.411844971972353,1.25760664990975e-127
+"Median Earning","Adults 65 and Older Living in Poverty",-0.411782580871399,1.3847578789519e-127
+"Infant Mortality","Avg. No. of Mentally Unhealthy Day",0.411611856490969,1.80213580109886e-127
+"Voting Participation Rate","Adult Smoking Rate",-0.410125454269254,1.77464764685241e-126
+"Adults 65 and Older Living in Poverty","Infant Mortality",0.409331104981296,5.99641983803423e-126
+"Unemployment Rate","Management, Professional, and Related Occupations",-0.406961265837788,2.22297132213048e-124
+"Graduate Degree","Injury Death Rate",-0.406846183135656,2.64731313105614e-124
+"Republican Win 2016","Asian American Population",-0.406735609078906,3.13095023603956e-124
+"Gini Coefficient","Children in Single Parent Households Rate",0.40669241105577,3.3430060628472e-124
+"Adults 65 and Older Living in Poverty","Adult Obesity Rate",0.405776448646366,1.33853119002133e-123
+"Children Under 6 Living in Poverty","Infant Mortality",0.405517341214007,1.98024293141007e-123
+"Children Under 6 Living in Poverty","Management, Professional, and Related Occupations",-0.404552118255607,8.49194404915167e-123
+"Homogeneity Index","Low Birth Weight Rate",-0.404514486790957,8.98702627749675e-123
+"Poverty Rate","Management, Professional, and Related Occupations",-0.40437822898409,1.1033021920426e-122
+"At Least Bachelor Degree","School Enrollment",0.403935569998683,2.14681872816824e-122
+"Republican Win 2016","At Least Bachelor Degree",-0.403321597849994,5.39578648684259e-122
+"Gini Coefficient","Sexually Transmitted Infections Rate",0.401925981780774,4.35259977631092e-121
+"Median Earning","Life Expectancy",0.401667702779483,6.3983703539069e-121
+"Management, Professional, and Related Occupations","School Enrollment",0.401058044561074,1.58648113538346e-120
+"Homicide Rate","Winter Avg. Temperature",0.399657072997895,1.26924072226772e-119
+"Homogeneity Index","Teen Birth Rate",-0.398998086747912,3.36389717688067e-119
+"Gini Coefficient","Adults 65 and Older Living in Poverty",0.398491187800506,7.10878046882913e-119
+"Gini Coefficient","Avg. No. of Physically Unhealthy Day",0.398315024548254,9.21708020713017e-119
+"Children Under 6 Living in Poverty","Adult Obesity Rate",0.397850868975564,1.82585716714454e-118
+"Voting Participation Rate","Management, Professional, and Related Occupations",0.396782249857339,8.77304582005139e-118
+"Median Earning","Service Occupations",-0.395861852002955,3.37497001869466e-117
+"Production, Transportation, and Material moving Occupations","Life Expectancy",-0.395329688555414,7.34059920246217e-117
+"Median Earning","Teen Birth Rate",-0.395323344187297,7.40885223944276e-117
+"Less Than High School","School Enrollment",-0.395309669418196,7.55812671783562e-117
+"Construction, Extraction, Maintenance, and Repair Occupations","Graduate Degree",-0.394478334825074,2.53695315168023e-116
+"HIV Prevalence Rate","Children in Single Parent Households Rate",0.394110902309633,4.32779917742675e-116
+"Avg. No. of Mentally Unhealthy Day","Homicide Rate",0.392777078248059,2.99099439909751e-115
+"Adults 65 and Older Living in Poverty","Avg. No. of Mentally Unhealthy Day",0.392662968641306,3.52744027128111e-115
+"Republican Win 2016","Sexually Transmitted Infections Rate",-0.391648377608593,1.52485811009828e-114
+"Adult Obesity Rate","Homicide Rate",0.39136937664542,2.27859513514556e-114
+"Crime Rate","Winter Avg. Temperature",0.390944493068591,4.19749228609047e-114
+"Adults 65 and Older Living in Poverty","Children in Single Parent Households Rate",0.390569606827109,7.19062576997154e-114
+"Children Under 6 Living in Poverty","Sexually Transmitted Infections Rate",0.38865200243064,1.11641116995226e-112
+"Child Poverty","Winter Avg. Temperature",0.387499922846309,5.74898963534589e-112
+"Production, Transportation, and Material moving Occupations","Adult Smoking Rate",0.386262527847252,3.31813712801493e-111
+"White not Latino Population","Gini Coefficient",-0.386109703856312,4.11804604197019e-111
+"Voting Power","At Least Bachelor Degree",0.386040382674995,4.5417279794534e-111
+"Life Expectancy","Sexually Transmitted Infections Rate",-0.385667824003651,7.68452894753392e-111
+"HIV Prevalence Rate","Homicide Rate",0.385388227496173,1.13979916595182e-110
+"African American Population","Adult Obesity Rate",0.385087520533934,1.74092518683151e-110
+"African American Population","Children Under 6 Living in Poverty",0.384772044140967,2.71368484782827e-110
+"At Least Bachelor Degree","Avg. No. of Mentally Unhealthy Day",-0.384730473389381,2.87704313119647e-110
+"Adults 65 and Older Living in Poverty","Unemployment Rate",0.383542300141082,1.52405037703516e-109
+"Asian American Population","Management, Professional, and Related Occupations",0.382932981340137,3.5739086364552e-109
+"Sexually Transmitted Infections Rate","Avg. No. of Physically Unhealthy Day",0.382875066834822,3.87510845199737e-109
+"Gini Coefficient","Diabetes Rate",0.38261845483391,5.54499382188448e-109
+"African American Population","Adults 65 and Older Living in Poverty",0.380252330117919,1.48669194606226e-107
+"Uninsured Rate","Life Expectancy",-0.379333972521728,5.28941088060775e-107
+"Poverty Rate","Winter Avg. Temperature",0.377709662702473,4.94259779776744e-106
+"Children in Single Parent Households Rate","Winter Avg. Precipitation",0.377556028515994,6.10193164971083e-106
+"Voting Participation Rate","Median Age",0.377488479683933,6.69402133753202e-106
+"Homogeneity Index","Homicide Rate",-0.377411199242122,7.44199710335801e-106
+"Production, Transportation, and Material moving Occupations","Less Than High School",0.377202867524447,9.90010854946799e-106
+"Unemployment Rate","Homicide Rate",0.375996782524406,5.14561045717605e-105
+"Gini Coefficient","Low Birth Weight Rate",0.375984538081326,5.23224721908469e-105
+"Age Dependency Ratio","Injury Death Rate",0.375883010549275,6.00900266035552e-105
+"Diabetes Rate","Injury Death Rate",0.375154380397944,1.62028524307926e-104
+"At Least Bachelor Degree","Infant Mortality",-0.375141955279313,1.64788919130413e-104
+"Age Dependency Ratio","Farming, Fishing, and Forestry Occupations",0.375088544396521,1.77199015146769e-104
+"Sexually Transmitted Infections Rate","Adult Smoking Rate",0.373869509119351,9.25881296659559e-104
+"Low Birth Weight Rate","Winter Avg. Precipitation",0.373774072511266,1.0535219257796e-103
+"Graduate Degree","School Enrollment",0.373461430582576,1.60787184235024e-103
+"Voting Power","Graduate Degree",0.372798061505146,3.936974052088e-103
+"Republican Win 2016","African American Population",-0.37263264438356,4.92038502762151e-103
+"White not Latino Population","Children Under 6 Living in Poverty",-0.371923974541591,1.27708387444539e-102
+"Teen Birth Rate","Injury Death Rate",0.370939693903158,4.78425302127936e-102
+"African American Population","Gini Coefficient",0.368674905271273,9.81871597825155e-101
+"Voting Participation Rate","Child Poverty",-0.366781014069814,1.20591496526779e-99
+"African American Population","Avg. No. of Physically Unhealthy Day",0.366748226764703,1.25924307142469e-99
+"Median Earning","Injury Death Rate",-0.366536024289897,1.66604149949674e-99
+"White not Latino Population","Adults 65 and Older Living in Poverty",-0.36647953012348,1.79488772424833e-99
+"Children in Single Parent Households Rate","Adult Obesity Rate",0.366377444893785,2.05343066148566e-99
+"Voting Participation Rate","At Least Bachelor Degree",0.366340591078642,2.15562521654056e-99
+"Infant Mortality","Sexually Transmitted Infections Rate",0.365867930217667,4.01656098540662e-99
+"Republican Win 2016","Voting Power",-0.36513959390492,1.04579699113805e-98
+"Unemployment Rate","Teen Birth Rate",0.364827862893283,1.57395825183898e-98
+"Farming, Fishing, and Forestry Occupations","Uninsured Rate",0.364401612224233,2.75070445362657e-98
+"HIV Prevalence Rate","Winter Avg. Temperature",0.362149209684696,5.18193649786528e-97
+"Poverty Rate","Service Occupations",0.361695660092306,9.3325049698005e-97
+"Sexually Transmitted Infections Rate","Diabetes Rate",0.361578291596248,1.08655047984376e-96
+"Voting Participation Rate","Winter Avg. Temperature",-0.361570483470414,1.09759751536226e-96
+"Low Birth Weight Rate","Crime Rate",0.360699984319058,3.38419364891653e-96
+"African American Population","Less Than High School",0.360271845355181,5.88040341244878e-96
+"African American Population","Avg. No. of Mentally Unhealthy Day",0.359294068303616,2.07025676100583e-95
+"Republican Win 2012","Graduate Degree",-0.357543536511441,1.94919403111677e-94
+"Asian American Population","Adult Obesity Rate",-0.357348632309676,2.49978211498871e-94
+"Adults 65 and Older Living in Poverty","Uninsured Rate",0.356873942307211,4.57861328683427e-94
+"Republican Win 2016","HIV Prevalence Rate",-0.356506724935853,7.30719486676631e-94
+"Adults 65 and Older Living in Poverty","Graduate Degree",-0.356182908542129,1.10293544101976e-93
+"Gini Coefficient","Homicide Rate",0.355705307597918,2.02247182636181e-93
+"Service Occupations","Children in Single Parent Households Rate",0.351578777281852,3.64970614313841e-91
+"Republican Win 2016","Homogeneity Index",0.351435860935541,4.36315847149917e-91
+"Gini Coefficient","Winter Avg. Temperature",0.350977521859264,7.73060824316027e-91
+"Republican Win 2012","Sexually Transmitted Infections Rate",-0.349664973538346,3.95647301893023e-90
+"Voting Participation Rate","Children Under 6 Living in Poverty",-0.348087285145233,2.78720338596172e-89
+"Adults 65 and Older Living in Poverty","Management, Professional, and Related Occupations",-0.347964677880223,3.2423101074078e-89
+"HIV Prevalence Rate","Low Birth Weight Rate",0.345523345823819,6.49635988180294e-88
+"Avg. No. of Physically Unhealthy Day","Injury Death Rate",0.344980024176793,1.2612806967485e-87
+"Median Earning","Avg. No. of Mentally Unhealthy Day",-0.344836218966676,1.50307437730036e-87
+"Age Dependency Ratio","At Least Bachelor Degree",-0.344674467863141,1.83065512423628e-87
+"Gini Coefficient","Less Than High School",0.34430750972431,2.86203288159022e-87
+"Child Poverty","Graduate Degree",-0.343776581061286,5.4575442254427e-87
+"Asian American Population","Homogeneity Index",-0.343666010688412,6.24177470473273e-87
+"Native American Population","Sexually Transmitted Infections Rate",0.343652631904365,6.34398241920894e-87
+"School Enrollment","Preschool Enrollment Ratio",0.343358707380714,9.06242491479279e-87
+"Construction, Extraction, Maintenance, and Repair Occupations","Injury Death Rate",0.342474950950636,2.64198167263877e-86
+"Graduate Degree","Adult Smoking Rate",-0.342080329103465,4.25536969029662e-86
+"Adult Smoking Rate","Injury Death Rate",0.341524461832823,8.31801592211625e-86
+"Unemployment Rate","At Least Bachelor Degree",-0.340419037917621,3.14130833819352e-85
+"Production, Transportation, and Material moving Occupations","Avg. No. of Mentally Unhealthy Day",0.339976235107167,5.3409426660993e-85
+"White not Latino Population","Avg. No. of Physically Unhealthy Day",-0.339880662807024,5.98852686576795e-85
+"Median Earning","Adult Obesity Rate",-0.339043600965714,1.62885358084272e-84
+"Population Density","Asian American Population",0.338298675596864,3.95805055874661e-84
+"Construction, Extraction, Maintenance, and Repair Occupations","Uninsured Rate",0.337591717037039,9.17160057227145e-84
+"Gini Coefficient","Crime Rate",0.335563661808445,1.00953627541776e-82
+"Voting Participation Rate","Uninsured Rate",-0.334930335164417,2.12722778750874e-82
+"Management, Professional, and Related Occupations","Children in Single Parent Households Rate",-0.334671862286437,2.88203918624729e-82
+"Gini Coefficient","Avg. No. of Mentally Unhealthy Day",0.333695980281173,9.04691400320879e-82
+"Republican Win 2016","Age Dependency Ratio",0.331859149550213,7.70366423834553e-81
+"Child Poverty","Service Occupations",0.33078088428076,2.6901504429786e-80
+"Adult Obesity Rate","Low Birth Weight Rate",0.330595420589118,3.3340053974237e-80
+"Asian American Population","Injury Death Rate",-0.329724857875885,9.1102780183648e-80
+"Latino Population","Teen Birth Rate",0.328942264517189,2.24267509880273e-79
+"Homogeneity Index","Gini Coefficient",-0.328374735147622,4.30295635095011e-79
+"Management, Professional, and Related Occupations","Infant Mortality",-0.328369639361157,4.32817923227808e-79
+"Voting Power","Median Earning",0.326927182675531,2.25352166008515e-78
+"Diabetes Rate","Winter Avg. Precipitation",0.326606898229734,3.24667334714249e-78
+"Production, Transportation, and Material moving Occupations","Diabetes Rate",0.326222510757681,5.02922095326899e-78
+"Republican Win 2012","African American Population",-0.325959480703329,6.78263101925625e-78
+"Less Than High School","Winter Avg. Precipitation",0.325866704240759,7.53676694433949e-78
+"Latino Population","Less Than High School",0.323808508168081,7.74141151821628e-77
+"Unemployment Rate","Winter Avg. Temperature",0.323497983300036,1.09840906470189e-76
+"Latino Population","Winter Avg. Temperature",0.322654473486418,2.83531766372121e-76
+"Production, Transportation, and Material moving Occupations","Avg. No. of Physically Unhealthy Day",0.322471618286605,3.48101208871602e-76
+"Avg. No. of Mentally Unhealthy Day","Crime Rate",0.321184768772153,1.46901592805704e-75
+"Child Poverty","Crime Rate",0.321138076785362,1.54759766484004e-75
+"Voting Power","Population Density",0.321099781925563,1.61516368639027e-75
+"Uninsured Rate","Injury Death Rate",0.321099206815055,1.61620048055846e-75
+"School Enrollment","Uninsured Rate",-0.320649428031486,2.66848115180453e-75
+"Unemployment Rate","Infant Mortality",0.32020028858561,4.39897020967374e-75
+"Sexually Transmitted Infections Rate","Avg. No. of Mentally Unhealthy Day",0.319846022790297,6.52107732757634e-75
+"At Least Bachelor Degree","Uninsured Rate",-0.319319127844878,1.16995930332266e-74
+"Median Age","Injury Death Rate",0.31728360420641,1.10679303857129e-73
+"Gini Coefficient","Life Expectancy",-0.317265439196706,1.12912254799892e-73
+"Life Expectancy","Crime Rate",-0.316619085316962,2.29621519489753e-73
+"Adult Smoking Rate","Winter Avg. Precipitation",0.316514502116736,2.57525666974672e-73
+"Republican Win 2012","At Least Bachelor Degree",-0.316005066765308,4.49939267510704e-73
+"Republican Win 2016","Crime Rate",-0.315570290906196,7.23764471769545e-73
+"Children Under 6 Living in Poverty","Graduate Degree",-0.315508760341655,7.74079821622268e-73
+"Median Age","Latino Population",-0.315147331977424,1.14841360552056e-72
+"Republican Win 2012","Asian American Population",-0.315133876982934,1.16538983839658e-72
+"Sexually Transmitted Infections Rate","Winter Avg. Temperature",0.314599981868866,2.08488316212936e-72
+"Children Under 6 Living in Poverty","Winter Avg. Temperature",0.314441407008845,2.47748322183292e-72
+"Voting Participation Rate","Median Earning",0.313675360771579,5.69290525688808e-72
+"African American Population","Teen Birth Rate",0.313638713910732,5.92369258130258e-72
+"White not Latino Population","Unemployment Rate",-0.311394867694986,6.67830664662952e-71
+"Uninsured Rate","Homicide Rate",0.311268940217945,7.64609026183664e-71
+"Voting Participation Rate","School Enrollment",0.311122383897141,8.949612921943e-71
+"Teen Birth Rate","Crime Rate",0.310624096860313,1.52739659376517e-70
+"Homogeneity Index","Less Than High School",-0.310134770699626,2.5792151496034e-70
+"Avg. No. of Physically Unhealthy Day","Crime Rate",0.309606395760711,4.53623082491582e-70
+"Asian American Population","Life Expectancy",0.309573131368148,4.70019175414816e-70
+"Child Poverty","Injury Death Rate",0.309267189160004,6.51400500375118e-70
+"Adults 65 and Older Living in Poverty","Sexually Transmitted Infections Rate",0.30867809099457,1.21978017256449e-69
+"Median Earning","Infant Mortality",-0.308068709651133,2.33043642531335e-69
+"Infant Mortality","Winter Avg. Temperature",0.307022377365289,7.05723374507868e-69
+"Republican Win 2012","HIV Prevalence Rate",-0.307004239957993,7.19379995919604e-69
+"Republican Win 2012","Children in Single Parent Households Rate",-0.306558945178976,1.15115440650008e-68
+"Construction, Extraction, Maintenance, and Repair Occupations","School Enrollment",-0.306347545556421,1.4385976016787e-68
+"Poverty Rate","Crime Rate",0.305957071143289,2.17038940175644e-68
+"African American Population","Adult Smoking Rate",0.305644775552817,3.01426371659345e-68
+"Gini Coefficient","HIV Prevalence Rate",0.304415120983,1.09430662059839e-67
+"Gini Coefficient","Teen Birth Rate",0.304289481622708,1.24795865265962e-67
+"Age Dependency Ratio","Asian American Population",-0.303606272184818,2.54681552607964e-67
+"Homogeneity Index","Child Poverty",-0.302730500375908,6.33713903060963e-67
+"Unemployment Rate","Adult Obesity Rate",0.30206851104093,1.25962459757983e-66
+"Construction, Extraction, Maintenance, and Repair Occupations","Less Than High School",0.300658626519807,5.40824459440144e-66
+"Gini Coefficient","Unemployment Rate",0.300107246923421,9.54066737480097e-66
+"Graduate Degree","Uninsured Rate",-0.29952721041506,1.7311399575934e-65
+"Poverty Rate","Injury Death Rate",0.299214329233868,2.38594632339609e-65
+"Infant Mortality","Winter Avg. Precipitation",0.29867108251557,4.16065191133549e-65
+"Graduate Degree","Infant Mortality",-0.298452782627576,5.20067605309506e-65
+"School Enrollment","Life Expectancy",0.298139559110059,7.16053754530851e-65
+"Gini Coefficient","Median Earning",-0.297949575746863,8.69163270257546e-65
+"Child Poverty","School Enrollment",-0.297739304906963,1.07688528796281e-64
+"Children Under 6 Living in Poverty","Service Occupations",0.296034612209505,6.07864918128591e-64
+"Native American Population","Adult Smoking Rate",0.295659887253409,8.87863079133197e-64
+"Median Earning","Farming, Fishing, and Forestry Occupations",-0.295311737895399,1.26181184922485e-63
+"Uninsured Rate","Low Birth Weight Rate",0.294410071346746,3.1285815706514e-63
+"Homogeneity Index","Poverty Rate",-0.294291767734892,3.52357001184621e-63
+"Republican Win 2016","Children in Single Parent Households Rate",-0.292231317395926,2.76928504792029e-62
+"Child Poverty","Winter Avg. Precipitation",0.292194546740369,2.87262682812466e-62
+"Children Under 6 Living in Poverty","Injury Death Rate",0.291809380658722,4.21510124954247e-62
+"Graduate Degree","Avg. No. of Physically Unhealthy Day",-0.29128529206556,7.09553272084055e-62
+"Management, Professional, and Related Occupations","Uninsured Rate",-0.291106319224982,8.4744840879597e-62
+"Native American Population","Injury Death Rate",0.290348042771928,1.79586238191712e-61
+"Republican Win 2012","Age Dependency Ratio",0.290247532433652,1.98349326512974e-61
+"Poverty Rate","Winter Avg. Precipitation",0.287809004469994,2.18333237502951e-60
+"Adults 65 and Older Living in Poverty","Injury Death Rate",0.287684896280467,2.46524706755375e-60
+"Republican Win 2012","Voting Power",-0.28709575297979,4.3838632079801e-60
+"School Enrollment","Avg. No. of Physically Unhealthy Day",-0.287083060944804,4.43849884020615e-60
+"Unemployment Rate","Sexually Transmitted Infections Rate",0.286335889881876,9.19199866179609e-60
+"Production, Transportation, and Material moving Occupations","Infant Mortality",0.284867728534529,3.8183027608359e-59
+"Republican Win 2012","Homogeneity Index",0.283989130456072,8.91663735140781e-59
+"Voting Power","Homogeneity Index",-0.283919181567315,9.53824245194593e-59
+"Voting Power","Management, Professional, and Related Occupations",0.283673198521315,1.20871265944854e-58
+"Sex Ratio","School Enrollment",-0.28315394961887,1.99112665395388e-58
+"Gini Coefficient","Uninsured Rate",0.282973750573837,2.3671186117461e-58
+"Farming, Fishing, and Forestry Occupations","Graduate Degree",-0.28176918055071,7.49804498013809e-58
+"Voting Power","Adult Obesity Rate",-0.281487037727606,9.81459626754021e-58
+"Age Dependency Ratio","Diabetes Rate",0.281291560779759,1.18250007858976e-57
+"Sexually Transmitted Infections Rate","Adult Obesity Rate",0.280785309688622,1.91464543564194e-57
+"Age Dependency Ratio","HIV Prevalence Rate",-0.280587334765665,2.31106990244479e-57
+"Voting Power","HIV Prevalence Rate",0.28035836836383,2.8724177595313e-57
+"Adults 65 and Older Living in Poverty","Winter Avg. Temperature",0.279805857456941,4.85015142967793e-57
+"Homicide Rate","Winter Avg. Precipitation",0.279437888194888,6.87044600678405e-57
+"Asian American Population","Production, Transportation, and Material moving Occupations",-0.278873721630573,1.17057673588256e-56
+"Other race(s) Population","Homogeneity Index",-0.278766819744621,1.29475828841822e-56
+"Median Earning","Children in Single Parent Households Rate",-0.278272934150625,2.06176753933946e-56
+"Republican Win 2016","Gini Coefficient",-0.27801910042426,2.61771676529308e-56
+"Unemployment Rate","Crime Rate",0.27755146168068,4.06116805228825e-56
+"Median Age","Crime Rate",-0.277179686417486,5.75460508052796e-56
+"Unemployment Rate","Service Occupations",0.276689059753245,9.10771903485389e-56
+"Uninsured Rate","Avg. No. of Mentally Unhealthy Day",0.276358324518082,1.24048639902258e-55
+"Injury Death Rate","Homicide Rate",0.275498845467306,2.76326612637897e-55
+"Construction, Extraction, Maintenance, and Repair Occupations","Life Expectancy",-0.27537465999891,3.10153675904228e-55
+"Asian American Population","Construction, Extraction, Maintenance, and Repair Occupations",-0.274339212882719,8.10478256882834e-55
+"Management, Professional, and Related Occupations","Service Occupations",-0.273741620488367,1.40823712975656e-54
+"Poverty Rate","Graduate Degree",-0.273238348891992,2.24012419223089e-54
+"Gini Coefficient","Adult Smoking Rate",0.273003955277051,2.77982548249737e-54
+"White not Latino Population","Service Occupations",-0.272916765543264,3.01207162436365e-54
+"Republican Win 2012","Construction, Extraction, Maintenance, and Repair Occupations",0.272661544204391,3.80888411475478e-54
+"Asian American Population","Adult Smoking Rate",-0.271236006137012,1.40644226723009e-53
+"Production, Transportation, and Material moving Occupations","Teen Birth Rate",0.270917825424651,1.88053679804174e-53
+"Gini Coefficient","Winter Avg. Precipitation",0.270328517874518,3.21732569985667e-53
+"Graduate Degree","Preschool Enrollment Ratio",0.270029591165791,4.2224987088263e-53
+"Age Dependency Ratio","Winter Avg. Precipitation",-0.26951129146289,6.75989015533725e-53
+"Sales and Office Occupations","At Least Bachelor Degree",0.269225055346326,8.76217346032326e-53
+"Age Dependency Ratio","Sales and Office Occupations",-0.269142796239999,9.43987823738403e-53
+"Sales and Office Occupations","Injury Death Rate",-0.268255471672413,2.10500064943868e-52
+"Children Under 6 Living in Poverty","Crime Rate",0.267914340013697,2.86285746739732e-52
+"Construction, Extraction, Maintenance, and Repair Occupations","Teen Birth Rate",0.265651898983006,2.17563497777698e-51
+"Voting Participation Rate","Adult Obesity Rate",-0.265221840294324,3.19187062309768e-51
+"Population Density","Graduate Degree",0.265049448430924,3.72121755428671e-51
+"Republican Win 2012","Crime Rate",-0.264945936967602,4.08013622524423e-51
+"Homogeneity Index","Diabetes Rate",-0.264401633542518,6.61701400732991e-51
+"White not Latino Population","Asian American Population",-0.263845584387316,1.08310855027023e-50
+"Republican Win 2016","Median Age",0.26372218305484,1.20808224439433e-50
+"White not Latino Population","Life Expectancy",0.263607085412695,1.33754072064572e-50
+"Asian American Population","Diabetes Rate",-0.263111948077593,2.07130874731482e-50
+"Avg. No. of Mentally Unhealthy Day","Injury Death Rate",0.2607508436517,1.64584338047205e-49
+"Children Under 6 Living in Poverty","School Enrollment",-0.260083192422314,2.94611419013851e-49
+"Median Earning","Unemployment Rate",-0.258587526535145,1.07903584288345e-48
+"Republican Win 2016","Construction, Extraction, Maintenance, and Repair Occupations",0.257047662247246,4.07035429169185e-48
+"Management, Professional, and Related Occupations","Low Birth Weight Rate",-0.256407667801111,7.04902090691863e-48
+"Gini Coefficient","Infant Mortality",0.255810568481358,1.17498951030731e-47
+"At Least Bachelor Degree","Preschool Enrollment Ratio",0.254956673963452,2.43421141656808e-47
+"Latino Population","Adult Smoking Rate",-0.25493873549627,2.4716716002383e-47
+"Voting Participation Rate","Adults 65 and Older Living in Poverty",-0.254559289587292,3.41319896337262e-47
+"Voting Participation Rate","Latino Population",-0.252422453173581,2.08033088340761e-46
+"School Enrollment","Adult Smoking Rate",-0.252348598478226,2.21375605872844e-46
+"Median Earning","Homicide Rate",-0.252086496695531,2.75974161683419e-46
+"Voting Power","Sales and Office Occupations",0.252082101742254,2.769955709286e-46
+"Poverty Rate","School Enrollment",-0.251149510713746,6.056314024945e-46
+"Republican Win 2016","Production, Transportation, and Material moving Occupations",0.251122692302638,6.19379985960607e-46
+"Sales and Office Occupations","Graduate Degree",0.251056290000141,6.54771977088308e-46
+"Age Dependency Ratio","African American Population",-0.250687131330261,8.91506267153803e-46
+"Voting Power","Crime Rate",0.250283815915596,1.24826547838543e-45
+"Less Than High School","Injury Death Rate",0.249192431520131,3.09425496262893e-45
+"Sex Ratio","Age Dependency Ratio",-0.24895364971362,3.77185702210573e-45
+"Voting Power","Injury Death Rate",-0.248544271110686,5.29396290189694e-45
+"Median Age","Asian American Population",-0.247733960763925,1.0336974926205e-44
+"Latino Population","Farming, Fishing, and Forestry Occupations",0.247644160066315,1.11310064993148e-44
+"Age Dependency Ratio","Homogeneity Index",0.247544994924823,1.20784696174043e-44
+"Latino Population","Adult Obesity Rate",-0.247322362977113,1.45078507886045e-44
+"At Least Bachelor Degree","Homicide Rate",-0.247129469660919,1.70019135559874e-44
+"Management, Professional, and Related Occupations","Injury Death Rate",-0.246674608606375,2.47013064481211e-44
+"Adults 65 and Older Living in Poverty","Production, Transportation, and Material moving Occupations",0.246153116332359,3.7869881008478e-44
+"Crime Rate","Winter Avg. Precipitation",0.246137064808058,3.8370630508758e-44
+"Child Poverty","Production, Transportation, and Material moving Occupations",0.245582468749621,6.03749308220636e-44
+"Asian American Population","Infant Mortality",-0.244801010127844,1.14129632756243e-43
+"Children Under 6 Living in Poverty","Winter Avg. Precipitation",0.244129127122118,1.96959378631221e-43
+"Native American Population","Poverty Rate",0.244080489796807,2.04881713121583e-43
+"At Least Bachelor Degree","Children in Single Parent Households Rate",-0.243985092607424,2.21352327425313e-43
+"Voting Participation Rate","Graduate Degree",0.243942447642346,2.29134701916687e-43
+"Homogeneity Index","Winter Avg. Precipitation",-0.243911624288908,2.34928545825997e-43
+"Republican Win 2016","Management, Professional, and Related Occupations",-0.243150219009779,4.34854715419517e-43
+"Less Than High School","Sexually Transmitted Infections Rate",0.240774706014724,2.92851717047206e-42
+"White not Latino Population","Native American Population",-0.240122075045277,4.92748694724628e-42
+"Children Under 6 Living in Poverty","Production, Transportation, and Material moving Occupations",0.238695474795759,1.52834875803412e-41
+"Homogeneity Index","Children Under 6 Living in Poverty",-0.238465379486798,1.83318895237167e-41
+"Median Earning","Production, Transportation, and Material moving Occupations",-0.238162494475275,2.32835743389217e-41
+"Diabetes Rate","Crime Rate",0.238101806782713,2.44252197135025e-41
+"Adult Obesity Rate","Winter Avg. Precipitation",0.237283125198187,4.6527235614737e-41
+"Uninsured Rate","Children in Single Parent Households Rate",0.236530968517306,8.39252915312762e-41
+"Population Density","At Least Bachelor Degree",0.236095031411559,1.18021564879587e-40
+"Homogeneity Index","Avg. No. of Physically Unhealthy Day",-0.235682395112605,1.62868512906172e-40
+"Unemployment Rate","Production, Transportation, and Material moving Occupations",0.235125629012087,2.51270290438359e-40
+"Native American Population","Teen Birth Rate",0.235063938097106,2.63618165645627e-40
+"Infant Mortality","Crime Rate",0.2348119231567,3.20643752053682e-40
+"School Enrollment","Diabetes Rate",-0.233825288994749,6.88671793988207e-40
+"Adults 65 and Older Living in Poverty","School Enrollment",-0.233684486349069,7.67829266870217e-40
+"Age Dependency Ratio","Crime Rate",-0.23333312761447,1.00702701846251e-39
+"Farming, Fishing, and Forestry Occupations","Winter Avg. Precipitation",-0.232982735171802,1.31916437083516e-39
+"Voting Power","Age Dependency Ratio",-0.232780633704079,1.54114379826886e-39
+"Median Age","Poverty Rate",-0.232249092751467,2.3183588830694e-39
+"Republican Win 2016","Preschool Enrollment Ratio",-0.231735815152491,3.43558637290118e-39
+"Republican Win 2012","Preschool Enrollment Ratio",-0.231577349156337,3.87841841065059e-39
+"Voting Power","White not Latino Population",-0.230249049709072,1.06770630248205e-38
+"Service Occupations","Sexually Transmitted Infections Rate",0.229846088784675,1.44984300483545e-38
+"Adult Obesity Rate","Injury Death Rate",0.228293816095126,4.68559481702502e-38
+"Voting Participation Rate","Unemployment Rate",-0.227872555325137,6.43228340911909e-38
+"Service Occupations","Avg. No. of Physically Unhealthy Day",0.227648451983089,7.61118946617153e-38
+"Service Occupations","Diabetes Rate",0.227426937562911,8.98706786876892e-38
+"Management, Professional, and Related Occupations","Homicide Rate",-0.226734496074421,1.50905951091659e-37
+"School Enrollment","Injury Death Rate",-0.226665355218495,1.58906002504683e-37
+"Median Earning","Sales and Office Occupations",0.22665473871397,1.60171168954567e-37
+"At Least Bachelor Degree","Low Birth Weight Rate",-0.226621243076329,1.64228801727314e-37
+"Infant Mortality","Injury Death Rate",0.226582928517869,1.68995545830869e-37
+"Voting Participation Rate","Children in Single Parent Households Rate",-0.226349117161273,2.01211857952539e-37
+"Voting Participation Rate","Age Dependency Ratio",0.226147383807012,2.33865685434278e-37
+"HIV Prevalence Rate","Winter Avg. Precipitation",0.225943078235044,2.7229971611284e-37
+"Sales and Office Occupations","Production, Transportation, and Material moving Occupations",-0.225730681102339,3.18915521318931e-37
+"Voting Power","Construction, Extraction, Maintenance, and Repair Occupations",-0.22524450752496,4.5761376457655e-37
+"Gini Coefficient","Service Occupations",0.225212832252502,4.68493559212055e-37
+"Farming, Fishing, and Forestry Occupations","At Least Bachelor Degree",-0.224789473577863,6.41124854559994e-37
+"Homogeneity Index","Life Expectancy",0.224758610870008,6.55938952306882e-37
+"Native American Population","Other race(s) Population",0.224571270440447,7.53445721182347e-37
+"Child Poverty","HIV Prevalence Rate",0.224183353188941,1.00347633901821e-36
+"White not Latino Population","Infant Mortality",-0.223561944652288,1.58629119853974e-36
+"Voting Participation Rate","Service Occupations",-0.222613929740615,3.18144289575014e-36
+"Voting Power","Production, Transportation, and Material moving Occupations",-0.2223232781006,3.93556704707178e-36
+"School Enrollment","Avg. No. of Mentally Unhealthy Day",-0.221967850860315,5.10270321621244e-36
+"Republican Win 2016","Population Density",-0.221356403013009,7.96855389831108e-36
+"Asian American Population","Teen Birth Rate",-0.221305603945731,8.26867401781552e-36
+"Voting Participation Rate","Diabetes Rate",-0.220795363475059,1.19808529617539e-35
+"Median Earning","School Enrollment",0.219775773216141,2.50667041732808e-35
+"Management, Professional, and Related Occupations","Winter Avg. Temperature",-0.219592965235838,2.86029134849193e-35
+"Service Occupations","Teen Birth Rate",0.21945899352845,3.15049973643409e-35
+"Republican Win 2016","Injury Death Rate",0.219271742520554,3.60572557704105e-35
+"Service Occupations","Production, Transportation, and Material moving Occupations",-0.21880772477746,5.03506095830459e-35
+"Management, Professional, and Related Occupations","Winter Avg. Precipitation",-0.218776398275538,5.14970871508077e-35
+"Median Age","Graduate Degree",-0.218644689106193,5.66078098014352e-35
+"Asian American Population","HIV Prevalence Rate",0.218483059623238,6.35723847179718e-35
+"Age Dependency Ratio","Uninsured Rate",0.216813288884011,2.09649079900671e-34
+"Sales and Office Occupations","Crime Rate",0.216148559046575,3.36198084257253e-34
+"Other race(s) Population","At Least Bachelor Degree",0.215369050716667,5.83770722658562e-34
+"Republican Win 2016","Latino Population",-0.214164325601084,1.3638609189847e-33
+"African American Population","Preschool Enrollment Ratio",0.21384228695419,1.70963422378696e-33
+"Sex Ratio","Service Occupations",0.213039009384602,2.99906165698796e-33
+"Other race(s) Population","Production, Transportation, and Material moving Occupations",-0.212898958466113,3.30703854943472e-33
+"Voting Participation Rate","Sex Ratio",-0.211483719889397,8.84606515402558e-33
+"Population Density","Median Earning",0.211057996784163,1.18765119979531e-32
+"Median Age","African American Population",-0.210467671113627,1.7849822174642e-32
+"Voting Power","Life Expectancy",0.210002640954158,2.45836420940843e-32
+"Median Age","Teen Birth Rate",-0.209568233248223,3.31287501876984e-32
+"Voting Participation Rate","Homogeneity Index",0.209416003607678,3.67737551534178e-32
+"Republican Win 2012","Injury Death Rate",0.209351086547789,3.84466967999668e-32
+"White not Latino Population","Avg. No. of Mentally Unhealthy Day",-0.208108257667909,8.98491875351336e-32
+"Other race(s) Population","Graduate Degree",0.207050948462223,1.84195889385579e-31
+"Republican Win 2012","Gini Coefficient",-0.207023081960864,1.87704097701927e-31
+"Voting Participation Rate","White not Latino Population",0.206409010350376,2.84271612041763e-31
+"Infant Mortality","HIV Prevalence Rate",0.206003206977003,3.73715146896358e-31
+"Age Dependency Ratio","Sexually Transmitted Infections Rate",-0.205774881684955,4.35789931112506e-31
+"Poverty Rate","HIV Prevalence Rate",0.205759261803135,4.40392357957243e-31
+"Voting Participation Rate","Production, Transportation, and Material moving Occupations",-0.204276942231958,1.18887331218136e-30
+"Uninsured Rate","Infant Mortality",0.204244119117571,1.21520050569439e-30
+"Median Age","Winter Avg. Temperature",-0.204183971106334,1.26495476131194e-30
+"Latino Population","Winter Avg. Precipitation",-0.204020436061526,1.41068220093621e-30
+"Sales and Office Occupations","Construction, Extraction, Maintenance, and Repair Occupations",-0.203439331339743,2.07667435878476e-30
+"Poverty Rate","Production, Transportation, and Material moving Occupations",0.203316372891252,2.25339637509643e-30
+"Republican Win 2016","Homicide Rate",-0.203215598142512,2.40929753285584e-30
+"Latino Population","Infant Mortality",-0.202099687217265,5.04163040133858e-30
+"Republican Win 2016","Adult Obesity Rate",0.201542450441204,7.27775493235391e-30
+"Age Dependency Ratio","Median Earning",-0.20141068968922,7.93643732087229e-30
+"Service Occupations","Crime Rate",0.201323716286333,8.40328302180721e-30
+"Voting Participation Rate","Crime Rate",-0.201084342788013,9.83354879383652e-30
+"Less Than High School","Crime Rate",0.200643592140622,1.3127152194149e-29
+"Latino Population","Production, Transportation, and Material moving Occupations",-0.199670010990801,2.47890263690124e-29
+"Adult Smoking Rate","Crime Rate",0.19928019885982,3.19448443463329e-29
+"Native American Population","Child Poverty",0.198711085237985,4.6215885501437e-29
+"Adults 65 and Older Living in Poverty","Sales and Office Occupations",-0.197848345948871,8.07235249760806e-29
+"Sex Ratio","Sales and Office Occupations",-0.19667079770239,1.72098710491533e-28
+"Homogeneity Index","Unemployment Rate",-0.194918209813475,5.26310681696847e-28
+"Adults 65 and Older Living in Poverty","Winter Avg. Precipitation",0.19470623777822,6.02067248803552e-28
+"Construction, Extraction, Maintenance, and Repair Occupations","Winter Avg. Temperature",0.193970479048005,9.59043829357497e-28
+"Voting Participation Rate","Winter Avg. Precipitation",-0.193454248605555,1.32806178149822e-27
+"Voting Power","Adult Smoking Rate",-0.193406455626981,1.36863328555326e-27
+"Median Age","Diabetes Rate",0.192437907096481,2.5141729423111e-27
+"HIV Prevalence Rate","Diabetes Rate",0.191892919035756,3.5349787223032e-27
+"Median Earning","Low Birth Weight Rate",-0.191450371768789,4.65836411457253e-27
+"Farming, Fishing, and Forestry Occupations","Injury Death Rate",0.190916658020548,6.49200851357153e-27
+"Farming, Fishing, and Forestry Occupations","Less Than High School",0.190320998528332,9.3918694726919e-27
+"Service Occupations","School Enrollment",-0.189774117863354,1.3168160665978e-26
+"Asian American Population","Children Under 6 Living in Poverty",-0.189712975801665,1.36743533195418e-26
+"Life Expectancy","HIV Prevalence Rate",-0.189658108306051,1.41449882793418e-26
+"Asian American Population","Sales and Office Occupations",0.189481056091381,1.57758902503586e-26
+"Voting Power","Median Age",-0.189442959097374,1.61504682978716e-26
+"Adult Obesity Rate","Winter Avg. Temperature",0.189198380433541,1.87741474132736e-26
+"Service Occupations","HIV Prevalence Rate",0.189148498890607,1.93589786931333e-26
+"Republican Win 2016","Low Birth Weight Rate",-0.188879049384328,2.28445203733832e-26
+"Graduate Degree","Avg. No. of Mentally Unhealthy Day",-0.188544699334078,2.80445879519119e-26
+"Asian American Population","Child Poverty",-0.18834363175534,3.1719833078395e-26
+"Median Age","At Least Bachelor Degree",-0.188258638142204,3.3413361066826e-26
+"Asian American Population","Adults 65 and Older Living in Poverty",-0.188213607549828,3.43466081089851e-26
+"Republican Win 2012","Service Occupations",-0.187875400572477,4.22320172195668e-26
+"Population Density","Management, Professional, and Related Occupations",0.187607910246631,4.9717736928407e-26
+"Sexually Transmitted Infections Rate","Winter Avg. Precipitation",0.187565173125072,5.10298571786493e-26
+"Teen Birth Rate","Winter Avg. Precipitation",0.187434034407074,5.52740490907759e-26
+"Voting Power","Farming, Fishing, and Forestry Occupations",-0.187007031924878,7.16672882622649e-26
+"Sales and Office Occupations","Uninsured Rate",-0.186499395530126,9.75143155473741e-26
+"Homogeneity Index","Infant Mortality",-0.186450835474218,1.00425140328053e-25
+"Voting Power","Other race(s) Population",0.1861464077602,1.20738127090173e-25
+"Less Than High School","HIV Prevalence Rate",0.185831915670395,1.45997895193178e-25
+"Sales and Office Occupations","Winter Avg. Precipitation",0.185501543145753,1.78178965723225e-25
+"Construction, Extraction, Maintenance, and Repair Occupations","Avg. No. of Physically Unhealthy Day",0.185490360031703,1.79383277715747e-25
+"Homogeneity Index","Production, Transportation, and Material moving Occupations",0.184539462632729,3.17584332688689e-25
+"Sales and Office Occupations","Less Than High School",-0.184248507176825,3.7800498625186e-25
+"Median Age","HIV Prevalence Rate",-0.184019256202072,4.3351735191962e-25
+"Republican Win 2012","Median Age",0.183661860879653,5.36566678062265e-25
+"Republican Win 2012","Management, Professional, and Related Occupations",-0.183656634957424,5.38240738374593e-25
+"Unemployment Rate","Uninsured Rate",0.183080268847662,7.58465224789631e-25
+"Graduate Degree","Homicide Rate",-0.182899887609256,8.44215350531824e-25
+"Asian American Population","Less Than High School",-0.182183618868693,1.29030563059404e-24
+"Median Age","Sales and Office Occupations",-0.182074846946905,1.37595618826952e-24
+"Service Occupations","Less Than High School",0.181731226349569,1.68525750253346e-24
+"Production, Transportation, and Material moving Occupations","Winter Avg. Precipitation",0.180360697597062,3.76845510888063e-24
+"Uninsured Rate","Adult Smoking Rate",0.180338453223163,3.8177982792793e-24
+"Unemployment Rate","Graduate Degree",-0.180208142398833,4.11997594259735e-24
+"Unemployment Rate","HIV Prevalence Rate",0.180063377970911,4.4834909212852e-24
+"Republican Win 2012","Population Density",-0.180022266666665,4.59239398202857e-24
+"Native American Population","Children Under 6 Living in Poverty",0.178981783898785,8.41395167132919e-24
+"Construction, Extraction, Maintenance, and Repair Occupations","Preschool Enrollment Ratio",-0.178854292286978,9.05964429081062e-24
+"Voting Participation Rate","Infant Mortality",-0.178756507443487,9.5879077119738e-24
+"Population Density","Homogeneity Index",-0.177766816987581,1.69839541975024e-23
+"Republican Win 2016","Service Occupations",-0.177764819933582,1.70035035363476e-23
+"Service Occupations","Avg. No. of Mentally Unhealthy Day",0.177734238546645,1.73056643531916e-23
+"Children Under 6 Living in Poverty","HIV Prevalence Rate",0.177664197811498,1.80178767134294e-23
+"Voting Participation Rate","Construction, Extraction, Maintenance, and Repair Occupations",-0.177227717301221,2.31575803646499e-23
+"Native American Population","Children in Single Parent Households Rate",0.176800604600362,2.95850512528507e-23
+"Sales and Office Occupations","Diabetes Rate",-0.175253767129546,7.14649466531534e-23
+"Other race(s) Population","Less Than High School",-0.175182412406614,7.44178004394542e-23
+"School Enrollment","Infant Mortality",-0.174704141955378,9.75759794056381e-23
+"Age Dependency Ratio","Preschool Enrollment Ratio",-0.174481412615185,1.10668804864937e-22
+"Native American Population","Avg. No. of Physically Unhealthy Day",0.174467539325387,1.11539539228604e-22
+"Asian American Population","Preschool Enrollment Ratio",0.174336112092304,1.2013201508001e-22
+"Low Birth Weight Rate","Injury Death Rate",0.174047723205912,1.4134865113249e-22
+"Adult Smoking Rate","Winter Avg. Temperature",0.173900232183256,1.53591938072919e-22
+"Homogeneity Index","Service Occupations",-0.173762685552188,1.65952585237091e-22
+"School Enrollment","Winter Avg. Temperature",-0.172645820107342,3.10394256635924e-22
+"Adults 65 and Older Living in Poverty","Service Occupations",0.172374985116522,3.61060855836015e-22
+"Median Earning","Preschool Enrollment Ratio",0.172290362899073,3.78508761014888e-22
+"Population Density","Age Dependency Ratio",-0.171306355014512,6.54085213060689e-22
+"Republican Win 2012","Voting Participation Rate",-0.170923006979713,8.08721461729875e-22
+"Asian American Population","Avg. No. of Physically Unhealthy Day",-0.170826991107298,8.52804580348856e-22
+"Service Occupations","Uninsured Rate",0.170682452767863,9.2368417012458e-22
+"Population Density","Crime Rate",0.170100956484438,1.27266256843345e-21
+"School Enrollment","Adult Obesity Rate",-0.169959742973453,1.37543595071323e-21
+"Asian American Population","School Enrollment",0.169632713963074,1.64602165393253e-21
+"Age Dependency Ratio","White not Latino Population",0.169436778226279,1.83269742574964e-21
+"Republican Win 2012","Unemployment Rate",-0.169344580039643,1.92763664181139e-21
+"Preschool Enrollment Ratio","Uninsured Rate",-0.169040621814605,2.27641054738847e-21
+"Homogeneity Index","Avg. No. of Mentally Unhealthy Day",-0.168525069525035,3.01610483492381e-21
+"Latino Population","Crime Rate",0.168135856757985,3.72770018378694e-21
+"Voting Power","Latino Population",0.167676989602899,4.78206935763755e-21
+"Management, Professional, and Related Occupations","Preschool Enrollment Ratio",0.167563746860097,5.08469571399013e-21
+"White not Latino Population","Winter Avg. Precipitation",-0.167190453483409,6.22270167121827e-21
+"Gini Coefficient","Graduate Degree",0.166969261751055,7.01225266766474e-21
+"Republican Win 2012","Production, Transportation, and Material moving Occupations",0.166519085221428,8.9376401772521e-21
+"Production, Transportation, and Material moving Occupations","Children in Single Parent Households Rate",0.166324775360121,9.92226353626075e-21
+"Unemployment Rate","School Enrollment",-0.166308236372643,1.00108622689439e-20
+"Uninsured Rate","Sexually Transmitted Infections Rate",0.166280045182936,1.01636873194147e-20
+"Production, Transportation, and Material moving Occupations","School Enrollment",-0.166080800443444,1.13115471727986e-20
+"Median Age","Avg. No. of Physically Unhealthy Day",-0.166040331900424,1.15598878643428e-20
+"Sex Ratio","Graduate Degree",-0.165734023475516,1.36227517205087e-20
+"Republican Win 2016","Other race(s) Population",-0.165632045430924,1.43871901020905e-20
+"Voting Power","Diabetes Rate",-0.165565703447263,1.49071012045261e-20
+"Native American Population","Service Occupations",0.164853526250654,2.18018770963279e-20
+"Population Density","Adult Obesity Rate",-0.164455135199183,2.69482263234416e-20
+"Asian American Population","Poverty Rate",-0.164157493830709,3.1560302059315e-20
+"Service Occupations","Adult Smoking Rate",0.163822632186797,3.76858684263661e-20
+"Republican Win 2016","Unemployment Rate",-0.163451513105312,4.58529682194095e-20
+"Preschool Enrollment Ratio","HIV Prevalence Rate",0.163424344249106,4.65153319049007e-20
+"Construction, Extraction, Maintenance, and Repair Occupations","Diabetes Rate",0.163215666590334,5.1927984159726e-20
+"Median Age","Children in Single Parent Households Rate",-0.162806180164806,6.44208282865808e-20
+"Graduate Degree","HIV Prevalence Rate",0.160457066747779,2.19504058299581e-19
+"Construction, Extraction, Maintenance, and Repair Occupations","Sexually Transmitted Infections Rate",-0.160325529478894,2.34973717105307e-19
+"Homogeneity Index","Adults 65 and Older Living in Poverty",-0.160086696723655,2.65863105826162e-19
+"Age Dependency Ratio","Children in Single Parent Households Rate",-0.159293974359342,4.00040326392024e-19
+"Service Occupations","Homicide Rate",0.159074377485803,4.47815248252201e-19
+"Asian American Population","Farming, Fishing, and Forestry Occupations",-0.158861808299654,4.99412984228853e-19
+"Farming, Fishing, and Forestry Occupations","Diabetes Rate",0.158787244944744,5.18868508661958e-19
+"Sex Ratio","At Least Bachelor Degree",-0.15876653311063,5.24404316343047e-19
+"Population Density","White not Latino Population",-0.158232112740774,6.89248249396536e-19
+"School Enrollment","Children in Single Parent Households Rate",-0.158078530030005,7.45443174731047e-19
+"Republican Win 2016","Poverty Rate",-0.157973504790032,7.86451546747453e-19
+"Sex Ratio","Farming, Fishing, and Forestry Occupations",0.157769783125096,8.724490655722e-19
+"Asian American Population","Uninsured Rate",-0.157139539023881,1.20167531374604e-18
+"African American Population","Management, Professional, and Related Occupations",-0.157025284561681,1.27330742802819e-18
+"Native American Population","Homogeneity Index",-0.156812668065077,1.41800526114008e-18
+"Median Age","Native American Population",-0.156028396601897,2.10640218406756e-18
+"Asian American Population","Crime Rate",0.155889672675701,2.2586502608187e-18
+"Age Dependency Ratio","Low Birth Weight Rate",-0.155869585057388,2.28157809013654e-18
+"Preschool Enrollment Ratio","Injury Death Rate",-0.155754537531605,2.41738628764469e-18
+"Unemployment Rate","Injury Death Rate",0.155593330096569,2.62119811082587e-18
+"Median Age","Adult Smoking Rate",-0.155411136573202,2.87200428146346e-18
+"Population Density","Construction, Extraction, Maintenance, and Repair Occupations",-0.155153829352593,3.26700940189459e-18
+"Homogeneity Index","Graduate Degree",-0.154903474099592,3.70264812330882e-18
+"Asian American Population","Latino Population",0.154614885283153,4.27626874998216e-18
+"Adults 65 and Older Living in Poverty","HIV Prevalence Rate",0.154602402888183,4.30296581847388e-18
+"Voting Participation Rate","Gini Coefficient",-0.154361586164895,4.85143244134078e-18
+"Service Occupations","Low Birth Weight Rate",0.154325309355759,4.93982405944871e-18
+"HIV Prevalence Rate","Teen Birth Rate",0.153782664272574,6.46819381560304e-18
+"Latino Population","Service Occupations",0.153592317735974,7.10802421712571e-18
+"Farming, Fishing, and Forestry Occupations","Teen Birth Rate",0.152974312023457,9.6470997592685e-18
+"Homogeneity Index","Preschool Enrollment Ratio",-0.152930007481638,9.86018881358454e-18
+"African American Population","Service Occupations",0.152545495790028,1.19156031530844e-17
+"White not Latino Population","Other race(s) Population",-0.152449747263662,1.2489921231268e-17
+"Voting Power","Infant Mortality",-0.152117619939511,1.47018493756628e-17
+"Median Earning","Sexually Transmitted Infections Rate",-0.151994270981603,1.5618193846448e-17
+"Other race(s) Population","Sales and Office Occupations",0.151962124419704,1.58661179053896e-17
+"Age Dependency Ratio","Teen Birth Rate",0.150885874980388,2.6829549200254e-17
+"Population Density","Injury Death Rate",-0.150559137154785,3.14447159352799e-17
+"White not Latino Population","Preschool Enrollment Ratio",-0.15022245802163,3.70185965321621e-17
+"Sales and Office Occupations","Preschool Enrollment Ratio",0.149144176281668,6.22750655003298e-17
+"Farming, Fishing, and Forestry Occupations","Crime Rate",-0.148697238979053,7.71719109558374e-17
+"Other race(s) Population","Adults 65 and Older Living in Poverty",-0.148605623842009,8.06338472656607e-17
+"School Enrollment","Low Birth Weight Rate",-0.148448345232114,8.69375089951583e-17
+"Voting Participation Rate","Low Birth Weight Rate",-0.147581536958759,1.31443249877719e-16
+"Median Age","Less Than High School",-0.14742784274478,1.41403259327287e-16
+"Voting Power","Sexually Transmitted Infections Rate",0.147209038070506,1.56877550832454e-16
+"Other race(s) Population","Adult Obesity Rate",-0.147138583480069,1.62206720792415e-16
+"Age Dependency Ratio","Construction, Extraction, Maintenance, and Repair Occupations",0.147037041265366,1.70202544312882e-16
+"Farming, Fishing, and Forestry Occupations","Preschool Enrollment Ratio",-0.147006188919289,1.72708018006909e-16
+"School Enrollment","Homicide Rate",-0.146959599091551,1.76560540950766e-16
+"Adults 65 and Older Living in Poverty","Farming, Fishing, and Forestry Occupations",0.146830443003131,1.87688788227969e-16
+"African American Population","Uninsured Rate",0.146496388686273,2.19778156133716e-16
+"Native American Population","Winter Avg. Precipitation",-0.146313379348795,2.39590631685553e-16
+"Adults 65 and Older Living in Poverty","Construction, Extraction, Maintenance, and Repair Occupations",0.146288370879382,2.42431223472622e-16
+"Age Dependency Ratio","Avg. No. of Mentally Unhealthy Day",-0.146166565610378,2.56747892987362e-16
+"Sales and Office Occupations","Winter Avg. Temperature",0.145977166578133,2.80679929484954e-16
+"Voting Power","Gini Coefficient",0.145521169673482,3.47685992325138e-16
+"At Least Bachelor Degree","Winter Avg. Temperature",-0.145361606057158,3.74672487515911e-16
+"Adults 65 and Older Living in Poverty","Crime Rate",0.145302055157615,3.85264232716717e-16
+"Native American Population","Adults 65 and Older Living in Poverty",0.144831378776446,4.80033560708158e-16
+"Voting Power","Teen Birth Rate",-0.143874562638139,7.48973762946568e-16
+"Population Density","Gini Coefficient",0.143496397763705,8.92207182830771e-16
+"Republican Win 2012","Adult Obesity Rate",0.141345857551106,2.39224691884085e-15
+"Republican Win 2012","Latino Population",-0.141167913543775,2.59391344901927e-15
+"Republican Win 2012","Uninsured Rate",0.141004703955805,2.79354135603705e-15
+"Homogeneity Index","Injury Death Rate",0.140974584760372,2.83199973075845e-15
+"Other race(s) Population","Management, Professional, and Related Occupations",0.140692843808023,3.21793546786961e-15
+"Voting Participation Rate","Sexually Transmitted Infections Rate",-0.140647188223114,3.2851701544855e-15
+"Native American Population","Diabetes Rate",0.140428687189072,3.62657500542626e-15
+"Republican Win 2012","Low Birth Weight Rate",-0.140254036633991,3.92436762543217e-15
+"Service Occupations","At Least Bachelor Degree",-0.139657525283812,5.13455701098862e-15
+"Construction, Extraction, Maintenance, and Repair Occupations","Infant Mortality",0.139334843489725,5.93526847219388e-15
+"Production, Transportation, and Material moving Occupations","Low Birth Weight Rate",0.139103363487965,6.58413684246791e-15
+"Age Dependency Ratio","Other race(s) Population",-0.138911873579787,7.17325036493873e-15
+"Republican Win 2016","Median Earning",-0.138787365928543,7.58380248085441e-15
+"White not Latino Population","Production, Transportation, and Material moving Occupations",0.138721893818177,7.80887610135295e-15
+"Latino Population","Poverty Rate",0.138007181834349,1.07361592330388e-14
+"HIV Prevalence Rate","Avg. No. of Mentally Unhealthy Day",0.137950440559107,1.10101860221514e-14
+"Poverty Rate","Sales and Office Occupations",-0.13793555352202,1.10832134971311e-14
+"Population Density","Sexually Transmitted Infections Rate",0.137833722595717,1.15956728101576e-14
+"Asian American Population","Avg. No. of Mentally Unhealthy Day",-0.137510520134828,1.33814732780086e-14
+"Preschool Enrollment Ratio","Low Birth Weight Rate",0.137385359173819,1.41434258800753e-14
+"Less Than High School","Preschool Enrollment Ratio",-0.137331059040069,1.44871170161094e-14
+"Uninsured Rate","Crime Rate",0.137113273801363,1.59500460902653e-14
+"Other race(s) Population","Median Earning",0.136753135376826,1.86940989372736e-14
+"Sales and Office Occupations","Teen Birth Rate",-0.136604393996051,1.99583846519754e-14
+"Preschool Enrollment Ratio","Sexually Transmitted Infections Rate",0.135844357427341,2.78524995103564e-14
+"Median Age","Other race(s) Population",-0.13550108726602,3.2357070028443e-14
+"HIV Prevalence Rate","Injury Death Rate",-0.135476870296302,3.27006175699362e-14
+"Age Dependency Ratio","Management, Professional, and Related Occupations",-0.134384685641585,5.25487914963632e-14
+"Construction, Extraction, Maintenance, and Repair Occupations","Avg. No. of Mentally Unhealthy Day",0.134341646473882,5.35360643475688e-14
+"Sex Ratio","Winter Avg. Precipitation",-0.134288144386137,5.4788788048895e-14
+"Service Occupations","Life Expectancy",-0.1333327247094,8.26798793966628e-14
+"Age Dependency Ratio","Native American Population",0.133053647585646,9.3187736582198e-14
+"Median Age","Construction, Extraction, Maintenance, and Repair Occupations",0.132854987436637,1.01456307815127e-13
+"Sex Ratio","Construction, Extraction, Maintenance, and Repair Occupations",0.132816673077561,1.03131962281303e-13
+"HIV Prevalence Rate","Avg. No. of Physically Unhealthy Day",0.132371451533076,1.24712913737682e-13
+"Child Poverty","Sales and Office Occupations",-0.131911621113664,1.51651179345267e-13
+"White not Latino Population","School Enrollment",0.131146791601878,2.09633382230296e-13
+"Sex Ratio","Sexually Transmitted Infections Rate",-0.130593642361306,2.64635180604628e-13
+"Voting Power","Adults 65 and Older Living in Poverty",-0.130578822997506,2.66288608832743e-13
+"Construction, Extraction, Maintenance, and Repair Occupations","Adult Smoking Rate",0.130272735994474,3.02799151507881e-13
+"Graduate Degree","Low Birth Weight Rate",-0.130097480020977,3.25871402134815e-13
+"Voting Power","Preschool Enrollment Ratio",0.130005595374556,3.38648759873481e-13
+"Republican Win 2012","Homicide Rate",-0.129970849642086,3.43607524143297e-13
+"Republican Win 2012","Poverty Rate",-0.129746312932769,3.77415316878535e-13
+"Republican Win 2012","Other race(s) Population",-0.129682116499283,3.87667339460049e-13
+"Other race(s) Population","Crime Rate",0.129323435044048,4.50181005406639e-13
+"Republican Win 2016","Voting Participation Rate",-0.129317978290598,4.51204635235965e-13
+"Homogeneity Index","Sales and Office Occupations",-0.129086181057278,4.9686203325488e-13
+"Other race(s) Population","Farming, Fishing, and Forestry Occupations",-0.128610278441115,6.05268604301668e-13
+"Republican Win 2012","Farming, Fishing, and Forestry Occupations",0.126964513275399,1.19103272753399e-12
+"Preschool Enrollment Ratio","Winter Avg. Precipitation",0.126698768463122,1.32751240750535e-12
+"Latino Population","Life Expectancy",0.126680293456968,1.33755126407047e-12
+"Age Dependency Ratio","Adult Smoking Rate",-0.126547881840512,1.41171190931398e-12
+"Gini Coefficient","Preschool Enrollment Ratio",0.126419381459522,1.48753136338653e-12
+"Native American Population","Uninsured Rate",0.126371018761551,1.51708931393565e-12
+"Preschool Enrollment Ratio","Children in Single Parent Households Rate",0.126353491018164,1.52794335732244e-12
+"Homogeneity Index","At Least Bachelor Degree",-0.126187807151533,1.63437825424391e-12
+"Production, Transportation, and Material moving Occupations","HIV Prevalence Rate",-0.126062133406353,1.71992742020973e-12
+"Republican Win 2012","School Enrollment",-0.125407154987956,2.24199038322743e-12
+"Republican Win 2016","Sales and Office Occupations",-0.1253278946542,2.31485947745178e-12
+"Voting Power","Less Than High School",-0.12505264121824,2.58640629545492e-12
+"Poverty Rate","Farming, Fishing, and Forestry Occupations",0.124754490454632,2.91579718824889e-12
+"Latino Population","Avg. No. of Mentally Unhealthy Day",-0.124743551831037,2.92863314668582e-12
+"Population Density","Production, Transportation, and Material moving Occupations",-0.124738926237374,2.93407770980331e-12
+"Republican Win 2016","Winter Avg. Precipitation",-0.124439598881938,3.30831531844088e-12
+"Median Age","Gini Coefficient",-0.124036747156677,3.88666449934715e-12
+"Adult Obesity Rate","Crime Rate",0.123910036573167,4.08825955246009e-12
+"Homogeneity Index","School Enrollment",0.123893305661441,4.11563248343023e-12
+"Preschool Enrollment Ratio","Crime Rate",0.123090781305668,5.66230777296934e-12
+"Voting Participation Rate","Homicide Rate",-0.122969795839356,5.94024363546569e-12
+"Production, Transportation, and Material moving Occupations","Preschool Enrollment Ratio",-0.121745164671965,9.62302134273245e-12
+"Native American Population","Avg. No. of Mentally Unhealthy Day",0.121319658625577,1.13663132292206e-11
+"Graduate Degree","Children in Single Parent Households Rate",-0.121260228415816,1.16331923615724e-11
+"Child Poverty","Farming, Fishing, and Forestry Occupations",0.121028655437912,1.27328829839989e-11
+"Native American Population","Production, Transportation, and Material moving Occupations",-0.121008380682067,1.28338719719466e-11
+"Latino Population","Child Poverty",0.12071479591381,1.43871649910088e-11
+"Sex Ratio","Gini Coefficient",-0.120411024489249,1.61878360378144e-11
+"Gini Coefficient","Production, Transportation, and Material moving Occupations",-0.120162012686458,1.78268700043699e-11
+"Republican Win 2016","School Enrollment",-0.120127471794969,1.80666841107923e-11
+"Voting Participation Rate","Other race(s) Population",-0.119930643241752,1.94947161590734e-11
+"Construction, Extraction, Maintenance, and Repair Occupations","Adult Obesity Rate",0.119738696904827,2.09934729795139e-11
+"Other race(s) Population","Diabetes Rate",-0.118912857357532,2.88338049282094e-11
+"Native American Population","Winter Avg. Temperature",-0.118678846889176,3.15342672440511e-11
+"Sex Ratio","Latino Population",0.117928171954789,4.19756020196738e-11
+"Voting Participation Rate","Native American Population",-0.117448943337945,5.03371022672239e-11
+"Age Dependency Ratio","Gini Coefficient",-0.117352476259099,5.22072061829947e-11
+"Farming, Fishing, and Forestry Occupations","Avg. No. of Mentally Unhealthy Day",-0.117221840807816,5.48483436296814e-11
+"Latino Population","Injury Death Rate",-0.117173899900847,5.58499991449551e-11
+"Gini Coefficient","Injury Death Rate",0.117020719842402,5.91718271524087e-11
+"Voting Power","School Enrollment",0.116934772031806,6.1119469790763e-11
+"Voting Power","Children Under 6 Living in Poverty",-0.116927951224253,6.12766912521112e-11
+"Construction, Extraction, Maintenance, and Repair Occupations","HIV Prevalence Rate",-0.116917792941076,6.15115755900454e-11
+"Latino Population","Gini Coefficient",0.116876797367444,6.24684697828082e-11
+"Farming, Fishing, and Forestry Occupations","School Enrollment",-0.116168878615278,8.14820021942224e-11
+"Sex Ratio","Avg. No. of Mentally Unhealthy Day",-0.116084355873941,8.40996064147514e-11
+"Children in Single Parent Households Rate","Injury Death Rate",0.116082687202556,8.41521023997596e-11
+"Voting Power","Winter Avg. Temperature",0.115646286334161,9.90395763741906e-11
+"Sales and Office Occupations","School Enrollment",0.115407956347081,1.08226379494084e-10
+"Service Occupations","Winter Avg. Temperature",0.11524583314099,1.14946174386705e-10
+"Latino Population","Sexually Transmitted Infections Rate",0.115236032205472,1.15365223903468e-10
+"Native American Population","Median Earning",-0.114994635062334,1.26170625435797e-10
+"Sex Ratio","Median Earning",-0.11475480591002,1.37882657593302e-10
+"White not Latino Population","Adult Smoking Rate",-0.114479113823833,1.52660996933214e-10
+"Voting Power","Poverty Rate",-0.114073471772688,1.77255333192248e-10
+"African American Population","Production, Transportation, and Material moving Occupations",0.113930865769238,1.86789070379337e-10
+"Preschool Enrollment Ratio","Teen Birth Rate",-0.113850369022847,1.92389788156184e-10
+"Other race(s) Population","Sexually Transmitted Infections Rate",0.113517622377468,2.17332552834232e-10
+"Republican Win 2012","Median Earning",-0.113252416296358,2.39448633143204e-10
+"Republican Win 2012","Life Expectancy",-0.112514670557206,3.13171988794393e-10
+"Construction, Extraction, Maintenance, and Repair Occupations","Low Birth Weight Rate",0.1120728121826,3.67487791604326e-10
+"Sales and Office Occupations","Adult Obesity Rate",-0.111724893629704,4.16626763148844e-10
+"Voting Power","Sex Ratio",-0.111486763866579,4.53896087539886e-10
+"Native American Population","Adult Obesity Rate",0.111237408998708,4.96405284777483e-10
+"Population Density","Median Age",-0.110758812493317,5.8914407354165e-10
+"Other race(s) Population","Infant Mortality",-0.110679341704455,6.0609787245949e-10
+"Republican Win 2012","Sales and Office Occupations",-0.110636342934991,6.15468363415635e-10
+"Production, Transportation, and Material moving Occupations","Homicide Rate",0.110478639067619,6.51060625622863e-10
+"Uninsured Rate","HIV Prevalence Rate",0.11017067623217,7.26443809736812e-10
+"Republican Win 2016","Child Poverty",-0.109286845861638,9.9319377864389e-10
+"Republican Win 2016","Farming, Fishing, and Forestry Occupations",0.109076824944858,1.0694341393126e-09
+"Sex Ratio","Crime Rate",-0.108558707968661,1.28273108640874e-09
+"At Least Bachelor Degree","HIV Prevalence Rate",0.108467457411279,1.32436539388208e-09
+"Native American Population","Sales and Office Occupations",-0.108368941826567,1.3707924643293e-09
+"Child Poverty","Construction, Extraction, Maintenance, and Repair Occupations",0.107161159186345,2.08616533856859e-09
+"Other race(s) Population","Service Occupations",0.107056461229221,2.16303966929438e-09
+"Sex Ratio","Less Than High School",0.106948387707708,2.2452838224582e-09
+"Median Age","Child Poverty",-0.106778047069762,2.38113089734756e-09
+"Uninsured Rate","Winter Avg. Precipitation",0.10677278440648,2.38545282580534e-09
+"Asian American Population","Winter Avg. Precipitation",0.106771471167872,2.3865325046763e-09
+"Population Density","Preschool Enrollment Ratio",0.10654260027657,2.58214795881623e-09
+"Latino Population","Adults 65 and Older Living in Poverty",0.106453208788632,2.66271572898201e-09
+"Asian American Population","Homicide Rate",-0.106438018568623,2.67664762388336e-09
+"Median Earning","Construction, Extraction, Maintenance, and Repair Occupations",-0.106386894495922,2.72405991721897e-09
+"African American Population","Latino Population",-0.106213503139193,2.89102904531389e-09
+"Children Under 6 Living in Poverty","Sales and Office Occupations",-0.105558854515639,3.61599246941271e-09
+"Median Age","Farming, Fishing, and Forestry Occupations",0.105370425852069,3.85557684086161e-09
+"Voting Participation Rate","Preschool Enrollment Ratio",0.104955698557777,4.43856238896594e-09
+"Age Dependency Ratio","Winter Avg. Temperature",-0.104618899327266,4.97430296789504e-09
+"Republican Win 2016","Winter Avg. Temperature",-0.104172473774411,5.78219744260072e-09
+"Farming, Fishing, and Forestry Occupations","Children in Single Parent Households Rate",-0.103598035244065,7.01127514928858e-09
+"Voting Power","Child Poverty",-0.103518722394981,7.19977297036425e-09
+"Latino Population","School Enrollment",-0.102582533690143,9.8327077452456e-09
+"Other race(s) Population","Winter Avg. Precipitation",0.102560898050782,9.90346429382001e-09
+"Median Age","Avg. No. of Mentally Unhealthy Day",-0.10247810719536,1.0178817451624e-08
+"Preschool Enrollment Ratio","Adult Obesity Rate",-0.10178793787262,1.278268505793e-08
+"Gini Coefficient","Construction, Extraction, Maintenance, and Repair Occupations",-0.10144318632818,1.43151084192693e-08
+"Voting Power","Avg. No. of Physically Unhealthy Day",-0.101196513464011,1.55195495018806e-08
+"Service Occupations","Injury Death Rate",0.100501554972931,1.94661464700134e-08
+"Other race(s) Population","Low Birth Weight Rate",-0.100334965437049,2.05480471849954e-08
+"Voting Participation Rate","Injury Death Rate",-0.100102706531499,2.2154314964296e-08
+"Asian American Population","Winter Avg. Temperature",0.100072640763047,2.23709483804776e-08
+"Native American Population","Homicide Rate",0.100060400617554,2.24597299602533e-08
+"White not Latino Population","Adult Obesity Rate",-0.0998376540415816,2.41363811836525e-08
+"Latino Population","Diabetes Rate",0.0998211669914975,2.42651971248355e-08
+"Republican Win 2012","Child Poverty",-0.0983013573642494,3.94910091146122e-08
+"Age Dependency Ratio","Production, Transportation, and Material moving Occupations",0.0982285989096775,4.04152984494379e-08
+"Age Dependency Ratio","Adult Obesity Rate",0.0977398215829092,4.7190861201752e-08
+"Sales and Office Occupations","Sexually Transmitted Infections Rate",0.0970666668352023,5.83489889549821e-08
+"Population Density","Farming, Fishing, and Forestry Occupations",-0.0969322343555205,6.08650459667248e-08
+"Construction, Extraction, Maintenance, and Repair Occupations","Homicide Rate",0.0965293757998229,6.90503519991345e-08
+"Population Density","Life Expectancy",0.0953063151437447,1.00969223444057e-07
+"Age Dependency Ratio","Unemployment Rate",-0.0948394665045264,1.16586322481462e-07
+"Median Age","Low Birth Weight Rate",-0.0947985004383092,1.18063145293634e-07
+"White not Latino Population","Injury Death Rate",0.094708695415248,1.21364183115074e-07
+"White not Latino Population","Farming, Fishing, and Forestry Occupations",-0.0942044954431658,1.41621073506056e-07
+"At Least Bachelor Degree","Winter Avg. Precipitation",-0.0937780538565672,1.61272240679318e-07
+"Median Age","Life Expectancy",0.0937553104716143,1.62391173262678e-07
+"Median Age","Homicide Rate",-0.0935233937642208,1.74237877785439e-07
+"Latino Population","Construction, Extraction, Maintenance, and Repair Occupations",0.0934954062171661,1.75722783389581e-07
+"African American Population","Native American Population",-0.0933547235844858,1.83373982856602e-07
+"School Enrollment","Crime Rate",-0.0922704507095446,2.54157715370942e-07
+"Children Under 6 Living in Poverty","Construction, Extraction, Maintenance, and Repair Occupations",0.0921829246076375,2.60902479068263e-07
+"African American Population","Sales and Office Occupations",0.0921751460698859,2.61510185185921e-07
+"Republican Win 2012","Native American Population",-0.0918589867389888,2.87400662350586e-07
+"Uninsured Rate","Adult Obesity Rate",0.0914368761033712,3.25849797411102e-07
+"African American Population","Injury Death Rate",-0.0909580834988476,3.75474304573203e-07
+"African American Population","At Least Bachelor Degree",-0.0901898698752255,4.70667739756795e-07
+"Latino Population","HIV Prevalence Rate",0.090059636834139,4.88959017003607e-07
+"School Enrollment","HIV Prevalence Rate",-0.0899680812542693,5.02226214612369e-07
+"African American Population","Construction, Extraction, Maintenance, and Repair Occupations",-0.089631802072245,5.53997953938896e-07
+"Asian American Population","Sexually Transmitted Infections Rate",0.0895669337845247,5.64559839842243e-07
+"Gini Coefficient","At Least Bachelor Degree",0.0889463213692453,6.75918548844006e-07
+"Median Earning","HIV Prevalence Rate",0.0885785385980234,7.51595710296232e-07
+"Republican Win 2016","Life Expectancy",-0.0878041062783737,9.38520272410166e-07
+"Population Density","African American Population",0.087471086698753,1.03199249479292e-06
+"Sex Ratio","Diabetes Rate",-0.0871710670135897,1.12381995214546e-06
+"Farming, Fishing, and Forestry Occupations","Production, Transportation, and Material moving Occupations",-0.087171037088985,1.12382949166001e-06
+"Production, Transportation, and Material moving Occupations","Injury Death Rate",0.0867669477735886,1.26000467812046e-06
+"Graduate Degree","Crime Rate",0.0859998151032776,1.56340291383476e-06
+"Poverty Rate","Construction, Extraction, Maintenance, and Repair Occupations",0.0857538694465909,1.67473083401315e-06
+"Unemployment Rate","Farming, Fishing, and Forestry Occupations",-0.0852626011413821,1.92033183322106e-06
+"Management, Professional, and Related Occupations","Crime Rate",-0.0852376699708885,1.93367625127851e-06
+"Unemployment Rate","Construction, Extraction, Maintenance, and Repair Occupations",0.0849894225435192,2.07150054654415e-06
+"Sales and Office Occupations","Children in Single Parent Households Rate",0.0846195353141413,2.29448712527901e-06
+"Homogeneity Index","Median Earning",-0.084505929711664,2.36747871406305e-06
+"Population Density","Latino Population",0.0842520716606469,2.53872123267528e-06
+"Latino Population","Children Under 6 Living in Poverty",0.0841455416179037,2.61406776580988e-06
+"Sex Ratio","Uninsured Rate",0.0840605104468964,2.67574348720186e-06
+"Republican Win 2016","Sex Ratio",0.0826945619081961,3.87988413496472e-06
+"African American Population","Farming, Fishing, and Forestry Occupations",-0.0824924081867536,4.09723493990656e-06
+"Sales and Office Occupations","Infant Mortality",-0.0824378887473329,4.15782095657631e-06
+"Sex Ratio","Management, Professional, and Related Occupations",-0.0823807567934906,4.22223058310945e-06
+"School Enrollment","Winter Avg. Precipitation",-0.0820090862177042,4.66517402262057e-06
+"Asian American Population","Low Birth Weight Rate",-0.0818685323753375,4.84400477356595e-06
+"Children Under 6 Living in Poverty","Farming, Fishing, and Forestry Occupations",0.0818252811530952,4.90034237598124e-06
+"Service Occupations","Graduate Degree",-0.0807178897025192,6.57597710199122e-06
+"Asian American Population","Gini Coefficient",0.0805018655145109,6.96127212896975e-06
+"Republican Win 2016","Adults 65 and Older Living in Poverty",-0.0804468448678938,7.06280086725843e-06
+"Sex Ratio","Life Expectancy",0.0804207032024698,7.11153427748465e-06
+"Service Occupations","Infant Mortality",0.079749945649996,8.47772622590129e-06
+"African American Population","Median Earning",-0.0796642769398653,8.66929074535299e-06
+"Voting Participation Rate","Farming, Fishing, and Forestry Occupations",0.0792725996234918,9.59903303984147e-06
+"African American Population","School Enrollment",-0.0792541757578299,9.6450316057783e-06
+"Median Age","Adults 65 and Older Living in Poverty",-0.0790046753959656,1.02890542344834e-05
+"Republican Win 2012","Sex Ratio",0.0780715929790832,1.30806646702946e-05
+"Republican Win 2012","Children Under 6 Living in Poverty",-0.0780675035163841,1.30943577841469e-05
+"Sales and Office Occupations","Adult Smoking Rate",-0.0776660721979163,1.45071097123782e-05
+"Republican Win 2012","Winter Avg. Precipitation",-0.0776291311940233,1.46441761682296e-05
+"Republican Win 2012","Teen Birth Rate",0.0775736719592402,1.48522727681365e-05
+"Sex Ratio","Children in Single Parent Households Rate",-0.0775590944936813,1.49074369610522e-05
+"Median Age","Preschool Enrollment Ratio",-0.0775009276235015,1.51295028744446e-05
+"Construction, Extraction, Maintenance, and Repair Occupations","Crime Rate",-0.0773640579103278,1.56645385048051e-05
+"Sex Ratio","Teen Birth Rate",0.0773640303470609,1.56646480457903e-05
+"Unemployment Rate","Preschool Enrollment Ratio",0.0773420303500595,1.57523128502566e-05
+"Voting Power","Uninsured Rate",-0.0765899945487431,1.90463068139324e-05
+"Sales and Office Occupations","HIV Prevalence Rate",0.0765626806579975,1.91774973509289e-05
+"Farming, Fishing, and Forestry Occupations","Adult Smoking Rate",-0.0764534377605509,1.97108498241991e-05
+"School Enrollment","Sexually Transmitted Infections Rate",-0.0764266312970306,1.98438671433165e-05
+"Population Density","Teen Birth Rate",-0.0761474393659684,2.12810072332884e-05
+"Age Dependency Ratio","Avg. No. of Physically Unhealthy Day",-0.0753506754404394,2.59469889933202e-05
+"Preschool Enrollment Ratio","Winter Avg. Temperature",0.0753451651568092,2.59824127550518e-05
+"Voting Power","African American Population",0.0752956342288903,2.63029009769151e-05
+"Native American Population","Gini Coefficient",0.0747312205692331,3.02305353183676e-05
+"Population Density","Other race(s) Population",0.074708518069207,3.03996271881113e-05
+"Sex Ratio","HIV Prevalence Rate",0.0738341792959927,3.76398404987093e-05
+"Preschool Enrollment Ratio","Homicide Rate",0.0738170413875691,3.7796912060213e-05
+"Farming, Fishing, and Forestry Occupations","HIV Prevalence Rate",-0.0737140566779205,3.87539591347821e-05
+"Republican Win 2016","Children Under 6 Living in Poverty",-0.0736804736132984,3.9070989449595e-05
+"Population Density","Sales and Office Occupations",0.0736089175644527,3.97547169993792e-05
+"Native American Population","School Enrollment",-0.0735961573783903,3.98778285805487e-05
+"Native American Population","Unemployment Rate",0.0728410716811397,4.78425126749813e-05
+"White not Latino Population","Management, Professional, and Related Occupations",0.0715240541270566,6.54579563451803e-05
+"Sex Ratio","Population Density",-0.0714396264006883,6.67748435738019e-05
+"Population Density","Adult Smoking Rate",-0.0712384259964876,7.00148635707994e-05
+"Native American Population","Graduate Degree",-0.0708806244477252,7.61470356976043e-05
+"Population Density","Children in Single Parent Households Rate",0.0706683776644454,8.00209264281335e-05
+"Sex Ratio","Asian American Population",-0.0699530326589689,9.44938104974085e-05
+"Population Density","Infant Mortality",-0.0697732085429305,9.8502671120185e-05
+"Other race(s) Population","Child Poverty",-0.0696900737928656,0.00010040977649294
+"Median Age","Children Under 6 Living in Poverty",-0.0690728724889819,0.000115697030674536
+"Age Dependency Ratio","Service Occupations",-0.0685452175006724,0.000130480492333859
+"Farming, Fishing, and Forestry Occupations","Low Birth Weight Rate",-0.0684932495138489,0.000132029015916028
+"Sex Ratio","Homicide Rate",-0.0683147972531379,0.000137479260697966
+"Other race(s) Population","Construction, Extraction, Maintenance, and Repair Occupations",-0.0677589803869557,0.000155843742266984
+"Sex Ratio","Production, Transportation, and Material moving Occupations",-0.0676051740431929,0.000161319361338194
+"Preschool Enrollment Ratio","Adult Smoking Rate",-0.0668809340995234,0.000189623240287615
+"Age Dependency Ratio","Adults 65 and Older Living in Poverty",0.0668190099743497,0.00019224836132278
+"Median Age","Adult Obesity Rate",-0.0667940035452629,0.000193318092316894
+"Native American Population","HIV Prevalence Rate",-0.0665053180745986,0.000206079212331204
+"Native American Population","Low Birth Weight Rate",-0.0661609388861847,0.000222336263864805
+"Population Density","Uninsured Rate",-0.065705109962779,0.000245709463257687
+"Sales and Office Occupations","Life Expectancy",0.0655050077931445,0.000256681101633831
+"Median Earning","Winter Avg. Temperature",-0.0648544995778509,0.000295604760467462
+"Other race(s) Population","Preschool Enrollment Ratio",0.0646247989828468,0.000310622143981662
+"Other race(s) Population","Winter Avg. Temperature",0.0643110751588544,0.000332288596028488
+"Population Density","Diabetes Rate",-0.0640970284774515,0.000347873683356035
+"Asian American Population","Unemployment Rate",-0.0639001910135364,0.000362806472928104
+"Service Occupations","Sales and Office Occupations",-0.0637080160172444,0.000377961734534597
+"Other race(s) Population","Life Expectancy",0.0636553534603391,0.000382216885342755
+"Voting Power","Winter Avg. Precipitation",0.0621214055919032,0.000527668231930784
+"Native American Population","Life Expectancy",-0.0619070178254693,0.000551687697029368
+"Other race(s) Population","Children Under 6 Living in Poverty",-0.0618594939257241,0.000557148212466876
+"White not Latino Population","Median Earning",0.0613061852023514,0.000624536857774548
+"Management, Professional, and Related Occupations","HIV Prevalence Rate",0.0611527808378708,0.000644520023194285
+"Native American Population","At Least Bachelor Degree",-0.0610647146268943,0.000656258882468705
+"Republican Win 2016","Avg. No. of Physically Unhealthy Day",-0.0608567696238305,0.000684770195873451
+"HIV Prevalence Rate","Adult Smoking Rate",0.0606076985226933,0.000720434021627987
+"Other race(s) Population","Poverty Rate",-0.060279653192213,0.000770040111655089
+"Republican Win 2016","Diabetes Rate",-0.0600749374202061,0.000802583588154436
+"Voting Participation Rate","HIV Prevalence Rate",-0.0593817077174488,0.000922500280174983
+"Gini Coefficient","Adult Obesity Rate",0.058744416417948,0.00104717594766194
+"Republican Win 2016","Avg. No. of Mentally Unhealthy Day",-0.0586288427110844,0.00107139088721491
+"Construction, Extraction, Maintenance, and Repair Occupations","Winter Avg. Precipitation",0.0583685253792612,0.001127840736552
+"Other race(s) Population","Homicide Rate",-0.0583102000081151,0.00114085980948241
+"Preschool Enrollment Ratio","Life Expectancy",0.0581517087228585,0.00117694192271115
+"White not Latino Population","Sales and Office Occupations",-0.0580538131774369,0.0011997523599832
+"African American Population","Other race(s) Population",-0.0575279332074906,0.00132942841319753
+"Service Occupations","Farming, Fishing, and Forestry Occupations",-0.0572493023142442,0.00140326117092615
+"Native American Population","Asian American Population",-0.0567575134477513,0.00154286582529327
+"Unemployment Rate","Sales and Office Occupations",0.0565044600787611,0.00161958022373741
+"Median Age","Uninsured Rate",-0.0559894394913104,0.00178665851903723
+"Native American Population","Management, Professional, and Related Occupations",0.0559214884305195,0.00180984793006029
+"Other race(s) Population","Avg. No. of Mentally Unhealthy Day",0.0558727732283987,0.0018266425947219
+"Graduate Degree","Sexually Transmitted Infections Rate",0.0558596830370152,0.00183117980051369
+"Republican Win 2016","Native American Population",-0.0553955371778222,0.00199890615128196
+"Farming, Fishing, and Forestry Occupations","Sexually Transmitted Infections Rate",-0.0541217633442995,0.0025341958284128
+"Sex Ratio","Infant Mortality",-0.0530620749719141,0.00307610765390869
+"Latino Population","Preschool Enrollment Ratio",-0.0523285846669828,0.00351094765238055
+"Sales and Office Occupations","Homicide Rate",-0.0517035961327879,0.00392479576061956
+"Republican Win 2012","Diabetes Rate",-0.0506801084967663,0.00469896959333623
+"Median Age","Winter Avg. Precipitation",-0.0505401949018004,0.00481491280342179
+"Age Dependency Ratio","School Enrollment",-0.0505023589872789,0.0048467078973356
+"Graduate Degree","Winter Avg. Temperature",-0.050490830738342,0.0048564332344844
+"Asian American Population","Children in Single Parent Households Rate",-0.0500870671741402,0.00520838432750507
+"White not Latino Population","Graduate Degree",-0.0498337963558801,0.00544074897540467
+"Voting Participation Rate","Sales and Office Occupations",-0.049671737697409,0.00559429669634207
+"Native American Population","Farming, Fishing, and Forestry Occupations",0.0494409435540086,0.00581971806585208
+"Age Dependency Ratio","Poverty Rate",-0.0492780645449787,0.00598369751345901
+"Republican Win 2012","Less Than High School",0.0489938743065965,0.00627979793591384
+"Sales and Office Occupations","Avg. No. of Mentally Unhealthy Day",0.0486384262981343,0.00666866534399696
+"Gini Coefficient","Sales and Office Occupations",0.0485238084760539,0.00679859634398147
+"Sex Ratio","African American Population",-0.0483934136877615,0.00694917349876144
+"Voting Power","Avg. No. of Mentally Unhealthy Day",-0.0482904601592506,0.00707017008169654
+"Sex Ratio","Homogeneity Index",-0.0481589693154046,0.00722745325595765
+"Age Dependency Ratio","Children Under 6 Living in Poverty",0.0478134731243618,0.00765578199953967
+"Republican Win 2012","Adults 65 and Older Living in Poverty",-0.0475736814761267,0.00796629121923744
+"Adults 65 and Older Living in Poverty","Preschool Enrollment Ratio",-0.0471841500302434,0.00849478151741731
+"Latino Population","Children in Single Parent Households Rate",0.0470970886717335,0.00861710127791271
+"Age Dependency Ratio","Child Poverty",0.04691813056845,0.00887348791475905
+"Latino Population","Avg. No. of Physically Unhealthy Day",0.0461199840600226,0.0101017952701518
+"Voting Power","Native American Population",-0.0454436264313603,0.0112587907128678
+"Graduate Degree","Winter Avg. Precipitation",0.0454299905029084,0.0112832795069397
+"Management, Professional, and Related Occupations","Farming, Fishing, and Forestry Occupations",-0.0453955576674483,0.011345328039311
+"Production, Transportation, and Material moving Occupations","Crime Rate",-0.0452574730297661,0.0115972113762067
+"Sex Ratio","Avg. No. of Physically Unhealthy Day",-0.0452065135216215,0.0116914132148874
+"Population Density","Winter Avg. Precipitation",0.0445258817429891,0.0130162321937999
+"Sales and Office Occupations","Avg. No. of Physically Unhealthy Day",-0.0443751895208172,0.013326898552113
+"Republican Win 2016","Uninsured Rate",0.0440186472134132,0.0140881666122346
+"Republican Win 2016","Adult Smoking Rate",0.0436916099262929,0.0148199035025665
+"Latino Population","Management, Professional, and Related Occupations",-0.0431540886736926,0.016095452980587
+"HIV Prevalence Rate","Adult Obesity Rate",0.0424709737217171,0.0178550102561717
+"Voting Power","Service Occupations",-0.0422213638561345,0.0185387622768395
+"Republican Win 2012","Infant Mortality",0.0422133963912962,0.0185609595471014
+"Injury Death Rate","Crime Rate",-0.042080030666337,0.0189359811325075
+"Sex Ratio","Adults 65 and Older Living in Poverty",0.0416945599426806,0.0200573935601203
+"Sex Ratio","Other race(s) Population",-0.0414058415574332,0.020934868592948
+"Preschool Enrollment Ratio","Avg. No. of Physically Unhealthy Day",-0.0410623132918972,0.0220223246237317
+"Asian American Population","Service Occupations",-0.0410459535073576,0.0220753156378702
+"Sex Ratio","Unemployment Rate",-0.0403994576178095,0.0242600503174838
+"Other race(s) Population","Uninsured Rate",-0.0399017063332301,0.0260674804395036
+"Farming, Fishing, and Forestry Occupations","Homicide Rate",0.0392870228032575,0.0284590927161507
+"Median Age","Production, Transportation, and Material moving Occupations",0.0391890001181039,0.0288574400900665
+"White not Latino Population","Construction, Extraction, Maintenance, and Repair Occupations",0.0388882632627037,0.0301096619622559
+"Gini Coefficient","Farming, Fishing, and Forestry Occupations",-0.0386005000162636,0.0313512805166668
+"Construction, Extraction, Maintenance, and Repair Occupations","Production, Transportation, and Material moving Occupations",0.0385776369013377,0.0314517847331198
+"Sex Ratio","Low Birth Weight Rate",-0.038486616927022,0.0318546440405094
+"Republican Win 2016","Teen Birth Rate",0.0384853731271929,0.0318601796495166
+"Production, Transportation, and Material moving Occupations","Sexually Transmitted Infections Rate",-0.038472023468999,0.0319196450609671
+"Homogeneity Index","Construction, Extraction, Maintenance, and Repair Occupations",0.0384643898248767,0.0319536914819902
+"Farming, Fishing, and Forestry Occupations","Life Expectancy",0.0379971962217184,0.0340974681672598
+"Management, Professional, and Related Occupations","Sexually Transmitted Infections Rate",-0.0371681494429693,0.0382045880937583
+"Sexually Transmitted Infections Rate","Injury Death Rate",0.0368160089783212,0.0400723119819512
+"Sex Ratio","Preschool Enrollment Ratio",-0.0364255853274692,0.0422330199955221
+"Sex Ratio","White not Latino Population",-0.0361548954886963,0.0437882492957247
+"Latino Population","Median Earning",-0.0360972431373928,0.0441256579857874
+"Population Density","School Enrollment",0.0360110380866483,0.0446342609596694
+"Native American Population","Infant Mortality",0.0355577681492074,0.0473905358746209
+"Population Density","Homicide Rate",0.0355571954203259,0.047394107064804
+"Age Dependency Ratio","Less Than High School",0.0354685440824133,0.0479496167306896
+"Other race(s) Population","Children in Single Parent Households Rate",0.0351125933950479,0.050235449373318
+"Median Age","Management, Professional, and Related Occupations",-0.0349747203496707,0.0511450356777286
+"Population Density","Children Under 6 Living in Poverty",-0.0342376297492481,0.0562447012542925
+"Median Age","Infant Mortality",-0.0339925491023524,0.0580313700912912
+"Voting Power","Children in Single Parent Households Rate",0.0334567060826877,0.062102274764463
+"Service Occupations","Construction, Extraction, Maintenance, and Repair Occupations",-0.0332330953405954,0.0638695676186563
+"Other race(s) Population","Teen Birth Rate",-0.0330851094267222,0.0650618397059811
+"At Least Bachelor Degree","Crime Rate",0.0329200257128936,0.0664134536636969
+"Native American Population","Latino Population",-0.032669654527954,0.068507401389389
+"Other race(s) Population","Injury Death Rate",-0.0324793728316917,0.0701348200040307
+"Service Occupations","Adult Obesity Rate",0.0324554320036423,0.070341805813104
+"Republican Win 2012","Adult Smoking Rate",0.0319109234374536,0.0751863107171141
+"Service Occupations","Winter Avg. Precipitation",0.0307641192832121,0.0862809955842901
+"Republican Win 2012","Avg. No. of Mentally Unhealthy Day",-0.030470425940376,0.0893254017255938
+"Population Density","Avg. No. of Physically Unhealthy Day",-0.0303941811990642,0.0901297293854073
+"Sex Ratio","Winter Avg. Temperature",-0.0300418162982895,0.0939229004025639
+"Farming, Fishing, and Forestry Occupations","Winter Avg. Temperature",-0.02979366045557,0.0966702690577424
+"Service Occupations","Preschool Enrollment Ratio",0.0294691029192589,0.10036004063959
+"Preschool Enrollment Ratio","Infant Mortality",-0.0293536823324164,0.101698946749141
+"Median Age","Median Earning",-0.0292181976566197,0.103288694785037
+"Latino Population","At Least Bachelor Degree",0.0290886239513701,0.104827497437624
+"Gini Coefficient","Management, Professional, and Related Occupations",0.0290678529144904,0.105075855124423
+"Gini Coefficient","School Enrollment",-0.0289195531121321,0.10686265437707
+"Population Density","Winter Avg. Temperature",0.0288670339828847,0.107501174334966
+"Age Dependency Ratio","Latino Population",0.0288273257367498,0.107985943389944
+"Population Density","Native American Population",-0.0287752616384414,0.108624174903192
+"Preschool Enrollment Ratio","Diabetes Rate",-0.0283883311754138,0.113461303477918
+"Production, Transportation, and Material moving Occupations","Uninsured Rate",-0.027995363699076,0.118545881361402
+"Latino Population","Unemployment Rate",-0.0275245583502464,0.124870804630087
+"African American Population","Asian American Population",0.0270848834350436,0.131012134581128
+"Median Age","Service Occupations",-0.0268606525696518,0.134233028829152
+"Construction, Extraction, Maintenance, and Repair Occupations","Children in Single Parent Households Rate",-0.0264835448460698,0.139787453046831
+"Other race(s) Population","HIV Prevalence Rate",0.0255622519994807,0.154099551821186
+"Farming, Fishing, and Forestry Occupations","Adult Obesity Rate",0.0254090435285401,0.15658390757402
+"Population Density","Less Than High School",-0.0246119296297044,0.170001571204885
+"Median Earning","Crime Rate",-0.0245549455941657,0.17099278966379
+"Republican Win 2012","Winter Avg. Temperature",0.0245121514111438,0.171740020081158
+"Other race(s) Population","Adult Smoking Rate",-0.0243936844510674,0.173821313050236
+"Sales and Office Occupations","Low Birth Weight Rate",0.0243844484541735,0.17398436414711
+"Population Density","Low Birth Weight Rate",0.0235286252797952,0.189593109967469
+"Sex Ratio","Median Age",-0.0232176006825423,0.195513968975721
+"Injury Death Rate","Winter Avg. Temperature",0.0231387919539022,0.197035510668345
+"Voting Power","Low Birth Weight Rate",-0.0226758283950345,0.206149070981182
+"Homogeneity Index","Farming, Fishing, and Forestry Occupations",-0.0222398214933876,0.215008241172017
+"Children Under 6 Living in Poverty","Preschool Enrollment Ratio",-0.0221370136635442,0.217136559540273
+"Voting Participation Rate","Asian American Population",0.0221302966006873,0.217276140873665
+"Voting Participation Rate","Voting Power",0.0216091779957704,0.228302405128645
+"Other race(s) Population","Avg. No. of Physically Unhealthy Day",0.0212337066086143,0.236490071545511
+"African American Population","Graduate Degree",-0.0209659685742665,0.242453815216257
+"Other race(s) Population","Latino Population",-0.0200924193349379,0.26264384438186
+"Homogeneity Index","Adult Smoking Rate",-0.0194201940247302,0.27895050955545
+"Republican Win 2012","Avg. No. of Physically Unhealthy Day",-0.0190200667113709,0.28897690434578
+"Latino Population","Graduate Degree",0.0171873307587312,0.337973132281197
+"Age Dependency Ratio","Homicide Rate",-0.0170638145516941,0.341456758290676
+"Median Age","Unemployment Rate",0.0165548387104388,0.356053074645433
+"Median Earning","Winter Avg. Precipitation",0.016529612153141,0.356786601103092
+"Sex Ratio","Poverty Rate",0.0156937893063254,0.381626436514625
+"Voting Power","Unemployment Rate",-0.0155630845466252,0.385604587960059
+"Population Density","Adults 65 and Older Living in Poverty",0.0154129531566959,0.390205129545469
+"Poverty Rate","Preschool Enrollment Ratio",-0.0152275159877759,0.395933370068067
+"Population Density","Avg. No. of Mentally Unhealthy Day",-0.0149192244475834,0.405568259120769
+"Homogeneity Index","Management, Professional, and Related Occupations",-0.0147753979479688,0.410110688507486
+"Sex Ratio","Injury Death Rate",0.0147548600086196,0.41076178931686
+"Other race(s) Population","Unemployment Rate",-0.0141519262911586,0.430148242577021
+"Production, Transportation, and Material moving Occupations","Winter Avg. Temperature",-0.0138502385509002,0.440044565558603
+"Population Density","Service Occupations",0.0137090576841578,0.444720230633567
+"Latino Population","Sales and Office Occupations",-0.0132132325087864,0.461363683088173
+"Age Dependency Ratio","Life Expectancy",0.0131362398955563,0.463978949851892
+"Injury Death Rate","Winter Avg. Precipitation",-0.0130988615217497,0.46525157852607
+"Native American Population","Crime Rate",-0.0130628285040799,0.466480235443957
+"Child Poverty","Preschool Enrollment Ratio",-0.0126782326026579,0.47970574542563
+"Voting Participation Rate","African American Population",0.0113262292429057,0.527778758726049
+"Farming, Fishing, and Forestry Occupations","Infant Mortality",-0.011072062992607,0.53708265186532
+"Sex Ratio","Native American Population",0.0110084252982831,0.539424976570295
+"Farming, Fishing, and Forestry Occupations","Construction, Extraction, Maintenance, and Repair Occupations",0.0107275538251668,0.549823776048473
+"Other race(s) Population","Gini Coefficient",0.010587834587089,0.555033171683715
+"White not Latino Population","At Least Bachelor Degree",-0.00970270632986251,0.588583637325679
+"Republican Win 2016","Infant Mortality",0.00952975912054924,0.595246894135775
+"At Least Bachelor Degree","Sexually Transmitted Infections Rate",0.00913021715770224,0.610770340109539
+"Voting Participation Rate","Population Density",-0.00895006831279823,0.617827888502613
+"Sex Ratio","Children Under 6 Living in Poverty",0.00868348033279861,0.628336653700871
+"Farming, Fishing, and Forestry Occupations","Avg. No. of Physically Unhealthy Day",0.00865165710718016,0.629596211054873
+"Latino Population","Homicide Rate",-0.0085621768573277,0.633143587987212
+"Latino Population","Low Birth Weight Rate",0.00807255123826832,0.652702264166544
+"Sex Ratio","Child Poverty",0.00786543103955895,0.661049321043979
+"Population Density","Poverty Rate",-0.00786543042884806,0.661049345718832
+"Sex Ratio","Adult Smoking Rate",-0.00771433347536725,0.667165400130407
+"Native American Population","Preschool Enrollment Ratio",0.00614082402191697,0.732107687132248
+"Other race(s) Population","School Enrollment",0.00589765496408503,0.742331527312619
+"Management, Professional, and Related Occupations","Sales and Office Occupations",-0.00588545272053002,0.742845777135434
+"Native American Population","Less Than High School",0.00527814444104059,0.768580648801102
+"Native American Population","Construction, Extraction, Maintenance, and Repair Occupations",0.004961652149922,0.782095881305057
+"Sex Ratio","Adult Obesity Rate",-0.00472064776084674,0.792432065719906
+"Republican Win 2016","Less Than High School",0.00450435333653375,0.801739695867963
+"Population Density","Child Poverty",-0.00428101350965461,0.811380092532798
+"Median Age","School Enrollment",-0.0042751181536179,0.811634958416603
+"Population Density","Unemployment Rate",0.00426886589380529,0.811905275634705
+"Homogeneity Index","Adult Obesity Rate",-0.00400560476908203,0.823307354724923
+"Age Dependency Ratio","Infant Mortality",-0.00367719070564147,0.837583434710594
+"Voting Power","Homicide Rate",-0.00327702520653065,0.855050589212429
+"Preschool Enrollment Ratio","Avg. No. of Mentally Unhealthy Day",-0.00265149907347062,0.882494329464626

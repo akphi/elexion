@@ -1,0 +1,27 @@
+\cleardoublepage 
+
+# (APPENDIX) Appendix {-}
+
+# Dataset {#appendix-data}
+Below are the _snapshots_ of the data set at the two major phases, namely pre-processed and prepared. Again, we couple the data tables along with their choropleth since we believe that choropleth is a really good way to visualize data quickly. The raw data sets and intermediate-phase data sets can be found in the data [folder](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/data/")`).
+
+> See Appendix \@ref(appendix-dir) for more information on the data folder.
+
+## Pre-Processed Data {-}
+```{r table-appendix-data-pre-processed, echo = FALSE, fig.cap='Preprocessed Data set', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$DATA_PRE_PROCESSED), height = "600px")
+```
+
+```{r plot-appendix-choropleth-preprocessed, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_PRE_PROCESSED), height = "800px")
+```
+
+## Prepared Data (Analytic Base Table) {-}
+
+```{r table-appendix-data-selected, echo = FALSE, fig.cap='Prepared Data (ABT)', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$DATA_SELECTED), height = "600px")
+```
+
+```{r plot-appendix-choropleth-selected, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_PREPARED), height = "800px")
+```

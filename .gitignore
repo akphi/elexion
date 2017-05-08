@@ -1,0 +1,12 @@
+keynote_source
+backup
+tmp
+
+.DS_Store
+**/*.DS_Store
+
+*.log
+**/.Rproj.user
+**/_bookdown_files
+
+data/raw

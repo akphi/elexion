@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How the 2016 US Election Happened</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="How the 2016 US Election Happened" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  <meta name="github-repo" content="blacksteed232/elexion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the 2016 US Election Happened" />
+  
+  <meta name="twitter:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  
+
+<meta name="author" content="An Phi">
+
+
+<meta name="date" content="2017-05-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="dqp.html">
+<link rel="next" href="rep.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Home Page</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="disclaimer.html"><a href="disclaimer.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="1" data-path="dqr.html"><a href="dqr.html"><i class="fa fa-check"></i><b>1</b> Data Quality Report (DQR)</a><ul>
+<li class="chapter" data-level="1.1" data-path="dqr.html"><a href="dqr.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="dqr.html"><a href="dqr.html#datasources"><i class="fa fa-check"></i><b>1.2</b> Data Source</a></li>
+<li class="chapter" data-level="1.3" data-path="dqr.html"><a href="dqr.html#pre-process"><i class="fa fa-check"></i><b>1.3</b> Data Pre-Process</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dqr.html"><a href="dqr.html#trimming"><i class="fa fa-check"></i><b>1.3.1</b> Trimming</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dqr.html"><a href="dqr.html#editing"><i class="fa fa-check"></i><b>1.3.2</b> Editing</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dqr.html"><a href="dqr.html#adding"><i class="fa fa-check"></i><b>1.3.3</b> Adding</a></li>
+<li class="chapter" data-level="1.3.4" data-path="dqr.html"><a href="dqr.html#updating"><i class="fa fa-check"></i><b>1.3.4</b> Updating</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="dqr.html"><a href="dqr.html#dqr-exploration"><i class="fa fa-check"></i><b>1.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="1.5" data-path="dqr.html"><a href="dqr.html#feature-detail"><i class="fa fa-check"></i><b>1.5</b> Feature Detail</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-state-code"><i class="fa fa-check"></i>FIPS State Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2016"><i class="fa fa-check"></i>Republican Win 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2012"><i class="fa fa-check"></i>Republican Win 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-participation-rate"><i class="fa fa-check"></i>Voting Participation Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-power"><i class="fa fa-check"></i>Voting Power</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population-density"><i class="fa fa-check"></i>Population Density</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sex-ratio"><i class="fa fa-check"></i>Sex Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#age-dependency-ratio"><i class="fa fa-check"></i>Age Dependency Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-age"><i class="fa fa-check"></i>Median Age</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#white-not-latino-population"><i class="fa fa-check"></i>White not Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#african-american-population"><i class="fa fa-check"></i>African American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#native-american-population"><i class="fa fa-check"></i>Native American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#asian-american-population"><i class="fa fa-check"></i>Asian American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-races-population"><i class="fa fa-check"></i>Other race(s) Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#latino-population"><i class="fa fa-check"></i>Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homogeneity-index"><i class="fa fa-check"></i>Homogeneity Index</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#gini-coefficient"><i class="fa fa-check"></i>Gini Coefficient</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-earning"><i class="fa fa-check"></i>Median Earning</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#unemployment-rate"><i class="fa fa-check"></i>Unemployment Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#management-professional-and-related-occupations"><i class="fa fa-check"></i>Management, Professional, and Related Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#service-occupations"><i class="fa fa-check"></i>Service Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sales-and-office-occupations"><i class="fa fa-check"></i>Sales and Office Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#farming-fishing-and-forestry-occupations"><i class="fa fa-check"></i>Farming, Fishing, and Forestry Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#construction-extraction-maintenance-and-repair-occupations"><i class="fa fa-check"></i>Construction, Extraction, Maintenance, and Repair Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#production-transportation-and-material-moving-occupations"><i class="fa fa-check"></i>Production, Transportation, and Material moving Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#school-enrollment"><i class="fa fa-check"></i>School Enrollment</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#preschool-enrollment-ratio"><i class="fa fa-check"></i>Preschool Enrollment Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#at-least-bachelor-degree"><i class="fa fa-check"></i>At Least Bachelor Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#graduate-degree"><i class="fa fa-check"></i>Graduate Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#infant-mortality"><i class="fa fa-check"></i>Infant Mortality</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#injury-death-rate"><i class="fa fa-check"></i>Injury Death Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#low-birth-weight-rate"><i class="fa fa-check"></i>Low Birth Weight Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-in-single-parent-households-rate"><i class="fa fa-check"></i>Children in Single Parent Households Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-obesity-rate"><i class="fa fa-check"></i>Adult Obesity Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#diabetes-rate"><i class="fa fa-check"></i>Diabetes Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sexually-transmitted-infections-rate"><i class="fa fa-check"></i>Sexually Transmitted Infections Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#hiv-prevalence-rate"><i class="fa fa-check"></i>HIV Prevalence Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#uninsured-rate"><i class="fa fa-check"></i>Uninsured Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#crime-rate"><i class="fa fa-check"></i>Crime Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homicide-rate"><i class="fa fa-check"></i>Homicide Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-precipitation"><i class="fa fa-check"></i>Winter Avg. Precipitation</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-temperature"><i class="fa fa-check"></i>Winter Avg. Temperature</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="dqr.html"><a href="dqr.html#del-feature"><i class="fa fa-check"></i><b>1.6</b> Deleted Feature</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-county-code"><i class="fa fa-check"></i>FIPS County Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#county-name"><i class="fa fa-check"></i>County Name</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2008"><i class="fa fa-check"></i>Republican Win 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2016"><i class="fa fa-check"></i>Republican Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2012"><i class="fa fa-check"></i>Republican Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2008"><i class="fa fa-check"></i>Republican Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2016"><i class="fa fa-check"></i>Democratic Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2012"><i class="fa fa-check"></i>Democratic Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2008"><i class="fa fa-check"></i>Democratic Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-votes-2016"><i class="fa fa-check"></i>Other Parties Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2012"><i class="fa fa-check"></i>Other Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2008"><i class="fa fa-check"></i>Other Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2016"><i class="fa fa-check"></i>Total Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2012"><i class="fa fa-check"></i>Total Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2008"><i class="fa fa-check"></i>Total Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2016"><i class="fa fa-check"></i>Republican Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2012"><i class="fa fa-check"></i>Republican Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2008"><i class="fa fa-check"></i>Republican Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2016"><i class="fa fa-check"></i>Democratic Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2012"><i class="fa fa-check"></i>Democratic Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2008"><i class="fa fa-check"></i>Democratic Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-vote-fraction-2016"><i class="fa fa-check"></i>Other Parties Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2012"><i class="fa fa-check"></i>Other Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2008"><i class="fa fa-check"></i>Other Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#estimated-no.-of-remaining-votes"><i class="fa fa-check"></i>Estimated No. of Remaining Votes</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-age-population"><i class="fa fa-check"></i>Voting Age Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-under-6-living-in-poverty"><i class="fa fa-check"></i>Children Under 6 Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#child-poverty"><i class="fa fa-check"></i>Child Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adults-65-and-older-living-in-poverty"><i class="fa fa-check"></i>Adults 65 and Older Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#poverty-rate"><i class="fa fa-check"></i>Poverty Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#less-than-high-school"><i class="fa fa-check"></i>Less Than High School</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#life-expectancy"><i class="fa fa-check"></i>Life Expectancy</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-physically-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Physically Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-mentally-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Mentally Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#teen-birth-rate"><i class="fa fa-check"></i>Teen Birth Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-smoking-rate"><i class="fa fa-check"></i>Adult Smoking Rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dqp.html"><a href="dqp.html"><i class="fa fa-check"></i><b>2</b> Data Quality Plan (DQP)</a><ul>
+<li class="chapter" data-level="2.1" data-path="dqp.html"><a href="dqp.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-outlier"><i class="fa fa-check"></i>Handling Outlier</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-trimming"><i class="fa fa-check"></i>Feature Trimming</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-missing-values"><i class="fa fa-check"></i>Handling Missing Values</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-selection"><i class="fa fa-check"></i>Feature Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dqp.html"><a href="dqp.html#handling-outliers"><i class="fa fa-check"></i><b>2.2</b> Handling Outliers</a></li>
+<li class="chapter" data-level="2.3" data-path="dqp.html"><a href="dqp.html#feature-trimming-1"><i class="fa fa-check"></i><b>2.3</b> Feature Trimming</a></li>
+<li class="chapter" data-level="2.4" data-path="dqp.html"><a href="dqp.html#handling-missing-data"><i class="fa fa-check"></i><b>2.4</b> Handling Missing Data</a></li>
+<li class="chapter" data-level="2.5" data-path="dqp.html"><a href="dqp.html#feature-selection-1"><i class="fa fa-check"></i><b>2.5</b> Feature Selection</a></li>
+<li class="chapter" data-level="2.6" data-path="dqp.html"><a href="dqp.html#feature-space-reduction"><i class="fa fa-check"></i><b>2.6</b> Feature Space Reduction</a></li>
+<li class="chapter" data-level="2.7" data-path="dqp.html"><a href="dqp.html#abt"><i class="fa fa-check"></i><b>2.7</b> Analytic Base Table (ABT)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>3</b> A Brief Note on Modelling</a><ul>
+<li class="chapter" data-level="3.1" data-path="md.html"><a href="md.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="md.html"><a href="md.html#classifiers-and-tuning-parameters"><i class="fa fa-check"></i><b>3.2</b> Classifiers and Tuning Parameters</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="md.html"><a href="md.html#base-classifer"><i class="fa fa-check"></i><b>3.2.1</b> Base Classifer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="md.html"><a href="md.html#probability-based-classififer"><i class="fa fa-check"></i><b>3.2.2</b> Probability-based Classififer</a></li>
+<li class="chapter" data-level="3.2.3" data-path="md.html"><a href="md.html#rule-based-classifier"><i class="fa fa-check"></i><b>3.2.3</b> Rule-based Classifier</a></li>
+<li class="chapter" data-level="3.2.4" data-path="md.html"><a href="md.html#tree-based-classifier"><i class="fa fa-check"></i><b>3.2.4</b> Tree-based Classifier</a></li>
+<li class="chapter" data-level="3.2.5" data-path="md.html"><a href="md.html#regression-based-classifier"><i class="fa fa-check"></i><b>3.2.5</b> Regression-based Classifier</a></li>
+<li class="chapter" data-level="3.2.6" data-path="md.html"><a href="md.html#instance-based-classifier"><i class="fa fa-check"></i><b>3.2.6</b> Instance-based Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="md.html"><a href="md.html#addressing-imbalanced-class-distribution"><i class="fa fa-check"></i><b>3.3</b> Addressing Imbalanced Class Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rep.html"><a href="rep.html"><i class="fa fa-check"></i><b>4</b> A “Minority” Report</a><ul>
+<li class="chapter" data-level="4.1" data-path="rep.html"><a href="rep.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="rep.html"><a href="rep.html#methodology"><i class="fa fa-check"></i><b>4.2</b> Methodology</a></li>
+<li class="chapter" data-level="4.3" data-path="rep.html"><a href="rep.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rep.html"><a href="rep.html#dcpp"><i class="fa fa-check"></i><b>4.3.1</b> Compilation and Pre-process</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rep.html"><a href="rep.html#dexp"><i class="fa fa-check"></i><b>4.3.2</b> Exploration</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rep.html"><a href="rep.html#dpre"><i class="fa fa-check"></i><b>4.3.3</b> Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rep.html"><a href="rep.html#modelling"><i class="fa fa-check"></i><b>4.4</b> Modelling</a></li>
+<li class="chapter" data-level="4.5" data-path="rep.html"><a href="rep.html#result"><i class="fa fa-check"></i><b>4.5</b> Result and Evaluation</a></li>
+<li class="chapter" data-level="4.6" data-path="rep.html"><a href="rep.html#discussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+<li class="chapter" data-level="4.7" data-path="rep.html"><a href="rep.html#conclusion"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="rep.html"><a href="rep.html#further-thoughts"><i class="fa fa-check"></i><b>4.8</b> Further Thoughts</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-data.html"><a href="appendix-data.html"><i class="fa fa-check"></i><b>A</b> Dataset</a><ul>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#pre-processed-data"><i class="fa fa-check"></i>Pre-Processed Data</a></li>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#prepared-data-analytic-base-table"><i class="fa fa-check"></i>Prepared Data (Analytic Base Table)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-dir.html"><a href="appendix-dir.html"><i class="fa fa-check"></i><b>B</b> Directories</a></li>
+<li class="chapter" data-level="C" data-path="appendix-code.html"><a href="appendix-code.html"><i class="fa fa-check"></i><b>C</b> Code</a><ul>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#usage"><i class="fa fa-check"></i>Usage</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#notice"><i class="fa fa-check"></i>Notice</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#procedures"><i class="fa fa-check"></i>Procedures</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How the 2016 US Election Happened</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="md" class="section level1">
+<h1><span class="header-section-number">Section 3</span> A Brief Note on Modelling</h1>
+<div id="overview-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>In this section, we will briefly go through our selection of classifiers. More than just that, for each model, we want to investigate which parameters we can tune to optimize the performance; and for each parameter, we want to obtain a reasonable range of values so we can automate the tuning process. Also, each model has its odds and ends. At least, since we have dealt with all the missing values in our data in section <a href="dqp.html#dqp">2</a>, we just need to care about the type of the descriptive features and the target (nominal or continuous). Besides, each modal potentially requires different data pre-process procedures. Also, for each tune, we run cross validation to minimize the effect of random splits. Last but not least, we take the huge difference between the number of counties won by the Republican party and that of the Democratic party into account, and so we can either under-sample or over-sample the training set.</p>
+<p>In the next part, we list out the main procedures we use in the modelling process. We use the term “probing” to describe the procedure in which we identify the range of values for the parameters of computationally expensive classifiers, such as K-Nearest Neighbor and Neural Network. Essentially, we perform a preliminary tuning for these classifiers. For the data set used, We feel that we should not include the 2012 results as well as the state FIPS code to avoid any effect that these two features might contribute to the performance of the data and to make the probing process faster due to the lower number of features.</p>
+<p>The final procedure is to do a quick exhaustive search for the subset of categories from which we can generate the best model out of. The result of this process as well as the result of the modelling process in general will be discussed in detail in section <a href="rep.html#rep">4</a>.</p>
+<blockquote>
+<p>MD001</p>
+</blockquote>
+<pre><code>[ALL] all except elec_rep12_win and fips_state
+[ACTION] tune
+[REASON] probe over a large range of values to see the suitable range for tuning the number k of nearest-neighbor classifier (knn)</code></pre>
+<blockquote>
+<p>MD002</p>
+</blockquote>
+<pre><code>[ALL] all except elec_rep12_win and fips_state
+[ACTION] tune
+[REASON] probe over a large range of value to see the suitable range for tuning the number k of weighted nearest-neighbor classifier (kknn)</code></pre>
+<blockquote>
+<p>MD003</p>
+</blockquote>
+<pre><code>[ALL] all except elec_rep12_win and fips_state
+[ACTION] tune
+[REASON] probe over a large number of possible hidden layers configuration for neural network</code></pre>
+<blockquote>
+<p>MD004</p>
+</blockquote>
+<pre><code>[ALL] all except elec_rep12_win and fips_state
+[ACTION] tune
+[REASON] visualize the performance of the resuling model to identify the best tuning range for the computationally expensive algorithms</code></pre>
+<blockquote>
+<p>MD005</p>
+</blockquote>
+<pre><code>[ALL] all
+[ACTION] tune
+[REASON] tune parameters for all the classifiers</code></pre>
+<blockquote>
+<p>MD006</p>
+</blockquote>
+<pre><code>[ALL] all except elec_rep12_win and fips_state
+[ACTION] rank
+[REASON] attempt to find the best subset of categories/domains that could have been used for modelling</code></pre>
+</div>
+<div id="classifiers-and-tuning-parameters" class="section level2">
+<h2><span class="header-section-number">3.2</span> Classifiers and Tuning Parameters</h2>
+<p>Since this is a classification problem, tree-based and rule-based classifier naturally come to our mind. We will use 1R as our base classifier, and also try Naive Bayes as a representative of probability-based classifier. In terms of linear regression, we choose Neural Network, Support Vector Machine (SVM) and a simple modified version of linear regression that can work with nominal target. The modified version of linear regression involves choosing a threshold to decide the class of the target value. Regression tree, however, is not considered because the process of building the tree often looks for minimizing the variance at the leaves <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>, which is in no way compatible with our typical performance metrics such as accuracy and Kappa value. Lastly, we also include some instance-based learners for the sake of completeness. In the following sub-sections, we will go into detail of each group of classifiers.</p>
+<div id="base-classifer" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Base Classifer</h3>
+<p>Classifier that is really simple or constructed based on naive assumption on the data set. They generally works decently in most cases so they can be used to produce lower bound for the performance of more sophisticated classifiers. A typical use of this lower bound is to detect drastic reduction in performance of other classifiers while tuning, which potentially suggests over-fitting.</p>
+<div id="r" class="section level4 unnumbered">
+<h4>1R</h4>
+<p>A simple rule-based classifier that only attempts to build 1 rule for the splits on one descriptive feature. It makes the assumption that there exists one feature that can be used to predict the target really well. As such, we can expect OneR to do well when we include strong predictor like the 2012 result. 1R serves well as the base classifier whose model’s performance can serves as the lower bound for other more sophisticated models. 1R only works with nominal descriptive features (DF) and target feature (TF), so we need to bin our the numeric features in our data set. We, however, can use continuous features with the implementation RWeka::OneR as it has a built-in supervised discretization mechanism <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span> which allows user to specify the minimum bucket size for discretization. We will, however, use the default supervised discretization function in RWeka developed using Fayyad &amp; Irani’s MDL method. Since this is just the base classifier, we will not spend a great deal of effort trying to tune it.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: OneR
+  Package: RWeka
+  Input Requirement:
+      Descriptive Feature: nominal
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Binning method (oner.bin)
+  Number of bins (oner.nbin)</code></pre>
+</div>
+</div>
+<div id="probability-based-classififer" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Probability-based Classififer</h3>
+<p>Classifier that constructs the a set of conditional probability and priors for features value to calculate the value of the target feature. Usually, we will include Naive Bayes as a base classifier but we have done prior exploration and Naive Bayes yields amazing good results which makes us decide to separate it from 1R. Since the produced model is a set of probability, interpretation might be quite challenging.</p>
+<div id="naive-bayes" class="section level4 unnumbered">
+<h4>Naive Bayes</h4>
+<p>This is the only probabilistic method used. It takes the “naive” assumption that every features contribute equally to the result and it calculates the conditional probability of each feature to predict the value of the target feature. As such, the resulting model will be in the form of a set of table of probabilities for each feature. It works well with continuous DF but the worry that we have is that Naive Bayes assumes normal distribution for the continuous features so it can calculate the conditional probability of a novel instance using the probability density function. Most of our DFs have very skewed distributions, so we think it is best to force discretization on all features. As of course, similar to 1R, when it comes to discretization on heavily skewed data distribution, the best way is to avoid equal-interval discretization and to use either supervised binning or equal-frequency binning. The Naive Bayes implementation from e1071::NaiveBayes also supports Laplace smoothing (to avoid absolute 0 probability) so we can vary the value of this estimator in our tuning process.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: NaiveBayes
+  Package: e1071
+  Input Requirement:
+      Descriptive Feature: any
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Binning method (nb.bin)
+  Number of bins (nb.nbin)
+  Laplace estimator (nb.laplace): a positive double controlling Laplace smoothing. 
+                                  The default (0) disables Laplace smoothing.</code></pre>
+</div>
+</div>
+<div id="rule-based-classifier" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Rule-based Classifier</h3>
+<p>Classifiers that produce rule set: particularly, in this case, we have both PART and RIPPER producing decision lists (sets of ordered rules). Rules can be more comprehensive than most of the other models (arguably better than decision tree) so even if the result of models built by these classifiers are not the best, we can still based on them to learn about the data set.</p>
+<div id="part" class="section level4 unnumbered">
+<h4>PART</h4>
+<p>A rule learning classifier that combines the divide-and-conquer strategy of decision-tree with separate-and-conquer strategy of rule learning. It builds partial (C4.5) decision tree on the current set of instances and makes the “best” leaf into a rule. The partial tree is then discarded and the instances covered by the rule is then removed. The process repeats until all training instances are classified. It works well with any type of DF. For this particular implementation RWeka::PART, we can change the minimum number of objects per leaf. We can also choose if we want to enable reduced-error pruning, otherwise, we can specify the confidence threshold for pruning, set by default at 25%, which works well in most case <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: PART
+  Package: RWeka
+  Input Requirement:
+      Descriptive Feature: any
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Minimum number of objects per leaf (part.minLeaf)
+  Enable reduced-error pruning (part.REP)
+  Confidence threshold for pruning (part.pruneConf)</code></pre>
+</div>
+<div id="ripper" class="section level4 unnumbered">
+<h4>RIPPER</h4>
+<p>Repeated Incremental Pruning to Produce Error Reduction (RIPPER) is a very popular rule extraction algorithm since it scales linearly with the number of instances and works well with imbalanced class distributions. It predicts the most frequent (majority) class and learns rules for the less frequent ones, starting with the least frequent. It uses the general to specific approach: growing one rule by greedily adding antecedents (or conditions) to the rule until the rule is perfect (i.e. 100% accurate). The procedure tries every possible value of each attribute and selects the condition with highest FOIL’s information gain. It stops adding conjuncts if the number of negative examples covered increases. It uses reduced-error pruning to post-prune added conjuncts in reverse order. The specification of this algorithm is very similar to that of PART. However, for this implementation RWeka::Jrip, we can only modify the minimal weights of instances within a split.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: JRip
+  Package: RWeka
+  Input Requirement:
+      Descriptive Feature: any
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Minimum weight of instance within a split (jrip.minWeight)</code></pre>
+</div>
+</div>
+<div id="tree-based-classifier" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Tree-based Classifier</h3>
+<p>The learning approach which builds decision tree as the model. It is as interpretable as rule-based models, but it has the advantage in that it is much easier to visualize. We choose the classic C4.5 algorithm and the CART algorithm. Tree-based classifiers like rule-based are non-parametric and thus does not assume any data distribution. As such, they are good choices for our data set.</p>
+<div id="c4.5" class="section level4 unnumbered">
+<h4>C4.5</h4>
+<p>An improvement of ID3 algorithm as it uses gain ratio to determine which feature to split on instead of using information gain, which is very susceptible to features with high cardinality. It supports continuous features, as it looks for optimal threshold to split the instance: it sorts the instance by the value of the DF and considers the midpoint between target value change as potential split point, for each of which it calculates the gain ratio to choose the best split point. Like the PART implementation, RWeka::J48 allows us to choose if we want to enable reduced-error pruning as well as to modify the minimum number of objects per leaf.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: J48
+  Package: RWeka
+  Input Requirement:
+      Descriptive Feature: any
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Minimum number of objects per leaf (j48.minLeaf)
+  Enable reduced-error pruning (j48.REP)
+  Confidence threshold for pruning (j48.pruneConf)</code></pre>
+</div>
+<div id="cart" class="section level4 unnumbered">
+<h4>CART</h4>
+<p>This is an algorithm that uses recursive partitioning for classification. This implementation rpart::rpart allows us to modify various parameters including the complexity parameter (cp). Any split that does not decrease the overall lack of fit by a factor of cp is not attempted. There are other approach offered by the implementation as an alternative to this early-stopping criteria such as changing number of observations that must exist in a node in order for a split to be attempted or the minimum number of observations in any terminal (leaf) node. But we feel that using cp is a characteristic value for this algorithm as we can either pre-prune or post-prune just by changing the the cp value.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: rpart
+  Package: rpart
+  Input Requirement:
+      Descriptive Feature: any
+      Target Feature: nominal
+      Other: none</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Complexity parameter (rpart.cp)</code></pre>
+</div>
+</div>
+<div id="regression-based-classifier" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Regression-based Classifier</h3>
+<p>Regression-based classifier attempts to put weight on each features to come up with a linear formula to compute the numeric value of the target. It can also be used for classification problem (e.g. logistic regression, supporting vector machines, etc.) to find the hyper-plane that separates the assumed linearly separable instance space. They general work well and rather robust, but some like neural network is too computationally expensive. Another downside of this approach is that for algorithm that only outputs numeric values for the target, we have to choose a threshold for the data to turn regression results into classification results, and lastly, the resulting models come as a set of weights, which is really hard to interpret. Since the underlying mechanism is to put weights on each feature, regression-based are susceptible to data with different scales so we will normalize or standardize all numeric features. Fortunately, binary features naturally fall into the range [0,1] like normalized features do.</p>
+<div id="linear-regression" class="section level4 unnumbered">
+<h4>Linear Regression</h4>
+<p>The classifier we choose here is actually least-squares linear regression which attempts to minimize the sum of the squares of the differences over all the training instances by choosing weights for the linear combination of all features. For the native implementation of R, i.e. base::lm, we only tune the threshold which is used to determine the class of the predicted values. Since this algorithm only works for continuous features, we have to turn nominal features into binary, i.e. the state FIPS code must be turned into multiple binary features. The downside of this, as we have discovered is that the learned model does not end up using all of the features, resulting in many warnings from R with “rank-deficient fit.” Essentially it means that one or more feature can be be expressed as the linear combination of other features so they are discarded while building the model. There is also a popular misconception that linear model is parametric, which means they assume normal distribution of the input. But as pointed out, the assumption on distribution only applies to the error, not the data itself <span class="citation">(Williams, Gómez Grajales, and Kurkiewicz <a href="#ref-williams2013">2013</a>)</span>, so we can safely use linear regression without worrying to much about transforming the distribution of the features.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: lm
+  Package: base
+  Input Requirement:
+      Descriptive Feature: continuous
+      Target Feature: continuous
+      Other: normalize</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Decision threshold (lm.threshold)</code></pre>
+</div>
+<div id="support-vector-machines-svm" class="section level4 unnumbered">
+<h4>Support Vector Machines (SVM)</h4>
+<p>The algorithm tries to find the best hyper-plane that separates assumed linearly separable instance space. The implementation e1071:svm supports classification and allows us to modify the kernel used in training and predicting as well as cost of constraints violation, i. e. the <em>C</em>-constant of the regularization term in the Lagrange formulation. In essence, the constant tells SVM optimization how much we want to avoid mis-classifying each training instances. For large values of C, the optimization will choose a smaller-margin hyper-plane if that hyper-plane does a better job of getting all the training points classified correctly. Conversely, a very small value of C will cause the optimizer to look for a larger-margin separating hyper-plane, even if that hyper-plane mis-classifies more points. Since our knowledge on the various kernel type is limited, we will not attempt to tune on the parameters that correspond to each kernel type but using the default values instead. Another issue is that we have to scale/standardize the features since it helps “avoid attributes in greater numeric ranges dominating those in smaller numeric ranges and numerical difficulties during the calculation” as “kernel values usually depend on the inner products of feature vectors, e.g. the linear kernel and the polynomial kernel, large attribute values might cause numerical problems” <span class="citation">(Hsu, Chang, and Lin <a href="#ref-hsu2003">2003</a>)</span>. Since SVM is sensitive to imbalanced class distribution, we will also adjust the weights if training set is left unsampled by adjusting the parameter class.weights in the e1071::svm implementation.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: svm
+  Package: e1071
+  Input Requirement:
+      Descriptive Feature: continuous
+      Target Feature: any
+      Other: standardize</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Kernel type (svm.kernel)
+  Cost of constraints violation (svm.cost)</code></pre>
+</div>
+<div id="neural-network" class="section level4 unnumbered">
+<h4>Neural Network</h4>
+<p>This is probably the most advanced (as well as computationally expensive) algorithm used in this study. Neural Network seeks to chain up multiple layers of perceptron/components that assign weights to its inputs for computing outputs, in order to optimize the performance. As such, in terms of tuning, for this particular implementation neuralnet::neuralnet, we have the freedom to choose the shape of the hidden layers. As more sophisticated configurations (2 layers or more) often require more time, we have to raise the initial limit on the maximum number of step from 100000 to 10000000 to make sure the algorithm converges. We decide not to try beyong 3 layers as we have tested with 3 hidden layers and this take brutally long to finish and we can see that those complicated neural network do not always perform better. Also because 2 layers are often sufficient to generalize well <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span> (though again, data mining in general tackles ill-posed problems, there is no guaranty that a model really expresses the true underlying function), and 1 layer with 1 node merely resembles the structure of linear regression approach, we will tune in the range from 1-hidden-layer with multiple nodes to 2-hidden-layer with various node configurations. The implementation also allows modifying the algorithm. The default is RPROP, with 2 flavors rprop+ and rprop-, which stands for resilient backpropagation with and without weight backtracking. We have tried to work with the normal backpropagation method but this requires specifying the learning rate which differs in each case. Resilient backpropagation modifies the learning rate automatically so we can avoid getting stuck due to inappropriate learning rate assignment. Last but not least, since neural network outputs numeric values, we set the decision threshold to 0.5.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: neuralnet
+  Package: neuralnet
+  Input Requirement:
+      Descriptive Feature: continuous
+      Target Feature: continuous
+      Other: normalize</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Algorithm (neuralnet.algorithm)
+  Hidden layer(s) configuration (neuralnet.hidden)</code></pre>
+</div>
+</div>
+<div id="instance-based-classifier" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Instance-based Classifier</h3>
+<p>This class of classifiers are often called lazy-learners since they store the training set as the model and predict novel data by comparing them to the existing training instances. Here, we choose to use K-Nearest Neighbor which will determine the class value of the novel instances based on its k nearest instances in the instance storing data structure. Since the whole idea of the algorithm is to find the closest neighbors, it then must have a distance metric. This works best when all features are of numeric type (nominal features result in very crude distance measure such as 0 or 1) and when they have appropriate scales <span class="citation">(Witten et al. <a href="#ref-witten2017">2017</a>)</span>. As such, it is best to normalize all numeric features.</p>
+<div id="k-nearest-neighbor" class="section level4 unnumbered">
+<h4>K-Nearest Neighbor</h4>
+<p>For this particular implementation class:knn, we can only modify the number of neighbor k. However, there is a <a href="http://r.789695.n4.nabble.com/error-in-knn-too-many-ties-in-knn-td3798689.html">known bug</a>, which limits the size of k to less than 500. Of course, when we increase k to 500, that pretty much defeats the purpose of this algorithm, we want to find the optimal value of k that is not so large (to make classification works relatively fast) but still large enough to create model that performs well. Another consideration that worth mentioning is that for unweighted implementation, for a 2-class problem, even value of k often yields less optimal result because ties in vote can occur, as such, we can optimize our tuning process by just considering odd values of k.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: knn
+  Package: class
+  Input Requirement:
+      Descriptive Feature: continuous
+      Target Feature: nominal
+      Other: normalize</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Number of nearest neighbor (knn.k)</code></pre>
+</div>
+<div id="weighted-k-nearest-neighbor" class="section level4 unnumbered">
+<h4>Weighted K-Nearest Neighbor</h4>
+<p>This is the weighted version of the basic K-Nearest Neighbor algorithm. This implementation kknn::kknn allows us to modify not only the number k of neighbors but also the kernel type used and the distance metrics. Despite this degree of freedom, we choose not to tune these 2 values but to use the default because this particular algorithm is rather computationally expensive and we have to tune for the best k value in a wide range of k. The default metric distance is 2, which is equivalent to Euclidean metric in Minkowski distance class; this to us is a fair choice. As for the k parameter, as each neighbor now weighs differently, we have to consider even value of k as well.</p>
+<blockquote>
+<p>Summary</p>
+</blockquote>
+<pre><code>  Algorithm: kknn
+  Package: kknn
+  Input Requirement:
+      Descriptive Feature: continuous
+      Target Feature: nominal
+      Other: normalize</code></pre>
+<blockquote>
+<p>Tuning Parameter</p>
+</blockquote>
+<pre><code>  Number of nearest neighbor (kknn.k)</code></pre>
+</div>
+</div>
+</div>
+<div id="addressing-imbalanced-class-distribution" class="section level2">
+<h2><span class="header-section-number">3.3</span> Addressing Imbalanced Class Distribution</h2>
+<p>As noted before in section <a href="dqr.html#dqr-exploration">1.4</a>, we have an imbalanced class distribution for our target feature. This might hurt some of the classifiers we are about to use. This imbalance affects the estimate of the intercept of linear models <span class="citation">(King and Zeng <a href="#ref-king2001">2001</a>)</span>. It also affects tree-based model <span class="citation">(Cieslak and Chawla <a href="#ref-cieslak2008">2008</a>)</span> and neural network unless cost-sensitivity is introduced to the learning algorithms <span class="citation">(He and Garcia <a href="#ref-he2009">2009</a>)</span>. As such, during the training process, we will proceed with either under-sampling or over-sampling. Nevertheless, we will still try our luck with the original data as we know some classifiers we use also deal well with imbalanced distribution, i.e. rule-based classifiers such as RIPPER, since they employ the separate-and-conquer approach which only targets at only one class at a time. PART is an exception here as it attempts to build the partial tree first so it might be at a disadvantage while working with imbalanced dataset. The SVM algorithm we use is from the package e1071 which uses the engine of <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">LIBSVM</a>, which supports weighted SVM for unbalanced data.</p>
+<p>Each sampling strategy, however, has its own quirks. Under-sampling requires us to remove instances of the majority class to match the number of instances of the minority class. Throwing away real data is never a great option. In turn, the size of the data set shrinks and this costs models learned using this training set more susceptible to the effect of the random split. So we have to increase the number of fold for cross-validation. Over-sampling, on the other hands, involves boostraping data with replacement to boost the number of minority class instances to match that of the majority class. Duplicating data is also not a great option neither since it randomly duplicates <strong>the minority data instances.</strong> This does not gain us any information, but also potentially leads to over-fitting <span class="citation">(Ganganwar <a href="#ref-ganganwar2012">2012</a>)</span>. This also significantly increases the size of the data set, making computation slower and thus, we decide to reduce the number of fold in cross validation. Over-sampling has a slight advantage over undersampling in justifying for our reducing number of fold in cross validation in that it has bigger training set, and no instance is thrown away, as such, it might have slightly better performance. Nevertheless, for both under-sampling and over-sampling, we risk increasing the effect of outliers. These trade-offs are clearly significant and we cannot really tell which is straight-out better than the other. As such, in the evaluation phase, we will compare these on case by case basis.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-witten2017">
+<p>Witten, I. H., E. Frank, M. A. Hall, and C. J. Pal. 2017. <em>Data Mining : Practical Machine Learning Tools and Techniques</em>. 4th ed. Cambridge, MA: Morgan Kaufmann Publisher.</p>
+</div>
+<div id="ref-williams2013">
+<p>Williams, M. N., C. A. Gómez Grajales, and D. Kurkiewicz. 2013. “Assumptions of Multiple Regression: Correcting Two Misconceptions.” <em>Practical Assessment, Research &amp; Evaluation</em> 18 (11/12).</p>
+</div>
+<div id="ref-hsu2003">
+<p>Hsu, C. W., C. C. Chang, and C. J. Lin. 2003. “A Practical Guide to Support Vector Classification.”</p>
+</div>
+<div id="ref-king2001">
+<p>King, G., and L. Zeng. 2001. “Logistic Regression in Rare Events Data.” <em>Political Analysis</em> 9.</p>
+</div>
+<div id="ref-cieslak2008">
+<p>Cieslak, D. A., and N. V. Chawla. 2008. “Learning Decision Trees for Unbalanced Data.” <em>Lecture Notes in Computer Science</em>.</p>
+</div>
+<div id="ref-he2009">
+<p>He, H., and E. A. Garcia. 2009. “Learning from Imbalanced Data.” <em>IEEE Transactions on Knowledge and Data Engineering</em> 21 (9).</p>
+</div>
+<div id="ref-ganganwar2012">
+<p>Ganganwar, V. 2012. “An Overview of Classification Algorithms for Imbalanced.” <em>International Journal of Emerging Technology and Advanced Engineering</em> 2 (4).</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dqp.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rep.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "Serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/blacksteed232/elexion/edit/master/code/report/03-modelling.Rmd",
+"text": "Edit"
+},
+"download": {},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

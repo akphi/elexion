@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How the 2016 US Election Happened</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="How the 2016 US Election Happened" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  <meta name="github-repo" content="blacksteed232/elexion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the 2016 US Election Happened" />
+  
+  <meta name="twitter:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  
+
+<meta name="author" content="An Phi">
+
+
+<meta name="date" content="2017-05-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="disclaimer.html">
+<link rel="next" href="dqp.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Home Page</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="disclaimer.html"><a href="disclaimer.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="1" data-path="dqr.html"><a href="dqr.html"><i class="fa fa-check"></i><b>1</b> Data Quality Report (DQR)</a><ul>
+<li class="chapter" data-level="1.1" data-path="dqr.html"><a href="dqr.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="dqr.html"><a href="dqr.html#datasources"><i class="fa fa-check"></i><b>1.2</b> Data Source</a></li>
+<li class="chapter" data-level="1.3" data-path="dqr.html"><a href="dqr.html#pre-process"><i class="fa fa-check"></i><b>1.3</b> Data Pre-Process</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dqr.html"><a href="dqr.html#trimming"><i class="fa fa-check"></i><b>1.3.1</b> Trimming</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dqr.html"><a href="dqr.html#editing"><i class="fa fa-check"></i><b>1.3.2</b> Editing</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dqr.html"><a href="dqr.html#adding"><i class="fa fa-check"></i><b>1.3.3</b> Adding</a></li>
+<li class="chapter" data-level="1.3.4" data-path="dqr.html"><a href="dqr.html#updating"><i class="fa fa-check"></i><b>1.3.4</b> Updating</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="dqr.html"><a href="dqr.html#dqr-exploration"><i class="fa fa-check"></i><b>1.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="1.5" data-path="dqr.html"><a href="dqr.html#feature-detail"><i class="fa fa-check"></i><b>1.5</b> Feature Detail</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-state-code"><i class="fa fa-check"></i>FIPS State Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2016"><i class="fa fa-check"></i>Republican Win 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2012"><i class="fa fa-check"></i>Republican Win 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-participation-rate"><i class="fa fa-check"></i>Voting Participation Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-power"><i class="fa fa-check"></i>Voting Power</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population-density"><i class="fa fa-check"></i>Population Density</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sex-ratio"><i class="fa fa-check"></i>Sex Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#age-dependency-ratio"><i class="fa fa-check"></i>Age Dependency Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-age"><i class="fa fa-check"></i>Median Age</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#white-not-latino-population"><i class="fa fa-check"></i>White not Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#african-american-population"><i class="fa fa-check"></i>African American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#native-american-population"><i class="fa fa-check"></i>Native American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#asian-american-population"><i class="fa fa-check"></i>Asian American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-races-population"><i class="fa fa-check"></i>Other race(s) Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#latino-population"><i class="fa fa-check"></i>Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homogeneity-index"><i class="fa fa-check"></i>Homogeneity Index</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#gini-coefficient"><i class="fa fa-check"></i>Gini Coefficient</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-earning"><i class="fa fa-check"></i>Median Earning</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#unemployment-rate"><i class="fa fa-check"></i>Unemployment Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#management-professional-and-related-occupations"><i class="fa fa-check"></i>Management, Professional, and Related Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#service-occupations"><i class="fa fa-check"></i>Service Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sales-and-office-occupations"><i class="fa fa-check"></i>Sales and Office Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#farming-fishing-and-forestry-occupations"><i class="fa fa-check"></i>Farming, Fishing, and Forestry Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#construction-extraction-maintenance-and-repair-occupations"><i class="fa fa-check"></i>Construction, Extraction, Maintenance, and Repair Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#production-transportation-and-material-moving-occupations"><i class="fa fa-check"></i>Production, Transportation, and Material moving Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#school-enrollment"><i class="fa fa-check"></i>School Enrollment</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#preschool-enrollment-ratio"><i class="fa fa-check"></i>Preschool Enrollment Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#at-least-bachelor-degree"><i class="fa fa-check"></i>At Least Bachelor Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#graduate-degree"><i class="fa fa-check"></i>Graduate Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#infant-mortality"><i class="fa fa-check"></i>Infant Mortality</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#injury-death-rate"><i class="fa fa-check"></i>Injury Death Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#low-birth-weight-rate"><i class="fa fa-check"></i>Low Birth Weight Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-in-single-parent-households-rate"><i class="fa fa-check"></i>Children in Single Parent Households Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-obesity-rate"><i class="fa fa-check"></i>Adult Obesity Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#diabetes-rate"><i class="fa fa-check"></i>Diabetes Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sexually-transmitted-infections-rate"><i class="fa fa-check"></i>Sexually Transmitted Infections Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#hiv-prevalence-rate"><i class="fa fa-check"></i>HIV Prevalence Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#uninsured-rate"><i class="fa fa-check"></i>Uninsured Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#crime-rate"><i class="fa fa-check"></i>Crime Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homicide-rate"><i class="fa fa-check"></i>Homicide Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-precipitation"><i class="fa fa-check"></i>Winter Avg. Precipitation</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-temperature"><i class="fa fa-check"></i>Winter Avg. Temperature</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="dqr.html"><a href="dqr.html#del-feature"><i class="fa fa-check"></i><b>1.6</b> Deleted Feature</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-county-code"><i class="fa fa-check"></i>FIPS County Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#county-name"><i class="fa fa-check"></i>County Name</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2008"><i class="fa fa-check"></i>Republican Win 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2016"><i class="fa fa-check"></i>Republican Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2012"><i class="fa fa-check"></i>Republican Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2008"><i class="fa fa-check"></i>Republican Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2016"><i class="fa fa-check"></i>Democratic Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2012"><i class="fa fa-check"></i>Democratic Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2008"><i class="fa fa-check"></i>Democratic Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-votes-2016"><i class="fa fa-check"></i>Other Parties Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2012"><i class="fa fa-check"></i>Other Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2008"><i class="fa fa-check"></i>Other Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2016"><i class="fa fa-check"></i>Total Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2012"><i class="fa fa-check"></i>Total Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2008"><i class="fa fa-check"></i>Total Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2016"><i class="fa fa-check"></i>Republican Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2012"><i class="fa fa-check"></i>Republican Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2008"><i class="fa fa-check"></i>Republican Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2016"><i class="fa fa-check"></i>Democratic Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2012"><i class="fa fa-check"></i>Democratic Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2008"><i class="fa fa-check"></i>Democratic Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-vote-fraction-2016"><i class="fa fa-check"></i>Other Parties Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2012"><i class="fa fa-check"></i>Other Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2008"><i class="fa fa-check"></i>Other Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#estimated-no.-of-remaining-votes"><i class="fa fa-check"></i>Estimated No. of Remaining Votes</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-age-population"><i class="fa fa-check"></i>Voting Age Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-under-6-living-in-poverty"><i class="fa fa-check"></i>Children Under 6 Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#child-poverty"><i class="fa fa-check"></i>Child Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adults-65-and-older-living-in-poverty"><i class="fa fa-check"></i>Adults 65 and Older Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#poverty-rate"><i class="fa fa-check"></i>Poverty Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#less-than-high-school"><i class="fa fa-check"></i>Less Than High School</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#life-expectancy"><i class="fa fa-check"></i>Life Expectancy</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-physically-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Physically Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-mentally-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Mentally Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#teen-birth-rate"><i class="fa fa-check"></i>Teen Birth Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-smoking-rate"><i class="fa fa-check"></i>Adult Smoking Rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dqp.html"><a href="dqp.html"><i class="fa fa-check"></i><b>2</b> Data Quality Plan (DQP)</a><ul>
+<li class="chapter" data-level="2.1" data-path="dqp.html"><a href="dqp.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-outlier"><i class="fa fa-check"></i>Handling Outlier</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-trimming"><i class="fa fa-check"></i>Feature Trimming</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-missing-values"><i class="fa fa-check"></i>Handling Missing Values</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-selection"><i class="fa fa-check"></i>Feature Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dqp.html"><a href="dqp.html#handling-outliers"><i class="fa fa-check"></i><b>2.2</b> Handling Outliers</a></li>
+<li class="chapter" data-level="2.3" data-path="dqp.html"><a href="dqp.html#feature-trimming-1"><i class="fa fa-check"></i><b>2.3</b> Feature Trimming</a></li>
+<li class="chapter" data-level="2.4" data-path="dqp.html"><a href="dqp.html#handling-missing-data"><i class="fa fa-check"></i><b>2.4</b> Handling Missing Data</a></li>
+<li class="chapter" data-level="2.5" data-path="dqp.html"><a href="dqp.html#feature-selection-1"><i class="fa fa-check"></i><b>2.5</b> Feature Selection</a></li>
+<li class="chapter" data-level="2.6" data-path="dqp.html"><a href="dqp.html#feature-space-reduction"><i class="fa fa-check"></i><b>2.6</b> Feature Space Reduction</a></li>
+<li class="chapter" data-level="2.7" data-path="dqp.html"><a href="dqp.html#abt"><i class="fa fa-check"></i><b>2.7</b> Analytic Base Table (ABT)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>3</b> A Brief Note on Modelling</a><ul>
+<li class="chapter" data-level="3.1" data-path="md.html"><a href="md.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="md.html"><a href="md.html#classifiers-and-tuning-parameters"><i class="fa fa-check"></i><b>3.2</b> Classifiers and Tuning Parameters</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="md.html"><a href="md.html#base-classifer"><i class="fa fa-check"></i><b>3.2.1</b> Base Classifer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="md.html"><a href="md.html#probability-based-classififer"><i class="fa fa-check"></i><b>3.2.2</b> Probability-based Classififer</a></li>
+<li class="chapter" data-level="3.2.3" data-path="md.html"><a href="md.html#rule-based-classifier"><i class="fa fa-check"></i><b>3.2.3</b> Rule-based Classifier</a></li>
+<li class="chapter" data-level="3.2.4" data-path="md.html"><a href="md.html#tree-based-classifier"><i class="fa fa-check"></i><b>3.2.4</b> Tree-based Classifier</a></li>
+<li class="chapter" data-level="3.2.5" data-path="md.html"><a href="md.html#regression-based-classifier"><i class="fa fa-check"></i><b>3.2.5</b> Regression-based Classifier</a></li>
+<li class="chapter" data-level="3.2.6" data-path="md.html"><a href="md.html#instance-based-classifier"><i class="fa fa-check"></i><b>3.2.6</b> Instance-based Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="md.html"><a href="md.html#addressing-imbalanced-class-distribution"><i class="fa fa-check"></i><b>3.3</b> Addressing Imbalanced Class Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rep.html"><a href="rep.html"><i class="fa fa-check"></i><b>4</b> A “Minority” Report</a><ul>
+<li class="chapter" data-level="4.1" data-path="rep.html"><a href="rep.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="rep.html"><a href="rep.html#methodology"><i class="fa fa-check"></i><b>4.2</b> Methodology</a></li>
+<li class="chapter" data-level="4.3" data-path="rep.html"><a href="rep.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rep.html"><a href="rep.html#dcpp"><i class="fa fa-check"></i><b>4.3.1</b> Compilation and Pre-process</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rep.html"><a href="rep.html#dexp"><i class="fa fa-check"></i><b>4.3.2</b> Exploration</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rep.html"><a href="rep.html#dpre"><i class="fa fa-check"></i><b>4.3.3</b> Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rep.html"><a href="rep.html#modelling"><i class="fa fa-check"></i><b>4.4</b> Modelling</a></li>
+<li class="chapter" data-level="4.5" data-path="rep.html"><a href="rep.html#result"><i class="fa fa-check"></i><b>4.5</b> Result and Evaluation</a></li>
+<li class="chapter" data-level="4.6" data-path="rep.html"><a href="rep.html#discussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+<li class="chapter" data-level="4.7" data-path="rep.html"><a href="rep.html#conclusion"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="rep.html"><a href="rep.html#further-thoughts"><i class="fa fa-check"></i><b>4.8</b> Further Thoughts</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-data.html"><a href="appendix-data.html"><i class="fa fa-check"></i><b>A</b> Dataset</a><ul>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#pre-processed-data"><i class="fa fa-check"></i>Pre-Processed Data</a></li>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#prepared-data-analytic-base-table"><i class="fa fa-check"></i>Prepared Data (Analytic Base Table)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-dir.html"><a href="appendix-dir.html"><i class="fa fa-check"></i><b>B</b> Directories</a></li>
+<li class="chapter" data-level="C" data-path="appendix-code.html"><a href="appendix-code.html"><i class="fa fa-check"></i><b>C</b> Code</a><ul>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#usage"><i class="fa fa-check"></i>Usage</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#notice"><i class="fa fa-check"></i>Notice</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#procedures"><i class="fa fa-check"></i>Procedures</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How the 2016 US Election Happened</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dqr" class="section level1">
+<h1><span class="header-section-number">Section 1</span> Data Quality Report (DQR)</h1>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">1.1</span> Overview</h2>
+<p>As mentioned, the data set we are using in this study consists of demographic, socioeconomic and geographic data by county. This data set is taken mainly from a source compiled by Emil O. W. Kirkegaard for usage in his socioeconomic research <span class="citation">(Kirkegaard <a href="#ref-emil2016">2016</a>)</span>. For general purpose, Emil has kindly tidied up his original data set and included the scraped election data of the year 2016, 2012, and 2008 from the New York Times as well as weather data by county, which is really tedious to collect, from the National Oceanic and Atmospheric Administration. Due to its extensive coverage of many demographic indicators, we decide to take this as our starting point from which we will add on more relevant data in order to obtain our Analytic Base Table (ABT).</p>
+<p>The number of counties we have complete election data (N = 3148) will limit the size of instances (counties) we have in the data set. The original data set contains a total of 161 features, many of which are derived features that serve the author’s research paper and many of them are irrelevant to our study goal. As such, prior to assessing and analyzing the quality of our data, we will need to pre-process the original data set, meaning removing irrelevant features and adding as well as deriving necessary features. In the usual CRISP-DM cycle, this process would fall into Business Understanding phase where we decide the shape of the data set but as explained earlier in the introduction, we will not designate a separate document for the Business Understanding phase. As such, we will integrate our data sources and pre-process procedures into our DQR.</p>
+</div>
+<div id="datasources" class="section level2">
+<h2><span class="header-section-number">1.2</span> Data Source</h2>
+<blockquote>
+<p>See Appendix <a href="appendix-dir.html#appendix-dir">B</a> for more information on the directory tree.</p>
+</blockquote>
+<p>The raw data files are originally placed in <strong>data/raw/</strong> from which we just take the relevant data and convert them into CSV format. However, as we found out, the actual data source for the election data used by the New York Times is from Associated Press (AP), whose term of use prohibits distribution of this data set. As such, we must stress that we do not intend to redistribute nor to commercialize the data set but merely use it for research purpose only. However, since this is a data-mining project, we have to show steps we took to transform the data at each stage, it is then unavoidable that we have the election data <em>lurking</em> in our project. As such, we hope we have stated our point clearly that we only use this data set for research purpose. To view the raw data sets, please refer to the links included in the source summaries. For more details, please refer the disclaimer section. Another point to note is that all data sets used have data by counties except for electoral vote data. Following is the description of different data sets used in this study:</p>
+<table>
+<col width="100">
+<col width="460">
+<col width="200">
+<caption>
+<span id="tab:table-source">Table 1.1: </span>Data Source
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+File
+</th>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:center;">
+Source
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+data_main
+</td>
+<td style="text-align:left;">
+The main data source that we are using in this study, consisting of 161 features, covering many domains: election, administration, geographic, demographics, healthcare, human-development, weather, etc. Refer to meta_main.csv for more information.
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/Deleetdk/USA.county.data">Emil O. W. Kirkegaard</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+geog_10
+</td>
+<td style="text-align:left;">
+2010 geographic data where we extract data on area (land) to calculate population density
+</td>
+<td style="text-align:center;">
+<a href="http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/G001/0100000US.05000.003">Census Fact-finder</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+population_15
+</td>
+<td style="text-align:left;">
+2015 population data where we extract data on total population and voting age population
+</td>
+<td style="text-align:center;">
+<a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_DP05&amp;prodType=table">Census Fact-finder</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+age_gender_15
+</td>
+<td style="text-align:left;">
+2015 age and gender data where we extract sex ratio, and different age related metrics
+</td>
+<td style="text-align:center;">
+<a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S0101&amp;prodType=table">Census Fact-finder</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+health_14
+</td>
+<td style="text-align:left;">
+2014 healthcare data where we extract some health-related data and several socio-economical metrics such as unemployment and crime rate, etc.
+</td>
+<td style="text-align:center;">
+<a href="http://www.countyhealthrankings.org/rankings/data">County Health Ranking</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+health_15
+</td>
+<td style="text-align:left;">
+2015 healthcare data where we extract some health-related data and several socio-economical metrics such as unemployment and crime rate, etc.
+</td>
+<td style="text-align:center;">
+<a href="http://www.countyhealthrankings.org/rankings/data">County Health Ranking</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+health_16
+</td>
+<td style="text-align:left;">
+2016 healthcare data where we extract some health-related data and several socio-economical metrics such as unemployment and crime rate, etc.
+</td>
+<td style="text-align:center;">
+<a href="http://www.countyhealthrankings.org/rankings/data">County Health Ranking</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+human_dev_09-10
+</td>
+<td style="text-align:left;">
+2009-2010 human development data, most of which we take in order to update the date in the data_main table
+</td>
+<td style="text-align:center;">
+<a href="http://www.measureofamerica.org/download-agreement/">Measure of America</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+life_exp_98-10
+</td>
+<td style="text-align:left;">
+1998-2010 data on life expectancy
+</td>
+<td style="text-align:center;">
+<a href="http://ghdx.healthdata.org/record/united-states-life-expectancy-estimates-county-1985-2010">Global Health Data Exchange</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+lectoral_votes_00
+</td>
+<td style="text-align:left;">
+2000-present data on electoral votes by states
+</td>
+<td style="text-align:center;">
+<a href="http://psephos.adam-carr.net/countries/u/usa/pres/2000.txt">Psephos Adam Carr’s Election Archive</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As mentioned, the main data set itself is compiled from various sources. However, many of the data are not up-to-date and since our focus is to study the most recent election result, we need to update our data. As such, we trace back the sources from which the compiler of the main data set extracted data and find the most recent versions of these data sets. As for the sources used in the main data set, they are listed below.</p>
+<table>
+<caption>
+<span id="tab:table-main-source">Table 1.2: </span>Main Dataset Source
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Dataset
+</th>
+<th style="text-align:center;">
+Source
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+New York Times 2008 US Election result
+</td>
+<td style="text-align:center;">
+<a href="http://www.nytimes.com/elections/2008/results/president/map.html">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New York Times 2012 US Election result
+</td>
+<td style="text-align:center;">
+<a href="http://www.nytimes.com/elections/2012/results/president.html">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New York Times 2016 US Election result
+</td>
+<td style="text-align:center;">
+<a href="http://www.nytimes.com/elections/results/president">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Measure of America’s county data covering 2009-2010
+</td>
+<td style="text-align:center;">
+<a href="http://www.measureofamerica.org/download-agreement/">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Countyhealthrankings.org’s health data for 2014
+</td>
+<td style="text-align:center;">
+<a href="http://www.countyhealthrankings.org/rankings/data">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Factfinder’s geographic dataset for counties for 2010
+</td>
+<td style="text-align:center;">
+<a href="http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/G001/0100000US.05000.003">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Factfinder’s age and gender dataset for counties for 2010
+</td>
+<td style="text-align:center;">
+<a href="http://factfinder.census.gov/bkmk/table/1.0/en/ACS/10_5YR/S0101/0100000US.05000.003">view</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NOAA 1980-2010 normals (climate data). Average annual and seasonal data for the last 30 years
+</td>
+<td style="text-align:center;">
+<a href="http://www.ncdc.noaa.gov/cdo-web/datatools/normals">view</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Also, there are some point in the approach of the original compiler that we do not quite agree with, for instance with the 2009-2010 Human Development data set, the author Emil O. W. Kirkegaard took the average values of 2009 and 2010, which to us is not a good move because, for county such as District of Columbia (FIPS 11001), the 2010 data are not available, resulting in wrong figures: the median earning drops to $20,254 while it should actually be $40,510). This potentially cause outliers in our data and thus, we will, for now, just update this data to 2010 result and will proceed to our data preparation step to deal with missing values. As for now, we will proceed to tidying up the main data set.</p>
+</div>
+<div id="pre-process" class="section level2">
+<h2><span class="header-section-number">1.3</span> Data Pre-Process</h2>
+<p>Most of the data are listed by county, so we will merge these data sets into the main data set using county FIPS code. Despite having an impressive set of 161 features, the main data set has many unnecessary features as well as lacks many important ones. As such, we will cover basic processes, including trimming, editing, adding and updating features to the main data set. Afterwards, we re-organize the order of the columns to improve readability and to make sure that features of the same domain/category are close to one another. We give each procedure a different code, for example, the first trimming procedure is called TR001. The purpose is to make it easier for code reference as a huge underlying bulk of this study lies in the code.</p>
+<blockquote>
+<p>See Appendix <a href="appendix-code.html#appendix-code">C</a> to view the procedure used and the corresponding code.</p>
+</blockquote>
+<div id="trimming" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Trimming</h3>
+<p>Some of the features in the main data set are calculated directly by the author to serve his research paper, such as S factor, CFS, ACFS, etc. Also, in the <em>precious</em> election data which is scrapped off from the New York Times, there are many features that are irrelevant to our goal, such as the vote counts and fractions for minor parties (independent, other, constitution, etc.); in fact, we have checked through all counties to make sure that no 3<sup>rd</sup> party won any county. Therefore, these features will be trimmed off. The detail trimming steps and reason for each are documented below.</p>
+<blockquote>
+<p>TR001</p>
+</blockquote>
+<pre><code>[COLUMN] green16_frac, libert16_frac, other16_frac
+[REASON] we will not consider these minority parties. Gary Johnson and Jill Stein did not win a single county so third parties will not affect largely the result between Democratic and Republican party. Nonetheless, we will create a other16_frac column just in case</code></pre>
+<blockquote>
+<p>TR002</p>
+</blockquote>
+<pre><code>[COLUMN] all with suffix _frac2
+[REASON] they are calculated by the author to just consider 2 major parties in the ratio, but since we want to group all other parties as one, we do not need this</code></pre>
+<blockquote>
+<p>TR003</p>
+</blockquote>
+<pre><code>[COLUMN] all with prefix votes16_ except for votes16_trumpd and votes16_clintonh
+[REASON] we will sum the votes of all third parties to votes16_other</code></pre>
+<blockquote>
+<p>TR004</p>
+</blockquote>
+<pre><code>[COLUMN] name_prev, ST, County, State, votes, reporting, precincts, X, Y, X1
+[REASON] they are of no use to our usage and merely left there in the dataset as tracers of the election scrapping algorithm that the author used, or they are merely duplicated of some other columns</code></pre>
+<blockquote>
+<p>TR005</p>
+</blockquote>
+<pre><code>[COLUMN] At.Least.High.School.Diploma
+[REASON] not surprisingly this and Less.Than.High.School sum to 100% and so we can count this as redundant</code></pre>
+<blockquote>
+<p>TR006</p>
+</blockquote>
+<pre><code>[COLUMN] nearest county, temp, precip, temp_bins, lat_bins, lon_bins, precip_bins, elevation_bins, lon, lat, elevation
+[REASON] trace or temporary features of the scraping algorithm used to mine weather data</code></pre>
+<blockquote>
+<p>TR007</p>
+</blockquote>
+<pre><code>[COLUMN] all with suffix _TMAX, _TMIN, _TAVG, _PRCP, except for winter_PRCP and winter_TAVG
+[REASON] we do not need all weather data, we will only keep winter data for the period of time during the election as this potentially affect the outcome of the election (e.g. due to bad weather, people cannot vote, etc.)</code></pre>
+<blockquote>
+<p>TR008</p>
+</blockquote>
+<pre><code>[COLUMN] White, Black, Hispaic, Asian, Amerindian, Other, White_Asian
+[REASON] duplicated to the other race features, probably used by the author for his socioeconomic factor calculations</code></pre>
+<blockquote>
+<p>TR009</p>
+</blockquote>
+<pre><code>[COLUMN] CA, S, MAR, CFS, ACFS, MeanALC, MaxALC, Mixedness
+[REASON] those are columns that the author computed in his paper, there are little knowledge of how he computed them as well as how to use them but they are calculated but on the demographics informations that we already have, so we can safely discard them</code></pre>
+<blockquote>
+<p>TR010</p>
+</blockquote>
+<pre><code>[ROW] Alaska County (2000) and Oglala Lakota county (46102) and all rows where the county has no name, or no county FIPS code
+[REASON] Alaska does not have the county system (they have boroughs) and thus we do not have their other demographic data based on county. Oglala Lakota is the Indian reservation area and we do not have most of their demographic data as well. As we use county FIPS code to match data while merging dataset, rows without county FIPS code should be discarded. Evidently, these rows and the rows for county without names have a lot of missing data and should be discarded</code></pre>
+</div>
+<div id="editing" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Editing</h3>
+<blockquote>
+<p>ED001</p>
+</blockquote>
+<pre><code>[COLUMN] winter_PRCP
+[ACTION] divide by 100
+[REASON] the scraping algorithm did not divide the precipitation data by 100. This can be verified by looking into the weather scraping code of the author or by going to the weather data source.</code></pre>
+<blockquote>
+<p>ED002</p>
+</blockquote>
+<pre><code>[COLUMN] winter_TAVG
+[ACTION] divide by 10
+[REASON] the scraping algorithm did not divide the precipitation data by 10. This can be verified by looking into the weather scraping code of the author or by going to the weather data source</code></pre>
+</div>
+<div id="adding" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> Adding</h3>
+<p>We add several features that we find typically-included in study involving demographic such as: life expectancy, sex ratio, etc.</p>
+<blockquote>
+<p>AD001</p>
+</blockquote>
+<pre><code>[COLUMN] other16_frac, votes16_others
+[REASON] these will represent the number of vote and the vote fraction of other parties in the 2016 election</code></pre>
+<blockquote>
+<p>AD002</p>
+</blockquote>
+<pre><code>[COLUMN] elec_rep16_win, elec_rep16_win, elec_rep16_win
+[REASON] this column indicates if Republican party wins the county in various election year. Essentially, we are considering converting this problem into a two-class problem as we realize that other parties did not win any county</code></pre>
+<blockquote>
+<p>AD003</p>
+</blockquote>
+<pre><code>[COLUMN] sex_ratio, age_dependency_ratio, median_age
+[REASON] some useful and typically-included demographic indicator concerning age and gender (in this step, we also update the median age data)</code></pre>
+<blockquote>
+<p>AD004</p>
+</blockquote>
+<pre><code>[COLUMN] life_expectancy
+[REASON] usuful healthcare and standard of living indicator</code></pre>
+<blockquote>
+<p>AD005</p>
+</blockquote>
+<pre><code>[COLUMN] Total.Population, voting_age_population
+[REASON] we update the total population and add in information regarding voting age population in order to calculate voting participation rate</code></pre>
+<blockquote>
+<p>AD006</p>
+</blockquote>
+<pre><code>[COLUMN] voting_power
+[REASON] each state owns different number of electoral votes which affect the result directly so it is intuitive for candicdate to focus his/her campaign and funding on certain area. This data cannot be computed from the 2016 results so we used the 2012 results instead</code></pre>
+<blockquote>
+<p>AD007</p>
+</blockquote>
+<pre><code>[COLUMN] voting_participation
+[REASON] this also cannot be computed from the 2016 result but by the 2012 result</code></pre>
+<blockquote>
+<p>AD008</p>
+</blockquote>
+<pre><code>[COLUMN] population_density
+[REASON] candidate might be interested in populous region to campaign</code></pre>
+</div>
+<div id="updating" class="section level3">
+<h3><span class="header-section-number">1.3.4</span> Updating</h3>
+<blockquote>
+<p>UP001</p>
+</blockquote>
+<pre><code>[COLUMN] Poor.physical.health.days, Poor.mental.health.days, Low.birthweight, Teen.births, Children.in.single.parent.households, Adult.smoking, Adult.obesity, Diabetes, Sexually.transmitted.infections, HIV.prevalence.rate, Uninsured, Unemployment, Violent.crime, Homicide.rate, Injury.deaths, Infant.mortality
+[ACTION] update using 2016 dataset
+[REASON] update healthcare related data</code></pre>
+<blockquote>
+<p>UP002</p>
+</blockquote>
+<pre><code>[COLUMN] Median.Earnings.2010.dollars, Less.Than.High.School, At.Least.Bachelor.s.Degree, Graduate.Degree, School.Enrollment, White.not.Latino.Population, African.American.Population, Native.American.Population, Asian.American.Population, Population.some.other.race.or.races, Latino.Population, Children.Under.6.Living.in.Poverty, Adults.65.and.Older.Living.in.Poverty, Preschool.Enrollment.Ratio.enrolled.ages.3.and.4, Poverty.Rate.below.federal.poverty.threshold, Gini.Coefficient, Child.Poverty.living.in.families.below.the.poverty.line, Management.professional.and.related.occupations, Service.occupations, Sales.and.office.occupations, Farming.fishing.and.forestry.occupations, Construction.extraction.maintenance.and.repair.occupations, Production.transportation.and.material.moving.occupations
+[ACTION] update using 2010 dataset
+[REASON] update various human-development related data. This is essentially to undo the compilation step of the original author when he averages 2009 and 2010 data</code></pre>
+<p>Now that we have most of the redundant and irrelevant features trimmed off from the data as well as we have needed features added, we export our working data set to <a href="http://127.0.0.1:1923/data/processed/data.csv">data/processed/data.csv</a> and its metadata to <a href="http://127.0.0.1:1923/data/processed/meta.csv">data/processed/meta.csv</a>. For the reason of potential matching of data in further steps (i.e. handling missing data and outliers in data preparation phase), we will leave the county name as well as their county FIPS code. We also leave the estimating number of vote data to identify what we consider county with unreliable results, in other words, county with the number of reported vote that is not enough to declare a winner. This dataset still contains a lot of features so we feel that the best way to present them is not necessarily list them out in a table, but try to visualize them. As such, we present the following choropleth map.</p>
+<iframe src="http://127.0.0.1:2308?showcase=0" width="672" height="800px">
+</iframe>
+<p>Certainly, this is not the final data set (please note that we will keep a copy of the data at each stage of the preparation process) but we can proceed with some data exploration.</p>
+<blockquote>
+<p>See Appendix <a href="appendix-data.html#appendix-data">A</a> to view the main datasets at different stages.</p>
+</blockquote>
+</div>
+</div>
+<div id="dqr-exploration" class="section level2">
+<h2><span class="header-section-number">1.4</span> Data Exploration</h2>
+<p>In this section, we will explore the pre-processed data set. We will present summary of the data as well as explore the correlation between each feature. Talking about quality of the data set, we cannot go without mentioning the distribution of each feature; however, this will be covered in later sections when we go into details of each feature. As for now, we start with some general information of the data set.</p>
+<table>
+<col width="200">
+<col width="200">
+<caption>
+<span id="tab:table-general-info">Table 1.3: </span>General Information
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Number of instances
+</td>
+<td style="text-align:center;">
+3111
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of features
+</td>
+<td style="text-align:center;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of continuous features
+</td>
+<td style="text-align:center;">
+73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of binary features
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of nominal features
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of missing values
+</td>
+<td style="text-align:center;">
+6985
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Percentage of missing values
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maximum Entropy for a feature
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+<p>In term of the structure of the data, since we work with R, we will present structure of the data in R style.</p>
+<blockquote>
+<p>This is a long table (79 columns), to view the rest, please use the pagination controller at the bottom-right corner</p>
+</blockquote>
+<div id="htmlwidget-eb76bf0f74a8e41621ff" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eb76bf0f74a8e41621ff">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79"],["FIPS County Code","County Name","FIPS State Code","Republican Win 2016","Republican Win 2012","Republican Win 2008","Republican Votes 2016","Republican Votes 2012","Republican Votes 2008","Democratic Votes 2016","Democratic Votes 2012","Democratic Votes 2008","Other Parties Votes 2016","Other Votes 2012","Other Votes 2008","Total Votes 2016","Total Votes 2012","Total Votes 2008","Republican Vote Fraction 2016","Republican Vote Fraction 2012","Republican Vote Fraction 2008","Democratic Vote Fraction 2016","Democratic Vote Fraction 2012","Democratic Vote Fraction 2008","Other Parties Vote Fraction 2016","Other Vote Fraction 2012","Other Vote Fraction 2008","Estimated No. of Remaining Votes","Voting Age Population","Voting Participation Rate","Voting Power","Population","Population Density","Sex Ratio","Age Dependency Ratio","Median Age","White not Latino Population","African American Population","Native American Population","Asian American Population","Other race(s) Population","Latino Population","Homogeneity Index","Gini Coefficient","Median Earning","Children Under 6 Living in Poverty","Child Poverty","Adults 65 and Older Living in Poverty","Poverty Rate","Unemployment Rate","Management, Professional, and Related Occupations","Service Occupations","Sales and Office Occupations","Farming, Fishing, and Forestry Occupations","Construction, Extraction, Maintenance, and Repair Occupations","Production, Transportation, and Material moving Occupations","School Enrollment","Preschool Enrollment Ratio","Less Than High School","At Least Bachelor Degree","Graduate Degree","Life Expectancy","Infant Mortality","Injury Death Rate","Avg. No. of Physically Unhealthy Day","Avg. No. of Mentally Unhealthy Day","Low Birth Weight Rate","Teen Birth Rate","Children in Single Parent Households Rate","Adult Smoking Rate","Adult Obesity Rate","Diabetes Rate","Sexually Transmitted Infections Rate","HIV Prevalence Rate","Uninsured Rate","Crime Rate","Homicide Rate","Winter Avg. Precipitation","Winter Avg. Temperature"],["factor","character","factor","logical","logical","logical","integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","integer","integer","numeric","numeric","integer","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","integer","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric"],["1001, 1003, 1005, 1007, 1009, 1011, 1013, 1015, 1017, 1019 ...","Autauga, Baldwin, Barbour, Bibb, Blount, Bullock, Butler, Calhoun, Chambers, Cherokee ...","1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ...","TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE ...","TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE ...","TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE ...","18110, 72780, 5431, 6733, 22808, 1139, 4891, 32803, 7803, 8809 ...","17379, 66016, 5550, 6132, 20757, 1251, 5087, 30278, 7626, 7506 ...","17403, 61271, 5866, 6262, 20389, 1391, 5485, 32348, 8067, 7298 ...","5908, 18409, 4848, 1874, 2150, 3530, 3716, 13197, 5763, 1524 ...","6363, 18424, 5912, 2202, 2970, 4061, 4374, 15511, 6871, 2132 ...","6093, 19386, 5697, 2299, 3522, 4011, 4188, 16334, 6799, 2306 ...","643, 2901, 111, 141, 426, 32, 78, 1376, 212, 170 ...","231, 1051, 55, 86, 333, 10, 41, 575, 132, 154 ...","145, 756, 67, 83, 356, 13, 36, 560, 90, 141 ...","24661, 94090, 10390, 8748, 25384, 4701, 8685, 47376, 13778, 10503 ...","23973, 85491, 11517, 8420, 24060, 5322, 9502, 46364, 14629, 9792 ...","23641, 81413, 11630, 8644, 24267, 5415, 9709, 49242, 14956, 9745 ...","0.73435789302948, 0.773514719948985, 0.522714148219442, 0.769661636945588, 0.898518751969745, 0.242288874707509, 0.563154864709269, 0.692396994258696, 0.566337639715488, 0.838712748738456 ...","0.724940558127894, 0.772198243089916, 0.481896327168533, 0.728266033254157, 0.862718204488778, 0.235062006764374, 0.535360976636498, 0.653049780001725, 0.521293321484722, 0.766544117647059 ...","0.736136373249862, 0.752594794443148, 0.504385210662081, 0.724433132808885, 0.840194502822763, 0.256879039704524, 0.564939746626841, 0.656918890378132, 0.539382187750736, 0.748896870189841 ...","0.239568549531649, 0.195653098097566, 0.46660250240616, 0.214220393232739, 0.0846990230066183, 0.750904062965327, 0.427864133563615, 0.278558763931104, 0.418275511685295, 0.145101399600114 ...","0.265423601551746, 0.215508065176451, 0.51332812364331, 0.261520190023753, 0.123441396508728, 0.763059000375799, 0.460324142285835, 0.334548356483479, 0.469683505366054, 0.217728758169935 ...","0.257730214457933, 0.238119219289303, 0.489853826311264, 0.265964831096714, 0.145135369019656, 0.740720221606648, 0.431352353486456, 0.331708703951911, 0.454600160470714, 0.236634171369933 ...","0.0260735574388711, 0.0308321819534489, 0.0106833493743981, 0.016117969821673, 0.0167822250236367, 0.00680706232716399, 0.00898100172711591, 0.0290442418101999, 0.015386848599217, 0.0161858516614299 ...","0.00963584032036041, 0.0122936917336328, 0.00477554918815664, 0.0102137767220903, 0.0138403990024938, 0.00187899285982713, 0.00431488107766786, 0.012401863514796, 0.00902317314922414, 0.0157271241830065 ...","0.00613341229220422, 0.00928598626754941, 0.0057609630266552, 0.00960203609440074, 0.0146701281575803, 0.00240073868882733, 0.00370789988670306, 0.0113724056699565, 0.00601765177855041, 0.0144689584402258 ...","0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ...","40725, 147695, 20714, 17495, 42345, 8057, 15581, 88612, 26462, 20600 ...","58.865561694291, 57.8834760824672, 55.6000772424447, 48.1280365818805, 56.8189868933758, 66.0543626660047, 60.9845324433605, 52.32248453934, 55.2830473887083, 47.5339805825243 ...","0.104012460842929, 0.370922675089595, 0.0499691949913659, 0.0365321369998525, 0.104389930667037, 0.0230907402747286, 0.0412266467663418, 0.201161045114152, 0.0634713339870359, 0.0424848795133676 ...","55221, 195121, 26932, 22604, 57710, 10678, 20354, 116648, 34079, 26008 ...","35.8675212030467, 47.3879722886535, 11.7513644733915, 14.0181515055557, 34.55767557038, 6.61972926491394, 10.1164183647926, 74.3364413306752, 22.0574726618374, 18.1357200528525 ...","93.9, 95.5, 116.6, 114.6, 97.7, 112.8, 87.6, 93.2, 91.2, 99.6 ...","63.9, 68.1, 59.7, 56.6, 67.2, 55.1, 69.6, 60.9, 65.5, 67.7 ...","37.7, 42.2, 38.8, 38.9, 40.7, 39.3, 40.5, 39.1, 43, 45.4 ...","77.2, 83.5, 46.8, 75, 88.9, 21.9, 54.1, 73.6, 58.1, 92.1 ...","17.6, 9.3, 46.7, 21.9, 1.3, 70, 43.2, 20.4, 38.6, 4.6 ...","0.4, 0.6, 0.2, 0.3, 0.5, 0.2, 0.3, 0.4, 0.2, 0.5 ...","0.9, 0.7, 0.4, 0.1, 0.2, 0.2, 0.8, 0.7, 0.5, 0.2 ...","1.5, 1.4, 0.9, 0.9, 1.1, 0.6, 0.7, 1.6, 1, 1.4 ...","2.4, 4.4, 5.1, 1.8, 8.1, 7.1, 0.9, 3.3, 1.6, 1.2 ...","0.63346775, 0.721336, 0.4432095, 0.6163535, 0.8010005, 0.57575025, 0.48558375, 0.597948, 0.49186725, 0.8492775 ...","0.405, 0.439, 0.464, 0.411, 0.422, 0.533, 0.463, 0.453, 0.425, 0.439 ...","29949, 26775, 20335, 26902, 28186, 21267, 22073, 24098, 22715, 26873 ...","21.3, 20.2, 37.1, 24, 21.2, 51.5, 33, 30.6, 35, 22.8 ...","14.5, 18.8, 33.9, 18.4, 18.2, 48.8, 32.5, 26.8, 30.2, 27.3 ...","8.6, 5.4, 20.2, 11.3, 10.9, 17, 22.7, 10.9, 15.7, 9.4 ...","10.6, 12.2, 25, 12.6, 13.4, 25.3, 25, 19.5, 20.3, 17.6 ...","0.059, 0.061, 0.108, 0.071, 0.061, 0.091, 0.086, 0.079, 0.067, 0.059 ...","29.3, 31.5, 26.6, 20.1, 24.7, 21.2, 22.2, 27.7, 23.5, 25.2 ...","16.9, 17.6, 15.7, 13.2, 16, 15.5, 17.8, 16.1, 14, 15.2 ...","29.1, 26.9, 21.3, 22.9, 25.6, 24.3, 26.1, 23.7, 25.7, 20.2 ...","0.5, 1, 1.9, 0.6, 1.3, 5.2, 2, 0.5, 0.5, 0.9 ...","11, 12.5, 8.4, 18, 14.5, 6.6, 9.3, 11.4, 13.3, 13.1 ...","13.1, 10.6, 26.1, 25.3, 17.9, 27.2, 22.7, 20.6, 23, 25.5 ...","78.9, 75.2, 69, 65.2, 72.9, 67.8, 74.6, 74.3, 75.5, 67.7 ...","42.3, 43, 32.5, 20.9, 29, 51.6, 34, 37.7, 63.2, 24.2 ...","14.7, 12.4, 28.1, 25.5, 25.3, 25.3, 25.2, 21.5, 28.2, 26.6 ...","21.7, 26.8, 13.5, 10, 12.5, 12, 11, 16.1, 10.8, 10.5 ...","7.1, 8.7, 6, 2.6, 4.2, 3.7, 3.2, 6.4, 3.7, 4.2 ...","75.9744301186178, 77.5687723785166, 74.8669806094183, 74.3329077353215, 75.8481234193222, 72.0666917293233, 73.442473347548, 73.2120082815735, 73.1011715481172, 74.6451503006012 ...","7.1, 5.9, 13, 14, 6, NA, NA, 8, 9.3, NA ...","76.4, 70.2, 63.7, 74.7, 88.5, 89.6, 79.6, 72.7, 77.3, 90.7 ...","4.4, 4.1, 4.9, 4.8, 4.6, 5.3, 5.3, 4.9, 5.1, 4.6 ...","4.3, 4.2, 4.7, 4.6, 4.5, 4.8, 5.1, 4.9, 4.9, 4.7 ...","0.09, 0.09, 0.12, 0.12, 0.07, 0.14, 0.11, 0.09, 0.12, 0.09 ...","35.2, 41.6, 67.9, 48.4, 45.3, 83.5, 56.6, 47.2, 60.7, 49.8 ...","0.273, 0.282, 0.545, 0.32, 0.283, 0.725, 0.523, 0.4, 0.538, 0.315 ...","0.187, 0.186, 0.214, 0.21, 0.194, 0.223, 0.228, 0.238, 0.208, 0.198 ...","0.309, 0.267, 0.408, 0.401, 0.324, 0.445, 0.36, 0.32, 0.398, 0.327 ...","0.109, 0.109, 0.153, 0.125, 0.117, 0.173, 0.162, 0.126, 0.153, 0.125 ...","416.1, 308.2, 632.3, 367.3, 159.1, 992.9, 773.1, 680.3, 901.2, 222.9 ...","205.407, 174.325, 399.427, 124.837, 93.727, 368.304, 241.959, 201.955, 363.775, 130.261 ...","0.134, 0.175, 0.174, 0.15, 0.176, 0.185, 0.155, 0.16, 0.168, 0.164 ...","253.64, 220.67, 146.89, 235.95, 219.03, 283.35, 483.04, 504.52, 553.46, 374.37 ...","5.1, 3.8, 4.5, 7.4, 3.3, NA, 10.2, 10.8, 9.9, NA ...","NA, NA, NA, 16.255, 15.455, 13.775, 14.79, 13.96, 14.51, 14.7 ...","NA, 51.3, 47, NA, NA, NA, 47.3, NA, 44.6, NA ..."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Type<\/th>\n      <th>Preview<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","pageLength":5,"scrollX":true,"scrollCollapse":true,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>The data set consists of both continuous and nominal features and each type has different aspects to explore. As such, we present 2 separate tables for summary of each type of features. For continuous features, general statistical values are presented, including mean, median, standard deviation, min and max, as well as interquartile range, upper quartile (75%) and lower quartile (25%), percentage and number of missing values (NA). Shannon entropy is included in here as we thought it might be useful to detect extreme data, but perhaps it is more useful for nominal features.</p>
+<blockquote>
+<p>These tables are wide, scroll right to see the rest of the summary</p>
+</blockquote>
+<div id="htmlwidget-b1edb4b7881efc94f748" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b1edb4b7881efc94f748">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73"],["Republican Votes 2016","Republican Votes 2012","Republican Votes 2008","Democratic Votes 2016","Democratic Votes 2012","Democratic Votes 2008","Other Parties Votes 2016","Other Votes 2012","Other Votes 2008","Total Votes 2016","Total Votes 2012","Total Votes 2008","Republican Vote Fraction 2016","Republican Vote Fraction 2012","Republican Vote Fraction 2008","Democratic Vote Fraction 2016","Democratic Vote Fraction 2012","Democratic Vote Fraction 2008","Other Parties Vote Fraction 2016","Other Vote Fraction 2012","Other Vote Fraction 2008","Estimated No. of Remaining Votes","Voting Age Population","Voting Participation Rate","Voting Power","Population","Population Density","Sex Ratio","Age Dependency Ratio","Median Age","White not Latino Population","African American Population","Native American Population","Asian American Population","Other race(s) Population","Latino Population","Homogeneity Index","Gini Coefficient","Median Earning","Children Under 6 Living in Poverty","Child Poverty","Adults 65 and Older Living in Poverty","Poverty Rate","Unemployment Rate","Management, Professional, and Related Occupations","Service Occupations","Sales and Office Occupations","Farming, Fishing, and Forestry Occupations","Construction, Extraction, Maintenance, and Repair Occupations","Production, Transportation, and Material moving Occupations","School Enrollment","Preschool Enrollment Ratio","Less Than High School","At Least Bachelor Degree","Graduate Degree","Life Expectancy","Infant Mortality","Injury Death Rate","Avg. No. of Physically Unhealthy Day","Avg. No. of Mentally Unhealthy Day","Low Birth Weight Rate","Teen Birth Rate","Children in Single Parent Households Rate","Adult Smoking Rate","Adult Obesity Rate","Diabetes Rate","Sexually Transmitted Infections Rate","HIV Prevalence Rate","Uninsured Rate","Crime Rate","Homicide Rate","Winter Avg. Precipitation","Winter Avg. Temperature"],["integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","integer","double","double","double","double","double","double","double","double","double","integer","integer","double","double","integer","double","double","double","double","double","double","double","double","double","double","double","double","integer","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double","double"],[19628.61,19532.24,19207.5,20066.29,21144.3,22298.61,2070.281,718.6078,593.341,41765.18,41395.15,42099.45,0.6360865,0.5967064,0.5681271,0.3167929,0.3848176,0.4154044,0.04712059,0.01847605,0.01646852,151.5773,71337.76,57.97705,0.1719704,101500.3,103.7373,100.6008,67.05493,40.91533,78.59434,8.821183,1.559434,1.101543,1.590614,8.332883,0.7194878,0.4317866,25485.06,25.27541,21.392,11.20678,15.52009,0.06228897,30.05786,17.54449,22.81308,2.102411,11.40064,16.08177,75.61312,42.96762,16.92508,19.00756,6.445981,77.19335,7.226126,77.36111,3.807265,3.677403,0.0819841,41.625,0.3244249,0.1834976,0.3094709,0.1114564,344.9007,184.5944,0.1739582,248.2768,6.285328,7.896892,34.09402],[40447.75,44788.39,44871.25,72008.95,74246.28,77152.04,5905.086,2310.851,1857.141,113423.4,117069.4,119969.5,0.1561985,0.1476142,0.1382571,0.1532597,0.147641,0.138483,0.02831105,0.009094349,0.008553064,1966.35,208414.2,9.573923,0.484594,324501.6,690.2376,11.61888,10.45024,5.254612,19.56751,14.47215,6.287981,2.318794,1.454898,13.24619,0.1843296,0.03647441,5059.962,12.29513,9.757026,5.295842,6.337312,0.0223437,6.526108,3.572653,3.512504,2.605462,3.436385,5.945635,5.103065,14.39559,7.343229,8.657606,3.852651,2.18307,2.275963,24.27321,0.73724,0.6136605,0.02133248,18.92892,0.103055,0.03696893,0.04468939,0.02275311,226.5571,241.4084,0.05391734,196.2662,4.681599,5.185619,11.42086],[7169,6453,6315,3155,4000,4506,445,182,170,10948,10804,11059,0.6671549,0.6079984,0.5722479,0.2846199,0.3715213,0.4108648,0.04407278,0.01735412,0.01573075,0,19621,58.00363,0.04629137,26012,17.56502,98.2,66.7,41,85.9,1.9,0.3,0.5,1.3,3.3,0.7594185,0.43,24945,24.1,20.5,10,14.7,0.06,29,17.2,23,1.2,11,15.7,75.8,43.1,15.4,16.8,5.3,77.38826,6.8,74.2,3.7,3.7,0.08,39.9,0.318,0.178,0.312,0.109,287.1,107.846,0.171,198.595,5,7.625,33.7],[3207,2919.5,2884.5,1166,1557.5,1809,166.5,74,71,4837,4846,4977,0.5494722,0.5054171,0.4774787,0.2044508,0.2775983,0.3140263,0.02922121,0.0123165,0.01061654,0,8436,51.38515,0.02225259,11205,6.762872,95.5,60.9,37.7,67.25,0.4,0.2,0.3,0.9,1.6,0.5457375,0.407,22296,16.55,14.3,7.5,11,0.047,25.7,15.3,20.7,0.5,9.1,11.65,72.9,34.7,11.5,13.1,4,75.67898,5.6,61.2,3.3,3.2,0.07,27.2,0.26,0.157,0.285,0.096,194.9,63.019,0.135,111.8925,3.2,3.2,25.8],[17450.5,16336,16042,9609,11373,12388,1434,517.5,446,28807,28478.5,29168.5,0.7505674,0.702805,0.6687679,0.3994807,0.4755017,0.504616,0.05887043,0.02393437,0.02076473,0,51201.5,64.3638,0.1228824,67950.5,45.10593,101.9,72.85,43.9,94.25,10,0.6,1,1.8,8.3,0.8917152,0.454,27469,32.2,26.9,13.7,19,0.075,33.35,19.2,25.3,2.7,13.15,20,78.6,51.6,21.6,22.575,7.7,78.79196,8.4,89.875,4.3,4.1,0.09,53.6,0.379,0.2065,0.337,0.125,428.9,217.224,0.2075,331.185,8,11.0575,42.2],[14243.5,13416.5,13157.5,8443,9815.5,10579,1267.5,443.5,375,23970,23632.5,24191.5,0.2010952,0.1973879,0.1912891,0.1950299,0.1979034,0.1905897,0.02964922,0.01161787,0.01014819,0,42765.5,12.97865,0.1006298,56745.5,38.34306,6.4,11.95,6.2,27,9.6,0.4,0.7,0.9,6.7,0.3459777,0.047,5173,15.65,12.6,6.2,8,0.028,7.65,3.9,4.6,2.2,4.05,8.35,5.7,16.9,10.1,9.475,3.7,3.112977,2.8,28.675,1,0.9,0.02,26.4,0.119,0.0495,0.052,0.029,234,154.205,0.0725,219.2925,4.8,7.8575,16.4],[57,54,67,4,5,8,3,0,0,64,64,79,0.04122067,0.07278291,0.06532557,0.03144654,0.03448276,0.04907975,0.003344482,0,0,0,98,17.10677,0.0003042338,117,0.06753216,68.3,27.1,21.4,2.9,0,0,0,0,0,0.2403985,0.207,5559,0,0,0,0,0.012,11.1,0,0,0,1.8,1.2,37.8,0,0.7,3.7,0,68.43128,3.1,25.5,2.2,2.1,0.03,3.7,0,0.069,0.107,0.051,34.7,10.262,0.03,0,0.6,0.7166667,4.7],[620285,885333,956425,1893770,2216903,2295853,138017,78831,65970,2652072,3181067,3318248,0.9527273,0.9586207,0.9263804,0.9284659,0.9144675,0.9245711,0.3534774,0.08231707,0.07289294,67753,6046749,131.5098,13.41857,10038388,27559.89,273.4,141.8,65.3,99.2,85.4,86.3,43,35,95.7,0.9840842,0.645,59672,100,64.6,47.4,49.3,0.236,67.3,38.5,39,38.3,30,39.5,100,100,52.1,71,40.6,83.19254,19.9,277,6.5,5.6,0.28,123.7,1,0.4,0.466,0.228,2257.1,3623.475,0.395,1885.3,44.8,40.70333,69.73333],[3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111,3111],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,7,1,1,1,0,1779,113,0,0,92,95,0,0,0,0,174,778,0,149,1891,510,1390],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.06428801,0,0,0.03214401,0,0,0,0,0,0,0,0,0.03214401,0.225008,0.03214401,0.03214401,0.03214401,0,57.18419,3.632273,0,0,2.957248,3.05368,0,0,0,0,5.593057,25.00804,0,4.789457,60.78431,16.39344,44.68017],[11.46179,11.4675,11.43767,11.30837,11.38422,11.40367,10.30467,9.416357,9.321034,11.50592,11.51323,11.52015,11.60188,11.60123,11.60316,11.60252,11.60188,11.60252,11.60059,11.43753,11.43416,0.2597062,11.55679,11.60123,11.59609,11.56973,11.60316,7.860133,8.496292,7.661249,8.802809,7.030181,3.981399,4.486595,4.876494,7.279602,11.59995,7.14181,11.40149,8.701006,8.43352,7.455122,7.819876,6.38389,7.835207,7.036933,7.063428,5.777755,6.983531,7.825283,7.5629,8.886243,8.010892,8.06886,6.783531,11.59802,6.334739,9.484505,4.872745,4.626163,3.010956,9.276673,8.498972,7.102845,7.412055,6.455858,11.05188,11.17736,7.677604,11.43229,6.952486,10.81703,9.540061]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Type<\/th>\n      <th>Mean<\/th>\n      <th>Standard Deviation<\/th>\n      <th>Median<\/th>\n      <th>Lower Quartile<\/th>\n      <th>Upper Quartile<\/th>\n      <th>Inner Quartile Range<\/th>\n      <th>Min<\/th>\n      <th>Max<\/th>\n      <th>N<\/th>\n      <th>Number of Missing Values<\/th>\n      <th>Percentage of Missing Values<\/th>\n      <th>Entropy<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"scrollCollapse":true,"autoWidth":true,"columnDefs":[{"width":"100px","targets":[-2,-3]},{"className":"dt-right","targets":[3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>For categorical/nominal features, we also include statistics on the mode, highest frequency and a peek at different levels of the data. This table also summarizes binary features that we derived earlier in the pre-processing phase, at this point, we are already aware of the fact that the number of counties that Republican won in presidential elections are usually pretty high, although it seems like Democrat got hold of many populous and important counties–hence the overall in the 2008 and 2012 election. Nevertheless, as we proceed further, especially during modelling phase, we need to apply some sampling technique to balance out this distribution of class value for the winner.</p>
+<div id="htmlwidget-2b049af68018e3598ba5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2b049af68018e3598ba5">{"x":{"filter":"none","data":[["1","2","3","4","5","6"],["FIPS County Code","County Name","FIPS State Code","Republican Win 2016","Republican Win 2012","Republican Win 2008"],["integer","character","integer","logical","logical","logical"],[3111,1836,50,2,2,2],["1001, 1003, 1005, 1007, 1009 ...","Abbeville, Acadia, Accomack, Ada, Adair ...","1, 4, 5, 6, 8 ...","FALSE, TRUE","FALSE, TRUE","FALSE, TRUE"],["1, 1, 1, 1, 1 ...","1, 1, 1, 1, 4 ...","67, 15, 75, 58, 64 ...","486, 2625","692, 2419","874, 2237"],[3111,3111,3111,3111,3111,3111],["1001, 1003, 1005, 1007, 1009 ...","Washington","48","TRUE","TRUE","TRUE"],[1,28,254,2625,2419,2237],[0,0,0,0,0,0],[0,0,0,0,0,0],[11.60316,10.27551,5.247239,0.6251891,0.7645916,0.8567266]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Type<\/th>\n      <th>Level<\/th>\n      <th>Value<\/th>\n      <th>Frequency<\/th>\n      <th>N<\/th>\n      <th>Mode<\/th>\n      <th>Highest Frequency<\/th>\n      <th>Number of Missing Values<\/th>\n      <th>Percentage of Missing Values<\/th>\n      <th>Entropy<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","pageLength":6,"scrollX":true,"scrollCollapse":true,"autoWidth":true,"columnDefs":[{"width":"200px","targets":[5,8,9,10]},{"width":"100px","targets":3},{"className":"dt-right","targets":[3,6,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"lengthMenu":[6,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>Traditionally, we need to include a scatter plot matrix for all the feature and study their correlation, but we might spare that this time as we have quite a formidable number of numeric features (73), not including the FIPS codes, which will result in a giant table. To satisfy our curiosity, we actually did try to construct such a plot and apparently that was not so aesthetically pleasing. The lower triangle shows the pairwise scatter plots between every features, the upper triangle shows the corresponding Pearson correlation value and the p-value (the larger the number, the bigger the font used). Last but not least, we designated the diagonal for histogram plot of each feature. As mentioned the overall visual presentation is overwhelming but not so effective. We are especially interested in the distribution of the data and thus, we will do justice to histogram in the later section where we talk about each feature in detail.</p>
+<blockquote>
+<p>Click <a href="http://127.0.0.1:1923/result/data_analyzed/plots/all_features_scatter.png">here</a> to download the high resolution version.</p>
+</blockquote>
+<div class="figure"><span id="fig:plot-scatter-matrix"></span>
+<img src="http://127.0.0.1:1923/result/data_analyzed/plots/all_features_scatter.low.png" alt="Scatter Plot Matrix"  />
+<p class="caption">
+Figure 1.1: Scatter Plot Matrix
+</p>
+</div>
+<p>Our second attempt at correlation plot (using the <em>corrplot</em> package in R) is more visually effective. Arguably, this is even better than looking at a table of correlation values between all pairs of features because when we pre-process the data set, we reordered them into categories so now it is really easy for us to spot highly correlated groups of features, which potentially provide us with some insight on how to reduce the dimension of the data set. The correlation table will be huge though (~2500 rows) so we will only take a peek at the top 100 correlation.</p>
+<blockquote>
+<p>Fear not the minuscule! Hover on the the plot to zoom</p>
+</blockquote>
+<div class="figure"><span id="fig:plot-correlation-matrix"></span>
+<iframe src="http://127.0.0.1:2304?showcase=0" width="672" height="500px">
+</iframe>
+<p class="caption">
+Figure 1.2: Correlation Plot Matrix
+</p>
+</div>
+<div id="htmlwidget-0d8400ff6e348c5934b5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0d8400ff6e348c5934b5">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100"],["Total Votes 2012","Democratic Votes 2012","Republican Vote Fraction 2012","Republican Vote Fraction 2008","Republican Votes 2012","Voting Age Population","Total Votes 2016","Democratic Votes 2016","Total Votes 2016","Democratic Votes 2016","Total Votes 2008","Total Votes 2012","Voting Age Population","Republican Votes 2016","Total Votes 2012","Total Votes 2016","Republican Vote Fraction 2016","Total Votes 2008","Democratic Votes 2008","Republican Votes 2016","Republican Vote Fraction 2012","Total Votes 2008","Democratic Votes 2012","Total Votes 2012","Voting Power","Democratic Vote Fraction 2012","Democratic Votes 2016","Democratic Votes 2012","Democratic Votes 2016","Republican Vote Fraction 2012","Democratic Votes 2008","Democratic Votes 2016","Other Votes 2012","Total Votes 2016","Republican Vote Fraction 2008","Democratic Votes 2012","Democratic Votes 2008","Total Votes 2016","Democratic Votes 2016","Democratic Votes 2012","Democratic Votes 2008","Democratic Votes 2012","Democratic Votes 2008","Democratic Votes 2016","Democratic Votes 2012","Democratic Votes 2008","Democratic Votes 2016","Republican Votes 2008","Republican Votes 2008","Republican Votes 2012","Democratic Vote Fraction 2016","Republican Votes 2008","Republican Votes 2008","Republican Votes 2012","Republican Votes 2008","Republican Vote Fraction 2012","Republican Votes 2012","Republican Vote Fraction 2016","Republican Vote Fraction 2016","Republican Votes 2012","Republican Votes 2012","Republican Votes 2016","Republican Votes 2008","Other Votes 2012","Other Votes 2012","Other Votes 2012","Other Votes 2012","Other Votes 2012","Child Poverty","At Least Bachelor Degree","Other Parties Votes 2016","Avg. No. of Physically Unhealthy Day","Other Votes 2008","Other Votes 2008","Republican Votes 2012","Other Parties Votes 2016","Other Votes 2008","Other Parties Votes 2016","Other Votes 2008","Democratic Vote Fraction 2016","Republican Votes 2016","Other Parties Votes 2016","Other Votes 2008","Other Parties Votes 2016","Republican Vote Fraction 2016","Democratic Votes 2012","Other Parties Votes 2016","Democratic Votes 2008","Republican Votes 2016","Democratic Votes 2008","Republican Votes 2012","Democratic Votes 2012","Republican Vote Fraction 2016","Other Parties Votes 2016","Republican Votes 2016","Republican Vote Fraction 2008","Republican Votes 2016","Other Votes 2012","Republican Votes 2008","Democratic Votes 2016"],["Total Votes 2008","Democratic Votes 2008","Democratic Vote Fraction 2012","Democratic Vote Fraction 2008","Republican Votes 2008","Population","Total Votes 2012","Democratic Votes 2012","Total Votes 2008","Democratic Votes 2008","Voting Age Population","Voting Age Population","Voting Power","Republican Votes 2012","Voting Power","Voting Age Population","Democratic Vote Fraction 2016","Voting Power","Total Votes 2008","Republican Votes 2008","Democratic Vote Fraction 2008","Population","Total Votes 2008","Population","Population","Democratic Vote Fraction 2008","Total Votes 2008","Total Votes 2012","Total Votes 2012","Republican Vote Fraction 2008","Total Votes 2012","Total Votes 2016","Other Votes 2008","Voting Power","Democratic Vote Fraction 2012","Voting Age Population","Voting Age Population","Population","Voting Age Population","Total Votes 2016","Total Votes 2016","Population","Population","Population","Voting Power","Voting Power","Voting Power","Total Votes 2016","Total Votes 2012","Total Votes 2016","Democratic Vote Fraction 2012","Total Votes 2008","Voting Age Population","Total Votes 2012","Voting Power","Democratic Vote Fraction 2016","Total Votes 2008","Democratic Vote Fraction 2012","Republican Vote Fraction 2012","Voting Power","Voting Age Population","Total Votes 2016","Population","Voting Power","Total Votes 2012","Voting Age Population","Total Votes 2008","Population","Poverty Rate","Graduate Degree","Voting Power","Avg. No. of Mentally Unhealthy Day","Total Votes 2008","Total Votes 2012","Population","Other Votes 2012","Voting Power","Total Votes 2012","Voting Age Population","Democratic Vote Fraction 2008","Total Votes 2012","Total Votes 2016","Population","Total Votes 2008","Democratic Vote Fraction 2008","Other Votes 2012","Other Votes 2008","Other Votes 2012","Total Votes 2008","Other Votes 2008","Other Parties Votes 2016","Other Votes 2008","Republican Vote Fraction 2008","Voting Age Population","Voting Age Population","Democratic Vote Fraction 2016","Voting Power","Total Votes 2016","Other Parties Votes 2016","Other Votes 2012"],[0.999035026436444,0.998718417547363,-0.998102531564492,-0.998090910119816,0.997534157602595,0.996381900630772,0.99427683216649,0.993729926644547,0.992354544631191,0.992189263024179,0.991867631755645,0.991103703550636,0.98702040309235,0.985446700949615,0.984041833592804,0.983824206505563,-0.983439553838373,0.983243670647393,0.982334146443156,0.982094727462334,-0.981799624876928,0.981455255998828,0.981438709649463,0.980625428231213,0.980155360653606,0.979757930426718,0.979684322229883,0.979537144598435,0.979201545635784,0.978810662652805,0.978737032343553,0.977734403945471,0.977545920662346,0.976873502013338,-0.973880893268995,0.97146824131271,0.971273795324557,0.97121134249816,0.970209759494276,0.967774522042523,0.967119432033445,0.964377420834897,0.963186996824229,0.962970877990793,0.959403509271466,0.95920072759566,0.958704968915437,0.953625537221537,0.950234980174532,0.948366284670714,0.947664482988928,0.946598993927965,0.944079601966055,0.942337881920224,0.941736681996818,-0.941463173529149,0.936703196572973,-0.934847230594977,0.934482007114738,0.933782188495802,0.932466193475528,0.93066485201109,0.930293019673073,0.928860155546958,0.924606268669583,0.924493271675641,0.923834024226466,0.922444864452981,0.921574537760021,0.921049729280968,0.91856880644468,0.918330305185993,0.91825139407665,0.917500811835,0.916937951866403,0.915182456959872,0.91433152864935,0.914319841790219,0.913265711219817,0.91154370711692,0.911394573454385,0.910145346756483,0.909693991904438,0.908954523151871,-0.908452182758881,0.907436455511332,0.906955174069358,0.906855352792948,0.905927915609345,0.903089404510681,0.902553785675024,0.902265440893233,0.901961475891866,0.901334320633019,0.899987194805017,-0.899448389541795,0.898461873542923,0.895751369759678,0.895535723934035,0.889537929262964]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Feature 1<\/th>\n      <th>Feature 2<\/th>\n      <th>Correlation Value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tip","pageLength":5,"scrollX":true,"scrollCollapse":true,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<p>From the correlation matrix plot, we can identify a few groups that are highly correlated. First, at the top-left, we can see that election results between the year and even between parties are highly correlated. This might seems bizarre at first, but that actually makes a lot of sense. First, 2008 and 2012 results are very similar as Barrack Obama (Democratic party) won both round. Of course, the vote fraction features are not highly correlated to the vote count, but they are highly correlated to one another. The situation seems even more absurd when we have vote count for Donald Trump and Hillary closely related! All of this happens because of the fact that the votes distribution are always very close to the 50:50 line at each county, even if one party leads, it only leads by 60%-40% typically. As such, it comes at no surprise to us that features in this group are highly correlated. The implication of this is huge because this group contains the target that we are to select for our supervised modelling process. We will reserve that for section @(dqp).</p>
+<p>Other highly-correlated groups are the poverty/finance group and the healthcare group. Again, it is not an astonishing result. Although these two groups are highly correlated, there are (sporadically) some of their features that are not pairwise strongly correlated. This means that we cannot just easily get rid of them. As we will see in data preparation phase, this group of feature will also be reduced but in a much different way as compared to the group (election result) mentioned previously.</p>
+</div>
+<div id="feature-detail" class="section level2">
+<h2><span class="header-section-number">1.5</span> Feature Detail</h2>
+<p>In this final major section of this report, we will present the detail of each feature. These details include the meta data, formula, etc. and most importantly a histogram to show the distribution of value of each feature. As we can see, most will be right-skewed. We, however, cannot determine the exact underlying function for these skewed distribution and thus cannot do anything about that. For learners that are heavily affected by this, we can discretize them to secure performance. Following this section will be section <a href="dqr.html#del-feature">1.6</a>, Deleted Feature, which gives details of features that we decide to remove from the final data set (Analytic Base Table) after data preparation and feature selection phase.</p>
+<div id="fips-state-code" class="section level3 unnumbered">
+<h3>FIPS State Code</h3>
+<pre><code>Original name: statecode_prev
+Variable name: fips_state
+Display name: FIPS State Code
+Category: administration
+Unit: NA
+Meaning: FIPS previous state code
+Lowerbound: NA
+Upperbound: NA
+Remark: used for matching data between the NYT datasets
+Year: 2010
+Source: http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/G001/0100000US.05000.003</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="republican-win-2016" class="section level3 unnumbered">
+<h3>Republican Win 2016</h3>
+<pre><code>Original name: rep16_win
+Variable name: elec_rep16_win
+Display name: Republican Win 2016
+Category: election
+Unit: NA
+Meaning: indicate whether Republican party win the county in 2016 election or not
+Lowerbound: NA
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+</div>
+<div id="republican-win-2012" class="section level3 unnumbered">
+<h3>Republican Win 2012</h3>
+<pre><code>Original name: rep12_win
+Variable name: elec_rep12_win
+Display name: Republican Win 2012
+Category: election
+Unit: NA
+Meaning: indicate whether Republican party win the county in 2012 election or not
+Lowerbound: NA
+Upperbound: NA
+Remark: 
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-3.png" width="672" /></p>
+</div>
+<div id="voting-participation-rate" class="section level3 unnumbered">
+<h3>Voting Participation Rate</h3>
+<pre><code>Original name: voting_participation
+Variable name: elec_voting_participation
+Display name: Voting Participation Rate
+Category: election
+Unit: %
+Meaning: percentage of population participated in the voting
+Lowerbound: 0
+Upperbound: 100
+Remark: cannot use 2016 results to calculate this because we are trying to predict the result
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{total number of votes in 2012}}{\text{total voting-population 2015}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-4.png" width="672" /></p>
+</div>
+<div id="voting-power" class="section level3 unnumbered">
+<h3>Voting Power</h3>
+<pre><code>Original name: voting_power
+Variable name: elec_voting_power
+Display name: Voting Power
+Category: election
+Unit: NA
+Meaning: the power of each vote that counts towards the final vote of each state
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2000-2016
+Source: http://psephos.adam-carr.net/countries/u/usa/pres/2000.txt</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{state electoral votes } \times \text{ total number of votes of the county}}{\text{total number of votes of the state}} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-5.png" width="672" /></p>
+</div>
+<div id="population-density" class="section level3 unnumbered">
+<h3>Population Density</h3>
+<pre><code>Original name: population_density
+Variable name: demo_population_density
+Display name: Population Density
+Category: demographics
+Unit: per km^2
+Meaning: population density
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2015
+Source: http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/G001/0100000US.05000.003</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{total population}}{\text{total land area}} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-6.png" width="672" /></p>
+</div>
+<div id="sex-ratio" class="section level3 unnumbered">
+<h3>Sex Ratio</h3>
+<pre><code>Original name: sex_ratio
+Variable name: demo_sex_ratio
+Display name: Sex Ratio
+Category: demographics
+Unit: NA
+Meaning: number of males per 100 females
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2015
+Source: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S0101&amp;prodType=table</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of males in the population}}{\text{number of females in the population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-7.png" width="672" /></p>
+</div>
+<div id="age-dependency-ratio" class="section level3 unnumbered">
+<h3>Age Dependency Ratio</h3>
+<pre><code>Original name: age_dependency_ratio
+Variable name: demo_age_dependency_ratio
+Display name: Age Dependency Ratio
+Category: demographics
+Unit: %
+Meaning: number of dependents, aged zero to 14 and over the age of 65, to the total population, aged 15 to 64
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2015
+Source: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S0101&amp;prodType=table</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people not in working age}}{\text{number of people in working age}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-8.png" width="672" /></p>
+</div>
+<div id="median-age" class="section level3 unnumbered">
+<h3>Median Age</h3>
+<pre><code>Original name: median_age
+Variable name: demo_median_age
+Display name: Median Age
+Category: demographics
+Unit: year
+Meaning: median age
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2015
+Source: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_S0101&amp;prodType=table</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-9.png" width="672" /></p>
+</div>
+<div id="white-not-latino-population" class="section level3 unnumbered">
+<h3>White not Latino Population</h3>
+<pre><code>Original name: White.not.Latino.Population
+Variable name: population_white
+Display name: White not Latino Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as white not latino
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as white (non-latino)}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-10.png" width="672" /></p>
+</div>
+<div id="african-american-population" class="section level3 unnumbered">
+<h3>African American Population</h3>
+<pre><code>Original name: African.American.Population
+Variable name: population_african_american
+Display name: African American Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as african american
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as african american }}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-11.png" width="672" /></p>
+</div>
+<div id="native-american-population" class="section level3 unnumbered">
+<h3>Native American Population</h3>
+<pre><code>Original name: Native.American.Population
+Variable name: population_native
+Display name: Native American Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as native american
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as native american }}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-12.png" width="672" /></p>
+</div>
+<div id="asian-american-population" class="section level3 unnumbered">
+<h3>Asian American Population</h3>
+<pre><code>Original name: Asian.American.Population
+Variable name: population_asian
+Display name: Asian American Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as asian american
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as asian american }}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-13.png" width="672" /></p>
+</div>
+<div id="other-races-population" class="section level3 unnumbered">
+<h3>Other race(s) Population</h3>
+<pre><code>Original name: Population.some.other.race.or.races
+Variable name: population_other
+Display name: Other race(s) Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as other race
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as other races}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-14.png" width="672" /></p>
+</div>
+<div id="latino-population" class="section level3 unnumbered">
+<h3>Latino Population</h3>
+<pre><code>Original name: Latino.Population
+Variable name: population_latino
+Display name: Latino Population
+Category: race
+Unit: %
+Meaning: percentage of  populaton identified themselves as latino/hispanic
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people who idenfitied themselves as latino/hispanic }}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-15.png" width="672" /></p>
+</div>
+<div id="homogeneity-index" class="section level3 unnumbered">
+<h3>Homogeneity Index</h3>
+<pre><code>Original name: SIRE_homogeneity
+Variable name: population_homnogenity_index
+Display name: Homogeneity Index
+Category: race
+Unit: NA
+Meaning: Simpson index (or 1 - Simpson diversity index)
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<blockquote>
+<p><span class="math display">\[= 1 - \frac{\sum{n(n-1)}}{N(N-1)} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-16.png" width="672" /></p>
+</div>
+<div id="gini-coefficient" class="section level3 unnumbered">
+<h3>Gini Coefficient</h3>
+<pre><code>Original name: Gini.Coefficient
+Variable name: finance_gini_coef
+Display name: Gini Coefficient
+Category: finance
+Unit: NA
+Meaning: income inequality index
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \text{formula depends on distribution of income} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-17.png" width="672" /></p>
+</div>
+<div id="median-earning" class="section level3 unnumbered">
+<h3>Median Earning</h3>
+<pre><code>Original name: Median.Earnings.2010.dollars
+Variable name: finance_median_earning
+Display name: Median Earning
+Category: finance
+Unit: dollars
+Meaning: median earning of individuals
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-18.png" width="672" /></p>
+</div>
+<div id="unemployment-rate" class="section level3 unnumbered">
+<h3>Unemployment Rate</h3>
+<pre><code>Original name: Unemployment
+Variable name: demo_unemployment
+Display name: Unemployment Rate
+Category: occupation
+Unit: %
+Meaning: percentage of population age &gt;= 16 unemployed and/or looking for job
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people age} \geq 16 \text{ unemployed and/or looking for job}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-19.png" width="672" /></p>
+</div>
+<div id="management-professional-and-related-occupations" class="section level3 unnumbered">
+<h3>Management, Professional, and Related Occupations</h3>
+<pre><code>Original name: Management.professional.and.related.occupations
+Variable name: occupation_management
+Display name: Management, Professional, and Related Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having management, professional, and related occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having management, professional, and related occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-20.png" width="672" /></p>
+</div>
+<div id="service-occupations" class="section level3 unnumbered">
+<h3>Service Occupations</h3>
+<pre><code>Original name: Service.occupations
+Variable name: occupation_service
+Display name: Service Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having service occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having service occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-21.png" width="672" /></p>
+</div>
+<div id="sales-and-office-occupations" class="section level3 unnumbered">
+<h3>Sales and Office Occupations</h3>
+<pre><code>Original name: Sales.and.office.occupations
+Variable name: occupation_sale
+Display name: Sales and Office Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having sales and office occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having sales and office occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-22.png" width="672" /></p>
+</div>
+<div id="farming-fishing-and-forestry-occupations" class="section level3 unnumbered">
+<h3>Farming, Fishing, and Forestry Occupations</h3>
+<pre><code>Original name: Farming.fishing.and.forestry.occupations
+Variable name: occupation_agriculture
+Display name: Farming, Fishing, and Forestry Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having agricultural occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having agricultural occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-23.png" width="672" /></p>
+</div>
+<div id="construction-extraction-maintenance-and-repair-occupations" class="section level3 unnumbered">
+<h3>Construction, Extraction, Maintenance, and Repair Occupations</h3>
+<pre><code>Original name: Construction.extraction.maintenance.and.repair.occupations
+Variable name: occupcation_maintainance
+Display name: Construction, Extraction, Maintenance, and Repair Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having construction, extraction, maintenance, and repair occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having construction, extraction, maintenance, and repair occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-24.png" width="672" /></p>
+</div>
+<div id="production-transportation-and-material-moving-occupations" class="section level3 unnumbered">
+<h3>Production, Transportation, and Material moving Occupations</h3>
+<pre><code>Original name: Production.transportation.and.material.moving.occupations
+Variable name: occupation_transportation
+Display name: Production, Transportation, and Material moving Occupations
+Category: occupation
+Unit: %
+Meaning: percentage of population having production, transportation, and material moving occupations
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people having production, transportation, and material moving occupations}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-25.png" width="672" /></p>
+</div>
+<div id="school-enrollment" class="section level3 unnumbered">
+<h3>School Enrollment</h3>
+<pre><code>Original name: School.Enrollment
+Variable name: education_school_enrollment
+Display name: School Enrollment
+Category: education
+Unit: %
+Meaning: percentage of school enrollment
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of  actual students enrolled}}{\text{number of potential students enrolled}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-26.png" width="672" /></p>
+</div>
+<div id="preschool-enrollment-ratio" class="section level3 unnumbered">
+<h3>Preschool Enrollment Ratio</h3>
+<pre><code>Original name: Preschool.Enrollment.Ratio.enrolled.ages.3.and.4
+Variable name: education_preschool_enrollment
+Display name: Preschool Enrollment Ratio
+Category: education
+Unit: %
+Meaning: percentage of preschool enrollment (between 3 and 4 years old)
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of actual children (between 3 and 4 years old) enrolled in preschool}}{\text{number of potential children enrolled in preschool}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-27.png" width="672" /></p>
+</div>
+<div id="at-least-bachelor-degree" class="section level3 unnumbered">
+<h3>At Least Bachelor Degree</h3>
+<pre><code>Original name: At.Least.Bachelor.s.Degree
+Variable name: education_at_least_bachelor
+Display name: At Least Bachelor Degree
+Category: education
+Unit: %
+Meaning: percentage of population with at least bachelor degree
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people with at least bachelor degree}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-28.png" width="672" /></p>
+</div>
+<div id="graduate-degree" class="section level3 unnumbered">
+<h3>Graduate Degree</h3>
+<pre><code>Original name: Graduate.Degree
+Variable name: education_graduate_degree
+Display name: Graduate Degree
+Category: education
+Unit: %
+Meaning: percentage of population with graduate degree
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people with at least graduate degree}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-29.png" width="672" /></p>
+</div>
+<div id="infant-mortality" class="section level3 unnumbered">
+<h3>Infant Mortality</h3>
+<pre><code>Original name: Infant.mortality
+Variable name: health_infant_mortality
+Display name: Infant Mortality
+Category: healthcare
+Unit: NA
+Meaning: number of deaths of infants under 1 year old per 1,000 live births
+Lowerbound: 0
+Upperbound: 1000
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of deaths of infants under 1 year old}}{\text{number of live birth}}\times{1000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-30.png" width="672" /></p>
+</div>
+<div id="injury-death-rate" class="section level3 unnumbered">
+<h3>Injury Death Rate</h3>
+<pre><code>Original name: Injury.deaths
+Variable name: health_injury
+Display name: Injury Death Rate
+Category: healthcare
+Unit: NA
+Meaning: injury mortality rate per 100,000
+Lowerbound: 0
+Upperbound: 1e+05
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of injury deaths}}{\text{total population}}\times{100000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-31.png" width="672" /></p>
+</div>
+<div id="low-birth-weight-rate" class="section level3 unnumbered">
+<h3>Low Birth Weight Rate</h3>
+<pre><code>Original name: Low.birthweight
+Variable name: health_low_birth_weight
+Display name: Low Birth Weight Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of births with low birth weight (&lt;2,500g)
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of births with low birth weight(&lt; 2,500 g)}}{\text{number of births}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-32.png" width="672" /></p>
+</div>
+<div id="children-in-single-parent-households-rate" class="section level3 unnumbered">
+<h3>Children in Single Parent Households Rate</h3>
+<pre><code>Original name: Children.in.single.parent.households
+Variable name: health_children_with_single_parent
+Display name: Children in Single Parent Households Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of children living in single-parent household
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of children living in single-parent household}}{\text{number of children}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-33.png" width="672" /></p>
+</div>
+<div id="adult-obesity-rate" class="section level3 unnumbered">
+<h3>Adult Obesity Rate</h3>
+<pre><code>Original name: Adult.obesity
+Variable name: health_adult_obesity
+Display name: Adult Obesity Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of adults that report BMI &gt;= 30
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of adults reported BMI} \geq 30}{\text{number of adults}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-34.png" width="672" /></p>
+</div>
+<div id="diabetes-rate" class="section level3 unnumbered">
+<h3>Diabetes Rate</h3>
+<pre><code>Original name: Diabetes
+Variable name: health_diabetes
+Display name: Diabetes Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of adults that reported currently having diabetes
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of adults currently reported having diabetes}}{\text{number of adults}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-35.png" width="672" /></p>
+</div>
+<div id="sexually-transmitted-infections-rate" class="section level3 unnumbered">
+<h3>Sexually Transmitted Infections Rate</h3>
+<pre><code>Original name: Sexually.transmitted.infections
+Variable name: health_sti
+Display name: Sexually Transmitted Infections Rate
+Category: healthcare
+Unit: NA
+Meaning: number of Chlamydia case in population per 100,000
+Lowerbound: 0
+Upperbound: 1e+05
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people with Chlamydia}}{\text{total population}}\times{100000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-36.png" width="672" /></p>
+</div>
+<div id="hiv-prevalence-rate" class="section level3 unnumbered">
+<h3>HIV Prevalence Rate</h3>
+<pre><code>Original name: HIV.prevalence.rate
+Variable name: health_hiv
+Display name: HIV Prevalence Rate
+Category: healthcare
+Unit: NA
+Meaning: number of people living with HIV infection in a given population at a given period of time per 100,000
+Lowerbound: 0
+Upperbound: 1e+05
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people currently reported living with HIV infection}}{\text{total population}}\times{100000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-37.png" width="672" /></p>
+</div>
+<div id="uninsured-rate" class="section level3 unnumbered">
+<h3>Uninsured Rate</h3>
+<pre><code>Original name: Uninsured
+Variable name: demo_uninsured
+Display name: Uninsured Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of population under 65 without insurance
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people under 65 without insurance}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-38.png" width="672" /></p>
+</div>
+<div id="crime-rate" class="section level3 unnumbered">
+<h3>Crime Rate</h3>
+<pre><code>Original name: Violent.crime
+Variable name: demo_violent_crime
+Display name: Crime Rate
+Category: crime
+Unit: NA
+Meaning: number of crimes reported to law enforcement agencies per 100,000 total population
+Lowerbound: 0
+Upperbound: 1e+05
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of violent crimes}}{\text{total population}}\times{100000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-39.png" width="672" /></p>
+</div>
+<div id="homicide-rate" class="section level3 unnumbered">
+<h3>Homicide Rate</h3>
+<pre><code>Original name: Homicide.rate
+Variable name: demo_homicide
+Display name: Homicide Rate
+Category: crime
+Unit: NA
+Meaning: homicide mortality rate per 100,000 total population
+Lowerbound: 0
+Upperbound: 1e+05
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of homicide crimes}}{\text{total population}}\times{100000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-11-40.png" width="672" /></p>
+</div>
+<div id="winter-avg.-precipitation" class="section level3 unnumbered">
+<h3>Winter Avg. Precipitation</h3>
+<pre><code>Original name: winter_PRCP
+Variable name: weather_winter_prcp
+Display name: Winter Avg. Precipitation
+Category: weather
+Unit: inch
+Meaning: winter precipitation
+Lowerbound: 0
+Upperbound: NA
+Remark: during the election time
+Year: 1981-2010
+Source: https://www.ncdc.noaa.gov/cdo-web/datatools/normals</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-41.png" width="672" /></p>
+</div>
+<div id="winter-avg.-temperature" class="section level3 unnumbered">
+<h3>Winter Avg. Temperature</h3>
+<pre><code>Original name: winter_TAVG
+Variable name: weather_winter_tavg
+Display name: Winter Avg. Temperature
+Category: weather
+Unit: F
+Meaning: winter average temperature
+Lowerbound: -200
+Upperbound: 200
+Remark: during the election time
+Year: 1981-2010
+Source: https://www.ncdc.noaa.gov/cdo-web/datatools/normals</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-11-42.png" width="672" /></p>
+</div>
+</div>
+<div id="del-feature" class="section level2">
+<h2><span class="header-section-number">1.6</span> Deleted Feature</h2>
+<div id="fips-county-code" class="section level3 unnumbered">
+<h3>FIPS County Code</h3>
+<pre><code>Original name: fips
+Variable name: fips_county
+Display name: FIPS County Code
+Category: administration
+Unit: NA
+Meaning: FIPS county code
+Lowerbound: 0
+Upperbound: 57000
+Remark: FIPS is federal Information Processing Standard 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<blockquote>
+<p><span class="math display">\[= \text{2 digits state FIPS code} + \text{(up to) 3 digits for county code} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="county-name" class="section level3 unnumbered">
+<h3>County Name</h3>
+<pre><code>Original name: name_16
+Variable name: name
+Display name: County Name
+Category: administration
+Unit: NA
+Meaning: county name
+Lowerbound: NA
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+</div>
+<div id="republican-win-2008" class="section level3 unnumbered">
+<h3>Republican Win 2008</h3>
+<pre><code>Original name: rep08_win
+Variable name: elec_rep08_win
+Display name: Republican Win 2008
+Category: election
+Unit: NA
+Meaning: indicate whether Republican party win the county in 2008 election or not
+Lowerbound: NA
+Upperbound: NA
+Remark: 
+Year: 2008
+Source: http://www.nytimes.com/elections/2008/results/president/map.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+</div>
+<div id="republican-votes-2016" class="section level3 unnumbered">
+<h3>Republican Votes 2016</h3>
+<pre><code>Original name: votes16_trumpd
+Variable name: elec_rep16
+Display name: Republican Votes 2016
+Category: election
+Unit: NA
+Meaning: number of votes of Donald J. Trump
+Lowerbound: 0
+Upperbound: NA
+Remark: republican party
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
+</div>
+<div id="republican-votes-2012" class="section level3 unnumbered">
+<h3>Republican Votes 2012</h3>
+<pre><code>Original name: rep12
+Variable name: elec_rep12
+Display name: Republican Votes 2012
+Category: election
+Unit: NA
+Meaning: number of votes for republican party 2012
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-4.png" width="672" /></p>
+</div>
+<div id="republican-votes-2008" class="section level3 unnumbered">
+<h3>Republican Votes 2008</h3>
+<pre><code>Original name: rep08
+Variable name: elec_rep08
+Display name: Republican Votes 2008
+Category: election
+Unit: NA
+Meaning: number of votes for republican party 2008
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2008
+Source: http://www.nytimes.com/elections/2008/results/president/map.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-5.png" width="672" /></p>
+</div>
+<div id="democratic-votes-2016" class="section level3 unnumbered">
+<h3>Democratic Votes 2016</h3>
+<pre><code>Original name: votes16_clintonh
+Variable name: elec_dem16
+Display name: Democratic Votes 2016
+Category: election
+Unit: NA
+Meaning: number of votes of Hillary Clinton
+Lowerbound: 0
+Upperbound: NA
+Remark: democratic party
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-6.png" width="672" /></p>
+</div>
+<div id="democratic-votes-2012" class="section level3 unnumbered">
+<h3>Democratic Votes 2012</h3>
+<pre><code>Original name: dem12
+Variable name: elec_dem12
+Display name: Democratic Votes 2012
+Category: election
+Unit: NA
+Meaning: number of votes for democratic party 2012
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-7.png" width="672" /></p>
+</div>
+<div id="democratic-votes-2008" class="section level3 unnumbered">
+<h3>Democratic Votes 2008</h3>
+<pre><code>Original name: dem08
+Variable name: elec_dem08
+Display name: Democratic Votes 2008
+Category: election
+Unit: NA
+Meaning: number of votes for democratic party 2008
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2008
+Source: http://www.nytimes.com/elections/2008/results/president/map.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-8.png" width="672" /></p>
+</div>
+<div id="other-parties-votes-2016" class="section level3 unnumbered">
+<h3>Other Parties Votes 2016</h3>
+<pre><code>Original name: votes16_others
+Variable name: elec_other16
+Display name: Other Parties Votes 2016
+Category: election
+Unit: NA
+Meaning: number of votes of other parties than Democratic and Republic 2016
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-9.png" width="672" /></p>
+</div>
+<div id="other-votes-2012" class="section level3 unnumbered">
+<h3>Other Votes 2012</h3>
+<pre><code>Original name: other12
+Variable name: elec_other12
+Display name: Other Votes 2012
+Category: election
+Unit: NA
+Meaning: number of votes for other party 2012
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-10.png" width="672" /></p>
+</div>
+<div id="other-votes-2008" class="section level3 unnumbered">
+<h3>Other Votes 2008</h3>
+<pre><code>Original name: other08
+Variable name: elec_other08
+Display name: Other Votes 2008
+Category: election
+Unit: NA
+Meaning: number of votes for other party 2008
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2008
+Source: http://www.nytimes.com/elections/2008/results/president/map.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-11.png" width="672" /></p>
+</div>
+<div id="total-votes-2016" class="section level3 unnumbered">
+<h3>Total Votes 2016</h3>
+<pre><code>Original name: total16
+Variable name: elec_total16
+Display name: Total Votes 2016
+Category: election
+Unit: NA
+Meaning: total number of votes 2016
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-12.png" width="672" /></p>
+</div>
+<div id="total-votes-2012" class="section level3 unnumbered">
+<h3>Total Votes 2012</h3>
+<pre><code>Original name: total12
+Variable name: elec_total12
+Display name: Total Votes 2012
+Category: election
+Unit: NA
+Meaning: total number of votes 2012
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2012
+Source: http://www.nytimes.com/elections/2012/results/president.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-13.png" width="672" /></p>
+</div>
+<div id="total-votes-2008" class="section level3 unnumbered">
+<h3>Total Votes 2008</h3>
+<pre><code>Original name: total08
+Variable name: elec_total08
+Display name: Total Votes 2008
+Category: election
+Unit: NA
+Meaning: total number of votes 2008
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2008
+Source: http://www.nytimes.com/elections/2008/results/president/map.html</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-14.png" width="672" /></p>
+</div>
+<div id="republican-vote-fraction-2016" class="section level3 unnumbered">
+<h3>Republican Vote Fraction 2016</h3>
+<pre><code>Original name: rep16_frac
+Variable name: elec_rep16_frac
+Display name: Republican Vote Fraction 2016
+Category: election
+Unit: NA
+Meaning: vote fraction of republican 2016
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-15.png" width="672" /></p>
+</div>
+<div id="republican-vote-fraction-2012" class="section level3 unnumbered">
+<h3>Republican Vote Fraction 2012</h3>
+<pre><code>Original name: rep12_frac
+Variable name: elec_rep12_frac
+Display name: Republican Vote Fraction 2012
+Category: election
+Unit: NA
+Meaning: vote fraction of republican 2012
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-16.png" width="672" /></p>
+</div>
+<div id="republican-vote-fraction-2008" class="section level3 unnumbered">
+<h3>Republican Vote Fraction 2008</h3>
+<pre><code>Original name: rep08_frac
+Variable name: elec_rep08_frac
+Display name: Republican Vote Fraction 2008
+Category: election
+Unit: NA
+Meaning: vote fraction of republican 2008
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-17.png" width="672" /></p>
+</div>
+<div id="democratic-vote-fraction-2016" class="section level3 unnumbered">
+<h3>Democratic Vote Fraction 2016</h3>
+<pre><code>Original name: dem16_frac
+Variable name: elec_dem16_frac
+Display name: Democratic Vote Fraction 2016
+Category: election
+Unit: NA
+Meaning: vote fraction of democratic 2016
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-18.png" width="672" /></p>
+</div>
+<div id="democratic-vote-fraction-2012" class="section level3 unnumbered">
+<h3>Democratic Vote Fraction 2012</h3>
+<pre><code>Original name: dem12_frac
+Variable name: elec_dem12_frac
+Display name: Democratic Vote Fraction 2012
+Category: election
+Unit: NA
+Meaning: vote fraction of democratic 2012
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-19.png" width="672" /></p>
+</div>
+<div id="democratic-vote-fraction-2008" class="section level3 unnumbered">
+<h3>Democratic Vote Fraction 2008</h3>
+<pre><code>Original name: dem08_frac
+Variable name: elec_dem08_frac
+Display name: Democratic Vote Fraction 2008
+Category: election
+Unit: NA
+Meaning: vote fraction of democratic 2008
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-20.png" width="672" /></p>
+</div>
+<div id="other-parties-vote-fraction-2016" class="section level3 unnumbered">
+<h3>Other Parties Vote Fraction 2016</h3>
+<pre><code>Original name: other16_frac
+Variable name: elec_other16_frac
+Display name: Other Parties Vote Fraction 2016
+Category: election
+Unit: NA
+Meaning: vote fraction of other parties than Democratic and Republic 2016
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-21.png" width="672" /></p>
+</div>
+<div id="other-vote-fraction-2012" class="section level3 unnumbered">
+<h3>Other Vote Fraction 2012</h3>
+<pre><code>Original name: other12_frac
+Variable name: elec_other12_frac
+Display name: Other Vote Fraction 2012
+Category: election
+Unit: NA
+Meaning: vote fraction of other 2012
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-22.png" width="672" /></p>
+</div>
+<div id="other-vote-fraction-2008" class="section level3 unnumbered">
+<h3>Other Vote Fraction 2008</h3>
+<pre><code>Original name: other08_frac
+Variable name: elec_other08_frac
+Display name: Other Vote Fraction 2008
+Category: election
+Unit: NA
+Meaning: vote fraction of other 2008
+Lowerbound: 0
+Upperbound: 1
+Remark: 
+Year: 2010
+Source: Kirkegaard</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-23.png" width="672" /></p>
+</div>
+<div id="estimated-no.-of-remaining-votes" class="section level3 unnumbered">
+<h3>Estimated No. of Remaining Votes</h3>
+<pre><code>Original name: est_votes_remaining
+Variable name: elec_est_votes_remaining
+Display name: Estimated No. of Remaining Votes
+Category: election
+Unit: NA
+Meaning: number of votes from unreported precincts in the county
+Lowerbound: 0
+Upperbound: NA
+Remark: can be used to check which county has unreliable result
+Year: 2016
+Source: http://www.nytimes.com/elections/results/president</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-24.png" width="672" /></p>
+</div>
+<div id="voting-age-population" class="section level3 unnumbered">
+<h3>Voting Age Population</h3>
+<pre><code>Original name: voting_age_population
+Variable name: demo_voting_age_population
+Display name: Voting Age Population
+Category: demographics
+Unit: NA
+Meaning: number of people who are eligible to vote
+Lowerbound: 0
+Upperbound: NA
+Remark: can be used to compute voting participation rate
+Year: 2015
+Source: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_DP05&amp;prodType=table</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-25.png" width="672" /></p>
+</div>
+<div id="population" class="section level3 unnumbered">
+<h3>Population</h3>
+<pre><code>Original name: Total.Population
+Variable name: demo_population
+Display name: Population
+Category: demographics
+Unit: NA
+Meaning: total population
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2015
+Source: https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_DP05&amp;prodType=table</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-26.png" width="672" /></p>
+</div>
+<div id="children-under-6-living-in-poverty" class="section level3 unnumbered">
+<h3>Children Under 6 Living in Poverty</h3>
+<pre><code>Original name: Children.Under.6.Living.in.Poverty
+Variable name: poverty_children
+Display name: Children Under 6 Living in Poverty
+Category: finance
+Unit: %
+Meaning: percentage of children under 6 living in poverty
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of children under 6 living in povery}}{\text{number of children under 6}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-27.png" width="672" /></p>
+</div>
+<div id="child-poverty" class="section level3 unnumbered">
+<h3>Child Poverty</h3>
+<pre><code>Original name: Child.Poverty.living.in.families.below.the.poverty.line
+Variable name: poverty_child_living_in_families
+Display name: Child Poverty
+Category: finance
+Unit: %
+Meaning: percentage of children living in families below poverty line
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of children living in families below poverty line}}{\text{number of children}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-28.png" width="672" /></p>
+</div>
+<div id="adults-65-and-older-living-in-poverty" class="section level3 unnumbered">
+<h3>Adults 65 and Older Living in Poverty</h3>
+<pre><code>Original name: Adults.65.and.Older.Living.in.Poverty
+Variable name: poverty_adult
+Display name: Adults 65 and Older Living in Poverty
+Category: finance
+Unit: %
+Meaning: percentage of adults 65 and older living in poverty
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of adults 65 and older living in povery}}{\text{number of adults 65 and older}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-29.png" width="672" /></p>
+</div>
+<div id="poverty-rate" class="section level3 unnumbered">
+<h3>Poverty Rate</h3>
+<pre><code>Original name: Poverty.Rate.below.federal.poverty.threshold
+Variable name: poverty_below_federal_threshold
+Display name: Poverty Rate
+Category: finance
+Unit: %
+Meaning: poverty rate below federal poverty threshold
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people with income below federal poverty threshold}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-30.png" width="672" /></p>
+</div>
+<div id="less-than-high-school" class="section level3 unnumbered">
+<h3>Less Than High School</h3>
+<pre><code>Original name: Less.Than.High.School
+Variable name: education_less_than_high_school
+Display name: Less Than High School
+Category: education
+Unit: %
+Meaning: percentage of population with education level less than highschool
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2010
+Source: http://www.measureofamerica.org/download-agreement/</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of people with education level less than highschool}}{\text{total population}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-31.png" width="672" /></p>
+</div>
+<div id="life-expectancy" class="section level3 unnumbered">
+<h3>Life Expectancy</h3>
+<pre><code>Original name: life_expectancy
+Variable name: healthcare_life_expectancy
+Display name: Life Expectancy
+Category: healthcare
+Unit: year
+Meaning: the average number of years a person born in a given country is expected to live if mortality rates at each age were to remain steady in the future
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2010
+Source: http://ghdx.healthdata.org/record/united-states-life-expectancy-estimates-county-1985-2010</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-32.png" width="672" /></p>
+</div>
+<div id="avg.-no.-of-physically-unhealthy-day" class="section level3 unnumbered">
+<h3>Avg. No. of Physically Unhealthy Day</h3>
+<pre><code>Original name: Poor.physical.health.days
+Variable name: health_poor_physiscal_health_days
+Display name: Avg. No. of Physically Unhealthy Day
+Category: healthcare
+Unit: day
+Meaning: average number of reported physically unhealthy days per month
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-33.png" width="672" /></p>
+</div>
+<div id="avg.-no.-of-mentally-unhealthy-day" class="section level3 unnumbered">
+<h3>Avg. No. of Mentally Unhealthy Day</h3>
+<pre><code>Original name: Poor.mental.health.days
+Variable name: health_poor_mental_health_days
+Display name: Avg. No. of Mentally Unhealthy Day
+Category: healthcare
+Unit: day
+Meaning: average number of reported mentally unhealthy days per month
+Lowerbound: 0
+Upperbound: NA
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-12-34.png" width="672" /></p>
+</div>
+<div id="teen-birth-rate" class="section level3 unnumbered">
+<h3>Teen Birth Rate</h3>
+<pre><code>Original name: Teen.births
+Variable name: health_teen_birth
+Display name: Teen Birth Rate
+Category: healthcare
+Unit: NA
+Meaning: number of females ages 15-19 pregnant per 1,000
+Lowerbound: 0
+Upperbound: 1000
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of female age 15-19 pregnant}}{\text{number of female age 15-19}}\times{1000} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-35.png" width="672" /></p>
+</div>
+<div id="adult-smoking-rate" class="section level3 unnumbered">
+<h3>Adult Smoking Rate</h3>
+<pre><code>Original name: Adult.smoking
+Variable name: health_adult_smoking
+Display name: Adult Smoking Rate
+Category: healthcare
+Unit: %
+Meaning: percentage of adults that reported currently smoking
+Lowerbound: 0
+Upperbound: 100
+Remark: 
+Year: 2016
+Source: http://www.countyhealthrankings.org/rankings/data</code></pre>
+<blockquote>
+<p><span class="math display">\[= \frac{\text{number of adults reported currently smoking}}{\text{number of adults}}\times{100} \]</span></p>
+</blockquote>
+<p><img src="report_files/figure-html/unnamed-chunk-12-36.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-emil2016">
+<p>Kirkegaard, E. O. W. 2016. “Inequality Across Us Counties: An S Factor Analysis.” <em>Open Quantitative Sociology and Political Science</em>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="disclaimer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dqp.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "Serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/blacksteed232/elexion/edit/master/code/report/01-data-quality-report.Rmd",
+"text": "Edit"
+},
+"download": {},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

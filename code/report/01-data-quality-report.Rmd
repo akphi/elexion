@@ -1,0 +1,399 @@
+\cleardoublepage 
+
+# Data Quality Report (DQR) {#dqr}
+
+```{r include = FALSE}
+  data_pre_processed <- read.csv(mp(DATA_PRE_PROCESSED_DIR, "data.csv"), stringsAsFactors = FALSE)
+  meta_pre_processed <- read.csv(mp(DATA_PRE_PROCESSED_DIR, "meta.csv"), stringsAsFactors = FALSE)
+  meta_finalized <- read.csv(mp(DATA_SELECTED_DIR, "meta.csv"), stringsAsFactors = FALSE)
+```
+
+
+
+
+## Overview
+As mentioned, the data set we are using in this study consists of demographic, socioeconomic and geographic data by county. This data set is taken mainly from a source compiled by Emil O. W. Kirkegaard for usage in his socioeconomic research [@emil2016]. For general purpose, Emil has kindly tidied up his original data set and included the scraped election data of the year 2016, 2012, and 2008 from the New York Times as well as weather data by county, which is really tedious to collect, from the National Oceanic and Atmospheric Administration. Due to its extensive coverage of many demographic indicators, we decide to take this as our starting point from which we will add on more relevant data in order to obtain our Analytic Base Table (ABT).
+
+The number of counties we have complete election data (N = 3148) will limit the size of instances (counties) we have in the data set. The original data set contains a total of 161 features, many of which are derived features that serve the author's research paper and many of them are irrelevant to our study goal. As such, prior to assessing and analyzing the quality of our data, we will need to pre-process the original data set, meaning removing irrelevant features and adding as well as deriving necessary features. In the usual CRISP-DM cycle, this process would fall into Business Understanding phase where we decide the shape of the data set but as explained earlier in the introduction, we will not designate a separate document for the Business Understanding phase. As such, we will integrate our data sources and pre-process procedures into our DQR.
+
+
+
+
+## Data Source {#datasources}
+
+``` {r include = FALSE}
+main_source <- read.csv(mp(DATA_MISC_DIR, "main_source.csv"), stringsAsFactors = TRUE)
+source <- read.csv(mp(DATA_MISC_DIR, "source.csv"), stringsAsFactors = TRUE)
+```
+
+> See Appendix \@ref(appendix-dir) for more information on the directory tree.
+
+The raw data files are originally placed in __data/raw/__ from which we just take the relevant data and convert them into CSV format. However, as we found out, the actual data source for the election data used by the New York Times is from Associated Press (AP), whose term of use prohibits distribution of this data set. As such, we must stress that we do not intend to redistribute nor to commercialize the data set but merely use it for research purpose only. However, since this is a data-mining project, we have to show steps we took to transform the data at each stage, it is then unavoidable that we have the election data _lurking_ in our project. As such, we hope we have stated our point clearly that we only use this data set for research purpose. To view the raw data sets, please refer to the links included in the source summaries. For more details, please refer the disclaimer section. Another point to note is that all data sets used have data by counties except for electoral vote data. Following is the description of different data sets used in this study:
+
+``` {r table-source, include = TRUE, echo = FALSE, results = "asis"}
+source[, "Source"] <- md_linkify(source[, "URL"], source[, "Source"])
+source <- getrod(source, "URL")
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    source,
+    caption = "Data Source",
+    align = c("c", "l", "c"),
+    digits = 2,
+    booktabs = TRUE,
+    format = "html"
+    ) %>% html_table_width(c(100,460,200))
+} else {
+  cat("\\greybox{[Dataset] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+As mentioned, the main data set itself is compiled from various sources. However, many of the data are not up-to-date and since our focus is to study the most recent election result, we need to update our data. As such, we trace back the sources from which the compiler of the main data set extracted data and find the most recent versions of these data sets. As for the sources used in the main data set, they are listed below.
+
+
+``` {r table-main-source, include = TRUE, echo = FALSE, results = "asis"}
+main_source[,"URL"] <- md_linkify(main_source[,"URL"])
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    main_source,
+    caption = "Main Dataset Source",
+    col.names = c("Dataset", "Source"),
+    align = c("l", "c"),
+    digits = 2,
+    booktabs = TRUE,
+    format = "html"
+  )
+} else {
+  cat("\\greybox{[Main Dataset Sources] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+Also, there are some point in the approach of the original compiler that we do not quite agree with, for instance with the 2009-2010 Human Development data set, the author Emil O. W. Kirkegaard took the average values of 2009 and 2010, which to us is not a good move because, for county such as District of Columbia (FIPS 11001), the 2010 data are not available, resulting in wrong figures: the median earning drops to \$20,254 while it should actually be \$40,510). This potentially cause outliers in our data and thus, we will, for now, just update this data to 2010 result and will proceed to our data preparation step to deal with missing values. As for now, we will proceed to tidying up the main data set.
+
+
+
+
+## Data Pre-Process {#pre-process}
+
+``` {r include = FALSE}
+procedure <- read.csv(mp(DATA_MISC_DIR, "procedure.csv"), stringsAsFactors = FALSE)
+```
+
+Most of the data are listed by county, so we will merge these data sets into the main data set using county FIPS code. Despite having an impressive set of 161 features, the main
+data set has many unnecessary features as well as lacks many important ones. As such, we will cover basic processes, including trimming, editing, adding and updating features to the main data set. Afterwards, we re-organize the order of the columns to improve readability and to make sure that features of the same domain/category are close to one another. We give each procedure a different code, for example, the first trimming procedure is called TR001. The purpose is to make it easier for code reference as a huge underlying bulk of this study lies in the code. 
+
+> See Appendix \@ref(appendix-code) to view the procedure used and the corresponding code.
+
+### Trimming
+
+Some of the features in the main data set are calculated directly by the author to serve his research paper, such as S factor, CFS, ACFS, etc. Also, in the _precious_ election data which is scrapped off from the New York Times, there are many features that are irrelevant to our goal, such as the vote counts and fractions for minor parties (independent, other, constitution, etc.); in fact, we have checked through all counties to make sure that no 3^rd^ party won any county. Therefore, these features will be trimmed off. The detail trimming steps and reason for each are documented below.
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "pre-process" & procedure$category == "trimming", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Editing
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "pre-process" & procedure$category == "editing", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Adding
+
+We add several features that we find typically-included in study involving demographic such as: life expectancy, sex ratio, etc. 
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "pre-process" & procedure$category == "adding", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+### Updating
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+preprocess <- procedure[procedure$step == "pre-process" & procedure$category == "updating", ]
+for(i in 1:nrow(preprocess)) {
+  cat("> ",  preprocess$code[i], "\n\n")
+  cat("```\n[",  preprocess$entity[i], "] ", preprocess$description[i], "\n", sep = "")
+  cat("[ACTION] ", preprocess$action[i], "\n", sep = "")
+  cat("[REASON] ", preprocess$reason[i], "\n```\n", sep = "")
+  cat("\n")
+}
+```
+
+Now that we have most of the redundant and irrelevant features trimmed off from the data as well as we have needed features added, we export our working data set to [data/processed/data.csv](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/data/processed/data.csv")`) and its metadata to [data/processed/meta.csv](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/data/processed/meta.csv")`). For the reason of potential matching of data in further steps (i.e. handling missing data and outliers in data preparation phase), we will leave the county name as well as their county FIPS code. We also leave the estimating number of vote data to identify what we consider county with unreliable results, in other words, county with the number of reported vote that is not enough to declare a winner. This dataset still contains a lot of features so we feel that the best way to present them is not necessarily list them out in a table, but try to visualize them. As such, we present the following choropleth map.
+
+```{r plot-choropleth-preprocessed, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_PRE_PROCESSED), height = "800px")
+```
+
+Certainly, this is not the final data set (please note that we will keep a copy of the data at each stage of the preparation process) but we can proceed with some data exploration.
+
+> See Appendix \@ref(appendix-data) to view the main datasets at different stages. 
+
+
+
+
+
+## Data Exploration {#dqr-exploration}
+
+In this section, we will explore the pre-processed data set. We will present summary of the data as well as explore the correlation between each feature. Talking about quality of the data set, we cannot go without mentioning the distribution of each feature; however, this will be covered in later sections when we go into details of each feature. As for now, we start with some general information of the data set.
+
+``` {r table-general-info, include = TRUE, echo = FALSE, results = "asis"}
+general_info <- read.csv(mp(RES_ANALYZED_DIR, "report.csv"), stringsAsFactors = FALSE)
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    general_info,
+    caption = "General Information",
+    col.names = NULL,
+    align = c("l", "c"),
+    digits = 0,
+    booktabs = TRUE,
+    format = "html"
+    ) %>% html_table_width(c(200,200))
+} else {
+  cat("\\greybox{[General Information] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+In term of the structure of the data, since we work with R, we will present structure of the data in R style.
+
+> This is a long table (79 columns), to view the rest, please use the pagination controller at the bottom-right corner
+
+``` {r table-structure, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+structure <- read.csv(mp(RES_ANALYZED_DIR, "structure.csv"), stringsAsFactors = FALSE)
+structure$name <- dispv(structure$name, meta_pre_processed)
+colnames(structure) <- c("Name", "Type", "Preview")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    structure,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "tip",
+      # paging = FALSE,
+      pageLength = 5,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Structure] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+The data set consists of both continuous and nominal features and each type has different aspects to explore. As such, we present 2 separate tables for summary of each type of features. For continuous features, general statistical values are presented, including mean, median, standard deviation, min and max, as well as interquartile range, upper quartile (75%) and lower quartile (25%), percentage and number of missing values (NA). Shannon entropy is included in here as we thought it might be useful to detect extreme data, but perhaps it is more useful for nominal features.
+
+> These tables are wide, scroll right to see the rest of the summary
+
+``` {r table-summary-continuous, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+summary_continuous <- read.csv(mp(RES_ANALYZED_DIR, "summary_continuous.csv"), stringsAsFactors = FALSE)
+summary_continuous$name <- dispv(summary_continuous$name, meta_pre_processed)
+colnames(summary_continuous) <- c("Name", "Type", "Mean", "Standard Deviation", "Median", "Lower Quartile", 
+                                  "Upper Quartile", "Inner Quartile Range", "Min", "Max", "N", "Number of Missing Values",
+                                  "Percentage of Missing Values", "Entropy")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    summary_continuous,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      # paging = FALSE,
+      pageLength = 5,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '100px', targets = c(-2,-3)))
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Continuous Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+For categorical/nominal features, we also include statistics on the mode, highest frequency and a peek at different levels of the data. This table also summarizes binary features that we derived earlier in the pre-processing phase, at this point, we are already aware of the fact that the number of counties that Republican won in presidential elections are usually pretty high, although it seems like Democrat got hold of many populous and important counties--hence the overall in the 2008 and 2012 election. Nevertheless, as we proceed further, especially during modelling phase, we need to apply some sampling technique to balance out this distribution of class value for the winner.
+
+``` {r table-summary-categorical, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+summary_categorical <- read.csv(mp(RES_ANALYZED_DIR, "summary_categorical.csv"), stringsAsFactors = FALSE)
+summary_categorical$name <- dispv(summary_categorical$name, meta_pre_processed)
+colnames(summary_categorical) <- c("Name", "Type", "Level", "Value", "Frequency", "N", "Mode", "Highest Frequency", "Number of Missing Values",
+                                  "Percentage of Missing Values", "Entropy")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    summary_categorical,
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "t",
+      # paging = FALSE,
+      pageLength = 6,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE,
+      autoWidth = TRUE,
+      columnDefs = list(list(width = '200px', targets = c(5,8,9,10)),
+                        list(width = '100px', targets = c(3)))
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Nominal Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+Traditionally, we need to include a scatter plot matrix for all the feature and study their correlation, but we might spare that this time as we have quite a formidable number of numeric features (73), not including the FIPS codes, which will result in a giant table. To satisfy our curiosity, we actually did try to construct such a plot and apparently that was not so aesthetically pleasing. The lower triangle shows the pairwise scatter plots between every features, the upper triangle shows the corresponding Pearson correlation value and the p-value (the larger the number, the bigger the font used). Last but not least, we designated the diagonal for histogram plot of each feature. As mentioned the overall visual presentation is overwhelming but not so effective. We are especially interested in the distribution of the data and thus, we will do justice to histogram in the later section where we talk about each feature in detail. 
+
+> Click [here](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/all_features_scatter.png")`) to download the high resolution version.
+
+```{r plot-scatter-matrix, echo = FALSE, results="asis", fig.cap='Scatter Plot Matrix'}
+  generate_image("Scatter Plot Matrix", concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/all_features_scatter.low.png"))
+```
+
+Our second attempt at correlation plot (using the _corrplot_ package in R) is more visually effective. Arguably, this is even better than looking at a table of correlation values between all pairs of features because when we pre-process the data set, we reordered them into categories so now it is really easy for us to spot highly correlated groups of features, which potentially provide us with some insight on how to reduce the dimension of the data set. The correlation table will be huge though (~2500 rows) so we will only take a peek at the top 100 correlation. 
+
+> Fear not the minuscule! Hover on the the plot to zoom
+
+```{r plot-correlation-matrix, echo = FALSE, fig.cap='Correlation Plot Matrix', screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE)}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$GIANT_CORRELATION_PLOT), height = "500px")
+```
+
+``` {r table-correlation, echo = FALSE, screenshot.force = ifelse(RENDER_MODE == "pdf", TRUE, FALSE), results = "asis"}
+correlation <- read.csv(mp(RES_ANALYZED_DIR, "correlation.csv"), stringsAsFactors = FALSE)
+correlation$p_value <- NULL
+colnames(correlation) <- c("Feature 1", "Feature 2", "Correlation Value")
+if (RENDER_MODE!="pdf") {
+  datatable(
+    head(correlation, 100),
+    # caption = "Dataset Summary for Continuous Features",
+    options = list(
+      dom = "tip",
+      # paging = FALSE,
+      pageLength = 5,
+      scrollX = TRUE,
+      # scrollY = TRUE,
+      scrollCollapse = TRUE
+    )
+  )
+} else {
+  cat("\\greybox{[Dataset Summary for Nominal Features] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+From the correlation matrix plot, we can identify a few groups that are highly correlated. First, at the top-left, we can see that election results between the year and even between parties are highly correlated. This might seems bizarre at first, but that actually makes a lot of sense. First, 2008 and 2012 results are very similar as Barrack Obama (Democratic party) won both round. Of course, the vote fraction features are not highly correlated to the vote count, but they are highly correlated to one another. The situation seems even more absurd when we have vote count for Donald Trump and Hillary closely related! All of this happens because of the fact that the votes distribution are always very close to the 50:50 line at each county, even if one party leads, it only leads by 60%-40% typically. As such, it comes at no surprise to us that features in this group are highly correlated. The implication of this is huge because this group contains the target that we are to select for our supervised modelling process. We will reserve that for section @\ref(dqp).
+
+Other highly-correlated groups are the poverty/finance group and the healthcare group. Again, it is not an astonishing result. Although these two groups are highly correlated, there are (sporadically) some of their features that are not pairwise strongly correlated. This means that we cannot just easily get rid of them. As we will see in data preparation phase, this group of feature will also be reduced but in a much different way as compared to the group (election result) mentioned previously.
+
+
+
+
+## Feature Detail
+
+In this final major section of this report, we will present the detail of each feature. These details include the meta data, formula, etc. and most importantly a histogram to show the distribution of value of each feature. As we can see, most will be right-skewed. We, however, cannot determine the exact underlying function for these skewed distribution and thus cannot do anything about that. For learners that are heavily affected by this, we can discretize them to secure performance. Following this section will be section \@ref(del-feature), Deleted Feature, which gives details of features that we decide to remove from the final data set (Analytic Base Table) after data preparation and feature selection phase.
+
+```{r echo = FALSE, results = "asis", tidy = FALSE, cache = TRUE}
+kept_feature_index <- which(meta_pre_processed$name %in% meta_finalized$name)
+kept_features <- meta_pre_processed[kept_feature_index, ]
+for(i in 1:nrow(kept_features)) {
+  cat("\n")
+  cat("### ", kept_features$display_name[i], " {-}\n")
+  cat("\n")
+  cat("```\n")
+  cat("Original name: ", kept_features$name[i], "\n", sep = "")
+  cat("Variable name: ", kept_features$var_name[i], "\n", sep = "")
+  cat("Display name: ", kept_features$display_name[i], "\n", sep = "")
+  cat("Category: ", kept_features$category[i], "\n", sep = "")
+  cat("Unit: ", kept_features$unit[i], "\n", sep = "")
+  cat("Meaning: ", kept_features$meaning[i], "\n", sep = "")
+  cat("Lowerbound: ", kept_features$lbound[i], "\n", sep = "")
+  cat("Upperbound: ", kept_features$ubound[i], "\n", sep = "")
+  cat("Remark: ", kept_features$remark[i], "\n", sep = "")
+  # cat("Status: ", kept_features$status[i], "\n", sep = "")
+  cat("Year: ", kept_features$year[i], "\n", sep = "")
+  cat("Source: ", kept_features$source[i], "\n", sep = "")
+  cat("```\n")
+  cat("\n")
+  if (kept_features$formula_latex[i] != "") {
+    # cat("> Formula")
+    # cat("\n")
+    cat("> $$=", gsub("@", "\\\\", kept_features$formula_latex[i]), "$$")
+  }
+  cat("\n\n")
+  if (is.numeric(data_pre_processed[, kept_features$name[i]]) || is.logical(data_pre_processed[, kept_features$name[i]])) {
+    hist(
+      as.numeric(data_pre_processed[, kept_features$name[i]]),
+      prob = TRUE,
+      breaks = 100,
+      # main = paste("Histogram of ", kept_features$display_name[i], sep = ""),
+      main = NULL,
+      ylab = NULL,
+      xlab = kept_features$display_name[i]
+    )
+    lines(density(as.numeric(data_pre_processed[, kept_features$name[i]]), na.rm=TRUE))
+    rug(jitter(as.numeric(data_pre_processed[, kept_features$name[i]])), quiet = TRUE)
+  }
+  cat("\n")
+}
+```
+
+## Deleted Feature {#del-feature}
+
+```{r echo = FALSE, results = "asis", tidy = FALSE, cache = TRUE}
+deleted_features <- meta_pre_processed[-kept_feature_index, ]
+for(i in 1:nrow(deleted_features)) {
+  cat("\n")
+  cat("### ", deleted_features$display_name[i], " {-}\n")
+  cat("\n")
+  cat("```\n")
+  cat("Original name: ", deleted_features$name[i], "\n", sep = "")
+  cat("Variable name: ", deleted_features$var_name[i], "\n", sep = "")
+  cat("Display name: ", deleted_features$display_name[i], "\n", sep = "")
+  cat("Category: ", deleted_features$category[i], "\n", sep = "")
+  cat("Unit: ", deleted_features$unit[i], "\n", sep = "")
+  cat("Meaning: ", deleted_features$meaning[i], "\n", sep = "")
+  cat("Lowerbound: ", deleted_features$lbound[i], "\n", sep = "")
+  cat("Upperbound: ", deleted_features$ubound[i], "\n", sep = "")
+  cat("Remark: ", deleted_features$remark[i], "\n", sep = "")
+  # cat("Status: ", deleted_features$status[i], "\n", sep = "")
+  cat("Year: ", deleted_features$year[i], "\n", sep = "")
+  cat("Source: ", deleted_features$source[i], "\n", sep = "")
+  cat("```\n")
+  cat("\n")
+  if (deleted_features$formula_latex[i] != "") {
+    # cat("> Formula")
+    # cat("\n")
+    cat("> $$=", gsub("@", "\\\\", deleted_features$formula_latex[i]), "$$")
+  }
+  cat("\n\n")
+  if (is.numeric(data_pre_processed[, deleted_features$name[i]]) || is.logical(data_pre_processed[, deleted_features$name[i]])) {
+    hist(
+      as.numeric(data_pre_processed[, deleted_features$name[i]]),
+      prob = TRUE,
+      breaks = 100,
+      # main = paste("Histogram of ", deleted_features$display_name[i], sep = ""),
+      main = NULL,
+      ylab = NULL,
+      xlab = deleted_features$display_name[i]
+    )
+    lines(density(as.numeric(data_pre_processed[, deleted_features$name[i]]), na.rm=TRUE))
+    rug(jitter(as.numeric(data_pre_processed[, deleted_features$name[i]])), quiet = TRUE)
+  }
+  cat("\n")
+}
+```

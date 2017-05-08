@@ -1,0 +1,56 @@
+\cleardoublepage 
+
+# Directories {#appendix-dir}
+The base folder can be accessed at locally or via web browser using [this](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE)`) link. The directory tree is presented below.
+
+```
+.
+|
+|-- keynote
+|-- presentation // visualization support for the keynote
+|-- document // the report and article
+|-- code
+|   |
+|   |-- apps
+|   |-- report
+|   |-- slide // for the presentation
+|   |-- utils
+|
+|-- data
+|   |
+|   |-- misc
+|   |-- original
+|   |-- pre_processed
+|   |-- prepared
+|   |-- selected
+|
+|-- result
+|   |
+|   |-- data_analyzed
+|   |   |
+|   |   |-- histograms
+|   |   |-- plots
+|   |
+|   |-- data_feature_ranked
+|   |   |
+|   |   |-- formula
+|   |
+|   |-- data_pre_processed
+|   |-- data_prepared
+|   |-- data_selected
+|   |   |
+|   |   |-- plots
+|   |
+|   |-- model_analyzed
+|   |   |
+|   |   |-- plots
+|   |
+|   |-- model_probed
+|   |   |
+|   |   |-- plots
+|   |
+|   |-- model_tuned
+|
+|-- backup // store previous results
+
+```

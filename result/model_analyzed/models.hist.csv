@@ -1,0 +1,7 @@
+"accuracy","kappa","recall.FALSE","precision.TRUE","classifier","method","cv.iteration","cv.fold","sampling","lmm.threshold","svm.cost","svm.kernel","jrip.minWeight","jrip.numFolds","part.minLeaf","part.REP","part.numFolds","preprocess","mechanism","kind"
+0.954026274006048,0.841814790682456,0.971343537414966,0.994466544187607,"svm","cv",1,10,"under",NA,0.4,"linear",NA,NA,NA,NA,NA,"normalize","blackbox","svm"
+0.947942727241296,0.821750333824271,0.94655612244898,0.989749142069424,"part","cv",1,10,"under",NA,NA,NA,NA,NA,14,TRUE,3,"normalize","whitebox","part"
+0.964636209138854,0.862789761042506,0.859736394557823,0.974357182066196,"lmm","cv",1,10,"none",0.45,NA,NA,NA,NA,NA,NA,NA,"normalize","blackbox","lmm"
+0.962691436679353,0.860218154613423,0.896981292517007,0.980850678483923,"jrip","cv",1,10,"none",NA,NA,NA,10,3,NA,NA,NA,"normalize","whitebox","jrip"
+0.962698440233742,0.865216050184876,0.942335049451294,0.989125885265447,"svm","cv",1,4,"over",NA,0.4,"linear",NA,NA,NA,NA,NA,"normalize","blackbox","svm"
+0.956270868337621,0.841510555182559,0.917507790272321,0.984434567790874,"jrip","cv",1,4,"over",NA,NA,NA,8,3,NA,NA,NA,"normalize","whitebox","jrip"

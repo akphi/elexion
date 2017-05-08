@@ -1,0 +1,91 @@
+\cleardoublepage 
+
+# Code {#appendix-code}
+
+## Usage {-}
+To start the local servers serving the keynote, report, and Shiny apps, run the bash script in the code folder. To adjust the ports used for each app, see the [configs.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/configs.R")`) file.
+
+```
+  ./start.sh
+```
+
+To make a full run of the project, uses the automated R script. Refer to the configs file to see available settings. _Beware that the script might take a long time to run (7 ~ 8 hours on my machine)._ First start with opening R shell (you can also run from bash using R CMD BATCH).
+
+```
+  R
+```
+
+Then source the automated script
+
+```
+  source("auto.R")
+```
+
+Potentially, while running either of these task, you will need to install R libraries and packages. To do this, you can preemptively run the utils.R and the app.R scripts. It is likely that you will be prompted for packages installations. The utils.R will install packages used by main body of the scripts
+
+```
+  source("utils.R")
+```
+
+app.R will install packages used for the Shiny apps. 
+
+```
+  source("app.R")
+```
+
+## Notice {-}
+
+To make sure that the result that we obtained are reproducible, we set seed for each script files where randomization is needed. This can be turned off using the config file.
+
+Notice that we use rgl and ShinyRGL packages for some of the visualizations. This requires XQuartz for Mac OSX and X11 for Linux. We have experienced inconsistent results on different Linux distros. As pointed out in [this](https://github.com/trestletech/shinyRGL/issues/5) thread, you might need to have OpenGL installed properly and XVFB running since we are rendering the plots in the background using headless server mode.
+
+We recommend using Chrome to view the report for smoother animations and visual effects. Also, since Keynote works best on Mac OSX platform, viewing the keynote on Mac is preferred; but because the keynote has been converted to HTML, it should work well at least 90% of the time on other platforms. The default addresses for these documents are
+
+```
+  Keynote: http://localhost:2301
+  Report: http://localhost:2302
+  Keynote Visualization Support: http://localhost:2303
+```
+
+
+
+
+## Structure {-}
+All of the code used for this project lies in the code [folder](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/")`) (see Appendix \@ref(appendix-dir)). The names of the most of the scripts are self-explanatory since they are named after the phase for which they are responsible, for instance, data_feature_rank.R is for scoring features based on various feature selection techniques. Other scripts, such as utils.R, app.R, etc., are used for general purposes.
+
+[utils.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/utils.R")`) is the heart of the project, it is the loader for the various 3rd libraries used by the scripts as well as several useful libraries we wrote ourselves. It masks the content of utils folder. [configs.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/configs.R")`) acts like a preference section for the project. [auto.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/auto.R")`) is an automated script to run the scripts in sequence to produce all the results and documents (except for the keynote). misc.R stores miscellaneous functions. [app.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/app.R")`), [start.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/start.R")`), and [end.R](`r concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/end.R")`) are used to set up both local Shiny servers hosting various apps used in the documents and local servers that serve the keynote and the report (to specify the port used for these servers, refer to configs.R).
+
+The keynote was made using Apple's Keynote. The report is made using the [bookdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie, and the visualization support for the keynote was made using Rstudio's Rmarkdown and [RevealJS](https://github.com/rstudio/revealjs).
+
+
+
+
+
+## Procedures {-} 
+As mentioned throughout the section \@ref(dqr), \@ref(dqp), and \@ref(md). We mark certain parts of the code with labels to make code tracing and understanding easier. Following, we present a table of where the code chunks are located for each label.
+
+```{r echo = FALSE, results = "asis", tidy = FALSE}
+procedure <- read.csv(mp(DATA_MISC_DIR, "procedure.csv"), stringsAsFactors = FALSE)
+procedure$source <- paste("[View](", concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/code/"), procedure$file,")", sep = "")
+procedure <- procedure[, c("code", "file", "step", "source")]
+colnames(procedure) <- c("Label", "File", "Phase", "Source Code")
+if (RENDER_MODE!="pdf") {
+  knitr::kable(
+    procedure,
+    caption = NULL,
+    align = c("c", "l", "c", "c"),
+    digits = 2,
+    booktabs = TRUE,
+    format = "html"
+    )
+} else {
+  cat("\\greybox{[Procedures] LaTeX table display is messy, please view the table directly in result output folder at ./result/}")
+}
+```
+
+
+
+
+
+## License {-}
+Based on our limited understanding of software licensing, we believe that this program should be licensed under the GNU General Public License 3.0.

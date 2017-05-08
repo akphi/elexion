@@ -1,0 +1,126 @@
+---
+title: Visualization Support for Keynote
+author: An Phi
+output: 
+  revealjs::revealjs_presentation:
+    incremental: true
+    includes:
+      in_header: header.html
+    theme: solarized
+    transition: fade
+    background_transition: fade
+    highlight: zenburn
+    self_contained: false
+    reveal_options:
+      slideNumber: false
+      center: true
+      controls: true
+    reveal_plugins: ["zoom"]
+---
+```{r echo = FALSE, include = FALSE}
+	source("utils.R")
+```
+
+## Choropleth
+
+```{css}
+  html { 
+    background-color: inherit; 
+  } 
+  iframe {
+    border: 5px solid #2d2d2d !important;   
+  }
+  body {
+    background: #F8DA58 !important;
+    background-color: #F8DA58 !important;
+  }
+  .reveal section img {
+    border: 5px solid #2d2d2d !important;
+  }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    color: #2d2d2d !important;
+  }
+  .reveal .controls .navigate-left,
+  .reveal .controls .navigate-left.enabled {
+    border-right-color: #ab8d07;
+  }
+  .reveal .controls .navigate-left.enabled:hover {
+    border-right-color: #000;
+  }
+  .reveal .controls .navigate-right,
+  .reveal .controls .navigate-right.enabled {
+    border-left-color: #ab8d07;
+  }
+  .reveal .controls .navigate-right.enabled:hover {
+    border-left-color: #000;
+  }
+  .reveal .controls .navigate-up,
+  .reveal .controls .navigate-up.enabled {
+    border-bottom-color: #ab8d07;
+  }
+  .reveal .controls .navigate-up.enabled:hover {
+    border-bottom-color: #000;
+  }
+  .reveal .controls .navigate-down,
+  .reveal .controls .navigate-down.enabled {
+    border-top-color: #ab8d07;
+  }
+  .reveal .controls .navigate-down.enabled:hover {
+    border-top-color: #000;
+  }
+  :focus {
+    outline: none;
+  }
+
+```
+
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$CHOROPETH_WITH_PRESET), height = "520px")
+```
+
+# Plot Matrix
+
+## Correlation Plot Matrix
+```{r echo = FALSE, results="asis", out.width = "600px"}
+  knitr::include_graphics(concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/election_features_correlation.png"))
+```
+
+## Scatter Plot Matrix
+
+```{r echo = FALSE, results="asis"}
+  knitr::include_graphics(concat(HOSTS$LOCAL, ":", PORTS$RESOURCE, "/result/data_analyzed/plots/all_features_scatter.low.png"))
+```
+
+# Feature Selection
+
+## Feature Ranking
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_PCA), height = "520px")
+```
+
+## Principal Component Analysis
+
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$PCA_PLOT), height = "490px")
+```
+
+# Categories' Association
+
+## by Support
+
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_SUPPORT), height = "400px")
+```
+
+## by Confidence
+
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_CONFIDENCE), height = "400px")
+```
+
+## by Lift
+
+```{r echo = FALSE}
+knitr::include_app(concat(HOSTS$LOCAL, ":", PORTS$VISNETWORK_BY_LIFT), height = "400px")
+```
+

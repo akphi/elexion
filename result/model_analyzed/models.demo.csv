@@ -1,0 +1,7 @@
+"accuracy","kappa","recall.FALSE","precision.TRUE","classifier","method","cv.iteration","cv.fold","sampling","lmm.threshold","svm.cost","svm.kernel","part.pruneConf","part.minLeaf","part.REP","part.numFolds","preprocess","mechanism","kind"
+0.942116661214525,0.773043561597866,0.779166666666667,0.959851910334714,"lmm","cv",1,10,"under",0.35,NA,NA,NA,NA,NA,NA,"normalize","blackbox","lmm"
+0.880075199668084,0.628449866625569,0.884481292517007,0.976447794709421,"part","cv",1,10,"under",NA,NA,NA,0.25,14,FALSE,NA,"normalize","whitebox","part"
+0.94532908332203,0.806811029270229,0.911522108843537,0.983132846829293,"svm","cv",1,10,"none",NA,1.1,"radial",NA,NA,NA,NA,"normalize","blackbox","svm"
+0.933115733020567,0.742575582633476,0.771258503401361,0.958023698296566,"part","cv",1,10,"none",NA,NA,NA,0.25,8,FALSE,NA,"normalize","whitebox","part"
+0.945333875925136,0.80437545784318,0.894797452919659,0.980121292017616,"svm","cv",1,4,"over",NA,0.8,"radial",NA,NA,NA,NA,"normalize","blackbox","svm"
+0.919932142939855,0.713168243233499,0.81232217856659,0.964487767221446,"part","cv",1,4,"over",NA,NA,NA,NA,1,TRUE,3,"normalize","whitebox","part"

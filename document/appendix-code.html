@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How the 2016 US Election Happened</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="How the 2016 US Election Happened" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  <meta name="github-repo" content="blacksteed232/elexion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the 2016 US Election Happened" />
+  
+  <meta name="twitter:description" content="A study using data mining to see the relationship between demographic factors and the 2016 election result by county in the USA" />
+  
+
+<meta name="author" content="An Phi">
+
+
+<meta name="date" content="2017-05-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="appendix-dir.html">
+<link rel="next" href="references.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.12/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.12/js/jquery.dataTables.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Home Page</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="disclaimer.html"><a href="disclaimer.html"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="1" data-path="dqr.html"><a href="dqr.html"><i class="fa fa-check"></i><b>1</b> Data Quality Report (DQR)</a><ul>
+<li class="chapter" data-level="1.1" data-path="dqr.html"><a href="dqr.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="dqr.html"><a href="dqr.html#datasources"><i class="fa fa-check"></i><b>1.2</b> Data Source</a></li>
+<li class="chapter" data-level="1.3" data-path="dqr.html"><a href="dqr.html#pre-process"><i class="fa fa-check"></i><b>1.3</b> Data Pre-Process</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dqr.html"><a href="dqr.html#trimming"><i class="fa fa-check"></i><b>1.3.1</b> Trimming</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dqr.html"><a href="dqr.html#editing"><i class="fa fa-check"></i><b>1.3.2</b> Editing</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dqr.html"><a href="dqr.html#adding"><i class="fa fa-check"></i><b>1.3.3</b> Adding</a></li>
+<li class="chapter" data-level="1.3.4" data-path="dqr.html"><a href="dqr.html#updating"><i class="fa fa-check"></i><b>1.3.4</b> Updating</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="dqr.html"><a href="dqr.html#dqr-exploration"><i class="fa fa-check"></i><b>1.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="1.5" data-path="dqr.html"><a href="dqr.html#feature-detail"><i class="fa fa-check"></i><b>1.5</b> Feature Detail</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-state-code"><i class="fa fa-check"></i>FIPS State Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2016"><i class="fa fa-check"></i>Republican Win 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2012"><i class="fa fa-check"></i>Republican Win 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-participation-rate"><i class="fa fa-check"></i>Voting Participation Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-power"><i class="fa fa-check"></i>Voting Power</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population-density"><i class="fa fa-check"></i>Population Density</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sex-ratio"><i class="fa fa-check"></i>Sex Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#age-dependency-ratio"><i class="fa fa-check"></i>Age Dependency Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-age"><i class="fa fa-check"></i>Median Age</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#white-not-latino-population"><i class="fa fa-check"></i>White not Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#african-american-population"><i class="fa fa-check"></i>African American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#native-american-population"><i class="fa fa-check"></i>Native American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#asian-american-population"><i class="fa fa-check"></i>Asian American Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-races-population"><i class="fa fa-check"></i>Other race(s) Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#latino-population"><i class="fa fa-check"></i>Latino Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homogeneity-index"><i class="fa fa-check"></i>Homogeneity Index</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#gini-coefficient"><i class="fa fa-check"></i>Gini Coefficient</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#median-earning"><i class="fa fa-check"></i>Median Earning</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#unemployment-rate"><i class="fa fa-check"></i>Unemployment Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#management-professional-and-related-occupations"><i class="fa fa-check"></i>Management, Professional, and Related Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#service-occupations"><i class="fa fa-check"></i>Service Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sales-and-office-occupations"><i class="fa fa-check"></i>Sales and Office Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#farming-fishing-and-forestry-occupations"><i class="fa fa-check"></i>Farming, Fishing, and Forestry Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#construction-extraction-maintenance-and-repair-occupations"><i class="fa fa-check"></i>Construction, Extraction, Maintenance, and Repair Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#production-transportation-and-material-moving-occupations"><i class="fa fa-check"></i>Production, Transportation, and Material moving Occupations</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#school-enrollment"><i class="fa fa-check"></i>School Enrollment</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#preschool-enrollment-ratio"><i class="fa fa-check"></i>Preschool Enrollment Ratio</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#at-least-bachelor-degree"><i class="fa fa-check"></i>At Least Bachelor Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#graduate-degree"><i class="fa fa-check"></i>Graduate Degree</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#infant-mortality"><i class="fa fa-check"></i>Infant Mortality</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#injury-death-rate"><i class="fa fa-check"></i>Injury Death Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#low-birth-weight-rate"><i class="fa fa-check"></i>Low Birth Weight Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-in-single-parent-households-rate"><i class="fa fa-check"></i>Children in Single Parent Households Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-obesity-rate"><i class="fa fa-check"></i>Adult Obesity Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#diabetes-rate"><i class="fa fa-check"></i>Diabetes Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#sexually-transmitted-infections-rate"><i class="fa fa-check"></i>Sexually Transmitted Infections Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#hiv-prevalence-rate"><i class="fa fa-check"></i>HIV Prevalence Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#uninsured-rate"><i class="fa fa-check"></i>Uninsured Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#crime-rate"><i class="fa fa-check"></i>Crime Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#homicide-rate"><i class="fa fa-check"></i>Homicide Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-precipitation"><i class="fa fa-check"></i>Winter Avg. Precipitation</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#winter-avg.-temperature"><i class="fa fa-check"></i>Winter Avg. Temperature</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="dqr.html"><a href="dqr.html#del-feature"><i class="fa fa-check"></i><b>1.6</b> Deleted Feature</a><ul>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#fips-county-code"><i class="fa fa-check"></i>FIPS County Code</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#county-name"><i class="fa fa-check"></i>County Name</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-win-2008"><i class="fa fa-check"></i>Republican Win 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2016"><i class="fa fa-check"></i>Republican Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2012"><i class="fa fa-check"></i>Republican Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-votes-2008"><i class="fa fa-check"></i>Republican Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2016"><i class="fa fa-check"></i>Democratic Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2012"><i class="fa fa-check"></i>Democratic Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-votes-2008"><i class="fa fa-check"></i>Democratic Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-votes-2016"><i class="fa fa-check"></i>Other Parties Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2012"><i class="fa fa-check"></i>Other Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-votes-2008"><i class="fa fa-check"></i>Other Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2016"><i class="fa fa-check"></i>Total Votes 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2012"><i class="fa fa-check"></i>Total Votes 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#total-votes-2008"><i class="fa fa-check"></i>Total Votes 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2016"><i class="fa fa-check"></i>Republican Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2012"><i class="fa fa-check"></i>Republican Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#republican-vote-fraction-2008"><i class="fa fa-check"></i>Republican Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2016"><i class="fa fa-check"></i>Democratic Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2012"><i class="fa fa-check"></i>Democratic Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#democratic-vote-fraction-2008"><i class="fa fa-check"></i>Democratic Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-parties-vote-fraction-2016"><i class="fa fa-check"></i>Other Parties Vote Fraction 2016</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2012"><i class="fa fa-check"></i>Other Vote Fraction 2012</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#other-vote-fraction-2008"><i class="fa fa-check"></i>Other Vote Fraction 2008</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#estimated-no.-of-remaining-votes"><i class="fa fa-check"></i>Estimated No. of Remaining Votes</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#voting-age-population"><i class="fa fa-check"></i>Voting Age Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#children-under-6-living-in-poverty"><i class="fa fa-check"></i>Children Under 6 Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#child-poverty"><i class="fa fa-check"></i>Child Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adults-65-and-older-living-in-poverty"><i class="fa fa-check"></i>Adults 65 and Older Living in Poverty</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#poverty-rate"><i class="fa fa-check"></i>Poverty Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#less-than-high-school"><i class="fa fa-check"></i>Less Than High School</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#life-expectancy"><i class="fa fa-check"></i>Life Expectancy</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-physically-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Physically Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#avg.-no.-of-mentally-unhealthy-day"><i class="fa fa-check"></i>Avg. No. of Mentally Unhealthy Day</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#teen-birth-rate"><i class="fa fa-check"></i>Teen Birth Rate</a></li>
+<li class="chapter" data-level="" data-path="dqr.html"><a href="dqr.html#adult-smoking-rate"><i class="fa fa-check"></i>Adult Smoking Rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dqp.html"><a href="dqp.html"><i class="fa fa-check"></i><b>2</b> Data Quality Plan (DQP)</a><ul>
+<li class="chapter" data-level="2.1" data-path="dqp.html"><a href="dqp.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-outlier"><i class="fa fa-check"></i>Handling Outlier</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-trimming"><i class="fa fa-check"></i>Feature Trimming</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#handling-missing-values"><i class="fa fa-check"></i>Handling Missing Values</a></li>
+<li class="chapter" data-level="" data-path="dqp.html"><a href="dqp.html#feature-selection"><i class="fa fa-check"></i>Feature Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dqp.html"><a href="dqp.html#handling-outliers"><i class="fa fa-check"></i><b>2.2</b> Handling Outliers</a></li>
+<li class="chapter" data-level="2.3" data-path="dqp.html"><a href="dqp.html#feature-trimming-1"><i class="fa fa-check"></i><b>2.3</b> Feature Trimming</a></li>
+<li class="chapter" data-level="2.4" data-path="dqp.html"><a href="dqp.html#handling-missing-data"><i class="fa fa-check"></i><b>2.4</b> Handling Missing Data</a></li>
+<li class="chapter" data-level="2.5" data-path="dqp.html"><a href="dqp.html#feature-selection-1"><i class="fa fa-check"></i><b>2.5</b> Feature Selection</a></li>
+<li class="chapter" data-level="2.6" data-path="dqp.html"><a href="dqp.html#feature-space-reduction"><i class="fa fa-check"></i><b>2.6</b> Feature Space Reduction</a></li>
+<li class="chapter" data-level="2.7" data-path="dqp.html"><a href="dqp.html#abt"><i class="fa fa-check"></i><b>2.7</b> Analytic Base Table (ABT)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>3</b> A Brief Note on Modelling</a><ul>
+<li class="chapter" data-level="3.1" data-path="md.html"><a href="md.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="md.html"><a href="md.html#classifiers-and-tuning-parameters"><i class="fa fa-check"></i><b>3.2</b> Classifiers and Tuning Parameters</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="md.html"><a href="md.html#base-classifer"><i class="fa fa-check"></i><b>3.2.1</b> Base Classifer</a></li>
+<li class="chapter" data-level="3.2.2" data-path="md.html"><a href="md.html#probability-based-classififer"><i class="fa fa-check"></i><b>3.2.2</b> Probability-based Classififer</a></li>
+<li class="chapter" data-level="3.2.3" data-path="md.html"><a href="md.html#rule-based-classifier"><i class="fa fa-check"></i><b>3.2.3</b> Rule-based Classifier</a></li>
+<li class="chapter" data-level="3.2.4" data-path="md.html"><a href="md.html#tree-based-classifier"><i class="fa fa-check"></i><b>3.2.4</b> Tree-based Classifier</a></li>
+<li class="chapter" data-level="3.2.5" data-path="md.html"><a href="md.html#regression-based-classifier"><i class="fa fa-check"></i><b>3.2.5</b> Regression-based Classifier</a></li>
+<li class="chapter" data-level="3.2.6" data-path="md.html"><a href="md.html#instance-based-classifier"><i class="fa fa-check"></i><b>3.2.6</b> Instance-based Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="md.html"><a href="md.html#addressing-imbalanced-class-distribution"><i class="fa fa-check"></i><b>3.3</b> Addressing Imbalanced Class Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rep.html"><a href="rep.html"><i class="fa fa-check"></i><b>4</b> A “Minority” Report</a><ul>
+<li class="chapter" data-level="4.1" data-path="rep.html"><a href="rep.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="rep.html"><a href="rep.html#methodology"><i class="fa fa-check"></i><b>4.2</b> Methodology</a></li>
+<li class="chapter" data-level="4.3" data-path="rep.html"><a href="rep.html#data-manipulation"><i class="fa fa-check"></i><b>4.3</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rep.html"><a href="rep.html#dcpp"><i class="fa fa-check"></i><b>4.3.1</b> Compilation and Pre-process</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rep.html"><a href="rep.html#dexp"><i class="fa fa-check"></i><b>4.3.2</b> Exploration</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rep.html"><a href="rep.html#dpre"><i class="fa fa-check"></i><b>4.3.3</b> Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rep.html"><a href="rep.html#modelling"><i class="fa fa-check"></i><b>4.4</b> Modelling</a></li>
+<li class="chapter" data-level="4.5" data-path="rep.html"><a href="rep.html#result"><i class="fa fa-check"></i><b>4.5</b> Result and Evaluation</a></li>
+<li class="chapter" data-level="4.6" data-path="rep.html"><a href="rep.html#discussion"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+<li class="chapter" data-level="4.7" data-path="rep.html"><a href="rep.html#conclusion"><i class="fa fa-check"></i><b>4.7</b> Conclusion</a></li>
+<li class="chapter" data-level="4.8" data-path="rep.html"><a href="rep.html#further-thoughts"><i class="fa fa-check"></i><b>4.8</b> Further Thoughts</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix-data.html"><a href="appendix-data.html"><i class="fa fa-check"></i><b>A</b> Dataset</a><ul>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#pre-processed-data"><i class="fa fa-check"></i>Pre-Processed Data</a></li>
+<li class="chapter" data-level="" data-path="appendix-data.html"><a href="appendix-data.html#prepared-data-analytic-base-table"><i class="fa fa-check"></i>Prepared Data (Analytic Base Table)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="appendix-dir.html"><a href="appendix-dir.html"><i class="fa fa-check"></i><b>B</b> Directories</a></li>
+<li class="chapter" data-level="C" data-path="appendix-code.html"><a href="appendix-code.html"><i class="fa fa-check"></i><b>C</b> Code</a><ul>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#usage"><i class="fa fa-check"></i>Usage</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#notice"><i class="fa fa-check"></i>Notice</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#procedures"><i class="fa fa-check"></i>Procedures</a></li>
+<li class="chapter" data-level="" data-path="appendix-code.html"><a href="appendix-code.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How the 2016 US Election Happened</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix-code" class="section level1">
+<h1><span class="header-section-number">C</span> Code</h1>
+<div id="usage" class="section level2 unnumbered">
+<h2>Usage</h2>
+<p>To start the local servers serving the keynote, report, and Shiny apps, run the bash script in the code folder. To adjust the ports used for each app, see the <a href="http://127.0.0.1:1923/code/configs.R">configs.R</a> file.</p>
+<pre><code>  ./start.sh</code></pre>
+<p>To make a full run of the project, uses the automated R script. Refer to the configs file to see available settings. <em>Beware that the script might take a long time to run (7 ~ 8 hours on my machine).</em> First start with opening R shell (you can also run from bash using R CMD BATCH).</p>
+<pre><code>  R</code></pre>
+<p>Then source the automated script</p>
+<pre><code>  source(&quot;auto.R&quot;)</code></pre>
+<p>Potentially, while running either of these task, you will need to install R libraries and packages. To do this, you can preemptively run the utils.R and the app.R scripts. It is likely that you will be prompted for packages installations. The utils.R will install packages used by main body of the scripts</p>
+<pre><code>  source(&quot;utils.R&quot;)</code></pre>
+<p>app.R will install packages used for the Shiny apps.</p>
+<pre><code>  source(&quot;app.R&quot;)</code></pre>
+</div>
+<div id="notice" class="section level2 unnumbered">
+<h2>Notice</h2>
+<p>To make sure that the result that we obtained are reproducible, we set seed for each script files where randomization is needed. This can be turned off using the config file.</p>
+<p>Notice that we use rgl and ShinyRGL packages for some of the visualizations. This requires XQuartz for Mac OSX and X11 for Linux. We have experienced inconsistent results on different Linux distros. As pointed out in <a href="https://github.com/trestletech/shinyRGL/issues/5">this</a> thread, you might need to have OpenGL installed properly and XVFB running since we are rendering the plots in the background using headless server mode.</p>
+<p>We recommend using Chrome to view the report for smoother animations and visual effects. Also, since Keynote works best on Mac OSX platform, viewing the keynote on Mac is preferred; but because the keynote has been converted to HTML, it should work well at least 90% of the time on other platforms. The default addresses for these documents are</p>
+<pre><code>  Keynote: http://localhost:2301
+  Report: http://localhost:2302
+  Keynote Visualization Support: http://localhost:2303</code></pre>
+</div>
+<div id="structure" class="section level2 unnumbered">
+<h2>Structure</h2>
+<p>All of the code used for this project lies in the code <a href="http://127.0.0.1:1923/code/">folder</a> (see Appendix <a href="appendix-dir.html#appendix-dir">B</a>). The names of the most of the scripts are self-explanatory since they are named after the phase for which they are responsible, for instance, data_feature_rank.R is for scoring features based on various feature selection techniques. Other scripts, such as utils.R, app.R, etc., are used for general purposes.</p>
+<p><a href="http://127.0.0.1:1923/code/utils.R">utils.R</a> is the heart of the project, it is the loader for the various 3rd libraries used by the scripts as well as several useful libraries we wrote ourselves. It masks the content of utils folder. <a href="http://127.0.0.1:1923/code/configs.R">configs.R</a> acts like a preference section for the project. <a href="http://127.0.0.1:1923/code/auto.R">auto.R</a> is an automated script to run the scripts in sequence to produce all the results and documents (except for the keynote). misc.R stores miscellaneous functions. <a href="http://127.0.0.1:1923/code/app.R">app.R</a>, <a href="http://127.0.0.1:1923/code/start.R">start.R</a>, and <a href="http://127.0.0.1:1923/code/end.R">end.R</a> are used to set up both local Shiny servers hosting various apps used in the documents and local servers that serve the keynote and the report (to specify the port used for these servers, refer to configs.R).</p>
+<p>The keynote was made using Apple’s Keynote. The report is made using the <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> by Yihui Xie, and the visualization support for the keynote was made using Rstudio’s Rmarkdown and <a href="https://github.com/rstudio/revealjs">RevealJS</a>.</p>
+</div>
+<div id="procedures" class="section level2 unnumbered">
+<h2>Procedures</h2>
+<p>As mentioned throughout the section <a href="dqr.html#dqr">1</a>, <a href="dqp.html#dqp">2</a>, and <a href="md.html#md">3</a>. We mark certain parts of the code with labels to make code tracing and understanding easier. Following, we present a table of where the code chunks are located for each label.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Label
+</th>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:center;">
+Phase
+</th>
+<th style="text-align:center;">
+Source Code
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+TR001
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR002
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR003
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR004
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR005
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR006
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR007
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR008
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR009
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR010
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ED001
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ED002
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD001
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD002
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD003
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD004
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD005
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD006
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD007
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AD008
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+UP001
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+UP002
+</td>
+<td style="text-align:left;">
+data_pre_process.R
+</td>
+<td style="text-align:center;">
+pre-process
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_pre_process.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HO001
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HO002
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR011
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR012
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR013
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TR014
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HM001
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HM002
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HM003
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HM004
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+HM005
+</td>
+<td style="text-align:left;">
+data_prepare.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_prepare.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS001
+</td>
+<td style="text-align:left;">
+data_feature_rank.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_feature_rank.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS002
+</td>
+<td style="text-align:left;">
+data_feature_rank.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_feature_rank.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS003
+</td>
+<td style="text-align:left;">
+data_feature_rank.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_feature_rank.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS004
+</td>
+<td style="text-align:left;">
+data_feature_rank.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_feature_rank.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS005
+</td>
+<td style="text-align:left;">
+data_feature_rank.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_feature_rank.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+FS006
+</td>
+<td style="text-align:left;">
+data_select.R
+</td>
+<td style="text-align:center;">
+prepare
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/data_select.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD001
+</td>
+<td style="text-align:left;">
+model_probe.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_probe.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD002
+</td>
+<td style="text-align:left;">
+model_probe.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_probe.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD003
+</td>
+<td style="text-align:left;">
+model_probe.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_probe.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD004
+</td>
+<td style="text-align:left;">
+model_probe.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_probe.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD005
+</td>
+<td style="text-align:left;">
+model_tune.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_tune.R">View</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MD006
+</td>
+<td style="text-align:left;">
+model_tune.R
+</td>
+<td style="text-align:center;">
+modelling
+</td>
+<td style="text-align:center;">
+<a href="http://127.0.0.1:1923/code/model_tune.R">View</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="license" class="section level2 unnumbered">
+<h2>License</h2>
+<p>Based on our limited understanding of software licensing, we believe that this program should be licensed under the GNU General Public License 3.0.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="appendix-dir.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "Serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/blacksteed232/elexion/edit/master/code/report/10-appendix-code.Rmd",
+"text": "Edit"
+},
+"download": {},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
